@@ -1,0 +1,48 @@
+<?php
+$servername ="frigg.hiof.no";
+$username ="bo16g6";
+$password ="bgGGY5DB";
+
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $username);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
+
+
+//Eksempelkode for query:
+//Adding, updating or deleting ingredients
+if(!empty($_GET['ingredient_sql_type'])){
+    if($_GET['ingredient_sql_type'] == "insert"){
+        $sql = "INSERT INTO ingredient
+                    VALUES (
+                    '" . $new_ingredient_id . "',
+                    '". $_GET['name']. "',
+                    '" . $_GET['comment'] . "',
+                    '" . $_GET['sourceID'] . "',
+                    '" . $_GET['typeID'] . "'
+                    )";
+        if ($conn->query($sql) === TRUE) {
+            echo "Ingredient added successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    }
+}
+?>
+<html>
+
+<head>
+</head>
+<body>
+	<!-- Stuff yo-->
+</body>
+</html>
+<?php
+//Closing connections
+$conn->close();
+?>
