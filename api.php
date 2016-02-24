@@ -11,7 +11,7 @@ $conn = new mysqli($servername, $username, $password, $username);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
+//echo "Connected successfully";
 
 
 //Eksempelkode for query:
@@ -46,6 +46,11 @@ if(!empty($_GET['name'])){
 </head>
 <body>
 	<!-- Stuff yo-->
+    <form action = "#" method="post">
+        <input type="text" name="username" placeholder="username">
+        <input type="password" name ="password">
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
 <?php
