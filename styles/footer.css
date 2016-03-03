@@ -1,13 +1,9 @@
-header{
+footer{
     z-index: 999;
     position:absolute;
     background:purple;
+    bottom:0;
+    align:center;
     width:20%;
     height:90%;
-}
-/*Menu elements*/
-
-/*Text*/
-h1,h2,h3,h4,p,a{
-    padding-left:1em;
 }

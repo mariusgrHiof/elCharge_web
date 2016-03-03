@@ -15,13 +15,14 @@
     <title>elCharge - ladekart for elbiler</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <style rel="stylesheet" type="text/css" href="styles/menu.css"/>
-    <style rel="stylesheet" type="text/css" href="styles/maps.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/menu.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/footer.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/maps.css"/>
 </head>
 <body>
-<header>
-    <h1>elCharge</h1>
-</header>
+
+<?php include 'includes/header.php'?>
+
 <div id="map"></div>
 <script>
     var map;
@@ -34,5 +35,7 @@
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8&callback=initMap"
         async defer></script>
+
+<?php include 'includes/footer.php'?>
 </body>
 </html>

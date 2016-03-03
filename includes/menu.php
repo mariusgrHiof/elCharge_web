@@ -6,7 +6,7 @@
  * Time: 08:05
  */
 ?>
-<nav>
+<nav >
     <ul>
         <li>Meny element</li>
     </ul>
