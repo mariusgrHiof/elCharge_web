@@ -10,4 +10,5 @@
     <h1>elCharge</h1>
 
     <?php include 'menu.php'?>
+    <?php include '../icons/pacman.svg' ?>
 </header>
