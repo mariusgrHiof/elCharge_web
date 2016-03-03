@@ -5,6 +5,8 @@
  * Date: 03.03.16
  * Time: 07:57
  * Google Maps API key: AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8
+ * NobilAPI: 274b68192b056e268f128ff63bfcd4a4
+ * get all: http://nobil.no/api/server/datadump.php?apikey=274b68192b056e268f128ff63bfcd4a4&format=json&file=false
  */
 
 ?>
@@ -33,7 +35,7 @@
     ?>
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8&callback=initMap"
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8&callback=initMap&sensors=true"
         async defer></script>
 
 <?php include 'includes/footer.php'?>

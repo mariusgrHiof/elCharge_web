@@ -8,3 +8,12 @@ function initMap() {
         zoom: 8
     });
 }
+//Showing the current weather for the past 15 minutes in a area
+var weatherLayer = new google.maps.weather.WeatherLayer({
+    temperatureUnits: google.maps.weather.TemperatureUnit.CELSIUS
+});
+weatherLayer.setMap(map);
+
+//Showing clouds within the last 3 hours
+var cloudLayer = new google.maps.weather.CloudLayer();
+cloudLayer.setMap(map);
