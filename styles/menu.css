@@ -1,0 +1,12 @@
+header{
+    position:absolute;
+    background:purple;
+    width:20%;
+    height:90%;
+}
+/*Menu elements*/
+
+/*Text*/
+h1,h2,h3,h4,p,a{
+    padding-left:1em;
+}
