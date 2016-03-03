@@ -24,15 +24,15 @@
 <?php include 'includes/header.php'?>
 
 <div id="map"></div>
+
 <script>
-    var map;
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 8
-        });
-    }
+    <?php
+        //TODO: Fix it so that it works to just include the file the normal way.
+        //including the content of the googlemaps javascript file
+        include 'js/googlemaps.js'
+    ?>
 </script>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8&callback=initMap"
         async defer></script>
 

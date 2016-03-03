@@ -1,9 +1,8 @@
 footer{
     z-index: 999;
-    position:absolute;
-    background:purple;
-    bottom:0;
+    position:relative;
+    background:greenyellow;
+    float:right;
     align:center;
     width:20%;
-    height:90%;
 }
