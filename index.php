@@ -12,13 +12,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Simple Map</title>
+    <title>elCharge - ladekart for elbiler</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <style rel="stylesheet" type="text/css" href="styles/menu.css"/>
-    <style rel="stylesheet" type="text/css" href="styles/maps.css"
+    <style rel="stylesheet" type="text/css" href="styles/maps.css"/>
 </head>
 <body>
+<header>
+    <h1>elCharge</h1>
+</header>
 <div id="map"></div>
 <script>
     var map;
