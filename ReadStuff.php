@@ -11,8 +11,9 @@
 <!DOCTYPE html>
 <head>
     <title>Test</title>
+    <script src="js/stations.js"/>
     <script>
-        
+
     </script>
 </head>
 <body>
