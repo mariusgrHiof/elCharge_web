@@ -5,7 +5,7 @@ var map;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 59.91673, lng: 10.74782},
-        zoom: 8
+        zoom: 12
 
     });
     //Showing a marker on the map
@@ -19,7 +19,7 @@ function initMap() {
     //Showing a info windows when you click on the marker
     var contentString = 'Sted: Oslo' +
                         ' <br> Status: Ledig'+
-                        '<br> Ladetyper: type2';
+                        '<br> Ladetyper: type2' + map.getBounds();
 
 
     var infowindow = new google.maps.InfoWindow({
