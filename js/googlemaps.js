@@ -31,30 +31,29 @@ function generateMarkers(){
     });
 
 
-    //Showing a info windows when you click on the marker
-    var contentString = 'Sted: Oslo' +
-        ' <br> Status: Ledig'+
-        '<br> Ladetyper: type2' + map.getBounds();
+    $.getJSON('datadump.json', function ( obj ){
+        for(i = 0; i < obj.chargerstations.length; i++){
+            var pos = obj.chargerstations[i].csmd.Position.replace(/[()]/g,"").split(",");
+            console.log(pos);
+            var marker = new google.maps.Marker({
+                position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
+                map: map,
+                title: obj.chargerstations[i].csmd.name
+            });
+
+            //Showing a info windows when you click on the marker
+            var contentString = 'Sted: Oslo' +
+                ' <br> Status: Ledig'+
+                '<br> Ladetyper: type2' + map.getBounds();
 
 
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            marker.addListener('click', function() {
+                infowindow.open(map, marker);
+            });
+        }
     });
-
-    marker.addListener('click', function() {
-        infowindow.open(map, marker);
-    });
-
-    $.jQuery.getJSON('datadump.json', function ( data ){
-        var obj = JSON.parse(data);
-        var pos = obj.chargerstations[1].csmd.Position.replaceAll('(', '').replaceAll(')', '');
-        console.log(pos);
-        var marker = new google.maps.Marker({
-            position:{lat: pos[0], lng: pos[1]},
-            map: map,
-            title: 'test marker'
-        });
-    });
-
-
 }

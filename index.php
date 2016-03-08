@@ -8,7 +8,7 @@
  * NobilAPI: 274b68192b056e268f128ff63bfcd4a4
  * get all: http://nobil.no/api/server/datadump.php?apikey=274b68192b056e268f128ff63bfcd4a4&format=json&file=false
  */
-
+include 'ReadStuff.php';
 ?>
 
 <!DOCTYPE html>
