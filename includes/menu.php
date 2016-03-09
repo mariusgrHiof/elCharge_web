@@ -33,7 +33,7 @@
         <li>Meny element</li>
     </ul>
     <form action>
-        <select name="type">
+        <select id="select_port" name="type">
             <option value="0">Unspecified</option>
             <option value="14">Schuko</option>
             <option value="22">Danish (Section 107-2-D1)</option>

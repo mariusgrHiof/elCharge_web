@@ -28,6 +28,10 @@ include 'ReadStuff.php';
             }else{
                 echo 0;
             }?>;
+        function selectTypeBox(){
+            document.getElementById("select_port").value = typeID;
+        }
+        window.onload = selectTypeBox;
     </script>
 </head>
 <body>
