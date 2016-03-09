@@ -21,6 +21,14 @@ include 'ReadStuff.php';
     <link rel="stylesheet" type="text/css" href="styles/footer.css"/>
     <link rel="stylesheet" type="text/css" href="styles/maps.css"/>
     <script src="js/jQuery-min.js"></script>
+    <script>
+        var typeID=<?php
+            if(!empty($_GET['type'])){
+                echo $_GET['type'];
+            }else{
+                echo 0;
+            }?>;
+    </script>
 </head>
 <body>
 

@@ -23,37 +23,63 @@ var cloudLayer = new google.maps.weather.CloudLayer();
 cloudLayer.setMap(map);
 
 function generateMarkers(){
-    //Showing a marker on the map
-    var marker = new google.maps.Marker({
-        position:{lat: 59.916667, lng: 10.75},
-        map: map,
-        title: 'test marker'
-    });
-
-
     $.getJSON('datadump.json', function ( obj ){
         for(i = 0; i < obj.chargerstations.length; i++){
-            var pos = obj.chargerstations[i].csmd.Position.replace(/[()]/g,"").split(",");
-            console.log(pos);
-            var marker = new google.maps.Marker({
-                position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
-                map: map,
-                title: obj.chargerstations[i].csmd.name
-            });
+            //Checking filter
+            if(typeID != 99){
+                var numOfPorts = obj.chargerstations[i].csmd.Number_charging_points;
+                var trans = "4";
+                //TODO: Fiks sånn at vi sjekker begge ladeportene og ikke kun den første av de.
+                var connType = obj.chargerstations[i].attr.conn[1][4].attrvalid;//Getting one of the connectors ID
+                console.log(connType);
+                if(connType == typeID){
+                    //Adding markers
+                    var pos = obj.chargerstations[i].csmd.Position.replace(/[()]/g,"").split(",");
+                    console.log(pos);
+                    var marker = new google.maps.Marker({
+                        position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
+                        map: map,
+                        title: obj.chargerstations[i].csmd.name
+                    });
 
-            //Showing a info windows when you click on the marker
-            var contentString = 'Sted: Oslo' +
-                ' <br> Status: Ledig'+
-                '<br> Ladetyper: type2' + map.getBounds();
+                    //Showing a info windows when you click on the marker
+                    var contentString = 'Sted: Oslo' +
+                        ' <br> Status: Ledig'+
+                        '<br> Ladetyper: type2' + map.getBounds();
 
 
-            var infowindow = new google.maps.InfoWindow({
-                content: contentString
-            });
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString
+                    });
 
-            marker.addListener('click', function() {
-                infowindow.open(map, marker);
-            });
+                    marker.addListener('click', function() {
+                        infowindow.open(map, marker);
+                    });
+                }
+            }else{
+                //Adding markers
+                var pos = obj.chargerstations[i].csmd.Position.replace(/[()]/g,"").split(",");
+                console.log(pos);
+                var marker = new google.maps.Marker({
+                    position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
+                    map: map,
+                    title: obj.chargerstations[i].csmd.name
+                });
+
+                //Showing a info windows when you click on the marker
+                var contentString = 'Sted: Oslo' +
+                    ' <br> Status: Ledig'+
+                    '<br> Ladetyper: type2' + map.getBounds();
+
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
+
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                });
+            }
         }
     });
 }
