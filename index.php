@@ -7,6 +7,7 @@
  * Google Maps API key: AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8
  * NobilAPI: 274b68192b056e268f128ff63bfcd4a4
  * get all: http://nobil.no/api/server/datadump.php?apikey=274b68192b056e268f128ff63bfcd4a4&format=json&file=false
+ * search box: https://developers.google.com/maps/documentation/javascript/examples/places-searchbox
  */
 include 'ReadStuff.php';
 ?>
