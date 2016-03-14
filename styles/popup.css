@@ -1,0 +1,29 @@
+#login_popup {
+    position: absolute;
+    background: cadetblue;
+    padding: 20px;
+    width: auto;
+    max-width: 500px;
+    margin: 150px auto;
+    margin-left: 250px;
+    visibility: hidden;
+}
+
+.login_form {
+    position: relative;
+    visibility:hidden;
+    margin: 100px;
+    margin-right: 250px;
+
+}
+
+#register_popup{
+    position: absolute;
+    background: cadetblue;
+    padding: 20px;
+    width: auto;
+    max-width: 500px;
+    margin: 150px auto;
+    margin-left: 250px;
+    visibility: hidden;
+}

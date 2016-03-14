@@ -21,6 +21,7 @@ include 'ReadStuff.php';
     <link rel="stylesheet" type="text/css" href="styles/menu.css"/>
     <link rel="stylesheet" type="text/css" href="styles/footer.css"/>
     <link rel="stylesheet" type="text/css" href="styles/maps.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/popup.css">
     <script src="js/jQuery-min.js"></script>
     <script>
         var typeID=<?php
@@ -38,6 +39,59 @@ include 'ReadStuff.php';
 <body>
 
 <?php include 'includes/header.php'?>
+
+
+//TODO: fiske sånn at du trenger kun å skrive .show(), .hide() og evt ha scriptet i egen fil
+/* Popup script */
+<script>
+
+    $(document).ready(function(){
+        //Show login popup
+        $('.show_login').click(function(){
+            showLoginPopup();
+        });
+
+        //Show register popup
+        $('.show_register').click(function(){
+            showRegisterPopup();
+        });
+        //Close login and register popup
+        $('.close_form').click(function(){
+            closeForm();
+        });
+    });
+
+    //Shows the login form
+    function showLoginPopup(){
+        $('#login_popup').css({"visibility":"visible"});
+        $('#register_popup').css({"visibility":"hidden"});
+    }
+
+    //Hides the login form
+    function hideLoginPopup(){
+    $('#login_popup').css({"visibility":"hidden"});
+    }
+
+
+    //Shows the register form
+    function showRegisterPopup(){
+    $('#register_popup').css({"visibility":"visible"});
+    $('#login_popup').css({"visibility":"hidden"});
+    }
+
+    //hides the register form
+    function hideRegisterPopup(){
+    $('#register_popup').css({"visibility":"hidden"});
+    }
+
+    function closeForm(){
+    hideRegisterPopup();
+    hideLoginPopup();
+    }
+
+</script>
+
+
 
 <div id="map"></div>
 
