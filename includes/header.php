@@ -12,5 +12,4 @@
         <button class="show_login"> Logg inn </button>
     </div>
     <?php include 'menu.php'?>
-    <img src="icons/pacman.svg" alt="pacman icon"/>
 </header>

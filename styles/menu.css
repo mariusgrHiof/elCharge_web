@@ -12,15 +12,43 @@ div#title_login{
 div#title_login h1{
     float:left;
 }
-/*Menu elements*/
+/*
+    Menu elements
+*/
 div#title_login button.show_login{
     float:right;
     margin-top:3em;
 }
 nav{
+    width:100%;
     clear:both;
 }
-/*Text*/
+nav ul{
+    margin-left:-2.5em;
+}
+nav ul li:hover ul{
+    display:none;
+}
+nav li{
+    list-style:none;
+    background:lightblue;
+    border:1px black solid;
+    padding:1em;
+}
+nav ul li ul{
+    margin-left:-2.8em;
+}
+/*Child menu element spesific*/
+nav ul li ul.sub-item{
+    display:none;
+}
+nav ul li:hover ul.sub-item{
+    display:block;
+}
+
+/*
+    Text
+*/
 h1,h2,h3,h4,p,a{
     padding-left:1em;
 }
