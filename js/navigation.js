@@ -2,19 +2,20 @@
  * Created by jonas on 16.03.16.
  * source: https://developers.google.com/maps/documentation/javascript/examples/directions-draggable
  */
-var directionsService = new google.maps.DirectionsService;
-var directionsDisplay = new google.maps.DirectionsRenderer({
-    draggable: true,
-    map: map,
-    panel: document.getElementById('right-panel')
-});
 
-directionsDisplay.addListener('directions_changed', function() {
-    computeTotalDistance(directionsDisplay.getDirections());
-});
+function navigate(){
+    var directionsService = new google.maps.DirectionsService;
+    var directionsDisplay = new google.maps.DirectionsRenderer({
+        draggable: true,
+        map: map,
+        panel: document.getElementById('right-panel')
+    });
 
-displayRoute('Perth, WA', 'Sydney, NSW', directionsService,
-    directionsDisplay);
+    directionsDisplay.addListener('directions_changed', function() {
+        computeTotalDistance(directionsDisplay.getDirections());
+    });
+
+    displayRoute('Perth, WA', 'Sydney, NSW', directionsService,directionsDisplay);
 }
 
 function displayRoute(origin, destination, service, display) {

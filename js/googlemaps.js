@@ -26,8 +26,12 @@ function initMap() {
     //Setting default map layer type to terrain
     map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
 
-    //Turning on the traffic layer
-    trafficLayer();
+    //Turning on layers
+    trafficOverlay();
+    weatherOverlay();
+    cloudOverlay();
+
+
 
     //Finding user location with geolocation
     if (navigator.geolocation) {

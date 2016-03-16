@@ -57,10 +57,20 @@
             </ul>
         </li>
         <li>
-            Meny element med sub
+            Kart overlegg
             <ul class="sub-item">
-                <li>sub element 1</li>
-                <li>sub element 2</li>
+                <li>Trafikk overlegg <button id="traffic-button" onclick="trafficOverlay()"></button></li>
+                <li>Vær overlegg <button id="weather-button" onclick="weatherOverlay()"></button></li>
+                <li>Sky overlegg <button id="cloud-button" onclick="cloudOverlay()"></button></li>
+            </ul>
+        </li>
+        <li>
+            Rute
+            <ul class="sub-item">
+                <li>Eksempel rute <button onclick="navigate()">Perth til Sydney</button></li>
+                <div id="right-panel">
+                <p>Total Distance: <span id="total"></span></p>
+                </div>
             </ul>
         </li>
     </ul>

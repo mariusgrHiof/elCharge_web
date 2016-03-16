@@ -22,15 +22,10 @@ nav{
     display:none;
     clear:both;
 }
-header:hover nav{
-    display:block;
-}
 nav ul{
     margin-left:-2.5em;
 }
-nav ul li:hover ul{
-    display:none;
-}
+
 nav li{
     list-style:none;
     border:1px black solid;
@@ -43,10 +38,20 @@ nav ul li ul{
 nav ul li ul.sub-item{
     display:none;
 }
+/*Hover*/
+header:hover nav{
+    display:block;
+    overflow:auto;
+}
+header:hover{
+    height:100%;
+}
 nav ul li:hover ul.sub-item{
     display:block;
 }
-
+nav ul li:hover ul{
+    display:none;
+}
 /*
     Text
 */
