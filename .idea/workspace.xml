@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/addStations.js" afterPath="$PROJECT_DIR$/js/addStations.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReadStuff.php" afterPath="$PROJECT_DIR$/ReadStuff.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datadump.json" afterPath="$PROJECT_DIR$/datadump.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/googlemaps.js" afterPath="$PROJECT_DIR$/js/googlemaps.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/maps.css" afterPath="$PROJECT_DIR$/styles/maps.css" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,6 +59,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ReadStuff.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ReadStuff.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.375">
+              <caret line="7" column="87" selection-start-line="7" selection-start-column="87" selection-end-line="7" selection-end-column="87" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/header.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -72,8 +82,8 @@
       <file leaf-file-name="googlemaps.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334">
-              <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.56">
+              <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -117,7 +127,6 @@
         <option value="/Volumes/android_v165/htdocs/api.php" />
         <option value="/Volumes/android_v165/htdocs/eatable-api.php" />
         <option value="$PROJECT_DIR$/js/jQuery-min.js" />
-        <option value="$PROJECT_DIR$/ReadStuff.php" />
         <option value="$PROJECT_DIR$/js/login.js" />
         <option value="$PROJECT_DIR$/js/stations.js" />
         <option value="$PROJECT_DIR$/includes/menu.php" />
@@ -128,6 +137,7 @@
         <option value="$PROJECT_DIR$/styles/menu.css" />
         <option value="$PROJECT_DIR$/js/addStations.js" />
         <option value="$PROJECT_DIR$/styles/maps.css" />
+        <option value="$PROJECT_DIR$/ReadStuff.php" />
         <option value="$PROJECT_DIR$/js/googlemaps.js" />
       </list>
     </option>
@@ -501,7 +511,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458138005378</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="terrain map is now the default map type + added an option to change the map type.">
+      <created>1458140279610</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1458140279610</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -549,7 +565,8 @@
     <MESSAGE value="design endringer + filtrering er flyttet inn i sub av filter meny elementet." />
     <MESSAGE value="menu changes" />
     <MESSAGE value="kart skal funke sånn ca på mobil nå" />
-    <option name="LAST_COMMIT_MESSAGE" value="kart skal funke sånn ca på mobil nå" />
+    <MESSAGE value="terrain map is now the default map type + added an option to change the map type." />
+    <option name="LAST_COMMIT_MESSAGE" value="terrain map is now the default map type + added an option to change the map type." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -656,7 +673,7 @@
         <state vertical-scroll-proportion="0.067669176">
           <caret line="3" column="21365" selection-start-line="3" selection-start-column="21365" selection-end-line="3" selection-end-column="21365" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -735,14 +752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ReadStuff.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.108991824">
-          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/addStations.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -759,10 +768,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ReadStuff.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.375">
+          <caret line="7" column="87" selection-start-line="7" selection-start-column="87" selection-end-line="7" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.56">
+          <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
           <folding />
         </state>
       </provider>

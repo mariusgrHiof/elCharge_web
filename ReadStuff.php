@@ -5,7 +5,7 @@
  * Date: 07.03.2016
  * Time: 12.03
  */
-$url = "http://nobil.no/api/server/datadump.php?apikey=274b68192b056e268f128ff63bfcd4a4&countrycode=NOR&fromdate=2005-01-01&format=json";
+$url = "http://nobil.no/api/server/datadump.php?apikey=274b68192b056e268f128ff63bfcd4a4&fromdate=2005-01-01&format=json";
 $fileName ="datadump.json";
 if(!file_exists($fileName)){
     //Downloading data dump if not already downloaded

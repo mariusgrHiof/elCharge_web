@@ -24,6 +24,22 @@ function initMap() {
 
     });
     map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
+    //Finding user location with geolocation
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            map.setCenter(pos);
+        }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
+    //Adding markers
     generateMarkers();
 }
 //Showing the current weather for the past 15 minutes in a area
