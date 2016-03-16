@@ -7,5 +7,5 @@
  */
 ?>
 <footer>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet, quam sed mattis tincidunt, mi tortor volutpat justo, in auctor arcu lorem a turpis. Sed eros dui, hendrerit vestibulum nisi eu, tristique pulvinar nunc. Phasellus non leo vel lorem dignissim ornare.
+    <a href="http://frigg.hiof.no/bo16-g6">Bachelor gruppe 6 våren 2016 - Høgskolen i Østfold</a>
 </footer>

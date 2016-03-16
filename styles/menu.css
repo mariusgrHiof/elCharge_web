@@ -13,6 +13,10 @@ div#title_login h1{
 /*
     Menu elements
 */
+#right-panel{
+    overflow:auto;
+    max-height: 40em;;
+}
 div#title_login button.show_login{
     float:right;
     margin-top:3em;
@@ -52,6 +56,7 @@ nav ul li:hover ul.sub-item{
 nav ul li:hover ul{
     display:none;
 }
+
 /*
     Text
 */

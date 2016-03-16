@@ -1,8 +1,11 @@
 footer{
-    z-index: 999;
-    position:relative;
-    background:greenyellow;
-    float:right;
-    align:center;
+    z-index: 9999;
+    position:fixed;
+    background: #4652ff;
     width:20%;
+    bottom:0;
+    left:40%;
+}
+footer a{
+    color:black;
 }
