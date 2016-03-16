@@ -45,10 +45,11 @@ function readJsonFile(callback){
  */
 
 function generateMarkers(){
+    deleteMarkers();
     $.getJSON('datadump.json', function ( obj ){
         for(i = 0; i < obj.chargerstations.length; i++){
             //Checking filter
-            if(typeID != 99){
+            if(document.getElementById("select_port").value != 99){
                 var numOfPorts = obj.chargerstations[i].csmd.Number_charging_points;
                 var trans = "4";
                 //TODO: Fiks sånn at vi sjekker begge ladeportene og ikke kun den første av de.
@@ -59,8 +60,8 @@ function generateMarkers(){
                     //Checking if any connection ports match the user prefs
                     try{
                         connType = obj.chargerstations[i].attr.conn[c][4].trans;//.attrvalid;//Getting one of the connectors ID
-                        console.log("kriterie "+typeIDs[typeID] + " sammenligning: " + connType);
-                        if(!isMatch && connType.indexOf(typeIDs[typeID]) >= 0)// == typeID)
+                        console.log("kriterie "+typeIDs[document.getElementById("select_port").value] + " sammenligning: " + connType);
+                        if(!isMatch && connType.indexOf(typeIDs[document.getElementById("select_port").value]) >= 0)// == typeID)
                             isMatch = true; //trans
                     }catch(e){}
                 }
@@ -88,6 +89,7 @@ function generateMarkers(){
                     marker.addListener('click', function() {
                         infowindow.open(map, marker);
                     });
+                    markers.push(marker);
                 }
             }else{
                 //Adding markers
@@ -112,6 +114,7 @@ function generateMarkers(){
                 marker.addListener('click', function() {
                     infowindow.open(map, marker);
                 });
+                markers.push(marker);
             }
         }
     });

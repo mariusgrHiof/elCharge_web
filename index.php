@@ -24,6 +24,8 @@ include 'ReadStuff.php';
     <link rel="stylesheet" type="text/css" href="styles/popup.css">
     <script src="js/jQuery-min.js"></script>
     <script>
+        //TODO: REMEMBER TO REMOVE!
+        /*
         var typeID=<?php
             if(!empty($_GET['type'])){
                 echo $_GET['type'];
@@ -33,7 +35,7 @@ include 'ReadStuff.php';
         function selectTypeBox(){
             document.getElementById("select_port").value = typeID;
         }
-        window.onload = selectTypeBox;
+        window.onload = selectTypeBox;*/
     </script>
 </head>
 <body>
