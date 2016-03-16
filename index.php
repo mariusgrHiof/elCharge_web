@@ -58,6 +58,7 @@ include 'ReadStuff.php';
 <script src="js/login.js"></script>
 <script src="js/addStations.js"></script>
 <script src="js/maplayers.js"></script>
+<script src="js/navigation.js"></script>
 
 <?php include 'includes/footer.php'?>
 </body>
