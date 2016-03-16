@@ -78,9 +78,7 @@ function generateMarkers(){
                     });
 
                     //Showing a info windows when you click on the marker
-                    var contentString = 'Sted: Oslo' +
-                        ' <br> Status: Ledig'+
-                        '<br> Ladetyper: type2' + map.getBounds();
+                    var contentString = obj.chargerstations[i].csmd.name;
 
 
                     var infowindow = new google.maps.InfoWindow({
@@ -103,9 +101,7 @@ function generateMarkers(){
                 });
 
                 //Showing a info windows when you click on the marker
-                var contentString = 'Sted: Oslo' +
-                    ' <br> Status: Ledig'+
-                    '<br> Ladetyper: type2' + map.getBounds();
+                var contentString = obj.chargerstations[i].csmd.name;
 
 
                 var infowindow = new google.maps.InfoWindow({

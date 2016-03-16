@@ -6,6 +6,7 @@ html, body {
 #map {
     height: 100%;
 }
+
 /*Mobile friendly version*/
 @media (max-width: 600px){
     #map{width:115%;height:115%;

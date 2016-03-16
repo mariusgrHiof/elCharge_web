@@ -6,9 +6,24 @@ var markers = [];
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 59.91673, lng: 10.74782},
-        zoom: 6
+        zoom: 6,
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+            position: google.maps.ControlPosition.TOP_CENTER
+        },
+        zoomControl: true,
+        zoomControlOptions: {
+            position: google.maps.ControlPosition.LEFT_CENTER
+        },
+        scaleControl: true,
+        streetViewControl: true,
+        streetViewControlOptions: {
+            position: google.maps.ControlPosition.LEFT_TOP
+        }
 
     });
+    map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
     generateMarkers();
 }
 //Showing the current weather for the past 15 minutes in a area
