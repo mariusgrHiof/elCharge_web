@@ -2,6 +2,7 @@
  * Created by jonas on 03.03.16.
  */
 
+
 var typeIDs = new Array();
 typeIDs['0'] = "Unspecified";
 typeIDs['14'] = "Schuko";
