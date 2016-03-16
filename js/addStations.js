@@ -93,7 +93,6 @@ function generateMarkers(){
             }else{
                 //Adding markers
                 var pos = obj.chargerstations[i].csmd.Position.replace(/[()]/g,"").split(",");
-                console.log(pos);
                 var marker = new google.maps.Marker({
                     position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
                     map: map,

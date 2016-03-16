@@ -6,7 +6,7 @@ var markers = [];
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 59.91673, lng: 10.74782},
-        zoom: 6,
+        zoom: 13,
         mapTypeControl: true,
         mapTypeControlOptions: {
             style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
@@ -23,7 +23,12 @@ function initMap() {
         }
 
     });
+    //Setting default map layer type to terrain
     map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
+
+    //Turning on the traffic layer
+    trafficLayer();
+
     //Finding user location with geolocation
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -36,22 +41,12 @@ function initMap() {
             handleLocationError(true, infoWindow, map.getCenter());
         });
     } else {
-        // Browser doesn't support Geolocation
+        // If the browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
     }
     //Adding markers
     generateMarkers();
 }
-//Showing the current weather for the past 15 minutes in a area
-var weatherLayer = new google.maps.weather.WeatherLayer({
-    temperatureUnits: google.maps.weather.TemperatureUnit.CELSIUS
-});
-weatherLayer.setMap(map);
-
-//Showing clouds within the last 3 hours
-var cloudLayer = new google.maps.weather.CloudLayer();
-cloudLayer.setMap(map);
-
 
 // Sets the map on all markers in the array.
 function setMapOnAll(map) {

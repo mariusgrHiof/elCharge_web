@@ -57,6 +57,7 @@ include 'ReadStuff.php';
         async defer></script>
 <script src="js/login.js"></script>
 <script src="js/addStations.js"></script>
+<script src="js/maplayers.js"></script>
 
 <?php include 'includes/footer.php'?>
 </body>
