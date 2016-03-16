@@ -54,7 +54,7 @@ include 'ReadStuff.php';
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8&callback=initMap&sensors=true"
         async defer></script>
 <script src="js/login.js"></script>
-<script src="js/stations.js"></script>
+<script src="js/addStations.js"></script>
 
 <?php include 'includes/footer.php'?>
 </body>
