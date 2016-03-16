@@ -7,8 +7,10 @@
  */
 ?>
 <header>
-    <h1>elCharge</h1>
-
+    <div id="title_login">
+        <h1>elCharge</h1>
+        <button class="show_login"> Logg inn </button>
+    </div>
     <?php include 'menu.php'?>
     <img src="icons/pacman.svg" alt="pacman icon"/>
 </header>

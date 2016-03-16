@@ -3,10 +3,23 @@ header{
     position:absolute;
     background:purple;
     width:20%;
+    min-width:20em;
     height:90%;
 }
+div#title_login{
+    clear:both;
+}
+div#title_login h1{
+    float:left;
+}
 /*Menu elements*/
-
+div#title_login button.show_login{
+    float:right;
+    margin-top:3em;
+}
+nav{
+    clear:both;
+}
 /*Text*/
 h1,h2,h3,h4,p,a{
     padding-left:1em;

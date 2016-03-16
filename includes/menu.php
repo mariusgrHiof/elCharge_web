@@ -31,7 +31,7 @@
 <nav >
     <ul>
         <li>Meny element</li>
-        <li><button class="show_login"> Logg inn </button> </li>
+        <li>... </li>
     </ul>
     <form action>
         <select id="select_port" name="type">
