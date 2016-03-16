@@ -1,10 +1,8 @@
 header{
     z-index: 999;
     position:absolute;
-    background:purple;
-    width:20%;
-    min-width:20em;
-    height:90%;
+    background: #4652ff;
+    width:27em;
 }
 div#title_login{
     clear:both;
@@ -21,7 +19,11 @@ div#title_login button.show_login{
 }
 nav{
     width:100%;
+    display:none;
     clear:both;
+}
+header:hover nav{
+    display:block;
 }
 nav ul{
     margin-left:-2.5em;
@@ -31,7 +33,6 @@ nav ul li:hover ul{
 }
 nav li{
     list-style:none;
-    background:lightblue;
     border:1px black solid;
     padding:1em;
 }
@@ -51,4 +52,28 @@ nav ul li:hover ul.sub-item{
 */
 h1,h2,h3,h4,p,a{
     padding-left:1em;
+}
+
+/*
+    Buttons
+*/
+button#menu-toggle{
+    float:left;
+    background-image: url(../icons/burger-menu.svg);
+    background-repeat: no-repeat;
+    background-color:transparent;
+    border-style:none;
+    width:3em;
+    height:3em;
+    margin-top:2em;
+}
+
+/*
+    Search
+*/
+#search{
+    margin-top:2em;
+    margin-left:0.5em;
+    width:auto;
+    float:left;
 }

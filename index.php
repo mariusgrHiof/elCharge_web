@@ -39,7 +39,7 @@ include 'ReadStuff.php';
     </script>
 </head>
 <body>
-
+<?php include 'includes/login.php'?>
 <?php include 'includes/header.php'?>
 
 
