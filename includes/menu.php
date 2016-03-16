@@ -69,7 +69,7 @@
             <ul class="sub-item">
                 <li>Eksempel rute <button onclick="navigate()">Perth til Sydney</button></li>
                 <div id="right-panel">
-                <p>Total Distance: <span id="total"></span></p>
+                    <p>Total Distance: <span id="total"></span></p>
                 </div>
             </ul>
         </li>
