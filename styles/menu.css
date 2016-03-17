@@ -28,7 +28,7 @@ div#title-login h1{
 */
 #right-panel{
     overflow:auto;
-    max-height: 40em;;
+    max-height: 20em;
 }
 div#title-login button.show-login {
     float:right;
@@ -111,10 +111,30 @@ button#menu-toggle{
 }
 
 /*
+    Select input
+*/
+select{
+    width:100%;
+}
+.cover-third{
+    width:33%;
+}
+.cover-twothird{
+    width:66%;
+}
+/*
     Search
 */
 #search{
     margin: 0.5em 0 0.5em 10%;
     width:auto;
     float:left;
+}
+
+/*
+    General
+*/
+.clear-both{
+    clear:both;
+    width:100%;
 }
