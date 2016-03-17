@@ -1,9 +1,14 @@
 //TODO: fiske sånn at du trenger kun å skrive .show(), .hide()
 /* Popup script */
 $(document).ready(function(){
+
     //Show login popup
+    $('#login_popup').hide();
+    $('#register_popup').hide();
+
     $('.show_login').click(function(){
         showLoginPopup();
+
     });
 
     //Show register popup
@@ -18,25 +23,41 @@ $(document).ready(function(){
 
 //Shows the login form
 function showLoginPopup(){
-    $('#login_popup').css({"visibility":"visible"});
-    $('#register_popup').css({"visibility":"hidden"});
+    var flag = false;
+    //TODO: Fikse sånn at det er kun slidedown når knappen blir trykket
+
+    if(flag === true){
+        $('#login_popup').show();
+    }
+    else{
+        $('#login_popup').slideDown();
+    }
+
+   flag = true;
+    $('#register_popup').fadeOut();
+
 }
 
 //Hides the login form
 function hideLoginPopup(){
-    $('#login_popup').css({"visibility":"hidden"});
+
+    $('#login_popup').fadeOut();
 }
 
 
 //Shows the register form
 function showRegisterPopup(){
-    $('#register_popup').css({"visibility":"visible"});
-    $('#login_popup').css({"visibility":"hidden"});
+
+    $('#login_popup').fadeOut();
+
+    $('#register_popup').show();
 }
 
 //hides the register form
 function hideRegisterPopup(){
-    $('#register_popup').css({"visibility":"hidden"});
+
+
+    $('#register_popup').fadeOut();
 }
 
 function closeForm(){

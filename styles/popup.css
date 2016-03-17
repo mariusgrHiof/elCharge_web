@@ -6,7 +6,7 @@
     max-width: 500px;
     margin: 150px auto;
     margin-left: 250px;
-    visibility: hidden;
+    visibility: visible;
     z-index: 999;
 }
 
@@ -27,6 +27,6 @@
     max-width: 500px;
     margin: 150px auto;
     margin-left: 250px;
-    visibility: hidden;
+    visibility: visible;
     z-index: 999;
 }
