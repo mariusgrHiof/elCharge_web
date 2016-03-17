@@ -24,6 +24,9 @@ typeIDs['43'] = "CHAdeMO + Combo + AC-Type2";
 typeIDs['50'] = "Type 2 + Schuko";
 typeIDs['52'] = "Type 2 + Danish (Section 107-2-D1)";
 
+//var nissanLeaf = ['14', '30', '31', '32'];
+var nissanLeaf = ['14', '30', '31', '32', '42', '43', '43','50','52', '60'];
+
 function readJsonFile(callback){
     // Gotten from: http://stackoverflow.com/questions/19706046/how-to-read-an-external-local-json-file-in-javascript
     var path = "data/datadump.json";
@@ -91,7 +94,48 @@ function generateMarkers(){
                     markers.push(marker);
                 }
             }else{
+                var numOfPorts = obj.chargerstations[i].csmd.Number_charging_points;
+                var trans = "4";
+                //TODO: Fiks sånn at vi sjekker begge ladeportene og ikke kun den første av de.
+                var isMatch = false;
+                var connType;
+                for(var c = 1; c <= numOfPorts; c++){
+                    //Checking if any connection ports match the user prefs
+                    try{
+                        //connType = obj.chargerstations[i].attr.conn[c][4].trans;//.attrvalid;//Getting one of the connectors ID
+                        connType = obj.chargerstations[i].attr.conn[c][4].attrvalid; //id
+                        //if(!isMatch && connType.indexOf(typeIDs[document.getElementById("select_port").value]) >= 0)// == typeID)
+                        if(!isMatch && ($.inArray(connType, nissanLeaf)>0)){
+                            isMatch = true; //trans
+                            console.log("match" + connType);
+                        }
+                    }catch(e){}
+                }
+                if(isMatch){
+                    //Adding markers
+                    var pos = obj.chargerstations[i].csmd.Position.replace(/[()]/g,"").split(",");
+                    console.log(pos);
+                    var marker = new google.maps.Marker({
+                        position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
+                        map: map,
+                        title: obj.chargerstations[i].csmd.name
+                    });
+
+                    //Showing a info windows when you click on the marker
+                    var contentString = obj.chargerstations[i].csmd.name;
+
+
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString
+                    });
+
+                    marker.addListener('click', function() {
+                        infowindow.open(map, marker);
+                    });
+                    markers.push(marker);
+                }
                 //Adding markers
+                /*
                 var pos = obj.chargerstations[i].csmd.Position.replace(/[()]/g,"").split(",");
                 var marker = new google.maps.Marker({
                     position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
@@ -111,6 +155,7 @@ function generateMarkers(){
                     infowindow.open(map, marker);
                 });
                 markers.push(marker);
+                */
             }
             var options = {
                 'zoom': 13,

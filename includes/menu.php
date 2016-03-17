@@ -55,6 +55,7 @@
                         <option value="39">CCS/Combo</option>
                         <option value="40">Tesla Connector Model</option>
                     </select></br>
+                    <!--<input type="checkbox" name="Schuko" value="14"/> Schuko lader</br>-->
                     <select id="select-port-effect" name="effect">
                         <option value="0">Vis alle ladereffekter</option>
                     </select>
