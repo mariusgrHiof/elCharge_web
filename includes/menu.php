@@ -31,9 +31,14 @@
 <nav >
     <ul>
         <li>
-            Filter
+            <h2 class="menu-item">Filter</h2>
             <ul class="sub-item">
-                <li><select id="select_port" name="type">
+                <div class="float-left">
+                    Kontakttype</br>
+                    Effekt
+                </div>
+                <div class="float-left">
+                    <select id="select_port" name="type">
                         <option value="99">Vis alle ladere</option>
                         <option value="0">Unspecified</option>
                         <option value="14">Schuko</option>
@@ -49,15 +54,16 @@
                         <option value="38">Marechal</option>
                         <option value="39">CCS/Combo</option>
                         <option value="40">Tesla Connector Model</option>
+                    </select></br>
+                    <select id="select-port-effect" name="effect">
+                        <option value="0">Vis alle ladereffekter</option>
                     </select>
-                    </li>
-                <li>
-                    <button onclick="generateMarkers()">Oppdater filter</button>
-                </li>
+                </div></br>
+                <button onclick="generateMarkers()">Oppdater filter</button>
             </ul>
         </li>
         <li>
-            Kart overlegg
+            <h2 class="menu-item">Kart overlegg</h2>
             <ul class="sub-item">
                 <li>Trafikk overlegg <button id="traffic-button" onclick="trafficOverlay()"></button></li>
                 <li>Vær overlegg <button id="weather-button" onclick="weatherOverlay()"></button></li>
@@ -65,7 +71,7 @@
             </ul>
         </li>
         <li>
-            Rute
+            <h2 class="menu-item">Rute</h2>
             <ul class="sub-item">
                 <li>
                     <div>
