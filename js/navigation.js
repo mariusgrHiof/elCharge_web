@@ -33,7 +33,7 @@ function displayRoute(origin, destination, service, display) {
         destination: destination,
         waypoints: waypoints,
         travelMode: google.maps.TravelMode.DRIVING,
-        avoidTolls: true
+        avoidTolls: false
     }, function(response, status) {
         if (status === google.maps.DirectionsStatus.OK) {
             display.setDirections(response);
