@@ -3,10 +3,16 @@
  * source: https://developers.google.com/maps/documentation/javascript/examples/directions-draggable
  */
 
-var waypoints = [{location: 'Lillestrøm, Norway'}, {location: 'Moss, Norway'}];
+var waypoints = [];//[{location: 'Lillestrøm, Norway'}, {location: 'Moss, Norway'}];
 var startDestination = "";
 var endDestination ="";
 function navigate(){
+    //Getting destinations
+    startDestination = $('#nav-start-pos').val();
+    endDestination = $('#nav-end-pos').val();
+    console.log("Start destination: " + startDestination + " end destination: " + endDestination);
+
+
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer({
         draggable: true,
@@ -18,7 +24,7 @@ function navigate(){
         computeTotalDistance(directionsDisplay.getDirections());
     });
 
-    displayRoute('Halden, Norway', 'Oslo, Norway', directionsService,directionsDisplay);
+    displayRoute(startDestination, endDestination, directionsService,directionsDisplay);
 }
 
 function displayRoute(origin, destination, service, display) {
