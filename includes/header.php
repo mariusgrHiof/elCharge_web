@@ -7,15 +7,16 @@
  */
 ?>
 <header>
-
-    <div id="title_login">
+    <div id="title">
         <button id="menu-toggle"></button>
         <h1>elCharge</h1>
-        <div id="search">
-            <input type="text"/>
-            <button>Søk</button>
+    </div>
+    <div id="search">
+        <input type="text"/>
+        <button>Søk</button>
+        <div id="title-login">
+            <button class="show-login"> Logg inn </button>
         </div>
-        <button class="show_login"> Logg inn </button>
     </div>
     <?php include 'menu.php'?>
 

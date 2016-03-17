@@ -4,8 +4,10 @@
     padding: 20px;
     width: auto;
     max-width: 500px;
-    margin: 150px auto;
-    margin-left: 250px;
+    top:0;
+    left:45%;
+    /*margin: 150px auto;
+    margin-left: 250px;*/
     visibility: visible;
     z-index: 999;
 }
@@ -25,8 +27,21 @@
     padding: 20px;
     width: auto;
     max-width: 500px;
-    margin: 150px auto;
-    margin-left: 250px;
+    top:0;
+    left:45%;
+    /*margin: 150px auto;
+    margin-left: 250px;*/
     visibility: visible;
     z-index: 999;
+}
+
+@media screen and (max-width:600px){
+    #login_popup{
+        top:30%;
+        left:30%;
+    }
+    #register_popup{
+         top:30%;
+         left:30%;
+     }
 }

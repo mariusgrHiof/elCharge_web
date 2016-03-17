@@ -18,11 +18,13 @@ include 'ReadStuff.php';
     <title>elCharge - ladekart for elbiler</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
+    <!--<link rel ="stylesheet" type="text/css" href="styles/bootstrap.min.css"/>-->
     <link rel="stylesheet" type="text/css" href="styles/menu.css"/>
     <link rel="stylesheet" type="text/css" href="styles/footer.css"/>
     <link rel="stylesheet" type="text/css" href="styles/maps.css"/>
     <link rel="stylesheet" type="text/css" href="styles/popup.css">
     <script src="js/jQuery-min.js"></script>
+    <script src="js/bootstrap.min.js"/>
     <script>
         //TODO: REMEMBER TO REMOVE!
         /*

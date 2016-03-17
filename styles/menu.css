@@ -4,10 +4,23 @@ header{
     background: #4652ff;
     width:27em;
 }
-div#title_login{
+div#title{
+    margin-top:1em;
     clear:both;
 }
-div#title_login h1{
+div#title h1{
+    width:80%;
+    float:left;
+    margin:0;
+}
+div#title button{
+    width:10%;
+    float:left;
+}
+div#title-login {
+    float:right;
+}
+div#title-login h1{
     float:left;
 }
 /*
@@ -17,9 +30,9 @@ div#title_login h1{
     overflow:auto;
     max-height: 40em;;
 }
-div#title_login button.show_login{
+div#title-login button.show-login {
     float:right;
-    margin-top:3em;
+    margin-right:0;
 }
 nav{
     width:100%;
@@ -74,9 +87,14 @@ nav ul li:hover ul{
 /*
     Text
 */
-h1,h2,h3,h4,p,a{
+h1,h2,h3,h4,p,a,li{
     padding-left:1em;
+    color:white;
 }
+button{
+    background-color:lightblue;
+}
+
 .menu-item{
     margin-bottom:0;
     margin-top:0;
@@ -93,14 +111,12 @@ button#menu-toggle{
     border-style:none;
     width:3em;
     height:3em;
-    margin-top:2em;
 }
 
 /*
     Search
 */
 #search{
-    margin-top:2em;
     margin-left:0.5em;
     width:auto;
     float:left;

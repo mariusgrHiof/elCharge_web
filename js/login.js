@@ -6,7 +6,7 @@ $(document).ready(function(){
     $('#login_popup').hide();
     $('#register_popup').hide();
 
-    $('.show_login').click(function(){
+    $('.show-login').click(function(){
         showLoginPopup();
 
     });
