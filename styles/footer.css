@@ -1,5 +1,5 @@
 footer{
-    z-index: 9999;
+    z-index: 99;
     position:fixed;
     background: #4652ff;
     width:20%;
@@ -8,4 +8,13 @@ footer{
 }
 footer a{
     color:black;
+}
+
+/*Mobile*/
+@media screen and (max-width:600px){
+    footer{
+        width:100%;
+        left:0;
+        bottom:0;
+    }
 }

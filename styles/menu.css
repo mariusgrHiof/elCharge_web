@@ -1,5 +1,5 @@
 header{
-    z-index: 999;
+    z-index: 1;
     position:absolute;
     background: #4652ff;
     width:27em;
@@ -55,6 +55,14 @@ nav ul li:hover ul.sub-item{
 }
 nav ul li:hover ul{
     display:none;
+}
+/*Mobile*/
+@media screen and (max-width:600px){
+    header{
+        width:100%;
+        min-width:100%;
+        max-width:100%;
+    }
 }
 
 /*
