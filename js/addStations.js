@@ -112,8 +112,11 @@ function generateMarkers(){
                 });
                 markers.push(marker);
             }
-
-
+            var options = {
+                'zoom': 13,
+                'mapTypeId': google.maps.MapTypeId.TERRAIN
+            };
+            //TODO: FIX! var mc = new google.maps.MarkerClusterer(map, markers, options);
         }
     });
 }
