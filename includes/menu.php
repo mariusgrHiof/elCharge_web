@@ -83,13 +83,12 @@
                 <p><em>Mellompunkter kommer senere.</em></p>
                 <li>
                     <div class="float-left cover-third">
-                        Start posisjon
-                        </br>
-                        </br>Mål
+                        Start posisjon</br></br>
+                        Mål
                     </div>
                     <div class="float-left cover-twothird">
                         <input id="nav-start-pos" type="text"/>
-                        </br><span id="waypoints"></span>
+                        </br><span id="waypoint-list"></span>
                         </br><input id="nav-end-pos" type="text"/>
                         </br><button onclick="navigate()">Bygg rute</button>
                     </div>

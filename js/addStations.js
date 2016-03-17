@@ -154,7 +154,13 @@ function addMarker(index, object){
     });
 
     //Showing a info windows when you click on the marker
-    var contentString = object.chargerstations[index].csmd.name;
+    var contentString =
+        "<div id=\"station-tooltip\">"+
+            "<h3>"+ object.chargerstations[index].csmd.name +"</h3>"+
+            "<p>Beskrivelse: "+ object.chargerstations[index].csmd.description +"</p>"+
+            "<button onclick='addWaypoint(" + pos[0] + "," + pos[1] + ",/" + object.chargerstations[index].csmd.name + "/)'>Legg til i rute</button>" +
+        "</div>";
+    //object.chargerstations[index].csmd.name;
 
 
     var infowindow = new google.maps.InfoWindow({
@@ -165,4 +171,12 @@ function addMarker(index, object){
         infowindow.open(map, marker);
     });
     markers.push(marker);
+}
+
+function addWaypoint(lat, lon, name){
+    //var parent = btn.target.parentNode;
+    //parent.innerHTML.getElementsByClassName();
+    waypoints.push({location: lat + "," + lon});
+    document.getElementById('waypoint-list').innerHTML += "<p>" + name +"</p>";
+    console.log(lat + "," + lon);
 }

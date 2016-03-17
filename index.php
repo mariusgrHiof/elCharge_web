@@ -23,6 +23,7 @@ include 'ReadStuff.php';
     <link rel="stylesheet" type="text/css" href="styles/footer.css"/>
     <link rel="stylesheet" type="text/css" href="styles/maps.css"/>
     <link rel="stylesheet" type="text/css" href="styles/popup.css">
+    <link rel="stylesheet" type="text/css" href="styles/tooltips.css"/>
     <script src="js/jQuery-min.js"></script>
     <script src="js/bootstrap.min.js"/>
     <script>
