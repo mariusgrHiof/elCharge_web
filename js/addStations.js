@@ -24,8 +24,43 @@ typeIDs['43'] = "CHAdeMO + Combo + AC-Type2";
 typeIDs['50'] = "Type 2 + Schuko";
 typeIDs['52'] = "Type 2 + Danish (Section 107-2-D1)";
 
-//var nissanLeaf = ['14', '30', '31', '32'];
-var nissanLeaf = ['14', '30', '31', '32', '42', '43', '43','50','52', '60'];
+var schuko = ['14', '50'];
+var type1 = ['31', '60'];
+var type2 = ['32', '60', '42', '50', '52'];
+var type2ac = ['43'];
+var chademo = ['30', '41', '42', '43'];
+var combo = ['39', '41'];
+var ind3pin = ['34'];
+var ind4pin = ['35'];
+var ind5pin = ['36'];
+var teslaModelS = ['40'];
+var teslaRoadster = ['29'];
+
+//http://ladestasjoner.no/ladehjelpen/praktisk/51-hvilke-elbiler-kan-lade-med-hva
+var carModels = new Array();
+carModels['Nissan Leaf'] = schuko.concat(schuko, type1, type2, chademo);
+carModels['BMW i3'] = schuko.concat(schuko, type2, combo);
+carModels['Buddy'] = schuko;
+carModels['Citroën Berlingo'] = schuko.concat(schuko, type1, type2, chademo);
+carModels['Citroën C-ZERO'] = schuko.concat(schuko, type1, type2, chademo);
+carModels['Ford Focus Electric'] = schuko.concat(schuko,type1, type2);
+carModels['Kia Soul Electric'] = schuko.concat(schuko, type1, type2, chademo);
+carModels['Mercedes B-klasse ED'] = schuko.concat(schuko, type2);
+carModels['Mitsubishi i-MIEV'] = schuko.concat(schuko, type1, type2, chademo);
+carModels['Nissan e-NV200/Evalia'] = schuko.concat(schuko, type1, type2, chademo);
+carModels['Peugeot iOn'] = schuko.concat(schuko, type1, type2, chademo);
+carModels['Peugeot Partner'] = schuko.concat(schuko, type1, type2, chademo);
+carModels['Renault Kangoo ZE'] = schuko.concat(schuko, type1, type2);
+carModels['Renault Twizy'] = schuko;
+carModels['Renault Zoe'] = schuko.concat(schuko,type2);
+carModels['Reva'] = schuko;
+carModels['Tesla Model S'] = schuko.concat(schuko, type2, ind3pin, ind5pin, teslaModelS);
+carModels['Tesla Roadster'] = schuko.concat(schuko, teslaRoadster);
+carModels['Think'] = schuko;
+carModels['VW e-Golf'] = schuko.concat(schuko, type2, combo);
+carModels['VW e-up!'] = schuko.concat(schuko, type1, type2);
+
+var carModel = new Array();
 
 function readJsonFile(callback){
     // Gotten from: http://stackoverflow.com/questions/19706046/how-to-read-an-external-local-json-file-in-javascript
@@ -47,121 +82,87 @@ function readJsonFile(callback){
  console.log(data);
  });
  */
+function updateCarList(){
+    //Adding elements to the car list dropdown
+    for(car in carModels){
+        document.getElementById('select-car').innerHTML += '<option value="'+car+'">' + car + '</option>';
+    }
+}
 
 function generateMarkers(){
     deleteMarkers();
     $.getJSON('datadump.json', function ( obj ){
         for(i = 0; i < obj.chargerstations.length; i++){
             //Checking filter
-            if(document.getElementById("select_port").value != 99){
+            //if(document.getElementById("select_port").value != 99){
+            if(document.getElementById("select-car").value !=0){
+                carModel = carModels[document.getElementById("select-car").value];
                 var numOfPorts = obj.chargerstations[i].csmd.Number_charging_points;
-                var trans = "4";
                 //TODO: Fiks sånn at vi sjekker begge ladeportene og ikke kun den første av de.
-                var isMatch = false;
-                var connType;
-                for(var c = 1; c <= numOfPorts; c++){
-                    console.log("connector num: "+c);
-                    //Checking if any connection ports match the user prefs
-                    try{
-                        connType = obj.chargerstations[i].attr.conn[c][4].trans;//.attrvalid;//Getting one of the connectors ID
-                        console.log("kriterie "+typeIDs[document.getElementById("select_port").value] + " sammenligning: " + connType);
-                        if(!isMatch && connType.indexOf(typeIDs[document.getElementById("select_port").value]) >= 0)// == typeID)
-                            isMatch = true; //trans
-                    }catch(e){}
-                }
-                console.log(connType);
+                var isMatch = getCarMatch(i, numOfPorts, obj);
                 if(isMatch){
-                    //Adding markers
-                    var pos = obj.chargerstations[i].csmd.Position.replace(/[()]/g,"").split(",");
-                    console.log(pos);
-                    var marker = new google.maps.Marker({
-                        position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
-                        map: map,
-                        title: obj.chargerstations[i].csmd.name
-                    });
-
-                    //Showing a info windows when you click on the marker
-                    var contentString = obj.chargerstations[i].csmd.name;
-
-
-                    var infowindow = new google.maps.InfoWindow({
-                        content: contentString
-                    });
-
-                    marker.addListener('click', function() {
-                        infowindow.open(map, marker);
-                    });
-                    markers.push(marker);
+                    addMarker(i, obj);
                 }
             }else{
-                var numOfPorts = obj.chargerstations[i].csmd.Number_charging_points;
-                var trans = "4";
-                //TODO: Fiks sånn at vi sjekker begge ladeportene og ikke kun den første av de.
-                var isMatch = false;
-                var connType;
-                for(var c = 1; c <= numOfPorts; c++){
-                    //Checking if any connection ports match the user prefs
-                    try{
-                        //connType = obj.chargerstations[i].attr.conn[c][4].trans;//.attrvalid;//Getting one of the connectors ID
-                        connType = obj.chargerstations[i].attr.conn[c][4].attrvalid; //id
-                        //if(!isMatch && connType.indexOf(typeIDs[document.getElementById("select_port").value]) >= 0)// == typeID)
-                        if(!isMatch && ($.inArray(connType, nissanLeaf)>0)){
-                            isMatch = true; //trans
-                            console.log("match" + connType);
-                        }
-                    }catch(e){}
-                }
-                if(isMatch){
-                    //Adding markers
-                    var pos = obj.chargerstations[i].csmd.Position.replace(/[()]/g,"").split(",");
-                    console.log(pos);
-                    var marker = new google.maps.Marker({
-                        position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
-                        map: map,
-                        title: obj.chargerstations[i].csmd.name
-                    });
-
-                    //Showing a info windows when you click on the marker
-                    var contentString = obj.chargerstations[i].csmd.name;
-
-
-                    var infowindow = new google.maps.InfoWindow({
-                        content: contentString
-                    });
-
-                    marker.addListener('click', function() {
-                        infowindow.open(map, marker);
-                    });
-                    markers.push(marker);
-                }
-                //Adding markers
-                /*
-                var pos = obj.chargerstations[i].csmd.Position.replace(/[()]/g,"").split(",");
-                var marker = new google.maps.Marker({
-                    position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
-                    map: map,
-                    title: obj.chargerstations[i].csmd.name
-                });
-
-                //Showing a info windows when you click on the marker
-                var contentString = obj.chargerstations[i].csmd.name;
-
-
-                var infowindow = new google.maps.InfoWindow({
-                    content: contentString
-                });
-
-                marker.addListener('click', function() {
-                    infowindow.open(map, marker);
-                });
-                markers.push(marker);
-                */
+                //Adding all charging stations
+                addMarker(i, obj);
             }
-            var options = {
-                'zoom': 13,
-                'mapTypeId': google.maps.MapTypeId.TERRAIN
-            };
             //TODO: FIX! var mc = new google.maps.MarkerClusterer(map, markers, options);
         }
     });
+}
+
+function getCarMatch(index, portCount, object){
+    var match = false;
+    var connType;
+    for(var c = 1; c <= portCount; c++){
+        //Checking if any connection ports match the user prefs
+        try{
+            //connType = obj.chargerstations[i].attr.conn[c][4].trans;//.attrvalid;//Getting one of the connectors ID
+            connType = object.chargerstations[index].attr.conn[c][4].attrvalid; //id
+            //if(!isMatch && connType.indexOf(typeIDs[document.getElementById("select_port").value]) >= 0)// == typeID)
+            if(!match && ($.inArray(connType, carModel)>0)){
+                match = true; //trans
+            }
+        }catch(e){}
+    }
+    return match;
+}
+
+function getMatchConnectorType(index, portCount, object){
+    var match = false;
+    var connType;
+    for(var c = 1; c <= portCount; c++){
+        console.log("connector num: "+c);
+        //Checking if any connection ports match the user prefs
+        try{
+            connType = object.chargerstations[index].attr.conn[c][4].trans;//.attrvalid;//Getting one of the connectors ID
+            if(!match && connType.indexOf(typeIDs[document.getElementById("select_port").value]) >= 0)// == typeID)
+                match = true; //trans
+        }catch(e){}
+    }
+    return match;
+}
+
+function addMarker(index, object){
+    //Adding markers
+    var pos = object.chargerstations[index].csmd.Position.replace(/[()]/g,"").split(",");
+    var marker = new google.maps.Marker({
+        position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
+        map: map,
+        title: object.chargerstations[index].csmd.name
+    });
+
+    //Showing a info windows when you click on the marker
+    var contentString = object.chargerstations[index].csmd.name;
+
+
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+
+    marker.addListener('click', function() {
+        infowindow.open(map, marker);
+    });
+    markers.push(marker);
 }

@@ -27,6 +27,7 @@ function initMap() {
     //Setting default map layer type to terrain
     map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
 
+    updateCarList();
     //Turning on layers
     trafficOverlay();
     weatherOverlay();

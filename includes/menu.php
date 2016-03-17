@@ -34,11 +34,15 @@
             <h2 class="menu-item">Filter</h2>
             <ul class="sub-item">
                 <div class="float-left">
-                    Kontakttype</br>
+                    Bil modell</br>
+                    <!--Kontakttype</br>-->
                     Effekt
                 </div>
                 <div class="float-left">
-                    <select id="select_port" name="type">
+                    <select id="select-car" name="car-model">
+                        <option value="0">Vis alle ladere</option>
+                    </select></br>
+                    <!--<select id="select_port" name="type">
                         <option value="99">Vis alle ladere</option>
                         <option value="0">Unspecified</option>
                         <option value="14">Schuko</option>
@@ -47,14 +51,13 @@
                         <option value="30">CHAdeMO</option>
                         <option value="31">Type 1</option>
                         <option value="32">Type 2</option>
-                        <!--<option value="60">Type1/Type2</option>-->
                         <option value="34">Blue industrial 3-pin</option>
                         <option value="35">Blue industrial 4-pin</option>
                         <option value="36">Red industrial 5-pin</option>
                         <option value="38">Marechal</option>
                         <option value="39">CCS/Combo</option>
                         <option value="40">Tesla Connector Model</option>
-                    </select></br>
+                    </select></br>-->
                     <!--<input type="checkbox" name="Schuko" value="14"/> Schuko lader</br>-->
                     <select id="select-port-effect" name="effect">
                         <option value="0">Vis alle ladereffekter</option>
