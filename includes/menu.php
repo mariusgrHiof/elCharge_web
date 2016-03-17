@@ -67,7 +67,14 @@
         <li>
             Rute
             <ul class="sub-item">
-                <li>Eksempel rute <button onclick="navigate()">Perth til Sydney</button></li>
+                <li>
+                    <div>
+                        Start posisjon <input id="nav-start-pos" type="text"/>
+                        </br>Mellom punkt 1 <input id="nav-wp-pos" type="text"/>
+                        </br>Mål <input id="nav-end-pos" type="text"/>
+                        </br>Eksempel rute <button onclick="navigate()">Bygg rute</button>
+                    </div>
+                </li>
                 <div id="right-panel">
                     <p>Total Distance: <span id="total"></span></p>
                 </div>

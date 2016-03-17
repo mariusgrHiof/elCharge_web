@@ -3,6 +3,9 @@
  * source: https://developers.google.com/maps/documentation/javascript/examples/directions-draggable
  */
 
+var waypoints = [{location: 'Lillestrøm, Norway'}, {location: 'Moss, Norway'}];
+var startDestination = "";
+var endDestination ="";
 function navigate(){
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer({
@@ -15,14 +18,14 @@ function navigate(){
         computeTotalDistance(directionsDisplay.getDirections());
     });
 
-    displayRoute('Perth, WA', 'Sydney, NSW', directionsService,directionsDisplay);
+    displayRoute('Halden, Norway', 'Oslo, Norway', directionsService,directionsDisplay);
 }
 
 function displayRoute(origin, destination, service, display) {
     service.route({
         origin: origin,
         destination: destination,
-        waypoints: [{location: 'Cocklebiddy, WA'}, {location: 'Broken Hill, NSW'}],
+        waypoints: waypoints,
         travelMode: google.maps.TravelMode.DRIVING,
         avoidTolls: true
     }, function(response, status) {
