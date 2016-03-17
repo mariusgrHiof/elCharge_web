@@ -112,6 +112,8 @@ function generateMarkers(){
                 });
                 markers.push(marker);
             }
+
+
         }
     });
 }
