@@ -91,9 +91,6 @@ h1,h2,h3,h4,p,a,li{
     padding-left:1em;
     color:white;
 }
-button{
-    background-color:lightblue;
-}
 
 .menu-item{
     margin-bottom:0;
@@ -117,7 +114,7 @@ button#menu-toggle{
     Search
 */
 #search{
-    margin-left:0.5em;
+    margin: 0.5em 0 0.5em 10%;
     width:auto;
     float:left;
 }
