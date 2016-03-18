@@ -8,7 +8,7 @@
 ?>
 <header>
     <div id="title">
-        <button id="menu-toggle"></button>
+        <button onclick="dropdown(this, true)" id="menu-toggle"></button>
         <h1>elCharge</h1>
     </div>
     <div id="search">

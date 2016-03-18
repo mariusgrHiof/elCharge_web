@@ -28,10 +28,10 @@
 51	Type 2 + Danish (Section 107-2-D1)
  */
 ?>
-<nav >
+<nav class="menu">
     <ul>
         <li>
-            <h2 class="menu-item">Filter</h2>
+            <h2 class="menu-item caret">↓ Filter</h2>
             <ul class="sub-item">
                 <p><em>Informasjon om biler er basert på informasjon funnet på <a href="http://ladestasjoner.no/ladehjelpen/praktisk/51-hvilke-elbiler-kan-lade-med-hva">ladestasjoner.no</a></em></p>
                <li>
@@ -70,7 +70,7 @@
             </ul>
         </li>
         <li>
-            <h2 class="menu-item">Kart overlegg</h2>
+            <h2 class="menu-item caret">↓ Kart overlegg</h2>
             <ul class="sub-item">
                 <li>Trafikk overlegg <button id="traffic-button" onclick="trafficOverlay()"></button></li>
                 <li>Vær overlegg <button id="weather-button" onclick="weatherOverlay()"></button></li>
@@ -78,9 +78,9 @@
             </ul>
         </li>
         <li>
-            <h2 class="menu-item">Rute</h2>
+            <h2 class="menu-item caret">↓ Rute</h2>
             <ul class="sub-item">
-                <p><em>Mellompunkter kommer senere.</em></p>
+                <p><em>For å legge inn ladestasjoner du ønsker å kjøre innom på veien, velg ladestasjonens markør og velg "legg til i rute".</em></p>
                 <li>
                     <div class="float-left cover-third">
                         Start posisjon</br></br>

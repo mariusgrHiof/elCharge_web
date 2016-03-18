@@ -55,20 +55,18 @@ nav ul li ul{
 nav ul li ul.sub-item{
     display:none;
 }
-/*Hover*/
-header:hover nav{
+/*On toggle*/
+header.toggle nav{
     display:block;
     overflow:auto;
 }
-header:hover{
+header.toggle{
     height:100%;
 }
-nav ul li:hover ul.sub-item{
+nav ul li ul.toggle{
     display:block;
 }
-nav ul li:hover ul{
-    display:none;
-}
+
 /*Mobile*/
 @media screen and (max-width:600px){
     header{
