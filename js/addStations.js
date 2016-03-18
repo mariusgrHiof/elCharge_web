@@ -156,8 +156,18 @@ function addMarker(index, object){
     //Showing a info windows when you click on the marker
     var contentString =
         "<div id=\"station-tooltip\">"+
-            "<h3>"+ object.chargerstations[index].csmd.name +"</h3>"+
-            "<p>Beskrivelse: "+ object.chargerstations[index].csmd.description +"</p>"+
+            "<div class='float-left'>" +
+                "<img src=\"http://www.nobil.no/img/ladestasjonbilder/"+ object.chargerstations[index].csmd.Image +"\"/>" +
+            "</div>"+
+            "<div class='float-right'>" +
+                "<h3>"+ object.chargerstations[index].csmd.name +"</h3>" +
+                "<p>Kontakt info: "+ object.chargerstations[index].csmd.Contact_info+"</p>" +
+                "<p>Adresse: "+ object.chargerstations[index].csmd.Street +" " + object.chargerstations[index].csmd.House_number +"</p>"+
+                "<p>Beskrivelse: "+ object.chargerstations[index].csmd.description +"</p>" +
+                "<p>Lokasjonsbeskrivelse: "+ object.chargerstations[index].csmd.Description_of_location +"</p>" +
+                "<p>Eier: " + object.chargerstations[index].csmd.Owned_by +"</p>" +
+                "<p>Kommentarer: "+ object.chargerstations[index].csmd.User_comment+"</p>" +
+            "</div>"+
             "<button onclick='addWaypoint(" + pos[0] + "," + pos[1] + ",/" + object.chargerstations[index].csmd.name + "/)'>Legg til i rute</button>" +
         "</div>";
     //object.chargerstations[index].csmd.name;

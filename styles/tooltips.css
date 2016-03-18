@@ -1,3 +1,23 @@
+div#station-tooltip{
+    max-width:100%;
+    width:30em;
+}
 div#station-tooltip p,div#station-tooltip h3{
     color:black;
+}
+
+div#station-tooltip div.float-left{
+    float:left;
+    width:30%;
+}
+div#station-tooltip div.float-left img{
+    max-width:100%;
+}
+div#station-tooltip div.float-right{
+    float:right;
+    width:70%;
+    overflow-y:scroll;
+}
+div#station-tooltip button{
+    clear:both;
 }

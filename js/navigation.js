@@ -6,15 +6,24 @@
 var waypoints = [];//[{location: 'Lillestrøm, Norway'}, {location: 'Moss, Norway'}];
 var startDestination = "";
 var endDestination ="";
+var directionsDisplay;
+var directionsService;
 function navigate(){
+    //Cleaning previous directions
+    if(directionsDisplay != null){
+        directionsDisplay.setMap(null);
+    }
+    if(document.getElementById('right-panel').innerHTML != null){
+        document.getElementById('right-panel').innerHTML = "";
+    }
+
     //Getting destinations
     startDestination = $('#nav-start-pos').val();
     endDestination = $('#nav-end-pos').val();
     console.log("Start destination: " + startDestination + " end destination: " + endDestination);
+    directionsService = new google.maps.DirectionsService;
 
-
-    var directionsService = new google.maps.DirectionsService;
-    var directionsDisplay = new google.maps.DirectionsRenderer({
+    directionsDisplay = new google.maps.DirectionsRenderer({
         draggable: true,
         map: map,
         panel: document.getElementById('right-panel')
