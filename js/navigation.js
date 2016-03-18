@@ -11,10 +11,10 @@ var directionsService;
 function navigate(){
     //Cleaning previous directions
     if(directionsDisplay != null){
-        directionsDisplay.setMap(null);
+        directionsDisplay.setMap(null);//The route in the map
     }
     if(document.getElementById('right-panel').innerHTML != null){
-        document.getElementById('right-panel').innerHTML = "";
+        document.getElementById('right-panel').innerHTML = ""; //The route description
     }
 
     //Getting destinations
