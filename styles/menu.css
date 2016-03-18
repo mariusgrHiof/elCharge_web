@@ -74,8 +74,8 @@ nav ul li ul.toggle{
         min-width:100%;
         max-width:100%;
     }
-    header:hover{
-        height:90%;
+    header.toggle{
+        height:100%;
     }
 }
 .float-left{
