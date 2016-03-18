@@ -62,6 +62,8 @@ carModels['VW e-up!'] = schuko.concat(schuko, type1, type2);
 
 var carModel = new Array();
 
+var connectors = new Array();
+
 function readJsonFile(callback){
     // Gotten from: http://stackoverflow.com/questions/19706046/how-to-read-an-external-local-json-file-in-javascript
     var path = "data/datadump.json";
@@ -115,6 +117,7 @@ function generateMarkers(){
 function getCarMatch(index, portCount, object){
     var match = false;
     var connType;
+    var connectorArray = new Array();
     for(var c = 1; c <= portCount; c++){
         //Checking if any connection ports match the user prefs
         try{
@@ -123,8 +126,13 @@ function getCarMatch(index, portCount, object){
             //if(!isMatch && connType.indexOf(typeIDs[document.getElementById("select_port").value]) >= 0)// == typeID)
             if(!match && ($.inArray(connType, carModel)>0)){
                 match = true; //trans
+                connectorArray[connectorArray.length-1] = object.chargerstations[index].attr.conn[c][4].trans;
             }
         }catch(e){}
+    }
+
+    if(match){
+        connectors = connectorArray;
     }
     return match;
 }
@@ -132,14 +140,20 @@ function getCarMatch(index, portCount, object){
 function getMatchConnectorType(index, portCount, object){
     var match = false;
     var connType;
+    var connectorArray = new Array();
     for(var c = 1; c <= portCount; c++){
         console.log("connector num: "+c);
         //Checking if any connection ports match the user prefs
         try{
             connType = object.chargerstations[index].attr.conn[c][4].trans;//.attrvalid;//Getting one of the connectors ID
-            if(!match && connType.indexOf(typeIDs[document.getElementById("select_port").value]) >= 0)// == typeID)
+            if(!match && connType.indexOf(typeIDs[document.getElementById("select_port").value]) >= 0){// == typeID)
                 match = true; //trans
+                connectorArray[connectorArray.length-1] = object.chargerstations[index].attr.conn[c][4];
+            }
         }catch(e){}
+    }
+    if(match){
+        connectors = connectorArray;
     }
     return match;
 }
@@ -167,6 +181,7 @@ function addMarker(index, object){
                 "<p>Lokasjonsbeskrivelse: "+ object.chargerstations[index].csmd.Description_of_location +"</p>" +
                 "<p>Eier: " + object.chargerstations[index].csmd.Owned_by +"</p>" +
                 "<p>Kommentarer: "+ object.chargerstations[index].csmd.User_comment+"</p>" +
+                "<p>Ladepunkter: "+ connectors[0]+"</p>" +
             "</div>"+
             "<button onclick='addWaypoint(" + pos[0] + "," + pos[1] + ",/" + object.chargerstations[index].csmd.name + "/)'>Legg til i rute</button>" +
         "</div>";
