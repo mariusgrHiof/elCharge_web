@@ -141,3 +141,6 @@ select{
     clear:both;
     width:100%;
 }
+#right-panel{
+    background:white;
+}
