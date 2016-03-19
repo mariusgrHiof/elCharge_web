@@ -36,8 +36,11 @@ include 'ReadStuff.php';
     </script>
 </head>
 <body>
-<?php include 'includes/login.php'?>
-<?php include 'includes/header.php'?>
+<?php
+include 'includes/login.php';
+//Adding the header & menu elements (Menu is included in the header.php)
+include 'includes/header.php';
+?>
 
 
 <div id="map">

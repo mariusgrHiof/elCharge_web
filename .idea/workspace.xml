@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/includes/scripts.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/styles/all.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datadump.json" afterPath="$PROJECT_DIR$/datadump.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <ignored path="elCharge_web.iws" />
@@ -70,24 +67,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+            <state relative-caret-position="355">
+              <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="all.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/styles/all.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-              <folding>
-                <element signature="e#6#85#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -152,8 +137,8 @@
         <option value="$PROJECT_DIR$/js/addStations.js" />
         <option value="$PROJECT_DIR$/js/googlemaps.js" />
         <option value="$PROJECT_DIR$/styles/style.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/includes/scripts.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -334,7 +319,7 @@
       <workItem from="1458324606692" duration="146000" />
       <workItem from="1458335325447" duration="1318000" />
       <workItem from="1458347739918" duration="25000" />
-      <workItem from="1458391968146" duration="7560000" />
+      <workItem from="1458391968146" duration="7788000" />
     </task>
     <task id="LOCAL-00001" summary="mindre endringer">
       <created>1457349056343</created>
@@ -588,11 +573,18 @@
       <option name="project" value="LOCAL" />
       <updated>1458397311432</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="- Det er nå egen php fil for å legge inn css filer i dokumentet (gjør alle om til en css fil istedenfor at det er lenket til mange i html filen)&#10;- Det er også laget en php fil som inserter js tags inn i index dokumentet. Slik at vi slepper å skrive &lt;script src=&quot;&quot;&gt;&lt;/script&gt; hver gang vi skal legge inn ett script. Vi kan nå heller skrive addJS('fil');">
+      <created>1458401393350</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1458401393350</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13060000" />
+    <option name="totallyTimeSpent" value="13288000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -630,7 +622,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="filtrere basert på enkelt type lade ting" />
     <MESSAGE value="Det går nå ann å oppdatere kartets markører uten å laste inn nettstedet på nytt." />
     <MESSAGE value="design endringer + filtrering er flyttet inn i sub av filter meny elementet." />
     <MESSAGE value="menu changes" />
@@ -655,7 +646,8 @@
     <MESSAGE value="Legg til knappen som er på en ladestasjon oppdaterer ruten, om start og slutt posisjoner ikke alt er satt" />
     <MESSAGE value="Det går nå ann å fjerne waypoints/ladestasjoner i ruten også." />
     <MESSAGE value="Lagt til en &quot;feilmelding&quot; for brukere som evt har deaktivert javascript i deres nettleser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lagt til en &quot;feilmelding&quot; for brukere som evt har deaktivert javascript i deres nettleser" />
+    <MESSAGE value="- Det er nå egen php fil for å legge inn css filer i dokumentet (gjør alle om til en css fil istedenfor at det er lenket til mange i html filen)&#10;- Det er også laget en php fil som inserter js tags inn i index dokumentet. Slik at vi slepper å skrive &lt;script src=&quot;&quot;&gt;&lt;/script&gt; hver gang vi skal legge inn ett script. Vi kan nå heller skrive addJS('fil');" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Det er nå egen php fil for å legge inn css filer i dokumentet (gjør alle om til en css fil istedenfor at det er lenket til mange i html filen)&#10;- Det er også laget en php fil som inserter js tags inn i index dokumentet. Slik at vi slepper å skrive &lt;script src=&quot;&quot;&gt;&lt;/script&gt; hver gang vi skal legge inn ett script. Vi kan nå heller skrive addJS('fil');" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1020,14 +1012,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/styles/all.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1035,6 +1019,14 @@
           <folding>
             <element signature="e#6#85#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
