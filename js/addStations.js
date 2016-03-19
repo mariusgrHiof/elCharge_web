@@ -193,14 +193,16 @@ function addMarker(index, object){
         connectorsString += "<li style=\'color:black;\'>"+ connectors[i].trans + "</li>";
     }
     connectorsString += "</ol>";
-
+    //var latlng = new Array();//{lat:  lng: };
+    //latlng.push();
+    //getElevation(new google.maps.LatLng(parseFloat(pos[0]), parseFloat(pos[1])))
     var contentString =
         "<div id=\"station-tooltip\">"+
             "<div class='float-left'>" +
                 "<img src=\"http://www.nobil.no/img/ladestasjonbilder/"+ object.chargerstations[index].csmd.Image +"\"/>" +
             "</div>"+
             "<div class='float-right'>" +
-                "<h3>"+ object.chargerstations[index].csmd.name +"</h3>" +
+                "<h3>"+ object.chargerstations[index].csmd.name + "("  +" M.O.H)</h3>" +
                 "<p><strong>Kontakt info:</strong> "+ object.chargerstations[index].csmd.Contact_info+"</p>" +
                 "<p><strong>Adresse:</strong> "+ object.chargerstations[index].csmd.Street +" " + object.chargerstations[index].csmd.House_number +"</p>"+
                 "<p><strong>Beskrivelse:</strong> "+ object.chargerstations[index].csmd.description +"</p>" +

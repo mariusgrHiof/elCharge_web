@@ -28,13 +28,14 @@ function initMap() {
     //Setting default map layer type to terrain
     map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
 
+    elevationService = new google.maps.ElevationService;
+
     updateCarList();
     //Turning on layers
     trafficOverlay();
     weatherOverlay();
     cloudOverlay();
-
-
+    console.log('el ' + getElevation(new google.maps.LatLng(-34.397, 150.644)));
 
     //Finding user location with geolocation
     if (navigator.geolocation) {
