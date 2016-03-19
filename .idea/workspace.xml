@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/elevation.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/scripts.php" afterPath="$PROJECT_DIR$/includes/scripts.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/addStations.js" afterPath="$PROJECT_DIR$/js/addStations.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/googlemaps.js" afterPath="$PROJECT_DIR$/js/googlemaps.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/elevation.js" afterPath="$PROJECT_DIR$/js/elevation.js" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +28,8 @@
       <file leaf-file-name="elevation.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/elevation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="7" column="135" selection-start-line="7" selection-start-column="135" selection-end-line="7" selection-end-column="135" />
+            <state relative-caret-position="105">
+              <caret line="9" column="93" selection-start-line="9" selection-start-column="93" selection-end-line="9" selection-end-column="93" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
               </folding>
@@ -289,7 +286,7 @@
       <workItem from="1458347739918" duration="25000" />
       <workItem from="1458391968146" duration="13828000" />
       <workItem from="1458407965206" duration="279000" />
-      <workItem from="1458425925198" duration="1906000" />
+      <workItem from="1458425925198" duration="1957000" />
     </task>
     <task id="LOCAL-00001" summary="mindre endringer">
       <created>1457349056343</created>
@@ -585,18 +582,26 @@
       <option name="project" value="LOCAL" />
       <updated>1458408296646</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="fail">
+      <created>1458427906847</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1458427906847</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21513000" />
+    <option name="totallyTimeSpent" value="21564000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15052083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22846079" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -604,7 +609,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -627,7 +631,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="terrain map is now the default map type + added an option to change the map type." />
     <MESSAGE value="Map layers -&gt; Trafic layer" />
     <MESSAGE value="More fixes in regards to layers etc + added navigation (Not completed.. far from it!)" />
     <MESSAGE value="formatering" />
@@ -652,7 +655,8 @@
     <MESSAGE value="lagt inn logo osv" />
     <MESSAGE value="..." />
     <MESSAGE value="css" />
-    <option name="LAST_COMMIT_MESSAGE" value="css" />
+    <MESSAGE value="fail" />
+    <option name="LAST_COMMIT_MESSAGE" value="fail" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1017,8 +1021,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/elevation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="135" selection-start-line="7" selection-start-column="135" selection-end-line="7" selection-end-column="135" />
+        <state relative-caret-position="105">
+          <caret line="9" column="93" selection-start-line="9" selection-start-column="93" selection-end-line="9" selection-end-column="93" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
           </folding>
