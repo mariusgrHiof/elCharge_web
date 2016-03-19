@@ -46,7 +46,14 @@ include 'ReadStuff.php';
 <?php include 'includes/header.php'?>
 
 
-<div id="map"></div>
+<div id="map">
+    <h1>
+        Du har enten deaktivert eller benytter en nettleser som ikke støtter javascript.
+    </h1>
+    <p>
+        For å bruke dette nettstedet kreves det at javascript er aktivert. Venligst aktiver javascript for dette nettstedet, eller bytt nettleser til en som støtter javascript.
+    </p>
+</div>
 
 <script>
     <?php
