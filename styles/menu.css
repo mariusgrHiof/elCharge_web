@@ -1,17 +1,19 @@
 header{
     z-index: 1;
     position:absolute;
-    background: #4652ff;
+    background: #2a3392;
     width:27em;
 }
 div#title{
-    margin-top:1em;
+    margin:1em 0 0 0.5em;
     clear:both;
 }
 div#title h1{
-    width:80%;
+    width:70%;
     float:left;
-    margin:0;
+    margin:0 0 0 0.3em;
+    padding-left:1.5em;
+    background:url(../icons/icon_v2.svg) no-repeat;
 }
 div#title button{
     width:10%;
