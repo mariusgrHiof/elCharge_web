@@ -96,17 +96,24 @@ function generateMarkers(){
     deleteMarkers();
     $.getJSON('datadump.json', function ( obj ){
         for(i = 0; i < obj.chargerstations.length; i++){
+            var numOfPorts = obj.chargerstations[i].csmd.Number_charging_points;
             //Checking filter
-            //if(document.getElementById("select_port").value != 99){
             if(document.getElementById("select-car").value !=0){
                 carModel = carModels[document.getElementById("select-car").value];
-                var numOfPorts = obj.chargerstations[i].csmd.Number_charging_points;
+
                 //TODO: Fiks sånn at vi sjekker begge ladeportene og ikke kun den første av de.
                 var isMatch = getCarMatch(i, numOfPorts, obj);
                 if(isMatch){
                     addMarker(i, obj);
                 }
             }else{
+                var conns = new Array();
+                for(var c = 1; c <= numOfPorts; c++){
+                    try{
+                        conns.push(obj.chargerstations[i].attr.conn[c][4]);
+                    }catch(e){}
+                }
+                connectors = conns.concat(conns);
                 //Adding all charging stations
                 addMarker(i, obj);
             }
@@ -127,13 +134,13 @@ function getCarMatch(index, portCount, object){
             //if(!isMatch && connType.indexOf(typeIDs[document.getElementById("select_port").value]) >= 0)// == typeID)
             if(!match && ($.inArray(connType, carModel)>0)){
                 match = true; //trans
-                connectorArray[connectorArray.length-1] = object.chargerstations[index].attr.conn[c][4].trans;
+                connectorArray.push(object.chargerstations[index].attr.conn[c][4]);
             }
         }catch(e){}
     }
 
     if(match){
-        connectors = connectorArray;
+        connectors = connectorArray.concat(connectorArray);
     }
     return match;
 }
@@ -149,7 +156,8 @@ function getMatchConnectorType(index, portCount, object){
             connType = object.chargerstations[index].attr.conn[c][4].trans;//.attrvalid;//Getting one of the connectors ID
             if(!match && connType.indexOf(typeIDs[document.getElementById("select_port").value]) >= 0){// == typeID)
                 match = true; //trans
-                connectorArray[connectorArray.length-1] = object.chargerstations[index].attr.conn[c][4];
+                connectorArray[connectorArray.length-1] = object.chargerstations[index].attr.conn[c][4].trans;
+                console.log('index: ' + connectorArray.length-1 + ' trans: ' + object.chargerstations[index].attr.conn[c][4].trans);
             }
         }catch(e){}
     }
@@ -169,6 +177,12 @@ function addMarker(index, object){
     });
 
     //Showing a info windows when you click on the marker
+    var connectorsString = '<ol class="sub-item">';
+    for(var i = 0; i <connectors.length; i++){
+        connectorsString += "<li style=\'color:black;\'>"+ connectors[i].trans + "</li>";
+    }
+    connectorsString += "</ol>";
+
     var contentString =
         "<div id=\"station-tooltip\">"+
             "<div class='float-left'>" +
@@ -176,13 +190,16 @@ function addMarker(index, object){
             "</div>"+
             "<div class='float-right'>" +
                 "<h3>"+ object.chargerstations[index].csmd.name +"</h3>" +
-                "<p>Kontakt info: "+ object.chargerstations[index].csmd.Contact_info+"</p>" +
-                "<p>Adresse: "+ object.chargerstations[index].csmd.Street +" " + object.chargerstations[index].csmd.House_number +"</p>"+
-                "<p>Beskrivelse: "+ object.chargerstations[index].csmd.description +"</p>" +
-                "<p>Lokasjonsbeskrivelse: "+ object.chargerstations[index].csmd.Description_of_location +"</p>" +
-                "<p>Eier: " + object.chargerstations[index].csmd.Owned_by +"</p>" +
-                "<p>Kommentarer: "+ object.chargerstations[index].csmd.User_comment+"</p>" +
-                "<p>Ladepunkter: "+ connectors[0]+"</p>" +
+                "<p><strong>Kontakt info:</strong> "+ object.chargerstations[index].csmd.Contact_info+"</p>" +
+                "<p><strong>Adresse:</strong> "+ object.chargerstations[index].csmd.Street +" " + object.chargerstations[index].csmd.House_number +"</p>"+
+                "<p><strong>Beskrivelse:</strong> "+ object.chargerstations[index].csmd.description +"</p>" +
+                "<p><strong>Lokasjonsbeskrivelse:</strong> "+ object.chargerstations[index].csmd.Description_of_location +"</p>" +
+                "<p><strong>Eier:</strong> " + object.chargerstations[index].csmd.Owned_by +"</p>" +
+                "<p><strong>Kommentarer:</strong> "+ object.chargerstations[index].csmd.User_comment+"</p>" +
+                "<p><strong>Ladepunkter:</strong> "+ connectors.length+" <button onclick='readMore(this, true)'>vis</button></p>" +
+                "<div class=\"read-more\"> "+
+                    connectorsString +
+                "</div>" +
             "</div>"+
             "<button onclick='addWaypoint(" + pos[0] + "," + pos[1] + ",/" + object.chargerstations[index].csmd.name + "/)'>Legg til i rute</button>" +
         "</div>";
@@ -196,6 +213,7 @@ function addMarker(index, object){
     marker.addListener('click', function() {
         infowindow.open(map, marker);
     });
+
     markers.push(marker);
 }
 

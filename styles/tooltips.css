@@ -21,3 +21,9 @@ div#station-tooltip div.float-right{
 div#station-tooltip button{
     clear:both;
 }
+.read-more{
+    display:none;
+}
+.read-more.toggle{
+    display:block;
+}

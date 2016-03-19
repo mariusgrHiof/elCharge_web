@@ -28,3 +28,29 @@ $(function(){
         }
     );
 });
+
+function readMore(event, parent){
+    if(parent){
+        var parent = $(event).parent();
+        var element = $(parent).next().filter('.read-more');
+        if(!$(element).hasClass('toggle')){
+            $(event).text('skjul');
+            console.log(event);
+            $(element).addClass('toggle');
+        }else{
+            $(event).text("vis");
+            $(element).removeClass('toggle');
+        }
+    }else{
+        var element = $(event).next().filter('.read-more');
+        if(!$(element).hasClass('toggle')){
+            $(event).text('skjul');
+            console.log(event);
+            $(element).addClass('toggle');
+        }else{
+            $(event).text("vis");
+            $(element).removeClass('toggle');
+        }
+    }
+
+}
