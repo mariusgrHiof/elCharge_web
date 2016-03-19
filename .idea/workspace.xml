@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/icons/icon_v2.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/icons/marker-icon.svg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/addStations.js" afterPath="$PROJECT_DIR$/js/addStations.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/googlemaps.js" afterPath="$PROJECT_DIR$/js/googlemaps.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/footer.css" afterPath="$PROJECT_DIR$/styles/footer.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/menu.css" afterPath="$PROJECT_DIR$/styles/menu.css" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,7 +24,18 @@
     <favorites_list name="elCharge_web" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="footer.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/styles/footer.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -265,7 +271,7 @@
       <workItem from="1458324606692" duration="146000" />
       <workItem from="1458335325447" duration="1318000" />
       <workItem from="1458347739918" duration="25000" />
-      <workItem from="1458391968146" duration="13771000" />
+      <workItem from="1458391968146" duration="13814000" />
     </task>
     <task id="LOCAL-00001" summary="mindre endringer">
       <created>1457349056343</created>
@@ -540,17 +546,24 @@
       <option name="project" value="LOCAL" />
       <updated>1458405548713</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="lagt inn logo osv">
+      <created>1458407613156</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1458407613156</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19271000" />
+    <option name="totallyTimeSpent" value="19314000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15052083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15052083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -582,7 +595,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="menu changes" />
     <MESSAGE value="kart skal funke sånn ca på mobil nå" />
     <MESSAGE value="terrain map is now the default map type + added an option to change the map type." />
     <MESSAGE value="Map layers -&gt; Trafic layer" />
@@ -607,7 +619,8 @@
     <MESSAGE value="- Det er nå egen php fil for å legge inn css filer i dokumentet (gjør alle om til en css fil istedenfor at det er lenket til mange i html filen)&#10;- Det er også laget en php fil som inserter js tags inn i index dokumentet. Slik at vi slepper å skrive &lt;script src=&quot;&quot;&gt;&lt;/script&gt; hver gang vi skal legge inn ett script. Vi kan nå heller skrive addJS('fil');" />
     <MESSAGE value="litt mer rydding i kode" />
     <MESSAGE value="Vis mer knapp på ladestasjon tooltip for å vise hvilke ladertype hver enkelt laderport er." />
-    <option name="LAST_COMMIT_MESSAGE" value="Vis mer knapp på ladestasjon tooltip for å vise hvilke ladertype hver enkelt laderport er." />
+    <MESSAGE value="lagt inn logo osv" />
+    <option name="LAST_COMMIT_MESSAGE" value="lagt inn logo osv" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -982,18 +995,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/styles/footer.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/footer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
           <folding />
         </state>
       </provider>
