@@ -18,14 +18,8 @@ include 'ReadStuff.php';
     <title>elCharge - ladekart for elbiler</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <!--<link rel ="stylesheet" type="text/css" href="styles/bootstrap.min.css"/>-->
-    <link rel="stylesheet" type="text/css" href="styles/menu.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/footer.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/maps.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/popup.css">
-    <link rel="stylesheet" type="text/css" href="styles/tooltips.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/all.php"/>
     <script src="js/jQuery-min.js"></script>
-    <script src="js/bootstrap.min.js"/>
     <script>
         //TODO: REMEMBER TO REMOVE!
         /*
@@ -55,22 +49,10 @@ include 'ReadStuff.php';
     </p>
 </div>
 
-<script>
-    <?php
-        //TODO: Fix it so that it works to just include the file the normal way.
-        //including the content of the googlemaps javascript file
-        include 'js/googlemaps.js'
-    ?>
-</script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8&callback=initMap&sensors=true"
-        async defer></script>
-<script src="js/login.js"></script>
-<script src="js/addStations.js"></script>
-<script src="js/maplayers.js"></script>
-<script src="js/navigation.js"></script>
-<script src="js/dropdown.js"></script>
-
-<?php include 'includes/footer.php'?>
+<?php
+    include 'includes/footer.php';
+    //placing all our scripts into the document
+    include 'includes/scripts.php';
+?>
 </body>
 </html>
