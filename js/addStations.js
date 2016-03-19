@@ -84,6 +84,7 @@ function readJsonFile(callback){
  console.log(data);
  });
  */
+//Filter for gratis, hurtigladere og offentlige ladere
 function updateCarList(){
     //Adding elements to the car list dropdown
     for(car in carModels){
@@ -204,4 +205,7 @@ function addWaypoint(lat, lon, name){
     waypoints.push({location: lat + "," + lon});
     document.getElementById('waypoint-list').innerHTML += "<p>" + name +"</p>";
     console.log(lat + "," + lon);
+    if($('#nav-start-pos').val() != null && $('#nav-end-pos').val() != null){
+        navigate();
+    }
 }
