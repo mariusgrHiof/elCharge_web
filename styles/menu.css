@@ -120,6 +120,9 @@ select{
 .cover-twothird{
     width:66%;
 }
+.cover-twothird input{
+    width:100%;
+}
 /*
     Search
 */

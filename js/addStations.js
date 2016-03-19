@@ -203,9 +203,27 @@ function addWaypoint(lat, lon, name){
     //var parent = btn.target.parentNode;
     //parent.innerHTML.getElementsByClassName();
     waypoints.push({location: lat + "," + lon});
-    document.getElementById('waypoint-list').innerHTML += "<p>" + name +"</p>";
-    console.log(lat + "," + lon);
-    if($('#nav-start-pos').val() != null && $('#nav-end-pos').val() != null){
+    document.getElementById('waypoint-list').innerHTML += "<p>" + name +"<button onclick=\"removeWaypoint(this)\">X</button></p>";
+
+    //Refreshing the route if it's active
+    if($('#nav-start-pos').val() != "" && $('#nav-end-pos').val() != ""){
+        navigate();
+    }
+}
+
+function removeWaypoint(element){
+    var parent = $(element).parent();
+    var index = $(parent).index();
+
+    //Removing the waypoint from the html
+    $(parent).remove();
+    //Removing elements from waypoints and moving the other elements down in the array.
+    if(index > -1){
+        waypoints.splice(index, 1);
+    }
+
+    //Refreshing the route if it's active
+    if($('#nav-start-pos').val() != "" && $('#nav-end-pos').val() != ""){
         navigate();
     }
 }
