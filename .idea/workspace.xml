@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/includes/menu-items/filter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/includes/menu-items/overlay.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/includes/menu-items/route.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/styles/mobile.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/styles/tablet.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/header.php" afterPath="$PROJECT_DIR$/includes/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/menu.php" afterPath="$PROJECT_DIR$/includes/menu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/navigation.js" afterPath="$PROJECT_DIR$/js/navigation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/all.php" afterPath="$PROJECT_DIR$/styles/all.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/footer.css" afterPath="$PROJECT_DIR$/styles/footer.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/menu.css" afterPath="$PROJECT_DIR$/styles/menu.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/addStations.js" afterPath="$PROJECT_DIR$/js/addStations.js" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,65 +25,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/addStations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="31" selection-end-column="53" />
+            <state relative-caret-position="450">
+              <caret line="209" column="41" selection-start-line="209" selection-start-column="41" selection-end-line="209" selection-end-column="41" />
               <folding>
-                <marker date="1458482136000" expanded="true" signature="7319:7331" placeholder="..." />
+                <marker date="1458488508000" expanded="true" signature="7319:7331" placeholder="..." />
+                <marker date="1458488508000" expanded="true" signature="7880:9586" placeholder="..." />
+                <marker date="1458488508000" expanded="true" signature="7920:8169" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="maplayers.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/maplayers.js">
+      <file leaf-file-name="exampleObject.json.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/exampleObject.json.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="103" selection-start-line="16" selection-start-column="103" selection-end-line="16" selection-end-column="103" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/includes/menu.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/styles/menu.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="91" column="2" selection-start-line="91" selection-start-column="2" selection-end-line="91" selection-end-column="2" />
-              <folding>
-                <element signature="e#1525#1544#0" expanded="false" />
-                <element signature="e#1557#1575#0" expanded="false" />
-                <element signature="e#1591#1609#0" expanded="false" />
-                <element signature="e#1631#1650#0" expanded="false" />
-                <element signature="e#1711#1844#0" expanded="false" />
-                <element signature="e#1867#1889#0" expanded="false" />
-                <element signature="e#1909#2146#0" expanded="false" />
-                <element signature="e#2173#2413#0" expanded="false" />
-                <element signature="e#2465#2499#0" expanded="false" />
-                <element signature="e#2610#2640#0" expanded="false" />
-                <element signature="e#2699#2718#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+            <state relative-caret-position="540">
+              <caret line="82" column="51" selection-start-line="82" selection-start-column="42" selection-end-line="82" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -137,7 +86,6 @@
         <option value="$PROJECT_DIR$/includes/scripts.php" />
         <option value="$PROJECT_DIR$/js/buttons.js" />
         <option value="$PROJECT_DIR$/js/maplayers.js" />
-        <option value="$PROJECT_DIR$/js/addStations.js" />
         <option value="$PROJECT_DIR$/js/navigation.js" />
         <option value="$PROJECT_DIR$/styles/tablet.js" />
         <option value="$PROJECT_DIR$/styles/all.php" />
@@ -151,6 +99,7 @@
         <option value="$PROJECT_DIR$/includes/menu/overlay.php" />
         <option value="$PROJECT_DIR$/includes/menu/route.php" />
         <option value="$PROJECT_DIR$/includes/menu.php" />
+        <option value="$PROJECT_DIR$/js/addStations.js" />
       </list>
     </option>
   </component>
@@ -222,7 +171,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="includes" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -334,7 +283,7 @@
       <workItem from="1458391968146" duration="13828000" />
       <workItem from="1458407965206" duration="279000" />
       <workItem from="1458425925198" duration="1985000" />
-      <workItem from="1458478385059" duration="8517000" />
+      <workItem from="1458478385059" duration="9874000" />
     </task>
     <task id="LOCAL-00001" summary="mindre endringer">
       <created>1457349056343</created>
@@ -658,11 +607,18 @@
       <option name="project" value="LOCAL" />
       <updated>1458482611044</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="fiksing av layout + delt opp menyen i flere php filer som inkluderes i hoved menu.php filen.">
+      <created>1458487195862</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1458487195862</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30109000" />
+    <option name="totallyTimeSpent" value="31466000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -700,7 +656,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="endringer til footer + overflow til rute info" />
     <MESSAGE value="la til google maps api javascript filen slik at vi ikke famler like mye i blinde." />
     <MESSAGE value="fikset navigasjon fra A til B. Ikke noen mellompunkter enda." />
     <MESSAGE value="mindre endringer til menu.php og css" />
@@ -725,7 +680,8 @@
     <MESSAGE value="urls" />
     <MESSAGE value="Flip switch på det som bør være brytere er lagt til (Altså, de er ikke lenger knapper)." />
     <MESSAGE value="Mobilversjon:&#10;- Menyen går ikke lenger utenfor &quot;skjermen&quot; om den blir lenger en skjermen er høy. Overlow fungerer nå som den skal, slik at det blir scrollbart isteden." />
-    <option name="LAST_COMMIT_MESSAGE" value="Mobilversjon:&#10;- Menyen går ikke lenger utenfor &quot;skjermen&quot; om den blir lenger en skjermen er høy. Overlow fungerer nå som den skal, slik at det blir scrollbart isteden." />
+    <MESSAGE value="fiksing av layout + delt opp menyen i flere php filer som inkluderes i hoved menu.php filen." />
+    <option name="LAST_COMMIT_MESSAGE" value="fiksing av layout + delt opp menyen i flere php filer som inkluderes i hoved menu.php filen." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -961,14 +917,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/exampleObject.json.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="77" column="13" selection-start-line="77" selection-start-column="13" selection-end-line="88" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/npm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -989,22 +937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
           <caret line="66" column="29" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/maplayers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="103" selection-start-line="16" selection-start-column="103" selection-end-line="16" selection-end-column="103" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/navigation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="60" column="4" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -1054,16 +986,6 @@
         <state relative-caret-position="210">
           <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/addStations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="31" selection-end-column="53" />
-          <folding>
-            <marker date="1458482136000" expanded="true" signature="7319:7331" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1121,9 +1043,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/menu.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
+        <state relative-caret-position="270">
           <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/maplayers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="103" selection-start-line="16" selection-start-column="103" selection-end-line="16" selection-end-column="103" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/navigation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/exampleObject.json.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="82" column="51" selection-start-line="82" selection-start-column="42" selection-end-line="82" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/addStations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="209" column="41" selection-start-line="209" selection-start-column="41" selection-end-line="209" selection-end-column="41" />
+          <folding>
+            <marker date="1458488508000" expanded="true" signature="7319:7331" placeholder="..." />
+            <marker date="1458488508000" expanded="true" signature="7880:9586" placeholder="..." />
+            <marker date="1458488508000" expanded="true" signature="7920:8169" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -196,13 +196,20 @@ function addMarker(index, object){
     //var latlng = new Array();//{lat:  lng: };
     //latlng.push();
     //getElevation(new google.maps.LatLng(parseFloat(pos[0]), parseFloat(pos[1])))
+    if(parseInt(object.chargerstations[index].attr.st[21].attrvalid) == 1){
+        console.log('Live!');
+    }
+    if(/kommer/i.test(object.chargerstations[index].csmd.Image.toLowerCase())){
+        console.log(object.chargerstations[index].csmd.Image);
+    }
     var contentString =
         "<div id=\"station-tooltip\">"+
             "<div class='float-left'>" +
-                "<img src=\"http://www.nobil.no/img/ladestasjonbilder/"+ object.chargerstations[index].csmd.Image +"\"/>" +
+                "<img src=\"" + (/kommer/i.test(object.chargerstations[index].csmd.Image.toLowerCase())? 'icons/icon_v2.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ object.chargerstations[index].csmd.Image) + "\"/>" +
             "</div>"+
             "<div class='float-right'>" +
                 "<h3>"+ object.chargerstations[index].csmd.name +"</h3>" +
+                "<p><strong>Real-time: </strong> " + (parseInt(object.chargerstations[index].attr.st[21].attrvalid) == 1 ? 'Ja': 'Nei') +"</p>" +
                 "<p><strong>Kontakt info:</strong> "+ object.chargerstations[index].csmd.Contact_info+"</p>" +
                 "<p><strong>Adresse:</strong> "+ object.chargerstations[index].csmd.Street +" " + object.chargerstations[index].csmd.House_number +"</p>"+
                 "<p><strong>Beskrivelse:</strong> "+ object.chargerstations[index].csmd.description +"</p>" +
