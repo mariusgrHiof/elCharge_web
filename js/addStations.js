@@ -200,7 +200,7 @@ function addMarker(index, object){
         console.log('Live!');
     }
     if(/kommer/i.test(object.chargerstations[index].csmd.Image.toLowerCase())){
-        console.log(object.chargerstations[index].csmd.Image);
+        //console.log(object.chargerstations[index].csmd.Image);
     }
     var contentString =
         "<div id=\"station-tooltip\">"+

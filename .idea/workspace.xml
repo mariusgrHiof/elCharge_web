@@ -28,12 +28,12 @@
       <file leaf-file-name="addStations.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/addStations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="209" column="41" selection-start-line="209" selection-start-column="41" selection-end-line="209" selection-end-column="41" />
+            <state relative-caret-position="345">
+              <caret line="202" column="10" selection-start-line="202" selection-start-column="10" selection-end-line="202" selection-end-column="10" />
               <folding>
-                <marker date="1458488508000" expanded="true" signature="7319:7331" placeholder="..." />
-                <marker date="1458488508000" expanded="true" signature="7880:9586" placeholder="..." />
-                <marker date="1458488508000" expanded="true" signature="7920:8169" placeholder="..." />
+                <marker date="1458488582000" expanded="true" signature="7319:7331" placeholder="..." />
+                <marker date="1458488582000" expanded="true" signature="7882:9588" placeholder="..." />
+                <marker date="1458488582000" expanded="true" signature="7922:8171" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -283,7 +283,7 @@
       <workItem from="1458391968146" duration="13828000" />
       <workItem from="1458407965206" duration="279000" />
       <workItem from="1458425925198" duration="1985000" />
-      <workItem from="1458478385059" duration="9874000" />
+      <workItem from="1458478385059" duration="9936000" />
     </task>
     <task id="LOCAL-00001" summary="mindre endringer">
       <created>1457349056343</created>
@@ -614,11 +614,18 @@
       <option name="project" value="LOCAL" />
       <updated>1458487195862</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Hvis det ikke er noe bilde på en ladestasjon, blir elcharge logoen vist isteden.">
+      <created>1458488548679</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1458488548679</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31466000" />
+    <option name="totallyTimeSpent" value="31528000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -656,7 +663,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="la til google maps api javascript filen slik at vi ikke famler like mye i blinde." />
     <MESSAGE value="fikset navigasjon fra A til B. Ikke noen mellompunkter enda." />
     <MESSAGE value="mindre endringer til menu.php og css" />
     <MESSAGE value="lagt inn bootstrap" />
@@ -681,7 +687,8 @@
     <MESSAGE value="Flip switch på det som bør være brytere er lagt til (Altså, de er ikke lenger knapper)." />
     <MESSAGE value="Mobilversjon:&#10;- Menyen går ikke lenger utenfor &quot;skjermen&quot; om den blir lenger en skjermen er høy. Overlow fungerer nå som den skal, slik at det blir scrollbart isteden." />
     <MESSAGE value="fiksing av layout + delt opp menyen i flere php filer som inkluderes i hoved menu.php filen." />
-    <option name="LAST_COMMIT_MESSAGE" value="fiksing av layout + delt opp menyen i flere php filer som inkluderes i hoved menu.php filen." />
+    <MESSAGE value="Hvis det ikke er noe bilde på en ladestasjon, blir elcharge logoen vist isteden." />
+    <option name="LAST_COMMIT_MESSAGE" value="Hvis det ikke er noe bilde på en ladestasjon, blir elcharge logoen vist isteden." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1075,12 +1082,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/addStations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="209" column="41" selection-start-line="209" selection-start-column="41" selection-end-line="209" selection-end-column="41" />
+        <state relative-caret-position="345">
+          <caret line="202" column="10" selection-start-line="202" selection-start-column="10" selection-end-line="202" selection-end-column="10" />
           <folding>
-            <marker date="1458488508000" expanded="true" signature="7319:7331" placeholder="..." />
-            <marker date="1458488508000" expanded="true" signature="7880:9586" placeholder="..." />
-            <marker date="1458488508000" expanded="true" signature="7920:8169" placeholder="..." />
+            <marker date="1458488582000" expanded="true" signature="7319:7331" placeholder="..." />
+            <marker date="1458488582000" expanded="true" signature="7882:9588" placeholder="..." />
+            <marker date="1458488582000" expanded="true" signature="7922:8171" placeholder="..." />
           </folding>
         </state>
       </provider>
