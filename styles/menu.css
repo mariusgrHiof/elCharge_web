@@ -60,7 +60,7 @@ nav ul li ul.sub-item{
 header.toggle nav{
     display:block;
     overflow:auto;
-    max-height:90%;
+    max-height:85%;
 }
 header.toggle{
     height:100%;
