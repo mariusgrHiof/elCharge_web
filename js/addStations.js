@@ -202,7 +202,7 @@ function addMarker(index, object){
                 "<img src=\"http://www.nobil.no/img/ladestasjonbilder/"+ object.chargerstations[index].csmd.Image +"\"/>" +
             "</div>"+
             "<div class='float-right'>" +
-                "<h3>"+ object.chargerstations[index].csmd.name + "("  +" M.O.H)</h3>" +
+                "<h3>"+ object.chargerstations[index].csmd.name +"</h3>" +
                 "<p><strong>Kontakt info:</strong> "+ object.chargerstations[index].csmd.Contact_info+"</p>" +
                 "<p><strong>Adresse:</strong> "+ object.chargerstations[index].csmd.Street +" " + object.chargerstations[index].csmd.House_number +"</p>"+
                 "<p><strong>Beskrivelse:</strong> "+ object.chargerstations[index].csmd.description +"</p>" +
