@@ -1,3 +1,6 @@
+/**
+ * Dropdown menus
+ */
 function dropdown(event, parent){
     if(parent){
         var parent = $(event).parent().parent();
@@ -54,3 +57,16 @@ function readMore(event, parent){
     }
 
 }
+
+/**
+ * Input listeners
+ */
+$('input[type=checkbox].onoffswitch-checkbox').change(
+    function(){
+        if($(this).attr('id') == 'traffic-layer')
+            trafficOverlay();
+        if($(this).attr('id') == 'weather-layer')
+            weatherOverlay();
+        if($(this).attr('id') == 'cloud-layer')
+            cloudOverlay();
+    });

@@ -6,7 +6,7 @@ addJS('js/addStations.js');
 addJS('js/addStations.js');
 addJS('js/maplayers.js');
 addJS('js/navigation.js');
-addJS('js/dropdown.js');
+addJS('js/buttons.js');
 addJS('js/elevation.js');
 
 //Script for adding scripts to the html

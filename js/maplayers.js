@@ -14,7 +14,7 @@ function trafficOverlay(){
         trafficLayer.setMap(map);
         trafficLayerIsActive = true;
     }
-    document.getElementById('traffic-button').innerHTML = (trafficLayerIsActive? "av":"på");
+    $("input[type=checkbox].onoffswitch-checkbox#traffic-layer").attr("checked", trafficLayerIsActive);
 }
 
 /**
@@ -34,7 +34,7 @@ function weatherOverlay(){
             weatherLayer.setMap(map);
         }
     }*/
-    document.getElementById('weather-button').innerHTML = (weatherIsActive? "av":"på");
+    $("input[type=checkbox].onoffswitch-checkbox#weather-layer").attr("checked", weatherIsActive);
 }
 
 /**
@@ -52,5 +52,5 @@ function cloudOverlay(){
     }else{
         cloudLayer.setMap(map);
     }*/
-    document.getElementById('cloud-button').innerHTML = (cloudsIsActive? "av":"på");
+    $("input[type=checkbox].onoffswitch-checkbox#cloud-layer").attr("checked", cloudsIsActive);
 }
