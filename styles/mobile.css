@@ -1,0 +1,18 @@
+/*Mobile layout*/
+@media screen and (max-width:600px){
+    header{
+        width:100%;
+        min-width:100%;
+        max-width:100%;
+    }
+    header.toggle{
+        height:100%;
+        max-height:100%;
+    }
+
+    footer{
+        width:100%;
+        left:0;
+        bottom:0;
+    }
+}

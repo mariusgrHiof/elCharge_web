@@ -18,6 +18,9 @@
             <button class="show-login"> Logg inn </button>
         </div>
     </div>
-    <?php include 'menu.php'?>
+    <?php
+    include 'menu.php';
+    include 'includes/footer.php';
+    ?>
 
 </header>

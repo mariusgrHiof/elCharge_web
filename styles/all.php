@@ -13,6 +13,8 @@ header('Cache-control: must-revalidate');
 include 'menu.css';
 include 'maps.css';
 include 'footer.css';
+include 'tablet.css';
+include 'mobile.css';
 include 'popup.css';
 include 'tooltips.css';
 ?>

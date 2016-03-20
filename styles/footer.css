@@ -1,20 +1,15 @@
 footer{
+    display:none;
+}
+header.toggle footer{
+    display:block;
     z-index: 99;
-    position:fixed;
+    position:absolute;
     background: #2a3392;
-    width:20%;
+    /*width:20%;*/
     bottom:0;
-    left:40%;
+    /*left:40%;*/
 }
 footer a{
     color:white;
-}
-
-/*Mobile*/
-@media screen and (max-width:600px){
-    footer{
-        width:100%;
-        left:0;
-        bottom:0;
-    }
 }

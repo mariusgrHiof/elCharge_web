@@ -58,6 +58,6 @@ function computeTotalDistance(result) {
     for (var i = 0; i < myroute.legs.length; i++) {
         total += myroute.legs[i].distance.value;
     }
-    //total = total / 1000;
-    //document.getElementById('total').innerHTML = total + ' km';
+    total = total / 1000;
+    document.getElementById('total').innerHTML = total + ' km';
 }

@@ -53,7 +53,6 @@ include 'includes/header.php';
 </div>
 
 <?php
-    include 'includes/footer.php';
     //placing all our scripts into the document
     include 'includes/scripts.php';
 ?>
