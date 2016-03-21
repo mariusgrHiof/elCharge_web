@@ -7,5 +7,5 @@
  */
 ?>
 <footer>
-    <a href="http://frigg.hiof.no/bo16-g6">Bachelor gruppe 6 våren 2016 - Høgskolen i Østfold</a>
+    <a href="http://frigg.hiof.no/bo16-g6">Bachelor gruppe 6 våren 2016 - HIOF</a>
 </footer>
