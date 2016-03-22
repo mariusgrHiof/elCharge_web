@@ -4,7 +4,6 @@
 var map;
 var markers = [];
 
-
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 59.91673, lng: 10.74782},
@@ -27,7 +26,6 @@ function initMap() {
     });
     //Setting default map layer type to terrain
     map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
-
     elevationService = new google.maps.ElevationService;
 
     updateCarList();
@@ -48,6 +46,11 @@ function initMap() {
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
         });
+        //Showing current user location
+        /**TODO: Fix! -> var GeoMarker = new GeolocationMarker(map);
+         * url: https://chadkillingsworth.github.io/geolocation-marker/
+         * alt url: https://toddmotto.com/using-html5-geolocation-to-show-current-location-with-google-maps-api/
+         */
     } else {
         // If the browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());

@@ -69,7 +69,28 @@ carModels['VW e-up!'] = schuko.concat(schuko, type1, type2);
 
 var carModel = new Array();
 
+/*
+ * Charging capacity
+ * name, current, kw, v, max a
+ * http://nobil.no/admin/attributes.php
+ */
+var chargingCapacity =[
+    {'id':0,'name':'Unspecified','current':'ukjent', 'watt':0, 'volt':0, 'ampere':0},
+    {'id':1,'name':'Battery exchange','current':'ukjent', 'watt':0, 'volt':0, 'ampere':0},
+    {'id':7, 'name':'3,6 kW - 230V 1-phase max 16A','current':'AC', 'kW':3.6, 'volt':230, 'ampere':16},
+    {'id':8, 'name':'7,4 kW - 230V 1-phase max 32A','current':'AC', 'kW':7.4, 'volt':230, 'ampere':32},
+    {'id':10, 'name':'11 kW - 400V 3-phase max 16A','current':'AC', 'kW':11, 'volt':400, 'ampere':16},
+    {'id':11, 'name':'22 kW - 400V 3-phase max 32A','current':'AC', 'kW':22, 'volt':400, 'ampere':22}
+];
+
+
 var connectors = new Array();
+
+
+/**
+ *
+ * @param callback
+ */
 
 function readJsonFile(callback){
     // Gotten from: http://stackoverflow.com/questions/19706046/how-to-read-an-external-local-json-file-in-javascript
@@ -117,7 +138,7 @@ function generateMarkers(){
                 var conns = new Array();
                 for(var c = 1; c <= numOfPorts; c++){
                     try{
-                        conns.push(obj.chargerstations[i].attr.conn[c][4]);
+                        conns.push(obj.chargerstations[i].attr.conn[c]);
                     }catch(e){}
                 }
                 connectors = conns.concat(conns);
@@ -141,7 +162,7 @@ function getCarMatch(index, portCount, object){
             //if(!isMatch && connType.indexOf(typeIDs[document.getElementById("select_port").value]) >= 0)// == typeID)
             if(!match && ($.inArray(connType, carModel)>0)){
                 match = true; //trans
-                connectorArray.push(object.chargerstations[index].attr.conn[c][4]);
+                connectorArray.push(object.chargerstations[index].attr.conn[c]);
             }
         }catch(e){}
     }
@@ -163,7 +184,7 @@ function getMatchConnectorType(index, portCount, object){
             connType = object.chargerstations[index].attr.conn[c][4].trans;//.attrvalid;//Getting one of the connectors ID
             if(!match && connType.indexOf(typeIDs[document.getElementById("select_port").value]) >= 0){// == typeID)
                 match = true; //trans
-                connectorArray[connectorArray.length-1] = object.chargerstations[index].attr.conn[c][4].trans;
+                connectorArray[connectorArray.length-1] = object.chargerstations[index].attr.conn[c];
                 console.log('index: ' + connectorArray.length-1 + ' trans: ' + object.chargerstations[index].attr.conn[c][4].trans);
             }
         }catch(e){}
@@ -190,18 +211,22 @@ function addMarker(index, object){
     //Showing a info windows when you click on the marker
     var connectorsString = '<ol class="sub-item">';
     for(var i = 0; i <connectors.length; i++){
-        connectorsString += "<li style=\'color:black;\'>"+ connectors[i].trans + "</li>";
+
+        try{//Could be one single string.. I know
+            connectorsString += "<li style=\'color:black;\'>";
+            connectorsString += connectors[i][4].trans;
+            connectorsString += " " + connectors[i][5].trans;
+            connectorsString += "</li>";
+        }catch(e){
+            console.log('Failed to build connectorsString for ' + object.chargerstations[index].csmd.name);
+        }
+
     }
     connectorsString += "</ol>";
     //var latlng = new Array();//{lat:  lng: };
     //latlng.push();
     //getElevation(new google.maps.LatLng(parseFloat(pos[0]), parseFloat(pos[1])))
-    if(parseInt(object.chargerstations[index].attr.st[21].attrvalid) == 1){
-        console.log('Live!');
-    }
-    if(/kommer/i.test(object.chargerstations[index].csmd.Image.toLowerCase())){
-        //console.log(object.chargerstations[index].csmd.Image);
-    }
+
     var contentString =
         "<div id=\"station-tooltip\">"+
             "<div class='float-left'>" +
@@ -225,9 +250,12 @@ function addMarker(index, object){
         "</div>";
     //object.chargerstations[index].csmd.name;
 
-
+    var maxWidth = (isMobile?200:400);
+    var maxHeight = (isMobile?200:400);
     var infowindow = new google.maps.InfoWindow({
-        content: contentString
+        content: contentString,
+        maxWidth: maxWidth,
+        maxHeight: maxHeight
     });
 
     marker.addListener('click', function() {
