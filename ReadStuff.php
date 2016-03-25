@@ -12,22 +12,5 @@ if(!file_exists($fileName)){
     file_put_contents($fileName, fopen($url, 'r'));
 }
 
-/*
-<html>
-<!DOCTYPE html>
-<head>
-    <title>Test</title>
-    <script src="js/stations.js"/>
-    <script>
-
-    </script>
-</head>
-<body>
-    <?php
-        include $fileName;
-    ?>
-</body>
-</html>*/
 ?>
-
 
