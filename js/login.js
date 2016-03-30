@@ -3,10 +3,11 @@
 $(document).ready(function(){
 
     //Show login popup
-    $('#login_popup').hide();
-    $('#register_popup').hide();
+    //$('#login_popup').hide();
+    //$('#register_popup').hide();
 
     $('.show-login').click(function(){
+
         showLoginPopup();
 
     });
@@ -23,18 +24,13 @@ $(document).ready(function(){
 
 //Shows the login form
 function showLoginPopup(){
-    var flag = false;
+
     //TODO: Fikse sånn at det er kun slidedown når knappen blir trykket
 
-    if(flag === true){
-        $('#login_popup').show();
-    }
-    else{
-        $('#login_popup').slideDown();
-    }
 
-   flag = true;
-    $('#register_popup').fadeOut();
+        $('div #login_popup').show();
+
+
 
 }
 
