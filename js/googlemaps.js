@@ -55,8 +55,8 @@ function initMap() {
         // If the browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
     }
-    //Adding markers
-    generateMarkers();
+    //Downloading station data
+    downloadDump();
 }
 
 // Sets the map on all markers in the array.

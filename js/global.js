@@ -5,6 +5,9 @@
  * Global variables
  */
 var isMobile = false;
+var hasDownloaded = false;
+
+var jsonData = {};
 
 var typeIDs = new Array();
 typeIDs['0'] = "Unspecified";
@@ -109,6 +112,11 @@ function downloadDump(){
         data: {},
         success: function(data){
             $('#download-progression').hide();
+            hasDownloaded = true;
+            jsonData = data;
+            console.log(data);
+            //Adding markers
+            generateMarkers();
         }
     });
 }

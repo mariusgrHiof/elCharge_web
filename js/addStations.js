@@ -123,7 +123,7 @@ function updateCarList(){
 
 function generateMarkers(){
     deleteMarkers();
-    downloadDump();
+    /*
     $.getJSON('datadump.json', function ( obj ){
         for(i = 0; i < obj.chargerstations.length; i++){
             var numOfPorts = obj.chargerstations[i].csmd.Number_charging_points;
@@ -149,7 +149,31 @@ function generateMarkers(){
             }
             //TODO: FIX! var mc = new google.maps.MarkerClusterer(map, markers, options);
         }
-    });
+    });*/
+    for(i = 0; i < jsonData.chargerstations.length; i++){
+        var numOfPorts = jsonData.chargerstations[i].csmd.Number_charging_points;
+        //Checking filter
+        if(document.getElementById("select-car").value !=0){
+            carModel = carModels[document.getElementById("select-car").value];
+
+            //TODO: Fiks sånn at vi sjekker begge ladeportene og ikke kun den første av de.
+            var isMatch = getCarMatch(i, numOfPorts, jsonData);
+            if(isMatch){
+                addMarker(i, jsonData);
+            }
+        }else{
+            var conns = new Array();
+            for(var c = 1; c <= numOfPorts; c++){
+                try{
+                    conns.push(jsonData.chargerstations[i].attr.conn[c]);
+                }catch(e){}
+            }
+            connectors = conns.concat(conns);
+            //Adding all charging stations
+            addMarker(i, jsonData);
+        }
+        //TODO: FIX! var mc = new google.maps.MarkerClusterer(map, markers, options);
+    }
 }
 
 function getCarMatch(index, portCount, object){
