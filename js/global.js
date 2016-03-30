@@ -93,9 +93,13 @@ function downloadDump(){
             xhr.addEventListener("progress", function(evt){
                 if (evt.lengthComputable) {
                     var percentComplete = evt.loaded / evt.total;
+                    var downloaded = (evt.loaded/1000000).toFixed(2);
+                    var totalSize = (evt.total/1000000).toFixed(2);
                     //Do something with download progress
-                    $('.dl-progess').text(Math.round(percentComplete * 100) + '%');
+                    $('.dl-progress').text(Math.round(percentComplete * 100) + '%');
                     $('.dl-progressbar').css('width', function (){ return Math.round(percentComplete * 100) + '%'});
+                    $('.dl-progress-text').text(downloaded + '/' + totalSize + 'MB');
+                    console.log(Math.round(percentComplete * 100) + '%');
                 }
             }, false);
             return xhr;

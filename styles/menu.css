@@ -1,7 +1,7 @@
 header{
     z-index: 1;
     position:absolute;
-    background: #2a3392;
+    background: rgb(0, 124, 255);
     width:27em;
 }
 div#title{

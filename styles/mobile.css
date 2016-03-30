@@ -15,4 +15,10 @@
         left:0;
         bottom:0;
     }
+
+    #download-progression{
+        width:100%;
+        height:30%;
+        left:0;
+    }
 }

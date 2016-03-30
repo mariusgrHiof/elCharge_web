@@ -5,7 +5,6 @@ header.toggle footer{
     display:block;
     z-index: 99;
     position:absolute;
-    background: #2a3392;
     /*width:20%;*/
     bottom:0;
     /*left:40%;*/

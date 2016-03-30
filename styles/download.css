@@ -1,6 +1,6 @@
 #download-progression{
     position: fixed;
-    background:#2a3392;
+    background:rgb(0, 124, 255);
     z-index: 4;
     right: 0px;
     border: 3px solid #73AD21;
@@ -11,6 +11,9 @@
     bottom:40%;
 
     display:none;
+}
+#download-progression h3 {
+    text-align:center;
 }
 
 .dl-progressbar-bg{
@@ -30,7 +33,10 @@
 
 .dl-progressbar-bg p{
     z-index:6;
-    margin-top:-2em;
-    width:100%;
+    margin-top:-1.5em;
     align:center;
+    text-align:center;
+}
+.dl-progress-text{
+    text-align:center;
 }
