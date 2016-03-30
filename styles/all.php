@@ -10,6 +10,7 @@ header('Content-type: text/css');
 header('Cache-control: must-revalidate');
 
 //including stylesheets
+include 'download.css';
 include 'menu.css';
 include 'maps.css';
 include 'footer.css';

@@ -120,8 +120,10 @@ function updateCarList(){
     }
 }
 
+
 function generateMarkers(){
     deleteMarkers();
+    downloadDump();
     $.getJSON('datadump.json', function ( obj ){
         for(i = 0; i < obj.chargerstations.length; i++){
             var numOfPorts = obj.chargerstations[i].csmd.Number_charging_points;

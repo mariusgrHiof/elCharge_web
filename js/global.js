@@ -73,3 +73,38 @@ $( document ).ready(function() {
         isMobile = true;
     }
 });
+
+
+function downloadDump(){
+    $.ajax({
+        xhr: function()
+        {
+            $('#download-progression').show();
+            var xhr = new window.XMLHttpRequest();
+            //Upload progress
+            xhr.upload.addEventListener("progress", function(evt){
+                if (evt.lengthComputable) {
+                    var percentComplete = evt.loaded / evt.total;
+                    //Do something with upload progress
+                    console.log(percentComplete);
+                }
+            }, false);
+            //Download progress
+            xhr.addEventListener("progress", function(evt){
+                if (evt.lengthComputable) {
+                    var percentComplete = evt.loaded / evt.total;
+                    //Do something with download progress
+                    $('.dl-progess').text(Math.round(percentComplete * 100) + '%');
+                    $('.dl-progressbar').css('width', function (){ return Math.round(percentComplete * 100) + '%'});
+                }
+            }, false);
+            return xhr;
+        },
+        type: 'POST',
+        url: "datadump.json",
+        data: {},
+        success: function(data){
+            $('#download-progression').hide();
+        }
+    });
+}

@@ -1,0 +1,36 @@
+#download-progression{
+    position: fixed;
+    background:#2a3392;
+    z-index: 4;
+    right: 0px;
+    border: 3px solid #73AD21;
+    padding: 10px;
+
+    width: 20%;
+    left:40%;
+    bottom:40%;
+
+    display:none;
+}
+
+.dl-progressbar-bg{
+    width:80%;
+    height:2em;
+    background:black;
+
+    margin-left:auto;
+    margin-right:auto;
+}
+.dl-progressbar{
+    z-index: 5;
+    background:purple;
+    height:2em;
+    width:0%;
+}
+
+.dl-progressbar-bg p{
+    z-index:6;
+    margin-top:-2em;
+    width:100%;
+    align:center;
+}

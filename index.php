@@ -37,6 +37,7 @@ include 'ReadStuff.php';
 </head>
 <body>
 <?php
+include 'includes/GetDownloadProgress.php';
 include 'includes/login.php';
 //Adding the header & menu elements (Menu is included in the header.php)
 include 'includes/header.php';
