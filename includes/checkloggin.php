@@ -21,7 +21,7 @@
 
     $prepStatment = $conn->prepare("select * from ec_users where username=? and password =?");
 
-    $prepStatment->bind_param("ss", $_POST['username'],$_POST['password']);
+    $prepStatment->bind_param("ss", $_POST['username'],md5($_POST['password']));
 
     $prepStatment->execute();
 

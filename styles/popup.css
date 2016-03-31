@@ -1,4 +1,4 @@
-#login_popup {
+#login-popup {
     position: absolute;
     background: cadetblue;
     padding: 20px;
@@ -11,19 +11,20 @@
     visibility: visible;
     z-index: 999;
     display: none;
+
 }
 
-.login_form {
+.login-form {
     position: relative;
     visibility:hidden;
     margin: 100px;
     margin-right: 250px;
     z-index: 999;
-    display: none;
+
 
 }
 
-#register_popup{
+#register-popup{
     position: absolute;
     background: cadetblue;
     padding: 20px;
@@ -36,6 +37,7 @@
     visibility: visible;
     z-index: 999;
     display: none;
+
 }
 
 @media screen and (max-width:600px){

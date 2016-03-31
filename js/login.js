@@ -6,54 +6,56 @@ $(document).ready(function(){
     //$('#login_popup').hide();
     //$('#register_popup').hide();
 
-    $('.show-login').click(function(){
+    $('#show-login').click(function(){
+
 
         showLoginPopup();
 
     });
 
     //Show register popup
-    $('.show_register').click(function(){
+    $('.show-register').click(function(){
         showRegisterPopup();
     });
+
+    //show login from the registrer form
+    $('.show-login').click(function(){
+        showLoginPopup();
+    });
+
     //Close login and register popup
-    $('.close_form').click(function(){
+    $('.close-form').click(function(){
         closeForm();
     });
 });
 
+
 //Shows the login form
 function showLoginPopup(){
 
-    //TODO: Fikse sånn at det er kun slidedown når knappen blir trykket
-
-
-        $('div #login_popup').show();
-
-
+    $('#register-popup').hide();
+    $('#login-popup').show();
 
 }
 
 //Hides the login form
 function hideLoginPopup(){
 
-    $('#login_popup').fadeOut();
+    $('#login-popup').fadeOut();
 }
 
 
 //Shows the register form
 function showRegisterPopup(){
 
-    $('#login_popup').fadeOut();
-
-    $('#register_popup').show();
+    $('#register-popup').show();
 }
 
 //hides the register form
 function hideRegisterPopup(){
 
 
-    $('#register_popup').fadeOut();
+    $('#register-popup').fadeOut();
 }
 
 function closeForm(){
