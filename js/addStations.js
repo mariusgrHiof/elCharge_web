@@ -243,7 +243,7 @@ function addMarker(index, object){
     var contentString =
         "<div id=\"station-tooltip\">"+
             "<div class='float-left'>" +
-                "<img src=\"" + (/kommer/i.test(object.chargerstations[index].csmd.Image.toLowerCase())? 'icons/icon_v2.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ object.chargerstations[index].csmd.Image) + "\"/>" +
+                "<img src=\"" + (/kommer/i.test(object.chargerstations[index].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ object.chargerstations[index].csmd.Image) + "\"/>" +
             "</div>"+
             "<div class='float-right'>" +
                 "<h3>"+ object.chargerstations[index].csmd.name +"</h3>" +

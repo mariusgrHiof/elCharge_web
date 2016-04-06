@@ -13,7 +13,7 @@ div#title h1{
     float:left;
     margin:0 0 0 0.3em;
     padding-left:1.5em;
-    background:url(../icons/icon_v2.svg) no-repeat;
+    background:url(../icons/logo.svg) no-repeat;
 }
 div#title button{
     width:10%;
@@ -169,6 +169,12 @@ select{
 }
 
 /*
+* Route options
+*/
+.route-options ul li{
+    padding: 0.5em 0 0.5em 0;
+}
+/*
     General
 */
 .clear-both{
@@ -178,3 +184,4 @@ select{
 #right-panel{
     background:white;
 }
+

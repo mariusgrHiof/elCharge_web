@@ -37,12 +37,17 @@ function navigate(){
 }
 
 function displayRoute(origin, destination, service, display) {
+    var avoidTolls = !$('#route-option-tolls').prop('checked');
+    var avoidHighways = !$('#route-option-highways').prop('checked');
+    var provideRouteAlternatives = $('#route-option-alternative-routes').prop('checked');
     service.route({
         origin: origin,
         destination: destination,
         waypoints: waypoints,
         travelMode: google.maps.TravelMode.DRIVING,
-        avoidTolls: false
+        avoidTolls: avoidTolls,
+        avoidHighways: avoidHighways,
+        provideRouteAlternatives: provideRouteAlternatives
     }, function(response, status) {
         if (status === google.maps.DirectionsStatus.OK) {
             display.setDirections(response);
@@ -60,4 +65,8 @@ function computeTotalDistance(result) {
     }
     total = total / 1000;
     document.getElementById('total').innerHTML = total + ' km';
+}
+
+function currentPosMarker(lat, lon){
+
 }
