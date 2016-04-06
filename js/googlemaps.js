@@ -43,6 +43,7 @@ function initMap() {
                 lng: position.coords.longitude
             };
             map.setCenter(pos);
+            currentPosMarker(pos);
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
         });

@@ -1,5 +1,6 @@
 /**
  * Dropdown menus
+ * If we want slide in, check this out: http://stackoverflow.com/questions/521291/jquery-slide-left-and-show
  */
 function dropdown(event, parent){
     if(parent){
