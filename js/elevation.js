@@ -16,15 +16,7 @@ function getElevation(latlng){
     //https://maps.googleapis.com/maps/api/elevation/json?locations=39.7391536,-104.9847034&key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8
 }
 
-function hallabruri(path, elevator, map){
-
-    new google.maps.Polyline({
-        path: path,
-        strokeColor: 'purple',
-        opacity: 0.4,
-        map: map
-
-    });
+function displayPathElevation(path, elevator){
 
     elevator.getElevationAlongPath({
         'path': path,
