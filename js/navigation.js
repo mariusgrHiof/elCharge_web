@@ -35,6 +35,7 @@ function navigate(){
     });
 
     displayRoute(startDestination, endDestination, directionsService,directionsDisplay);
+    console.log("Dirs: " + directionsService.path);
 }
 
 
