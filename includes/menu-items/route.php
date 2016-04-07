@@ -57,5 +57,8 @@
         <div id="total"></div>
         <div id="right-panel" class="clear-both">
         </div>
+        <button class="build-elevation" onclick="hallabruri(path, elevationService, map)">Bygg høydegraf</button>
+        <div id="elevation-chart" class="clear-both">
+        </div>
     </li>
 </ul>
