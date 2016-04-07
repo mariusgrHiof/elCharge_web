@@ -1,5 +1,5 @@
 <?php
-addJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8&callback=initMap&sensors=true&libraries=places,Visualization', true, true);
+addJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8&callback=initMap&sensors=true&libraries=places,visualization', true, true);
 addJS('js/googlemaps.js', false, false);
 addJS('js/login.js', false, false);
 addJS('js/global.js', false, false);
