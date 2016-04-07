@@ -18,4 +18,5 @@ include 'tablet.css';
 include 'mobile.css';
 include 'popup.css';
 include 'tooltips.css';
+include 'colors.css';
 ?>

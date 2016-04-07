@@ -1,6 +1,5 @@
 #login-popup {
     position: absolute;
-    background: cadetblue;
     padding: 20px;
     width: auto;
     max-width: 500px;
@@ -26,7 +25,6 @@
 
 #register-popup{
     position: absolute;
-    background: cadetblue;
     padding: 20px;
     width: auto;
     max-width: 500px;

@@ -78,23 +78,9 @@ nav ul li ul.toggle{
 */
 h1,h2,h3,h4,p,a,li{
     padding-left:1em;
-    color:white;
 }
 
-.menu-item{
-    margin-bottom:0;
-    margin-top:0;
-}
 
-.border{
-    border:1px black solid;
-}
-ul{
-    margin-left:0;
-}
-.no-padding{
-    padding:0 0 0 1em;
-}
 /*
     Buttons
 */
@@ -177,6 +163,9 @@ select{
 /*
     General
 */
+.border{
+    border:1px black solid;
+}
 .clear-both{
     clear:both;
     width:100%;
@@ -184,4 +173,14 @@ select{
 #right-panel{
     background:white;
 }
+.menu-item{
+    margin-bottom:0;
+    margin-top:0;
+}
 
+ul{
+    margin-left:0;
+}
+.no-padding{
+    padding:0 0 0 1em;
+}
