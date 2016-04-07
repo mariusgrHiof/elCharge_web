@@ -12,7 +12,7 @@
         <h1>elCharge</h1>
     </div>
     <div id="search">
-        <input type="text"/>
+        <input id="search-box" type="text"/>
         <button>Søk</button>
         <div id="title-login">
             <button class="show-login"> Logg inn </button>

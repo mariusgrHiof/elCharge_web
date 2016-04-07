@@ -83,7 +83,17 @@ function currentPosMarker(pos){
 
 /**
  * Autocomplete
+ * Docs: https://developers.google.com/maps/documentation/javascript/places-autocomplete#introduction
+ * TODO: FIX!
 */
-var finalDestInput = $('#nav-end-pos');
-map.controls[google.maps.ControlPosition.TOP_RIGHT].push(finalDestInput);
-var autocomplete = new google.maps.places.Autocomplete(finalDestInput);
+function autocomplete(){
+    var finalDestInput = document.getElementById('search-box');//$('#search-box');
+    var pos = navigator.geolocation.getCurrentPosition;
+    var defaultBounds = new google.maps.LatLngBounds(
+        pos,
+        pos
+    );
+    var options = {bounds: defaultBounds};
+    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(finalDestInput);
+    var ac = new google.maps.places.Autocomplete(finalDestInput, options);
+}
