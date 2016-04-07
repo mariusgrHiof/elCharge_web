@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/scripts.php" afterPath="$PROJECT_DIR$/includes/scripts.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/google-maps-api.js" afterPath="$PROJECT_DIR$/js/google-maps-api.js" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,11 +55,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scripts.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="scripts.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/scripts.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
-              <caret line="1" column="139" selection-start-line="1" selection-start-column="139" selection-end-line="1" selection-end-column="139" />
+              <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="151" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="google-maps-api.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/google-maps-api.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="723">
+              <caret line="146" column="0" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -124,9 +134,9 @@
         <option value="$PROJECT_DIR$/styles/popup.css" />
         <option value="$PROJECT_DIR$/styles/colors.css" />
         <option value="$PROJECT_DIR$/styles/menu.css" />
-        <option value="$PROJECT_DIR$/js/google-maps-api.js" />
         <option value="$PROJECT_DIR$/js/navigation.js" />
         <option value="$PROJECT_DIR$/includes/scripts.php" />
+        <option value="$PROJECT_DIR$/js/google-maps-api.js" />
       </list>
     </option>
   </component>
@@ -324,14 +334,7 @@
       <workItem from="1459974118053" duration="293000" />
       <workItem from="1459974510108" duration="3898000" />
       <workItem from="1460013089388" duration="5566000" />
-      <workItem from="1460045874298" duration="6264000" />
-    </task>
-    <task id="LOCAL-00015" summary="Map layers -&gt; Trafic layer">
-      <created>1458156073376</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1458156073376</updated>
+      <workItem from="1460045874298" duration="6292000" />
     </task>
     <task id="LOCAL-00016" summary="More fixes in regards to layers etc + added navigation (Not completed.. far from it!)">
       <created>1458159163824</created>
@@ -669,11 +672,18 @@
       <option name="project" value="LOCAL" />
       <updated>1460052588199</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="lagt till visualiserings lib">
+      <created>1460053593201</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1460053593201</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72911000" />
+    <option name="totallyTimeSpent" value="72939000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -1108,16 +1118,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/google-maps-api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
-          <folding>
-            <marker date="1460052558000" expanded="true" signature="84:86" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/navigation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -1145,7 +1145,15 @@
     <entry file="file://$PROJECT_DIR$/includes/scripts.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="1" column="139" selection-start-line="1" selection-start-column="139" selection-end-line="1" selection-end-column="139" />
+          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="151" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/google-maps-api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="723">
+          <caret line="146" column="0" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
           <folding />
         </state>
       </provider>
