@@ -1,7 +1,6 @@
 header{
     z-index: 1;
     position:absolute;
-    background: rgb(0, 124, 255);
     width:27em;
 }
 div#title{
@@ -83,9 +82,7 @@ h1,h2,h3,h4,p,a,li{
 */
 button#menu-toggle{
     float:left;
-    background-image: url(../icons/burger-menu.svg);
-    background-repeat: no-repeat;
-    background-color:transparent;
+    background: url(../icons/burger-menu.svg) no-repeat transparent;
     border-style:none;
     width:3em;
     height:3em;

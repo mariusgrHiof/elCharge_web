@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/colors.css" afterPath="$PROJECT_DIR$/styles/colors.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/menu.css" afterPath="$PROJECT_DIR$/styles/menu.css" />
     </list>
     <ignored path="elCharge_web.iws" />
@@ -78,8 +79,8 @@
       <file leaf-file-name="colors.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/styles/colors.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+            <state relative-caret-position="255">
+              <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -88,20 +89,20 @@
       <file leaf-file-name="menu.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/styles/menu.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2250">
-              <caret line="184" column="1" selection-start-line="184" selection-start-column="1" selection-end-line="184" selection-end-column="1" />
+            <state relative-caret-position="-17">
+              <caret line="88" column="1" selection-start-line="88" selection-start-column="1" selection-end-line="88" selection-end-column="1" />
               <folding>
-                <element signature="e#1328#1347#0" expanded="false" />
-                <element signature="e#1360#1378#0" expanded="false" />
-                <element signature="e#1394#1412#0" expanded="false" />
-                <element signature="e#1434#1453#0" expanded="false" />
-                <element signature="e#1514#1647#0" expanded="false" />
-                <element signature="e#1670#1692#0" expanded="false" />
-                <element signature="e#1712#1949#0" expanded="false" />
-                <element signature="e#1976#2216#0" expanded="false" />
-                <element signature="e#2268#2302#0" expanded="false" />
-                <element signature="e#2413#2443#0" expanded="false" />
-                <element signature="e#2502#2521#0" expanded="false" />
+                <element signature="e#1242#1261#0" expanded="false" />
+                <element signature="e#1274#1292#0" expanded="false" />
+                <element signature="e#1308#1326#0" expanded="false" />
+                <element signature="e#1348#1367#0" expanded="false" />
+                <element signature="e#1428#1561#0" expanded="false" />
+                <element signature="e#1584#1606#0" expanded="false" />
+                <element signature="e#1626#1863#0" expanded="false" />
+                <element signature="e#1890#2130#0" expanded="false" />
+                <element signature="e#2182#2216#0" expanded="false" />
+                <element signature="e#2327#2357#0" expanded="false" />
+                <element signature="e#2416#2435#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -350,14 +351,7 @@
       <workItem from="1459974118053" duration="293000" />
       <workItem from="1459974510108" duration="3898000" />
       <workItem from="1460013089388" duration="5566000" />
-      <workItem from="1460045874298" duration="3359000" />
-    </task>
-    <task id="LOCAL-00012" summary="kart skal funke sånn ca på mobil nå">
-      <created>1458138005378</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1458138005378</updated>
+      <workItem from="1460045874298" duration="3459000" />
     </task>
     <task id="LOCAL-00013" summary="terrain map is now the default map type + added an option to change the map type.">
       <created>1458140279610</created>
@@ -695,11 +689,18 @@
       <option name="project" value="LOCAL" />
       <updated>1460049264448</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="rydding i css">
+      <created>1460049351441</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1460049351441</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70006000" />
+    <option name="totallyTimeSpent" value="70106000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -1148,28 +1149,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/styles/colors.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        <state relative-caret-position="255">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/styles/menu.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2250">
-          <caret line="184" column="1" selection-start-line="184" selection-start-column="1" selection-end-line="184" selection-end-column="1" />
+        <state relative-caret-position="-17">
+          <caret line="88" column="1" selection-start-line="88" selection-start-column="1" selection-end-line="88" selection-end-column="1" />
           <folding>
-            <element signature="e#1328#1347#0" expanded="false" />
-            <element signature="e#1360#1378#0" expanded="false" />
-            <element signature="e#1394#1412#0" expanded="false" />
-            <element signature="e#1434#1453#0" expanded="false" />
-            <element signature="e#1514#1647#0" expanded="false" />
-            <element signature="e#1670#1692#0" expanded="false" />
-            <element signature="e#1712#1949#0" expanded="false" />
-            <element signature="e#1976#2216#0" expanded="false" />
-            <element signature="e#2268#2302#0" expanded="false" />
-            <element signature="e#2413#2443#0" expanded="false" />
-            <element signature="e#2502#2521#0" expanded="false" />
+            <element signature="e#1242#1261#0" expanded="false" />
+            <element signature="e#1274#1292#0" expanded="false" />
+            <element signature="e#1308#1326#0" expanded="false" />
+            <element signature="e#1348#1367#0" expanded="false" />
+            <element signature="e#1428#1561#0" expanded="false" />
+            <element signature="e#1584#1606#0" expanded="false" />
+            <element signature="e#1626#1863#0" expanded="false" />
+            <element signature="e#1890#2130#0" expanded="false" />
+            <element signature="e#2182#2216#0" expanded="false" />
+            <element signature="e#2327#2357#0" expanded="false" />
+            <element signature="e#2416#2435#0" expanded="false" />
           </folding>
         </state>
       </provider>
