@@ -19,6 +19,7 @@ include 'ReadStuff.php';
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="styles/all.php"/>
+    <script src="https://www.google.com/jsapi"></script>
     <script src="js/jQuery-min.js"></script>
     <script>
         //TODO: REMEMBER TO REMOVE!
