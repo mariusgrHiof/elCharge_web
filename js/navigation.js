@@ -29,12 +29,14 @@ function navigate(){
         panel: document.getElementById('right-panel')
     });
 
+    //Allows us to do stuff when the route is dragged and/or changed.
     directionsDisplay.addListener('directions_changed', function() {
         computeTotalDistance(directionsDisplay.getDirections());
     });
 
     displayRoute(startDestination, endDestination, directionsService,directionsDisplay);
 }
+
 
 function displayRoute(origin, destination, service, display) {
     var avoidTolls = !$('#route-option-tolls').prop('checked');
@@ -57,6 +59,7 @@ function displayRoute(origin, destination, service, display) {
     });
 }
 
+
 function computeTotalDistance(result) {
     var total = 0;
     var myroute = result.routes[0];
@@ -64,7 +67,7 @@ function computeTotalDistance(result) {
         total += myroute.legs[i].distance.value;
     }
     total = total / 1000;
-    document.getElementById('total').innerHTML = total + ' km';
+    document.getElementById('total').innerHTML = 'Total reise distanse '+ total + ' km';
 }
 
 function currentPosMarker(pos){

@@ -54,6 +54,7 @@
             </div>
         </div>
         <button class="clear-both" onclick="navigate()">Bygg rute</button>
+        <div id="total"></div>
         <div id="right-panel" class="clear-both">
         </div>
     </li>
