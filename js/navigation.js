@@ -80,3 +80,10 @@ function currentPosMarker(pos){
         icon: image
     });
 }
+
+/**
+ * Autocomplete
+*/
+var finalDestInput = $('#nav-end-pos');
+map.controls[google.maps.ControlPosition.TOP_RIGHT].push(finalDestInput);
+var autocomplete = new google.maps.places.Autocomplete(finalDestInput);
