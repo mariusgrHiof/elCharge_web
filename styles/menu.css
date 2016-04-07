@@ -69,9 +69,6 @@ nav ul li ul.toggle{
     display:block;
 }
 
-.float-left{
-    float:left;
-}
 
 /*
     Text
@@ -177,10 +174,12 @@ select{
     margin-bottom:0;
     margin-top:0;
 }
-
 ul{
     margin-left:0;
 }
 .no-padding{
     padding:0 0 0 1em;
+}
+.float-left{
+    float:left;
 }
