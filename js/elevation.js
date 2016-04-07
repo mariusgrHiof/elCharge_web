@@ -2,7 +2,7 @@
  * Created by jonas on 19.03.16.
  */
 
-var elevationService = new google.maps.ElevationService;
+var elevationService;
 // Load the Visualization API and the columnchart package.
 google.load('visualization', '1', {packages: ['columnchart']});
 
@@ -42,6 +42,8 @@ function plotElevation(elevations, status){
     }
 
     var chart = new google.visualization.ColumnChart(chartDiv);
+
+
 
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Sample');
