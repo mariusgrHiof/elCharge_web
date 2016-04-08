@@ -8,15 +8,14 @@
 ?>
 <header>
     <div id="title">
-        <button onclick="dropdown(this, true)" id="menu-toggle"></button>
+
         <h1>elCharge</h1>
     </div>
     <div id="search">
+        <button onclick="dropdown(this, true)" id="menu-toggle"></button>
         <input id="search-box" type="text"/>
         <button>Søk</button>
-        <div id="title-login">
-            <button class="show-login"> Logg inn </button>
-        </div>
+
     </div>
     <?php
     include 'menu.php';

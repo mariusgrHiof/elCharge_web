@@ -2,6 +2,7 @@ header{
     z-index: 1;
     position:absolute;
     width:27em;
+    border-bottom:1px gray solid;
 }
 div#title{
     margin:1em 0 0 0.5em;
@@ -9,15 +10,19 @@ div#title{
 }
 div#title h1{
     width:70%;
+
     float:left;
-    margin:0 0 0 0.3em;
+    /*margin:0 0 0 0.3em;*/
+    margin:0 0 0 3em;
     padding-left:1.5em;
     background:url(../icons/logo.svg) no-repeat;
+
 }
 div#title button{
     width:10%;
     float:left;
 }
+
 div#title-login {
     float:right;
 }
@@ -27,6 +32,23 @@ div#title-login h1{
 /*
     Menu elements
 */
+
+.title-box {
+   width:100em;
+    height:5em;
+    border:1px;
+    float:left;
+    padding:0;
+    margin:0;
+
+}
+
+.title-box h1{
+
+    margin:auto;
+
+}
+
 #right-panel{
     overflow:auto;
     max-height: 20em;
@@ -74,6 +96,7 @@ nav ul li ul.toggle{
 */
 h1,h2,h3,h4,p,a,li{
     padding-left:1em;
+    font-family: Arial;
 }
 
 
@@ -82,7 +105,7 @@ h1,h2,h3,h4,p,a,li{
 */
 button#menu-toggle{
     float:left;
-    background: url(../icons/burger-menu.svg) no-repeat transparent;
+    background: url(../icons/hamburger_v2.svg) no-repeat transparent;
     border-style:none;
     width:3em;
     height:3em;
@@ -119,6 +142,7 @@ select{
     border: 2px solid #FFFFFF; border-radius: 14px;
     background-color: #9E9E9E;
     transition: background-color 0.3s ease-in;
+
 }
 .onoffswitch-label:before {
     content: "";
@@ -158,8 +182,14 @@ select{
     General
 */
 .border{
-    border:1px black solid;
+    border-bottom:1px gray solid;
+
 }
+
+#menu-list :hover {
+    background-color: #ebebeb;
+}
+
 .clear-both{
     clear:both;
     width:100%;

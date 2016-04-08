@@ -9,12 +9,28 @@
 * Text
 */
 h1,h2,h3,h4,p,a,li{
-    color:white;
+    color: #000000;
 }
 
 /*
 * Header
 */
 header{
-    background: rgb(0, 124, 255);
+    /*background: rgb(0, 124, 255);*/
+    background: #FFFFFF;
 }
+
+/*
+* Menu elements
+*/
+.title-box {
+    background-color: #98E095;
+}
+
+
+/*
+** Grønnfargen er #98E095
+** Blåfargen er #29ABE2
+** Rødfargen er #FF2D33
+** Gulfargen er
+*/

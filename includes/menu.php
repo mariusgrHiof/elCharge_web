@@ -29,7 +29,16 @@
  */
 ?>
 <nav class="menu">
-    <ul>
+    <ul id="menu-list">
+        <li class="border">
+            <?php include 'menu-items/chargers-nearby.php' ?>
+        </li>
+        <li class="border">
+            <?php include 'menu-items/favourites.php' ?>
+        </li>
+        <li class="border">
+            <?php include 'menu-items/route.php' ?>
+        </li>
         <li class="border">
             <?php include 'menu-items/filter.php' ?>
         </li>
@@ -37,7 +46,11 @@
             <?php include 'menu-items/overlay.php' ?>
         </li>
         <li class="border">
-            <?php include 'menu-items/route.php' ?>
+            <?php include 'menu-items/about-us.php' ?>
         </li>
+        <li class="border">
+            <?php include 'menu-items/help.php' ?>
+        </li>
+
     </ul>
 </nav>
