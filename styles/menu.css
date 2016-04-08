@@ -4,19 +4,13 @@ header{
     width:27em;
     border-bottom:1px gray solid;
 }
-div#title{
-    margin:1em 0 0 0.5em;
-    clear:both;
-}
-div#title h1{
-    width:70%;
 
+div#title h1{
     float:left;
-    /*margin:0 0 0 0.3em;*/
-    margin:0 0 0 3em;
     padding-left:1.5em;
     background:url(../icons/logo.svg) no-repeat;
-
+    width:100%;
+    margin: 0.3em 0.3em 0.3em 1em;
 }
 div#title button{
     width:10%;
@@ -89,16 +83,6 @@ header.toggle{
 nav ul li ul.toggle{
     display:block;
 }
-
-
-/*
-    Text
-*/
-h1,h2,h3,h4,p,a,li{
-    padding-left:1em;
-    font-family: Arial;
-}
-
 
 /*
     Buttons

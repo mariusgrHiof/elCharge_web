@@ -7,8 +7,7 @@
  */
 ?>
 <header>
-    <div id="title">
-
+    <div id="title" class="clear-both">
         <h1>elCharge</h1>
     </div>
     <div id="search">

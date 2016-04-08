@@ -16,7 +16,8 @@ include 'maps.css';
 include 'footer.css';
 include 'tablet.css';
 include 'mobile.css';
-include 'popup.css';
+include 'login.css';
 include 'tooltips.css';
 include 'colors.css';
+include 'text.css';
 ?>
