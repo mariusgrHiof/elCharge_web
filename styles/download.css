@@ -1,9 +1,8 @@
 #download-progression{
     position: fixed;
-    background:rgb(0, 124, 255);
     z-index: 4;
     right: 0px;
-    border: 3px solid #73AD21;
+    border: 3px solid;
     padding: 10px;
 
     width: 20%;
@@ -19,14 +18,12 @@
 .dl-progressbar-bg{
     width:80%;
     height:2em;
-    background:black;
 
     margin-left:auto;
     margin-right:auto;
 }
 .dl-progressbar{
     z-index: 5;
-    background:purple;
     height:2em;
     width:0%;
 }

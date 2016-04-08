@@ -27,7 +27,18 @@ header{
     background-color: #98E095;
 }
 
-
+/**
+* Download progress
+*/
+#download-progression{
+    background:#FFFFFF;
+}
+.dl-progressbar-bg{
+    background:#29ABE2;
+}
+.dl-progressbar{
+    background:#98E095;
+}
 /*
 ** Grønnfargen er #98E095
 ** Blåfargen er #29ABE2
