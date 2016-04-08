@@ -108,7 +108,7 @@ button#menu-toggle{
     background: url(../icons/hamburger_v2.svg) no-repeat transparent;
     border-style:none;
     width:3em;
-    height:3em;
+    height:2em;
 }
 
 /*
