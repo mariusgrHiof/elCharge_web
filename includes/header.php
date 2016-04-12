@@ -10,6 +10,12 @@
     <div id="title" class="clear-both">
         <h1>elCharge</h1>
     </div>
+
+    <div id="logged-in">
+        <?php include 'checkloggin.php' ?>
+    </div>
+
+
     <div id="search">
         <button onclick="dropdown(this, true)" id="menu-toggle"></button>
         <input id="search-box" type="text"/>

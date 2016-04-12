@@ -1,7 +1,7 @@
 <div id="login-popup">
     <a href="#" class="show-login">Logg inn </a>
     <a href="#" class="show-register">Registrer</a>
-    <form action="includes/checkloggin.php" method="post">
+    <form action="includes/checkloggin.php" method="post" target="_self">
         <input type="text" name="username" placeholder="Brukernavn">
         <br>
         <input type="password" name="password" placeholder="Passord">

@@ -25,11 +25,14 @@
 
     $prepStatment->execute();
 
+
+
     if($row = $prepStatment->fetch()){
-        echo "Velkommen, " . $_POST['username'] . "!";
+        echo "Velkommen, " . $_POST['username'] . ", profil";
     }
     else{
         echo "Feil brukernavn eller passord";
     }
+
 
 
