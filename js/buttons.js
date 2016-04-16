@@ -29,9 +29,11 @@ $(function(){
 
             if(!$(child).hasClass('toggle')){
                 $(child).addClass('toggle');
+                $(this).addClass('title-box');
                 selectMenuHandeler(parent,true);
             }else{
                 $(child).removeClass('toggle');
+                $(this).removeClass('title-box');
                 selectMenuHandeler(parent, false);
             }
             //Looping through list to disable all but clicked menu item

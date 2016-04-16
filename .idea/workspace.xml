@@ -4,8 +4,8 @@
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/menu-items/Favourites.php" afterPath="$PROJECT_DIR$/includes/menu-items/Favourites.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/menu-items/about-us.php" afterPath="$PROJECT_DIR$/includes/menu-items/about-us.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/menu-items/help.php" afterPath="$PROJECT_DIR$/includes/menu-items/help.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/menu-items/chargers-nearby.php" afterPath="$PROJECT_DIR$/includes/menu-items/chargers-nearby.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/buttons.js" afterPath="$PROJECT_DIR$/js/buttons.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/menu.css" afterPath="$PROJECT_DIR$/styles/menu.css" />
     </list>
     <ignored path="elCharge_web.iws" />
@@ -33,8 +33,8 @@
           <file leaf-file-name="chargers-nearby.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/includes/menu-items/chargers-nearby.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="21" selection-end-column="5" />
+                <state relative-caret-position="45">
+                  <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -63,8 +63,8 @@
           <file leaf-file-name="Favourites.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/includes/menu-items/Favourites.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+                <state relative-caret-position="15">
+                  <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
                   <folding />
                 </state>
               </provider>
@@ -73,8 +73,8 @@
           <file leaf-file-name="menu.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/styles/menu.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="235">
-                  <caret line="78" column="19" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
+                <state relative-caret-position="370">
+                  <caret line="33" column="15" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
                   <folding />
                 </state>
               </provider>
@@ -87,8 +87,8 @@
           <file leaf-file-name="buttons.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/buttons.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="13" column="53" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="53" />
+                <state relative-caret-position="465">
+                  <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
                   <folding />
                 </state>
               </provider>
@@ -162,11 +162,11 @@
         <option value="$PROJECT_DIR$/styles/download.css" />
         <option value="$PROJECT_DIR$/styles/colors.css" />
         <option value="$PROJECT_DIR$/includes/checkloggin.php" />
-        <option value="$PROJECT_DIR$/includes/menu-items/chargers-nearby.php" />
         <option value="$PROJECT_DIR$/includes/menu-items/help.php" />
-        <option value="$PROJECT_DIR$/includes/menu-items/Favourites.php" />
-        <option value="$PROJECT_DIR$/js/buttons.js" />
         <option value="$PROJECT_DIR$/includes/menu-items/about-us.php" />
+        <option value="$PROJECT_DIR$/js/buttons.js" />
+        <option value="$PROJECT_DIR$/includes/menu-items/chargers-nearby.php" />
+        <option value="$PROJECT_DIR$/includes/menu-items/Favourites.php" />
         <option value="$PROJECT_DIR$/styles/menu.css" />
       </list>
     </option>
@@ -389,14 +389,7 @@
       <workItem from="1460532355965" duration="26000" />
       <workItem from="1460800701610" duration="4961000" />
       <workItem from="1460819750536" duration="75000" />
-      <workItem from="1460819989919" duration="450000" />
-    </task>
-    <task id="LOCAL-00019" summary="css">
-      <created>1458202440686</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1458202440686</updated>
+      <workItem from="1460819989919" duration="950000" />
     </task>
     <task id="LOCAL-00020" summary="css">
       <created>1458203027295</created>
@@ -734,11 +727,18 @@
       <option name="project" value="LOCAL" />
       <updated>1460820039635</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="fjernet avhengighet av uordnede lister for menyer.">
+      <created>1460820461881</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1460820461881</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78565000" />
+    <option name="totallyTimeSpent" value="79065000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -786,7 +786,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Det er nå egen php fil for å legge inn css filer i dokumentet (gjør alle om til en css fil istedenfor at det er lenket til mange i html filen)&#10;- Det er også laget en php fil som inserter js tags inn i index dokumentet. Slik at vi slepper å skrive &lt;script src=&quot;&quot;&gt;&lt;/script&gt; hver gang vi skal legge inn ett script. Vi kan nå heller skrive addJS('fil');" />
     <MESSAGE value="litt mer rydding i kode" />
     <MESSAGE value="Vis mer knapp på ladestasjon tooltip for å vise hvilke ladertype hver enkelt laderport er." />
     <MESSAGE value="lagt inn logo osv" />
@@ -811,7 +810,8 @@
     <MESSAGE value="forsøk på høydegraf" />
     <MESSAGE value="Hamburger meny størrelse er endret (justert høyde)" />
     <MESSAGE value="Alle andre menyer enn den valgte blir borte. klikkes &quot;headeren&quot; til den valgte menyen igjen blir resten synlig igjen." />
-    <option name="LAST_COMMIT_MESSAGE" value="Alle andre menyer enn den valgte blir borte. klikkes &quot;headeren&quot; til den valgte menyen igjen blir resten synlig igjen." />
+    <MESSAGE value="fjernet avhengighet av uordnede lister for menyer." />
+    <option name="LAST_COMMIT_MESSAGE" value="fjernet avhengighet av uordnede lister for menyer." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1148,30 +1148,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/menu-items/Favourites.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/menu-items/chargers-nearby.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="21" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/buttons.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="53" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/menu-items/about-us.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1180,10 +1156,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/buttons.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/menu-items/chargers-nearby.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/menu-items/Favourites.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/styles/menu.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="78" column="19" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
+        <state relative-caret-position="370">
+          <caret line="33" column="15" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
           <folding />
         </state>
       </provider>
