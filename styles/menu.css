@@ -68,7 +68,8 @@ nav ul li ul{
     margin-left:-2.8em;
 }
 /*Child menu element spesific*/
-nav ul li ul.sub-item{
+/*nav ul li ul*/
+.sub-item{
     display:none;
 }
 /*On toggle*/
@@ -80,7 +81,7 @@ header.toggle nav{
 header.toggle{
     height:100%;
 }
-nav ul li ul.toggle{
+.toggle{
     display:block;
 }
 
