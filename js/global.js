@@ -74,6 +74,7 @@ $( document ).ready(function() {
 
     if (mobile.matches) {
         isMobile = true;
+        $(this).html('<meta name="viewport" content="width=device-width, initial-scale=1.5, maximum-scale=1.5, user-scalable=0"/>');
     }
 });
 
