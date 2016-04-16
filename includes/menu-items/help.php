@@ -1,4 +1,4 @@
-<h2 class="menu-item caret">↓ Hjelp</h2>
+<h2 class="menu-item caret">Hjelp</h2>
 <ul class="sub-item">
     <li>
         <p><em>Her kommer ladestasjoner i nærheten!</em></p>

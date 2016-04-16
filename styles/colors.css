@@ -26,6 +26,13 @@ header{
 .title-box {
     background-color: #98E095;
 }
+#menu-list :hover {
+    background-color: #ebebeb;
+}
+/*
+#menu-list .parent :hover {
+    background-color: #98E095;
+}*/
 
 /**
 * Download progress

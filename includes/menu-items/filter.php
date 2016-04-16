@@ -1,4 +1,4 @@
-<h2 class="menu-item caret">↓ Filter</h2>
+<h2 class="menu-item caret">Filter</h2>
 <ul class="sub-item">
     <p><em>Informasjon om biler er basert på informasjon funnet på <a href="http://ladestasjoner.no/ladehjelpen/praktisk/51-hvilke-elbiler-kan-lade-med-hva">ladestasjoner.no</a></em></p>
     <li>

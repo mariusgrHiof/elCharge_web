@@ -1,4 +1,4 @@
-<h2 class="menu-item caret">↓ Kart overlegg</h2>
+<h2 class="menu-item caret">Kart overlegg</h2>
 <ul class="sub-item">
     <li>
         Trafikk overlegg

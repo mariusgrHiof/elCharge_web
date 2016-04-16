@@ -1,4 +1,4 @@
-<h2 class="menu-item caret">↓ Planlegg rute</h2>
+<h2 class="menu-item caret">Planlegg rute</h2>
 <ul class="sub-item">
     <p><em>For å legge inn ladestasjoner du ønsker å kjøre innom på veien, velg ladestasjonens markør og velg "legg til i rute".</em></p>
     <li>

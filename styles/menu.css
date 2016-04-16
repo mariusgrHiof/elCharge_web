@@ -28,17 +28,16 @@ div#title-login h1{
 */
 
 .title-box {
-   width:100em;
-    height:2.5em;
-    border:1px;
-    float:left;
-
+    background: url('../icons/back-icon.svg') no-repeat 0.5em;
+    padding: 0.7em 0 0.7em 2.4em;
+    margin-left: -0.7em;
+    border: 1px;
+    float: left;
+    width: 100%;
 }
 
 .title-box h1{
-
     margin:auto;
-
 }
 
 #right-panel{
@@ -169,10 +168,6 @@ select{
 
 }
 
-#menu-list :hover {
-    background-color: #ebebeb;
-}
-
 .clear-both{
     clear:both;
     width:100%;
@@ -183,6 +178,8 @@ select{
 .menu-item{
     margin-bottom:0;
     margin-top:0;
+    cursor:pointer;
+    cursor:hand;
 }
 ul{
     margin-left:0;

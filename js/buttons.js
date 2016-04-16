@@ -24,17 +24,20 @@ $(function(){
     $('.menu-item').click(
         function(){
             var child = $(this).next().filter('.sub-item');
-            var parent = $(this).parent().parent();
+            var parent = $(this).parent();
+            var grandParent = $(this).parent().parent();
 
 
             if(!$(child).hasClass('toggle')){
                 $(child).addClass('toggle');
                 $(this).addClass('title-box');
-                selectMenuHandeler(parent,true);
+                $(parent).addClass('parent');
+                selectMenuHandeler(grandParent,true);
             }else{
                 $(child).removeClass('toggle');
                 $(this).removeClass('title-box');
-                selectMenuHandeler(parent, false);
+                $(parent).removeClass('parent');
+                selectMenuHandeler(grandParent, false);
             }
             //Looping through list to disable all but clicked menu item
 
