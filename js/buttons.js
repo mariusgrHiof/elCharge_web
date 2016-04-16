@@ -24,14 +24,33 @@ $(function(){
     $('.menu-item').click(
         function(){
             var child = $(this).next().filter('.sub-item');
+            var parent = $(this).parent().parent();
+
+
             if(!$(child).hasClass('toggle')){
                 $(child).addClass('toggle');
+                selectMenuHandeler(parent,true);
             }else{
                 $(child).removeClass('toggle');
+                selectMenuHandeler(parent, false);
             }
+            //Looping through list to disable all but clicked menu item
+
         }
     );
 });
+
+function selectMenuHandeler(parent, remove){
+    $(parent).children('li').each(
+        function(){
+            if(!$(this).children('h2').next().hasClass('toggle')){
+                $(this).css('display',remove ? 'none' : 'block');
+            }else{
+                $(this).css('display','block');
+            }
+        }
+    );
+}
 
 function readMore(event, parent){
     if(parent){

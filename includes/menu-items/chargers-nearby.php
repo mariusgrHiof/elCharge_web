@@ -1,9 +1,7 @@
 <h2 class="menu-item caret">↓ Ladere i nærheten</h2>
 <ul class="sub-item">
     <li>
-
-
-    <p><em>Her kommer ladestasjoner i nærheten!</em></p>
+        <p><em>Her kommer ladestasjoner i nærheten!</em></p>
 
         <div class="title-box">
 
@@ -20,7 +18,5 @@
                 </li>
             </ul>
         </div>
-
-
     </li>
 </ul>
