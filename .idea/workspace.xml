@@ -4,7 +4,6 @@
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/addStations.js" afterPath="$PROJECT_DIR$/js/addStations.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/navigation.js" afterPath="$PROJECT_DIR$/js/navigation.js" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,10 +91,10 @@
         <entry file="file://$PROJECT_DIR$/js/addStations.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="333">
-              <caret line="286" column="156" selection-start-line="286" selection-start-column="156" selection-end-line="286" selection-end-column="156" />
+              <caret line="286" column="28" selection-start-line="286" selection-start-column="28" selection-end-line="286" selection-end-column="28" />
               <folding>
-                <marker date="1460936490000" expanded="true" signature="8617:8629" placeholder="..." />
-                <marker date="1460936490000" expanded="true" signature="11582:11789" placeholder="..." />
+                <marker date="1460936739000" expanded="true" signature="8617:8629" placeholder="..." />
+                <marker date="1460936739000" expanded="true" signature="11582:11818" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -443,14 +442,7 @@
       <workItem from="1460819750536" duration="75000" />
       <workItem from="1460819989919" duration="1699000" />
       <workItem from="1460846990709" duration="2643000" />
-      <workItem from="1460925757277" duration="10651000" />
-    </task>
-    <task id="LOCAL-00026" summary="endringer i css for meny.">
-      <created>1458210477267</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1458210477267</updated>
+      <workItem from="1460925757277" duration="10902000" />
     </task>
     <task id="LOCAL-00027" summary="fikset for tollavgift">
       <created>1458214699767</created>
@@ -788,11 +780,18 @@
       <option name="project" value="LOCAL" />
       <updated>1460935245993</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="forsøkte å legge inn &quot;ta meg hit funksjon&quot; uten å bruke array.. men må nok bruke array alikavel. Fikser senere om noen andre ikke fikser den først.">
+      <created>1460936529168</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1460936529168</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93108000" />
+    <option name="totallyTimeSpent" value="93359000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -840,7 +839,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="urls" />
     <MESSAGE value="Flip switch på det som bør være brytere er lagt til (Altså, de er ikke lenger knapper)." />
     <MESSAGE value="Mobilversjon:&#10;- Menyen går ikke lenger utenfor &quot;skjermen&quot; om den blir lenger en skjermen er høy. Overlow fungerer nå som den skal, slik at det blir scrollbart isteden." />
     <MESSAGE value="fiksing av layout + delt opp menyen i flere php filer som inkluderes i hoved menu.php filen." />
@@ -865,7 +863,8 @@
     <MESSAGE value="forsøk på å fikse skalering på mobil.." />
     <MESSAGE value="Forsøk på fiksing på problemet som gjør at skjermen er scrollbar sidlengs på mobil." />
     <MESSAGE value="Fikset ett &quot;førsteutkast&quot; av ladere i nærheten.&#10;Foreløpig vises kun ladestasjonene som er innen 5 km unna brukeren i en liste uten noe videre funksjonalitet." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fikset ett &quot;førsteutkast&quot; av ladere i nærheten.&#10;Foreløpig vises kun ladestasjonene som er innen 5 km unna brukeren i en liste uten noe videre funksjonalitet." />
+    <MESSAGE value="forsøkte å legge inn &quot;ta meg hit funksjon&quot; uten å bruke array.. men må nok bruke array alikavel. Fikser senere om noen andre ikke fikser den først." />
+    <option name="LAST_COMMIT_MESSAGE" value="forsøkte å legge inn &quot;ta meg hit funksjon&quot; uten å bruke array.. men må nok bruke array alikavel. Fikser senere om noen andre ikke fikser den først." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1245,10 +1244,10 @@
     <entry file="file://$PROJECT_DIR$/js/addStations.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="333">
-          <caret line="286" column="156" selection-start-line="286" selection-start-column="156" selection-end-line="286" selection-end-column="156" />
+          <caret line="286" column="28" selection-start-line="286" selection-start-column="28" selection-end-line="286" selection-end-column="28" />
           <folding>
-            <marker date="1460936490000" expanded="true" signature="8617:8629" placeholder="..." />
-            <marker date="1460936490000" expanded="true" signature="11582:11789" placeholder="..." />
+            <marker date="1460936739000" expanded="true" signature="8617:8629" placeholder="..." />
+            <marker date="1460936739000" expanded="true" signature="11582:11818" placeholder="..." />
           </folding>
         </state>
       </provider>
