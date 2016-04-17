@@ -38,6 +38,36 @@ function navigate(){
     console.log("Dirs: " + directionsService.path);
 }
 
+function navigateFromUser(from, to){
+    //Cleaning previous directions
+    if(directionsDisplay != null){
+        directionsDisplay.setMap(null);//The route in the map
+    }
+    if(document.getElementById('right-panel').innerHTML != null){
+        document.getElementById('right-panel').innerHTML = ""; //The route description
+    }
+
+    //Getting destinations
+    startDestination = from[0] + "," + from[1];
+    endDestination = to[0] + "," + to[1];
+    console.log("Start destination: " + startDestination + " end destination: " + endDestination);
+    directionsService = new google.maps.DirectionsService;
+
+    directionsDisplay = new google.maps.DirectionsRenderer({
+        draggable: true,
+        map: map,
+        panel: document.getElementById('right-panel')
+    });
+
+    //Allows us to do stuff when the route is dragged and/or changed.
+    directionsDisplay.addListener('directions_changed', function() {
+        computeTotalDistance(directionsDisplay.getDirections());
+    });
+
+    displayRoute(startDestination, endDestination, directionsService,directionsDisplay);
+    console.log("Dirs: " + directionsService.path);
+}
+
 
 function displayRoute(origin, destination, service, display) {
     var avoidTolls = !$('#route-option-tolls').prop('checked');

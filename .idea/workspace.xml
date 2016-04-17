@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/chargers-nearby.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/menu-items/chargers-nearby.php" afterPath="$PROJECT_DIR$/includes/menu-items/chargers-nearby.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/scripts.php" afterPath="$PROJECT_DIR$/includes/scripts.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/addStations.js" afterPath="$PROJECT_DIR$/js/addStations.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/google-maps-api.js" afterPath="$PROJECT_DIR$/js/google-maps-api.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/googlemaps.js" afterPath="$PROJECT_DIR$/js/googlemaps.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/colors.css" afterPath="$PROJECT_DIR$/styles/colors.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/navigation.js" afterPath="$PROJECT_DIR$/js/navigation.js" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,16 +26,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="menu.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/menu.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="596">
-              <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="menu.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/styles/menu.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -91,7 +76,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chargers-nearby.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chargers-nearby.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
@@ -103,15 +88,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/addStations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="282" column="42" selection-start-line="282" selection-start-column="36" selection-end-line="282" selection-end-column="42" />
+            <state relative-caret-position="333">
+              <caret line="286" column="156" selection-start-line="286" selection-start-column="156" selection-end-line="286" selection-end-column="156" />
               <folding>
-                <marker date="1460933250000" expanded="true" signature="8617:8629" placeholder="..." />
-                <marker date="1460933250000" expanded="true" signature="11559:11698" placeholder="..." />
+                <marker date="1460936490000" expanded="true" signature="8617:8629" placeholder="..." />
+                <marker date="1460936490000" expanded="true" signature="11582:11789" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navigation.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/navigation.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+              <caret line="40" column="25" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -185,7 +180,6 @@
         <option value="$PROJECT_DIR$/styles/all.php" />
         <option value="$PROJECT_DIR$/styles/popup.css" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/js/navigation.js" />
         <option value="$PROJECT_DIR$/includes/header.php" />
         <option value="$PROJECT_DIR$/includes/menu.php" />
         <option value="$PROJECT_DIR$/js/elevation.js" />
@@ -205,10 +199,11 @@
         <option value="$PROJECT_DIR$/includes/scripts.php" />
         <option value="$PROJECT_DIR$/js/google-maps-api.js" />
         <option value="$PROJECT_DIR$/js/googlemaps.js" />
-        <option value="$PROJECT_DIR$/js/addStations.js" />
         <option value="$PROJECT_DIR$/styles/colors.css" />
         <option value="$PROJECT_DIR$/includes/menu-items/chargers-nearby.php" />
         <option value="$PROJECT_DIR$/js/chargers-nearby.js" />
+        <option value="$PROJECT_DIR$/js/navigation.js" />
+        <option value="$PROJECT_DIR$/js/addStations.js" />
       </list>
     </option>
   </component>
@@ -448,14 +443,7 @@
       <workItem from="1460819750536" duration="75000" />
       <workItem from="1460819989919" duration="1699000" />
       <workItem from="1460846990709" duration="2643000" />
-      <workItem from="1460925757277" duration="9300000" />
-    </task>
-    <task id="LOCAL-00025" summary="mindre design endringer + knapp + deaktivert bootstrap igjen.">
-      <created>1458210100849</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1458210100849</updated>
+      <workItem from="1460925757277" duration="10651000" />
     </task>
     <task id="LOCAL-00026" summary="endringer i css for meny.">
       <created>1458210477267</created>
@@ -793,11 +781,18 @@
       <option name="project" value="LOCAL" />
       <updated>1460926438389</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Fikset ett &quot;førsteutkast&quot; av ladere i nærheten.&#10;Foreløpig vises kun ladestasjonene som er innen 5 km unna brukeren i en liste uten noe videre funksjonalitet.">
+      <created>1460935245993</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1460935245993</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91757000" />
+    <option name="totallyTimeSpent" value="93108000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -845,7 +840,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fail" />
     <MESSAGE value="urls" />
     <MESSAGE value="Flip switch på det som bør være brytere er lagt til (Altså, de er ikke lenger knapper)." />
     <MESSAGE value="Mobilversjon:&#10;- Menyen går ikke lenger utenfor &quot;skjermen&quot; om den blir lenger en skjermen er høy. Overlow fungerer nå som den skal, slik at det blir scrollbart isteden." />
@@ -870,7 +864,8 @@
     <MESSAGE value="noen hadde brukt stor navn på fil og referert med liten skrift O_o" />
     <MESSAGE value="forsøk på å fikse skalering på mobil.." />
     <MESSAGE value="Forsøk på fiksing på problemet som gjør at skjermen er scrollbar sidlengs på mobil." />
-    <option name="LAST_COMMIT_MESSAGE" value="Forsøk på fiksing på problemet som gjør at skjermen er scrollbar sidlengs på mobil." />
+    <MESSAGE value="Fikset ett &quot;førsteutkast&quot; av ladere i nærheten.&#10;Foreløpig vises kun ladestasjonene som er innen 5 km unna brukeren i en liste uten noe videre funksjonalitet." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fikset ett &quot;førsteutkast&quot; av ladere i nærheten.&#10;Foreløpig vises kun ladestasjonene som er innen 5 km unna brukeren i en liste uten noe videre funksjonalitet." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1035,13 +1030,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/navigation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="32" column="58" selection-start-line="32" selection-start-column="58" selection-end-line="32" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -1212,17 +1200,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/addStations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="282" column="42" selection-start-line="282" selection-start-column="36" selection-end-line="282" selection-end-column="42" />
-          <folding>
-            <marker date="1460933250000" expanded="true" signature="8617:8629" placeholder="..." />
-            <marker date="1460933250000" expanded="true" signature="11559:11698" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/styles/menu.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1701">
@@ -1253,6 +1230,25 @@
           <caret line="7" column="79" selection-start-line="7" selection-start-column="79" selection-end-line="7" selection-end-column="79" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/navigation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="40" column="25" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/addStations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="286" column="156" selection-start-line="286" selection-start-column="156" selection-end-line="286" selection-end-column="156" />
+          <folding>
+            <marker date="1460936490000" expanded="true" signature="8617:8629" placeholder="..." />
+            <marker date="1460936490000" expanded="true" signature="11582:11789" placeholder="..." />
           </folding>
         </state>
       </provider>
