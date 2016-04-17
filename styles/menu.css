@@ -9,7 +9,7 @@ div#title h1{
     float:left;
     padding-left:1.5em;
     background:url(../icons/logo.svg) no-repeat;
-    width:100%;
+    width: calc(100% - 2.5em);
     margin: 0.3em 0.3em 0.3em 1em;
 }
 div#title button{
@@ -33,7 +33,7 @@ div#title-login h1{
     margin-left: -0.7em;
     border: 1px;
     float: left;
-    width: 100%;
+    width: calc(100% - 2.5em);
 }
 
 .title-box h1{
