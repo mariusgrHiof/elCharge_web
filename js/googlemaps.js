@@ -2,6 +2,7 @@
  * Created by jonas on 03.03.16.
  */
 var map;
+var geopos;
 var markers = [];
 var pathtest = [
     {lat: 36.579, lng: -118.292},  // Mt. Whitney
@@ -42,6 +43,7 @@ function initMap() {
     trafficOverlay();
     weatherOverlay();
     cloudOverlay();
+    geopos = [59.91673,10.74782]; // Defaulting to oslo incase geopos isn't possible
     console.log('el ' + getElevation(new google.maps.LatLng(-34.397, 150.644)));
 
     //Finding user location with geolocation
@@ -51,6 +53,9 @@ function initMap() {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
+            //Storing the user pos value
+            geopos = [position.coords.latitude, position.coords.longitude];
+            console.log("dadadad"+pos);
             map.setCenter(pos);
             currentPosMarker(pos);
         }, function() {

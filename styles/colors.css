@@ -27,11 +27,11 @@ header{
     background-color: #98E095;
 }
 #menu-list :hover {
-    background-color: #ebebeb;
+    /*TODO: Fix! background-color: #ebebeb;*/
 }
 /*
 #menu-list .parent :hover {
-    background-color: #98E095;
+    TODO: Fix! background-color: #98E095;
 }*/
 
 /**

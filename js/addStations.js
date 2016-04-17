@@ -211,6 +211,7 @@ function getMatchConnectorType(index, portCount, object){
 function addMarker(index, object){
     //Adding markers
     var pos = object.chargerstations[index].csmd.Position.replace(/[()]/g,"").split(",");
+
     var marker = new google.maps.Marker({
         position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])}/*,
         icon: {
@@ -276,6 +277,16 @@ function addMarker(index, object){
     });
 
     markers.push(marker);
+
+    //Building closest charging stations list
+    if(compareDistance(geopos, pos) <= 5){
+        console.log(compareDistance(geopos, pos) + "km");
+        //chargers_nearby[chargers_nearby.length] = [''];
+        $('#chargers-nearby').append(
+            '<li class="border">' +
+            object.chargerstations[index].csmd.name + ' (' + Math.round(compareDistance(geopos, pos)) + 'km unna)' +
+            '</li>');
+    }
 }
 
 function addWaypoint(lat, lon, name){
