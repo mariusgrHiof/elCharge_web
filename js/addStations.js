@@ -1,14 +1,8 @@
 /**
  * Created by jonas on 03.03.16.
  */
-/*
-var markerIcon = {
-    anchor: new google.maps.Point(0, 32),
-    origin: new google.maps.Point(0, 0),
-    scaledSize: new google.maps.Size(32, 32),
-    size: new google.maps.Size(64, 64),
-    url: "../icons/marker-icon.svg"
-};*/
+
+
 
 var typeIDs = new Array();
 typeIDs['0'] = "Unspecified";
@@ -186,12 +180,25 @@ function addMarker(index, object){
     //Adding markers
     var pos = object.chargerstations[index].csmd.Position.replace(/[()]/g,"").split(",");
 
+    var stationStatus = object.chargerstations[index].attr.st[21].attrvalid;
+
+    console.log("wallabrurishitkek" + stationStatus);
+
+    var markerIcon = {
+        url: 'icons/'+(stationStatus === "1" ? 'marker_green':'marker_blue')+'.svg',
+        anchor: new google.maps.Point(0, 32),
+        origin: new google.maps.Point(0, 0),
+        scaledSize: new google.maps.Size(32, 54),
+        size: new google.maps.Size(64, 64)
+    };
+
     var marker = new google.maps.Marker({
         position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])}/*,
         icon: {
             path: markerIcon,
             scale: 1
         }*/,
+        icon: markerIcon,
         map: map,
         title: object.chargerstations[index].csmd.name
     });
