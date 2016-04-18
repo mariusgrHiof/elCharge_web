@@ -254,13 +254,7 @@ function addMarker(index, object){
 
     //Building closest charging stations list
     if(compareDistance(geopos, pos) <= 5){
-        console.log(compareDistance(geopos, pos) + "km");
         chargers_nearby[chargers_nearby.length] = object.chargerstations[index];
-        $('#chargers-nearby').append(
-            '<li class="border">' +
-                //TODO: FIX!
-            object.chargerstations[index].csmd.name + ' (' + Math.round(compareDistance(geopos, pos)) + 'km unna) <button onclick="navigateFromUser(geopos, pos)">Ta meg hit</button>' +
-            '</li>');
     }
 }
 

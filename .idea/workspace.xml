@@ -36,26 +36,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chargers-nearby.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="chargers-nearby.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="31" />
+            <state relative-caret-position="405">
+              <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
+                <marker date="1461005313000" expanded="true" signature="860:877" placeholder="..." />
+                <marker date="1461005313000" expanded="true" signature="860:1059" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/addStations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="136" column="24" selection-start-line="136" selection-start-column="24" selection-end-line="136" selection-end-column="24" />
+            <state relative-caret-position="348">
+              <caret line="256" column="80" selection-start-line="256" selection-start-column="80" selection-end-line="256" selection-end-column="80" />
               <folding>
-                <marker date="1461000907000" expanded="true" signature="7506:7518" placeholder="..." />
-                <marker date="1461000907000" expanded="true" signature="10471:10707" placeholder="..." />
+                <marker date="1461002012000" expanded="true" signature="7506:7518" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -192,10 +193,10 @@
         <option value="$PROJECT_DIR$/styles/colors.css" />
         <option value="$PROJECT_DIR$/includes/menu-items/chargers-nearby.php" />
         <option value="$PROJECT_DIR$/js/navigation.js" />
-        <option value="$PROJECT_DIR$/js/chargers-nearby.js" />
+        <option value="$PROJECT_DIR$/js/buttons.js" />
         <option value="$PROJECT_DIR$/js/addStations.js" />
         <option value="$PROJECT_DIR$/includes/checkloggin.php" />
-        <option value="$PROJECT_DIR$/js/buttons.js" />
+        <option value="$PROJECT_DIR$/js/chargers-nearby.js" />
       </list>
     </option>
   </component>
@@ -548,14 +549,7 @@
       <workItem from="1460846990709" duration="2643000" />
       <workItem from="1460925757277" duration="11457000" />
       <workItem from="1460973716884" duration="51000" />
-      <workItem from="1461000254212" duration="1694000" />
-    </task>
-    <task id="LOCAL-00028" summary=".....">
-      <created>1458217136505</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1458217136505</updated>
+      <workItem from="1461000254212" duration="4267000" />
     </task>
     <task id="LOCAL-00029" summary=".....">
       <created>1458220554151</created>
@@ -893,11 +887,18 @@
       <option name="project" value="LOCAL" />
       <updated>1460936756638</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="noe">
+      <created>1461001979448</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1461001979449</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95659000" />
+    <option name="totallyTimeSpent" value="98232000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -914,6 +915,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18210863" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22673267" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -921,7 +923,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -945,7 +946,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Flip switch på det som bør være brytere er lagt til (Altså, de er ikke lenger knapper)." />
     <MESSAGE value="Mobilversjon:&#10;- Menyen går ikke lenger utenfor &quot;skjermen&quot; om den blir lenger en skjermen er høy. Overlow fungerer nå som den skal, slik at det blir scrollbart isteden." />
     <MESSAGE value="fiksing av layout + delt opp menyen i flere php filer som inkluderes i hoved menu.php filen." />
     <MESSAGE value="Hvis det ikke er noe bilde på en ladestasjon, blir elcharge logoen vist isteden." />
@@ -970,7 +970,8 @@
     <MESSAGE value="Forsøk på fiksing på problemet som gjør at skjermen er scrollbar sidlengs på mobil." />
     <MESSAGE value="Fikset ett &quot;førsteutkast&quot; av ladere i nærheten.&#10;Foreløpig vises kun ladestasjonene som er innen 5 km unna brukeren i en liste uten noe videre funksjonalitet." />
     <MESSAGE value="forsøkte å legge inn &quot;ta meg hit funksjon&quot; uten å bruke array.. men må nok bruke array alikavel. Fikser senere om noen andre ikke fikser den først." />
-    <option name="LAST_COMMIT_MESSAGE" value="forsøkte å legge inn &quot;ta meg hit funksjon&quot; uten å bruke array.. men må nok bruke array alikavel. Fikser senere om noen andre ikke fikser den først." />
+    <MESSAGE value="noe" />
+    <option name="LAST_COMMIT_MESSAGE" value="noe" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1255,14 +1256,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/menu-items/chargers-nearby.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="7" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/scripts.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1311,21 +1304,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/checkloggin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
-          <folding>
-            <marker date="1461001662000" expanded="true" signature="462:517" placeholder="select * fro... ec_users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/buttons.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
           <caret line="96" column="7" selection-start-line="96" selection-start-column="7" selection-end-line="96" selection-end-column="7" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/menu-items/chargers-nearby.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="7" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/addStations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="256" column="80" selection-start-line="256" selection-start-column="80" selection-end-line="256" selection-end-column="80" />
+          <folding>
+            <marker date="1461002012000" expanded="true" signature="7506:7518" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1337,23 +1338,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
+    <entry file="file://$PROJECT_DIR$/includes/checkloggin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="31" />
+        <state relative-caret-position="525">
+          <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
           <folding>
-            <element signature="e#0#40#0" expanded="false" />
+            <marker date="1461001662000" expanded="true" signature="462:517" placeholder="select * fro... ec_users" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/addStations.js">
+    <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="136" column="24" selection-start-line="136" selection-start-column="24" selection-end-line="136" selection-end-column="24" />
+        <state relative-caret-position="405">
+          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
           <folding>
-            <marker date="1461000907000" expanded="true" signature="7506:7518" placeholder="..." />
-            <marker date="1461000907000" expanded="true" signature="10471:10707" placeholder="..." />
+            <element signature="e#0#40#0" expanded="false" />
+            <marker date="1461005313000" expanded="true" signature="860:877" placeholder="..." />
+            <marker date="1461005313000" expanded="true" signature="860:1059" placeholder="..." />
           </folding>
         </state>
       </provider>

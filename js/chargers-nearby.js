@@ -22,8 +22,12 @@ function compareDistance(userPos, stationPos){
 }
 
 function getNearbyChargers(){
-
+    console.log('Size: ' + chargers_nearby.length);
     for(var i = 0; i < chargers_nearby.length; i++){
-        console.log('Oh yeah');
+        console.log("Content: " + chargers_nearby[i].csmd.name);
+        $('#chargers-nearby').append(
+            '<li class="border">' +
+            chargers_nearby[i].csmd.name + ' (' + Math.round(compareDistance(geopos, pos)) + 'km unna) <button onclick="navigateFromUser(geopos, geopos)">Ta meg hit</button>' +
+            '</li>');
     }
 }
