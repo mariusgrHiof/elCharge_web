@@ -180,10 +180,10 @@ function addMarker(index, object){
     //Adding markers
     var pos = object.chargerstations[index].csmd.Position.replace(/[()]/g,"").split(",");
 
-    var stationStatus = object.chargerstations[index].attr.st[21].attrvalid;
+    var isLive = object.chargerstations[index].attr.st[21].attrvalid == "1" ? true : false;
 
     var markerIcon = {
-        url: 'icons/'+(stationStatus === "1" ? 'marker_green':'marker_blue')+'.svg',
+        url: 'icons/'+(isLive ? 'marker_green':'marker_blue')+'.svg', //Changing the color of the marker based on if it has live status or not.
         anchor: new google.maps.Point(0, 32),
         origin: new google.maps.Point(0, 0),
         scaledSize: new google.maps.Size(32, 54),
