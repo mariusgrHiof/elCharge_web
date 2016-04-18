@@ -95,3 +95,11 @@ $('input[type=checkbox].onoffswitch-checkbox').change(
         if($(this).attr('id') == 'cloud-layer')
             cloudOverlay();
     });
+
+$('input[type=text]#search-box').change(
+    function(){
+        console.log("mafakashitkeklol");
+        //autocomplete();
+
+    }
+)

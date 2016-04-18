@@ -19,7 +19,7 @@
     <div id="search">
         <button onclick="dropdown(this, true)" id="menu-toggle"></button>
         <input id="search-box" type="text"/>
-        <button>Søk</button>
+
 
     </div>
 

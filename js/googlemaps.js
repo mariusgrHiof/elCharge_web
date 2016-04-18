@@ -12,6 +12,8 @@ var pathtest = [
     {lat: 36.34, lng: -117.468},  // Panama Mint Springs
     {lat: 36.24, lng: -116.832}];  // Badwater, Death Valley
 
+
+
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 59.91673, lng: 10.74782},
@@ -36,6 +38,45 @@ function initMap() {
     map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
     elevationService = new google.maps.ElevationService;
 
+    /*
+    ** Search box header
+     */
+
+    // Create the search box and link it to the UI element.
+    var input = document.getElementById('search-box');
+    var searchBox = new google.maps.places.SearchBox(input);
+    //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+    // Bias the SearchBox results towards current map's viewport.
+    map.addListener('bounds-changed', function() {
+        searchBox.setBounds(map.getBounds());
+    });
+
+    /*
+    ** Search box startPos
+     */
+
+    var inputStartPos = document.getElementById('nav-start-pos');
+    var searchBoxStartPos = new google.maps.places.SearchBox(inputStartPos);
+
+    map.addListener('bounds-changed', function() {
+        searchBoxStartPos.setBounds(map.getBounds());
+    });
+
+    /*
+    ** Search box endPos
+     */
+
+    var inputEndPos = document.getElementById('nav-end-pos');
+    var searchBoxEndPos = new google.maps.places.SearchBox(inputEndPos);
+
+    map.addListener('bounds-changed', function() {
+        searchBoxEndPos.setBounds(map.getBounds());
+    });
+
+    /*
+    **
+     */
 
 
     updateCarList();

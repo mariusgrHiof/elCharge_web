@@ -118,13 +118,16 @@ function currentPosMarker(pos){
  * TODO: FIX!
 */
 function autocomplete(){
-    var finalDestInput = document.getElementById('search-box');//$('#search-box');
-    var pos = navigator.geolocation.getCurrentPosition;
-    var defaultBounds = new google.maps.LatLngBounds(
-        pos,
-        pos
-    );
-    var options = {bounds: defaultBounds};
-    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(finalDestInput);
-    var ac = new google.maps.places.Autocomplete(finalDestInput, options);
+
+
+    // Create the search box and link it to the UI element.
+    var input = document.getElementById('search-box');
+    var searchBox = new google.maps.places.SearchBox(input);
+    //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+    // Bias the SearchBox results towards current map's viewport.
+    map.addListener('bounds-changed', function() {
+        searchBox.setBounds(map.getBounds());
+    });
+
 }

@@ -154,6 +154,21 @@ select{
     float:left;
 }
 
+#search-box{
+    background-color: #fff;
+    float:left;
+    margin: 0.5em 0 0.5em 10%;
+    width:300px;
+
+}
+
+.searchable{
+    background-color: #fff;
+    float:left;
+    margin: 0.5em 0 0.5em 10%;
+    width:300px;
+}
+
 /*
 * Route options
 */
