@@ -6,11 +6,15 @@
  * Time: 4:23 PM
  */
 
-    $servername ="frigg.hiof.no";
-    $username ="bo16g6";
-    $password ="bgGGY5DB";
+$servername ="frigg.hiof.no";
+$username ="bo16g6";
+$password ="bgGGY5DB";
 
-    // Create connection
+// Create connection
+
+try {
+
+
     $conn = new mysqli($servername, $username, $password, $username);
 
     // Check connection
@@ -21,18 +25,19 @@
 
     $prepStatment = $conn->prepare("select * from ec_users where username=? and password =?");
 
-    $prepStatment->bind_param("ss", $_POST['username'],md5($_POST['password']));
+    $prepStatment->bind_param("ss", $_POST['username'], md5($_POST['password']));
 
     $prepStatment->execute();
 
 
-
-    if($row = $prepStatment->fetch()){
+    if ($row = $prepStatment->fetch()) {
         echo "Velkommen, " . $_POST['username'] . ", profil";
-    }
-    else{
+    } else {
         echo "Feil brukernavn eller passord";
     }
-
+}
+catch (mysqli_sql_exception $ms){
+    echo $ms;
+}
 
 

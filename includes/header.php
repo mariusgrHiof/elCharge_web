@@ -22,6 +22,10 @@
         <button>Søk</button>
 
     </div>
+
+    <div>
+        <butt
+    </div>
     <?php
     include 'menu.php';
     include 'includes/footer.php';
