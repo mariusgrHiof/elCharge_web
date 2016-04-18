@@ -45,12 +45,26 @@ function initMap() {
     // Create the search box and link it to the UI element.
     var input = document.getElementById('search-box');
     var searchBox = new google.maps.places.SearchBox(input);
-    //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
 
     // Bias the SearchBox results towards current map's viewport.
     map.addListener('bounds-changed', function() {
         searchBox.setBounds(map.getBounds());
     });
+
+    searchBox.addListener('places_changed', function(){
+        var places = searchBox.getPlaces();
+
+        if(places.length == 0) {
+            return;
+        }
+
+        var bounds = new google.maps.LatLngBounds();
+
+
+    });
+
+
 
     /*
     ** Search box startPos
