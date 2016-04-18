@@ -182,8 +182,6 @@ function addMarker(index, object){
 
     var stationStatus = object.chargerstations[index].attr.st[21].attrvalid;
 
-    console.log("wallabrurishitkek" + stationStatus);
-
     var markerIcon = {
         url: 'icons/'+(stationStatus === "1" ? 'marker_green':'marker_blue')+'.svg',
         anchor: new google.maps.Point(0, 32),

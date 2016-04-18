@@ -20,7 +20,6 @@ function navigate(){
     //Getting destinations
     startDestination = $('#nav-start-pos').val();
     endDestination = $('#nav-end-pos').val();
-    console.log("Start destination: " + startDestination + " end destination: " + endDestination);
     directionsService = new google.maps.DirectionsService;
 
     directionsDisplay = new google.maps.DirectionsRenderer({
@@ -38,8 +37,8 @@ function navigate(){
     console.log("Dirs: " + directionsService.path);
 }
 
-function navigateFromUser(from){
-    var to = $(this).attr('value');
+function navigateFromUser(from, toel){
+    var to = $(toel).attr('value');
     //Cleaning previous directions
     if(directionsDisplay != null){
         directionsDisplay.setMap(null);//The route in the map
@@ -51,7 +50,7 @@ function navigateFromUser(from){
     console.log(to);
     //Getting destinations
     startDestination = from[0] + "," + from[1];
-    endDestination = 'Oslo, Norway';
+    endDestination = to;
     console.log("Start destination: " + startDestination + " end destination: " + endDestination);
     directionsService = new google.maps.DirectionsService;
 
