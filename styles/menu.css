@@ -175,6 +175,10 @@ select{
 .route-options ul li{
     padding: 0.5em 0 0.5em 0;
 }
+#chargers-nearby{
+    height:40em;
+}
+
 /*
     General
 */
