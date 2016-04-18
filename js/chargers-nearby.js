@@ -29,7 +29,7 @@ function getNearbyChargers(){
         console.log("Content: " + chargers_nearby[i].csmd.name);
         $('#chargers-nearby').append(
             '<li class="border">' +
-            chargers_nearby[i].csmd.name + ' (' + Math.round(compareDistance(geopos, thisPos)) + 'km unna) <button onclick="navigateFromUser(geopos, this)" value="'+ thisPos +'">click me</button>' +
+            chargers_nearby[i].csmd.name + ' (' + Math.round(compareDistance(geopos, thisPos)) + 'km unna) <button onclick="navigateFromUser(geopos, this)" value="'+ thisPos +'">Ta meg hit</button>' +
             '</li>');
     }
 }
