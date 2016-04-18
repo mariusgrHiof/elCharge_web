@@ -23,4 +23,7 @@ function compareDistance(userPos, stationPos){
 
 function getNearbyChargers(){
 
+    for(var i = 0; i < chargers_nearby.length; i++){
+        console.log('Oh yeah');
+    }
 }

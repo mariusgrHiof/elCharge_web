@@ -110,33 +110,6 @@ function updateCarList(){
 
 function generateMarkers(){
     deleteMarkers();
-    /*
-    $.getJSON('datadump.json', function ( obj ){
-        for(i = 0; i < obj.chargerstations.length; i++){
-            var numOfPorts = obj.chargerstations[i].csmd.Number_charging_points;
-            //Checking filter
-            if(document.getElementById("select-car").value !=0){
-                carModel = carModels[document.getElementById("select-car").value];
-
-                //TODO: Fiks sånn at vi sjekker begge ladeportene og ikke kun den første av de.
-                var isMatch = getCarMatch(i, numOfPorts, obj);
-                if(isMatch){
-                    addMarker(i, obj);
-                }
-            }else{
-                var conns = new Array();
-                for(var c = 1; c <= numOfPorts; c++){
-                    try{
-                        conns.push(obj.chargerstations[i].attr.conn[c]);
-                    }catch(e){}
-                }
-                connectors = conns.concat(conns);
-                //Adding all charging stations
-                addMarker(i, obj);
-            }
-            //TODO: FIX! var mc = new google.maps.MarkerClusterer(map, markers, options);
-        }
-    });*/
     for(i = 0; i < jsonData.chargerstations.length; i++){
         var numOfPorts = jsonData.chargerstations[i].csmd.Number_charging_points;
         //Checking filter
@@ -161,6 +134,7 @@ function generateMarkers(){
         }
         //TODO: FIX! var mc = new google.maps.MarkerClusterer(map, markers, options);
     }
+    getNearbyChargers();
 }
 
 function getCarMatch(index, portCount, object){
