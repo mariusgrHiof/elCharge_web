@@ -157,8 +157,8 @@ select{
 #search-box{
     background-color: #fff;
     float:left;
-    margin: 0.5em 0 0.5em 10%;
-    width:300px;
+    margin-left: 0.5em;
+    width:20em;
 
 }
 

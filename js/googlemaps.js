@@ -46,25 +46,34 @@ function initMap() {
     var input = document.getElementById('search-box');
     var searchBox = new google.maps.places.SearchBox(input);
 
+    searchBox.setBounds(map.getBounds());
+
 
     // Bias the SearchBox results towards current map's viewport.
-    map.addListener('bounds-changed', function() {
+    /*map.addListener('bounds-changed', function() {
         searchBox.setBounds(map.getBounds());
-    });
+    });*/
 
-    searchBox.addListener('places_changed', function(){
+    searchBox.addListener('places_changed', function() {
         var places = searchBox.getPlaces();
 
-        if(places.length == 0) {
+        if (places.length == 0) {
             return;
         }
 
+        // For each place, get the icon, name and location.
         var bounds = new google.maps.LatLngBounds();
+        places.forEach(function(place) {
 
-
+            if (place.geometry.viewport) {
+                // Only geocodes have viewport.
+                bounds.union(place.geometry.viewport);
+            } else {
+                bounds.extend(place.geometry.location);
+            }
+        });
+        map.fitBounds(bounds);
     });
-
-
 
     /*
     ** Search box startPos
@@ -73,9 +82,7 @@ function initMap() {
     var inputStartPos = document.getElementById('nav-start-pos');
     var searchBoxStartPos = new google.maps.places.SearchBox(inputStartPos);
 
-    map.addListener('bounds-changed', function() {
-        searchBoxStartPos.setBounds(map.getBounds());
-    });
+   searchBoxStartPos.setBounds(map.getBounds());
 
     /*
     ** Search box endPos
@@ -84,9 +91,7 @@ function initMap() {
     var inputEndPos = document.getElementById('nav-end-pos');
     var searchBoxEndPos = new google.maps.places.SearchBox(inputEndPos);
 
-    map.addListener('bounds-changed', function() {
-        searchBoxEndPos.setBounds(map.getBounds());
-    });
+    searchBoxEndPos.setBounds(map.getBounds());
 
     /*
     **
