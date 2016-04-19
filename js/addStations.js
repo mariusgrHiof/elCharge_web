@@ -202,7 +202,7 @@ function addMarker(index, object){
     });
 
     //Showing a info windows when you click on the marker
-    var connectorsString = '<ol class="sub-item">';
+    var connectorsString = '<ol>';
     for(var i = 0; i <connectors.length; i++){
 
         try{//Could be one single string.. I know
