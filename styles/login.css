@@ -37,6 +37,12 @@
     display: none;
 
 }
+#logged-in{
+    right: 0;
+    position: fixed;
+    z-index: 1;
+    background: white;
+}
 
 @media screen and (max-width:600px){
     #login_popup{
@@ -47,4 +53,7 @@
          top:30%;
          left:30%;
      }
+    #logged-in{
+        position: absolute;
+    }
 }

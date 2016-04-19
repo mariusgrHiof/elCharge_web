@@ -28,8 +28,10 @@ function getNearbyChargers(){
         thisPos = chargers_nearby[i].csmd.Position.replace(/[()]/g,"").split(",");
         console.log("Content: " + chargers_nearby[i].csmd.name);
         $('#chargers-nearby').append(
-            '<li class="border">' +
-            chargers_nearby[i].csmd.name + ' (' + Math.round(compareDistance(geopos, thisPos)) + 'km unna) <button onclick="navigateFromUser(geopos, this)" value="'+ thisPos +'">Ta meg hit</button>' +
+            '<li class="border img-height-4em">' +
+                '<img class="cover-third float-left img-height-4em" src=\"' + (/kommer/i.test(chargers_nearby[i].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ chargers_nearby[i].csmd.Image) + '\"/>' +
+                '<div>'+ chargers_nearby[i].csmd.name + ' (' + Math.round(compareDistance(geopos, thisPos)) + 'km unna)' +'</div>' +
+                '<button onclick="navigateFromUser(geopos, this)" value="'+ thisPos +'">Ta meg hit</button>' +
             '</li>');
     }
 }

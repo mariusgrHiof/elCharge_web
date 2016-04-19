@@ -10,7 +10,7 @@ div#title h1{
     padding-left:1.5em;
     background:url(../icons/logo.svg) no-repeat;
     width: calc(100% - 2.5em);
-    margin: 0.3em 0.3em 0.3em 1em;
+    margin: 0.1em 0.3em 0.1em 1em;
 }
 div#title button{
     width:10%;
@@ -54,7 +54,7 @@ nav{
     clear:both;
 }
 nav ul{
-    margin-left:-2.5em;
+    margin: 0 0 0 -2.5em;
 }
 
 nav li{
@@ -177,6 +177,7 @@ select{
 }
 #chargers-nearby{
     height:40em;
+    overflow-y:auto;
 }
 
 /*
@@ -208,4 +209,11 @@ ul{
 }
 .float-left{
     float:left;
+}
+/*
+* Icons
+*/
+
+.img-height-4em{
+    height: 4em;
 }

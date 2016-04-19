@@ -243,12 +243,21 @@ function addMarker(index, object){
         "</div>";
     //object.chargerstations[index].csmd.name;
 
-    var maxWidth = (isMobile?200:400);
-    var maxHeight = (isMobile?200:400);
+    //TODO: Sjekk ut http://en.marnoto.com/2014/09/5-formas-de-personalizar-infowindow.html
+    var maxWidth = (isMobile?300:500);
+    var maxHeight = (isMobile?300:500);
     var infowindow = new google.maps.InfoWindow({
         content: contentString,
         maxWidth: maxWidth,
         maxHeight: maxHeight
+    });
+    /*
+     * Making it so that the popups disappear upon click outside box
+     */
+    google.maps.event.addListener(map, 'click', function() {
+        if(infowindow){
+            infowindow.close();
+        }
     });
 
     marker.addListener('click', function() {

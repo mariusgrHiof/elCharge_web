@@ -93,11 +93,6 @@ function initMap() {
 
     searchBoxEndPos.setBounds(map.getBounds());
 
-    /*
-    **
-     */
-
-
     updateCarList();
     //Turning on layers
     trafficOverlay();
