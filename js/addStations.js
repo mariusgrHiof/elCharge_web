@@ -191,7 +191,7 @@ function addMarker(index, object){
         url: 'icons/'+(isLive ? 'marker_green_v3':'marker_blue_v3')+'.svg', //Changing the color of the marker based on if it has live status or not.
         anchor: new google.maps.Point(0, 32),
         origin: new google.maps.Point(0, 0),
-        scaledSize: new google.maps.Size(32, 45),
+        scaledSize: new google.maps.Size(32, 51),
         size: new google.maps.Size(64, 64)
     };
 
