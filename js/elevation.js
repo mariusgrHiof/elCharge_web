@@ -49,4 +49,5 @@ function plotElevation(elevations, status){
         legend: 'none',
         titleY: 'Elevation (m)'
     });
+
 }

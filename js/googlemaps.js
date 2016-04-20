@@ -12,7 +12,7 @@ var pathtest = [
     {lat: 36.34, lng: -117.468},  // Panama Mint Springs
     {lat: 36.24, lng: -116.832}];  // Badwater, Death Valley
 
-
+var mcOptions = {gridSize: 50, maxZoom: 15};
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -37,6 +37,10 @@ function initMap() {
     //Setting default map layer type to terrain
     map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
     elevationService = new google.maps.ElevationService;
+
+
+
+
 
     /*
     ** Search box header
@@ -128,6 +132,8 @@ function initMap() {
     //Downloading station data
     downloadDump();
 
+
+    var mc = new MarkerClusterer(map, markers, mcOptions);
     //hallabruri(pathtest, elevationService, map);
 }
 
@@ -135,6 +141,7 @@ function initMap() {
 function setMapOnAll(map) {
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
+
     }
 }
 //Deleting all the markers

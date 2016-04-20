@@ -125,9 +125,12 @@ function generateMarkers(){
             connectors = conns.concat(conns);
             //Adding all charging stations
             addMarker(i, jsonData);
+
         }
         //TODO: FIX! var mc = new google.maps.MarkerClusterer(map, markers, options);
+
     }
+
     getNearbyChargers();
 }
 
@@ -182,11 +185,13 @@ function addMarker(index, object){
 
     var isLive = object.chargerstations[index].attr.st[21].attrvalid == "1" ? true : false;
 
+    //TODO: Fikse nestet short if: de markørene som har hurtigladekontakt skal ha _v2.svg (den med vinger)
+
     var markerIcon = {
-        url: 'icons/'+(isLive ? 'marker_green':'marker_blue')+'.svg', //Changing the color of the marker based on if it has live status or not.
+        url: 'icons/'+(isLive ? 'marker_green_v3':'marker_blue_v3')+'.svg', //Changing the color of the marker based on if it has live status or not.
         anchor: new google.maps.Point(0, 32),
         origin: new google.maps.Point(0, 0),
-        scaledSize: new google.maps.Size(32, 54),
+        scaledSize: new google.maps.Size(32, 45),
         size: new google.maps.Size(64, 64)
     };
 
@@ -200,6 +205,8 @@ function addMarker(index, object){
         map: map,
         title: object.chargerstations[index].csmd.name
     });
+
+
 
     //Showing a info windows when you click on the marker
     var connectorsString = '<ol>';

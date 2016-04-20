@@ -5,6 +5,7 @@ addJS('js/login.js', false, false);
 addJS('js/global.js', false, false);
 addJS('js/geolocation-marker.js', false, false);
 addJS('js/chargers-nearby.js', false, false);
+addJS('js/MarkerClusterer.js', false, false);
 addJS('js/addStations.js', false, false);
 addJS('js/maplayers.js', false, false);
 addJS('js/navigation.js', false, false);
