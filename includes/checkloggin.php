@@ -5,6 +5,7 @@
  * Date: 3/30/2016
  * Time: 4:23 PM
  */
+$_SESSION['UserId'] = rand(1,99);
 
 $servername ="frigg.hiof.no";
 $username ="bo16g6";
@@ -31,7 +32,7 @@ try {
 
 
     if ($row = $prepStatment->fetch()) {
-        echo "Velkommen, " . $_POST['username'] . ", profil";
+        echo "Velkommen, " . $_POST['username'] . ", din id er " . $_SESSION['UserId'] . " <a href='favoritter.php'> Favoritter </a>";
     } else {
         echo "Feil brukernavn eller passord";
     }

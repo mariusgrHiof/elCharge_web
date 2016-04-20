@@ -8,5 +8,7 @@
 
 ?>
 <div id="logged-in">
-    <?php include 'checkloggin.php' ?>
+    <!--<?php include 'checkloggin.php' ?> -->
+
+    <iframe name="userFeedback"> </iframe>
 </div>
