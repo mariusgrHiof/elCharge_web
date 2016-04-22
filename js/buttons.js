@@ -19,6 +19,17 @@ function dropdown(event, parent){
         }
     }
 }
+function userLoggin(form){
+    console.log("Loggin yo");
+    var username = $(form).children(":input[name='username']").val();
+    var password = $(form).children(":input[name='password']").val();
+
+    console.log("Username is -> " + username + " password is: " + password);
+    $.post( "includes/checkloggin.php", { username: username, password: password }, function( data ){
+        $('#logged-in').html( data );
+    });
+    return false;
+}
 
 $(function(){
     $('.menu-item').click(

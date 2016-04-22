@@ -10,5 +10,5 @@
 <div id="logged-in">
     <!--<?php include 'checkloggin.php' ?> -->
 
-    <iframe name="userFeedback"> </iframe>
+    <!--<iframe name="userFeedback"> </iframe>-->
 </div>

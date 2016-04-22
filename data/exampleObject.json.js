@@ -4,51 +4,51 @@
     {
         "id"
     :
-        2221, "name"
+        1415, "name"
     :
-        "Q-Park St. Olavs gate 35", "Street"
+        "Arctic Roads Svinesund Hurtigladestasjon", "Street"
     :
-        "St. Olavs gate", "House_number"
+        "Svinesundparken", "House_number"
     :
-        "35", "Zipcode"
+        "4", "Zipcode"
     :
-        "0166", "City"
+        "1789", "City"
     :
-        "OSLO", "Municipality_ID"
+        "BERG I \u00d8STFOLD", "Municipality_ID"
     :
-        "0301", "Municipality"
+        "0101", "Municipality"
     :
-        "OSLO", "County_ID"
+        "HALDEN", "County_ID"
     :
-        "03", "County"
+        "01", "County"
     :
-        "Oslo", "Description_of_location"
+        "\u00d8stfold", "Description_of_location"
     :
-        "", "Owned_by"
+        "P\u00e5 p-plassen rett ovenfor Plantasjen.", "Owned_by"
     :
-        "Q-Park", "Number_charging_points"
+        "Arctic Roads AS", "Number_charging_points"
     :
-        2, "Position"
+        4, "Position"
     :
-        "(59.91786,10.73381)", "Image"
+        "(59.1295,11.27407)", "Image"
     :
-        "Kommer", "Available_charging_points"
+        "1415.jpg", "Available_charging_points"
     :
-        2, "User_comment"
+        3, "User_comment"
     :
-        "", "Contact_info"
+        "Tilgang med SMS, &quot;gocharge&quot;app, eller aktivt RFID-kort utstedt av Arctic Roads.\r\nAbonnementpriser: http:\/\/arcticroads.com\/bli-medlem\/priser-og-vilkar\/", "Contact_info"
     :
-        "815 22 315", "Created"
+        "For teknisk support: Ring Arctic Roads 24\/7 servicetelefon p\u00e5 975 49 200", "Created"
     :
-        "2014-09-30 17:38:02", "Updated"
+        "2012-10-24 19:45:20", "Updated"
     :
-        "2014-09-30 17:38:02", "Station_status"
+        "2016-03-24 13:14:41", "Station_status"
     :
         1, "Land_code"
     :
         "NOR", "International_id"
     :
-        "NOR_02221"
+        "NOR_01415"
     }
 ,
     "attr"
@@ -82,9 +82,9 @@
             :
                 "Real-time information", "attrvalid"
             :
-                "2", "trans"
+                "1", "trans"
             :
-                "No", "attrval"
+                "Yes", "attrval"
             :
                 ""
             }
@@ -98,9 +98,9 @@
             :
                 "Public funding", "attrvalid"
             :
-                "4", "trans"
+                "2", "trans"
             :
-                "None", "attrval"
+                "Transnova", "attrval"
             :
                 ""
             }
@@ -114,11 +114,11 @@
             :
                 "Parking fee", "attrvalid"
             :
-                "1", "trans"
+                "2", "trans"
             :
-                "Yes", "attrval"
+                "No", "attrval"
             :
-                ""
+                false
             }
         ,
             "6"
@@ -146,9 +146,9 @@
             :
                 "Location", "attrvalid"
             :
-                "2", "trans"
+                "1", "trans"
             :
-                "Car park", "attrval"
+                "Street", "attrval"
             :
                 ""
             }
@@ -185,9 +185,9 @@
                 :
                     "Accessibility", "attrvalid"
                 :
-                    "1", "trans"
+                    "5", "trans"
                 :
-                    "Open", "attrval"
+                    "Payment", "attrval"
                 :
                     ""
                 }
@@ -201,9 +201,9 @@
                 :
                     "Connector", "attrvalid"
                 :
-                    "14", "trans"
+                    "30", "trans"
                 :
-                    "Schuko CEE 7\/4", "attrval"
+                    "CHAdeMO", "attrval"
                 :
                     ""
                 }
@@ -217,11 +217,75 @@
                 :
                     "Charging capacity", "attrvalid"
                 :
-                    "7", "trans"
+                    "13", "trans"
                 :
-                    "230V 1-phase max 16A", "attrval"
+                    "50 kW - 500VDC max 100A", "attrval"
                 :
                     ""
+                }
+            ,
+                "8"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "8", "attrname"
+                :
+                    "Connector status", "attrvalid"
+                :
+                    "1", "trans"
+                :
+                    "Busy (charging)", "attrval"
+                :
+                    "1"
+                }
+            ,
+                "9"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "9", "attrname"
+                :
+                    "Connector Error status", "attrvalid"
+                :
+                    "0", "trans"
+                :
+                    "In service", "attrval"
+                :
+                    "0"
+                }
+            ,
+                "10"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "10", "attrname"
+                :
+                    "Connector sensor status", "attrvalid"
+                :
+                    "0", "trans"
+                :
+                    "Vacant", "attrval"
+                :
+                    "0"
+                }
+            ,
+                "16"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "16", "attrname"
+                :
+                    "timestamp", "attrvalid"
+                :
+                    "5", "trans"
+                :
+                    "timestamp", "attrval"
+                :
+                    "2016-03-24T12:16:08Z"
                 }
             ,
                 "17"
@@ -256,6 +320,22 @@
                     ""
                 }
             ,
+                "19"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "19", "attrname"
+                :
+                    "Payment method", "attrvalid"
+                :
+                    "20", "trans"
+                :
+                    "Cellular phone and Charging card", "attrval"
+                :
+                    ""
+                }
+            ,
                 "20"
             :
                 {
@@ -265,27 +345,11 @@
                 :
                     "Charge mode", "attrvalid"
                 :
-                    "1", "trans"
+                    "4", "trans"
                 :
-                    "Mode 1", "attrval"
+                    "Mode 4", "attrval"
                 :
                     ""
-                }
-            ,
-                "23"
-            :
-                {
-                    "attrtypeid"
-                :
-                    "23", "attrname"
-                :
-                    "Manufacturer", "attrvalid"
-                :
-                    "6", "trans"
-                :
-                    "Manufacturer", "attrval"
-                :
-                    "Enkle veggkontakter"
                 }
             ,
                 "25"
@@ -297,9 +361,9 @@
                 :
                     "Fixed cable", "attrvalid"
                 :
-                    "2", "trans"
+                    "1", "trans"
                 :
-                    "No", "attrval"
+                    "Yes", "attrval"
                 :
                     ""
                 }
@@ -317,9 +381,9 @@
                 :
                     "Accessibility", "attrvalid"
                 :
-                    "1", "trans"
+                    "5", "trans"
                 :
-                    "Open", "attrval"
+                    "Payment", "attrval"
                 :
                     ""
                 }
@@ -333,9 +397,9 @@
                 :
                     "Connector", "attrvalid"
                 :
-                    "14", "trans"
+                    "32", "trans"
                 :
-                    "Schuko CEE 7\/4", "attrval"
+                    "Type 2", "attrval"
                 :
                     ""
                 }
@@ -349,11 +413,75 @@
                 :
                     "Charging capacity", "attrvalid"
                 :
-                    "7", "trans"
+                    "12", "trans"
                 :
-                    "230V 1-phase max 16A", "attrval"
+                    "43 kW - 400V 3-phase max 63A", "attrval"
                 :
                     ""
+                }
+            ,
+                "8"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "8", "attrname"
+                :
+                    "Connector status", "attrvalid"
+                :
+                    "0", "trans"
+                :
+                    "Vacant", "attrval"
+                :
+                    "0"
+                }
+            ,
+                "9"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "9", "attrname"
+                :
+                    "Connector Error status", "attrvalid"
+                :
+                    "0", "trans"
+                :
+                    "In service", "attrval"
+                :
+                    "0"
+                }
+            ,
+                "10"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "10", "attrname"
+                :
+                    "Connector sensor status", "attrvalid"
+                :
+                    "0", "trans"
+                :
+                    "Vacant", "attrval"
+                :
+                    "0"
+                }
+            ,
+                "16"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "16", "attrname"
+                :
+                    "timestamp", "attrvalid"
+                :
+                    "5", "trans"
+                :
+                    "timestamp", "attrval"
+                :
+                    "2016-03-24T12:16:08Z"
                 }
             ,
                 "17"
@@ -388,6 +516,22 @@
                     ""
                 }
             ,
+                "19"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "19", "attrname"
+                :
+                    "Payment method", "attrvalid"
+                :
+                    "20", "trans"
+                :
+                    "Cellular phone and Charging card", "attrval"
+                :
+                    ""
+                }
+            ,
                 "20"
             :
                 {
@@ -397,9 +541,401 @@
                 :
                     "Charge mode", "attrvalid"
                 :
+                    "4", "trans"
+                :
+                    "Mode 4", "attrval"
+                :
+                    ""
+                }
+            ,
+                "25"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "25", "attrname"
+                :
+                    "Fixed cable", "attrvalid"
+                :
                     "1", "trans"
                 :
-                    "Mode 1", "attrval"
+                    "Yes", "attrval"
+                :
+                    ""
+                }
+            }
+        ,
+            "3"
+        :
+            {
+                "1"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "1", "attrname"
+                :
+                    "Accessibility", "attrvalid"
+                :
+                    "5", "trans"
+                :
+                    "Payment", "attrval"
+                :
+                    ""
+                }
+            ,
+                "4"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "4", "attrname"
+                :
+                    "Connector", "attrvalid"
+                :
+                    "30", "trans"
+                :
+                    "CHAdeMO", "attrval"
+                :
+                    ""
+                }
+            ,
+                "5"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "5", "attrname"
+                :
+                    "Charging capacity", "attrvalid"
+                :
+                    "13", "trans"
+                :
+                    "50 kW - 500VDC max 100A", "attrval"
+                :
+                    ""
+                }
+            ,
+                "8"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "8", "attrname"
+                :
+                    "Connector status", "attrvalid"
+                :
+                    "0", "trans"
+                :
+                    "Vacant", "attrval"
+                :
+                    "0"
+                }
+            ,
+                "9"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "9", "attrname"
+                :
+                    "Connector Error status", "attrvalid"
+                :
+                    "0", "trans"
+                :
+                    "In service", "attrval"
+                :
+                    "0"
+                }
+            ,
+                "10"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "10", "attrname"
+                :
+                    "Connector sensor status", "attrvalid"
+                :
+                    "0", "trans"
+                :
+                    "Vacant", "attrval"
+                :
+                    "0"
+                }
+            ,
+                "16"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "16", "attrname"
+                :
+                    "timestamp", "attrvalid"
+                :
+                    "5", "trans"
+                :
+                    "timestamp", "attrval"
+                :
+                    "2016-03-24T12:09:33Z"
+                }
+            ,
+                "17"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "17", "attrname"
+                :
+                    "Vehicle type", "attrvalid"
+                :
+                    "1", "trans"
+                :
+                    "All vehicles", "attrval"
+                :
+                    ""
+                }
+            ,
+                "18"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "18", "attrname"
+                :
+                    "Reservable", "attrvalid"
+                :
+                    "2", "trans"
+                :
+                    "No", "attrval"
+                :
+                    ""
+                }
+            ,
+                "19"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "19", "attrname"
+                :
+                    "Payment method", "attrvalid"
+                :
+                    "20", "trans"
+                :
+                    "Cellular phone and Charging card", "attrval"
+                :
+                    ""
+                }
+            ,
+                "20"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "20", "attrname"
+                :
+                    "Charge mode", "attrvalid"
+                :
+                    "4", "trans"
+                :
+                    "Mode 4", "attrval"
+                :
+                    ""
+                }
+            ,
+                "25"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "25", "attrname"
+                :
+                    "Fixed cable", "attrvalid"
+                :
+                    "1", "trans"
+                :
+                    "Yes", "attrval"
+                :
+                    ""
+                }
+            }
+        ,
+            "4"
+        :
+            {
+                "1"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "1", "attrname"
+                :
+                    "Accessibility", "attrvalid"
+                :
+                    "5", "trans"
+                :
+                    "Payment", "attrval"
+                :
+                    ""
+                }
+            ,
+                "4"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "4", "attrname"
+                :
+                    "Connector", "attrvalid"
+                :
+                    "39", "trans"
+                :
+                    "CCS\/Combo", "attrval"
+                :
+                    ""
+                }
+            ,
+                "5"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "5", "attrname"
+                :
+                    "Charging capacity", "attrvalid"
+                :
+                    "13", "trans"
+                :
+                    "50 kW - 500VDC max 100A", "attrval"
+                :
+                    ""
+                }
+            ,
+                "8"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "8", "attrname"
+                :
+                    "Connector status", "attrvalid"
+                :
+                    "0", "trans"
+                :
+                    "Vacant", "attrval"
+                :
+                    "0"
+                }
+            ,
+                "9"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "9", "attrname"
+                :
+                    "Connector Error status", "attrvalid"
+                :
+                    "0", "trans"
+                :
+                    "In service", "attrval"
+                :
+                    "0"
+                }
+            ,
+                "10"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "10", "attrname"
+                :
+                    "Connector sensor status", "attrvalid"
+                :
+                    "0", "trans"
+                :
+                    "Vacant", "attrval"
+                :
+                    "0"
+                }
+            ,
+                "16"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "16", "attrname"
+                :
+                    "timestamp", "attrvalid"
+                :
+                    "5", "trans"
+                :
+                    "timestamp", "attrval"
+                :
+                    "2016-03-23T18:48:43Z"
+                }
+            ,
+                "17"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "17", "attrname"
+                :
+                    "Vehicle type", "attrvalid"
+                :
+                    "1", "trans"
+                :
+                    "All vehicles", "attrval"
+                :
+                    ""
+                }
+            ,
+                "18"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "18", "attrname"
+                :
+                    "Reservable", "attrvalid"
+                :
+                    "2", "trans"
+                :
+                    "No", "attrval"
+                :
+                    ""
+                }
+            ,
+                "19"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "19", "attrname"
+                :
+                    "Payment method", "attrvalid"
+                :
+                    "20", "trans"
+                :
+                    "Cellular phone and Charging card", "attrval"
+                :
+                    ""
+                }
+            ,
+                "20"
+            :
+                {
+                    "attrtypeid"
+                :
+                    "20", "attrname"
+                :
+                    "Charge mode", "attrvalid"
+                :
+                    "4", "trans"
+                :
+                    "Mode 4", "attrval"
                 :
                     ""
                 }
@@ -417,7 +953,7 @@
                 :
                     "Manufacturer", "attrval"
                 :
-                    "Enkle veggkontakter"
+                    "Delta"
                 }
             ,
                 "25"
@@ -429,9 +965,9 @@
                 :
                     "Fixed cable", "attrvalid"
                 :
-                    "2", "trans"
+                    "1", "trans"
                 :
-                    "No", "attrval"
+                    "Yes", "attrval"
                 :
                     ""
                 }
