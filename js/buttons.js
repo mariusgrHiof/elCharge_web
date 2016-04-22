@@ -20,12 +20,11 @@ function dropdown(event, parent){
     }
 }
 function userLoggin(form){
-    console.log("Loggin yo");
-    var username = $(form).children(":input[name='username']").val();
-    var password = $(form).children(":input[name='password']").val();
-
-    console.log("Username is -> " + username + " password is: " + password);
-    $.post( "includes/checkloggin.php", { username: username, password: password }, function( data ){
+    $.post( "includes/checkloggin.php",
+        {
+            username: $(form).children(":input[name='username']").val(),
+            password: $(form).children(":input[name='password']").val() },
+        function( data ){
         $('#logged-in').html( data );
     });
     return false;
