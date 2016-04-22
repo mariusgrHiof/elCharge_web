@@ -20,12 +20,17 @@ function dropdown(event, parent){
     }
 }
 function userLoggin(form){
+    //Logging the user in
     $.post( "includes/checkloggin.php",
         {
+            //Posting username and password
             username: $(form).children(":input[name='username']").val(),
             password: $(form).children(":input[name='password']").val() },
         function( data ){
-        $('#logged-in').html( data );
+            //Populating the user logged in window.
+            $('#logged-in').html( data );
+            //Populating the favorite chargers and routes window
+            /*Some awesome method*/
     });
     return false;
 }
