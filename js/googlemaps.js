@@ -82,7 +82,7 @@ function initMap() {
         map.fitBounds(bounds);
     });
     //Users current position marker
-    var scaleSize = phonegap ? 120 : 15;
+    var scaleSize = phonegap && isIOS ? 120 : 15;
     var mi = {
         url: 'icons/my_pos_marker.svg',
         anchor: new google.maps.Point(0, 32),
