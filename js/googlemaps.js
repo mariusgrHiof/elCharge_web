@@ -4,6 +4,7 @@
 var map;
 var geopos;
 var pos;
+var myloc;
 var markers = [];
 var pathtest = [
     {lat: 36.579, lng: -118.292},  // Mt. Whitney
@@ -79,6 +80,16 @@ function initMap() {
             }
         });
         map.fitBounds(bounds);
+    });
+    myloc = new google.maps.Marker({
+        clickable: false,
+        icon: new google.maps.MarkerImage('icons/my_pos_marker.svg',
+            new google.maps.Size(22,22),
+            new google.maps.Point(0,18),
+            new google.maps.Point(11,11)),
+        shadow: null,
+        zIndex: 999,
+        map: map
     });
 
     /*

@@ -5,10 +5,10 @@ var phonegap = true;
 
 var onSuccess = function(position) {
     geopos = [position.coords.latitude, position.coords.longitude];
-};
 
-// onError Callback receives a PositionError object
-//
+    var me = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    myloc.setPosition(me);
+}
 function onError(error) {
     alert('code: '    + error.code    + '\n' +
         'message: ' + error.message + '\n');

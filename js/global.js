@@ -127,7 +127,7 @@ function downloadDump(){
             return xhr;
         },
         type: 'POST',
-        url: "http://nobil.no/api/server/datadump.php?apikey=274b68192b056e268f128ff63bfcd4a4&fromdate=2005-01-01&format=json",//Url -> datadump.json
+        url: phonegap ? "http://nobil.no/api/server/datadump.php?apikey=274b68192b056e268f128ff63bfcd4a4&fromdate=2005-01-01&format=json":"datadump.json",
         data: {},
         success: function(data){
             $('#download-progression').hide();
