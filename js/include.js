@@ -1,7 +1,7 @@
 /**
  * Created by jonas on 23.04.2016.
  */
-var phonegap = true;
+var phonegap = false;
 
 var onSuccess = function(position) {
     geopos = [position.coords.latitude, position.coords.longitude];

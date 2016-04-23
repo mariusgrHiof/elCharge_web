@@ -81,12 +81,17 @@ function initMap() {
         });
         map.fitBounds(bounds);
     });
+    //Users current position marker
+    var mi = {
+        url: 'icons/my_pos_marker.svg',
+        anchor: new google.maps.Point(0, 32),
+        origin: new google.maps.Point(0, 0),
+        scaledSize: new google.maps.Size(15, 15),
+        size: new google.maps.Size(64, 64)
+    };
     myloc = new google.maps.Marker({
         clickable: false,
-        icon: new google.maps.MarkerImage('icons/my_pos_marker.svg',
-            new google.maps.Size(22,22),
-            new google.maps.Point(0,18),
-            new google.maps.Point(11,11)),
+        icon: mi,
         shadow: null,
         zIndex: 999,
         map: map
@@ -165,4 +170,5 @@ function centerOnUser(){
     //Refreshing user pos
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
     map.setCenter(pos);
+    map.setZoom(15);
 }
