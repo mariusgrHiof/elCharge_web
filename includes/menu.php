@@ -31,26 +31,25 @@
 <nav class="menu">
     <ul id="menu-list">
         <li class="border">
-            <?php include 'menu-items/chargers-nearby.php' ?>
+            <?php include 'menu-items/chargers-nearby.html' ?>
         </li>
         <li class="border">
-            <?php include 'menu-items/favourites.php' ?>
+            <?php include 'menu-items/favourites.html' ?>
         </li>
         <li class="border">
-            <?php include 'menu-items/route.php' ?>
+            <?php include 'menu-items/route.html' ?>
         </li>
         <li class="border">
-            <?php include 'menu-items/filter.php' ?>
+            <?php include 'menu-items/filter.html' ?>
         </li>
         <li class="border">
-            <?php include 'menu-items/overlay.php' ?>
+            <?php include 'menu-items/overlay.html' ?>
         </li>
         <li class="border">
-            <?php include 'menu-items/about-us.php' ?>
+            <?php include 'menu-items/about-us.html' ?>
         </li>
         <li class="border">
-            <?php include 'menu-items/help.php' ?>
+            <?php include 'menu-items/help.html' ?>
         </li>
-
     </ul>
 </nav>

@@ -22,11 +22,9 @@ function compareDistance(userPos, stationPos){
 }
 
 function getNearbyChargers(){
-    console.log('Size: ' + chargers_nearby.length);
     var thisPos = [];
     for(var i = 0; i < chargers_nearby.length; i++){
         thisPos = chargers_nearby[i].csmd.Position.replace(/[()]/g,"").split(",");
-        console.log("Content: " + chargers_nearby[i].csmd.name);
         $('#chargers-nearby').append(
             '<li class="border img-height-4em">' +
                 '<img class="cover-third float-left img-height-4em" src=\"' + (/kommer/i.test(chargers_nearby[i].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ chargers_nearby[i].csmd.Image) + '\"/>' +

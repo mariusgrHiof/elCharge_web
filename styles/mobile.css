@@ -9,8 +9,8 @@
         max-width:100%;
     }
     #map{
-        margin-top: 6em;
-        height: calc(100% - 6em);
+        margin-top: 5em;
+        height: calc(100% - 5em);
     }
 
     header.toggle{

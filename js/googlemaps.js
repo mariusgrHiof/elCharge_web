@@ -15,6 +15,7 @@ var pathtest = [
 var mcOptions = {gridSize: 50, maxZoom: 15};
 
 function initMap() {
+    //includeHTML();
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 59.91673, lng: 10.74782},
         zoom: 13,
@@ -34,7 +35,7 @@ function initMap() {
         }
 
     });
-    $('#map').css("position","absolute");
+    deviceTypeCheck();
     //Setting default map layer type to terrain
     map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
     elevationService = new google.maps.ElevationService;
