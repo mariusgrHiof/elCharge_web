@@ -6,8 +6,8 @@ var phonegap = false;
 var onSuccess = function(position) {
     geopos = [position.coords.latitude, position.coords.longitude];
 
-    var me = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-    myloc.setPosition(me);
+    pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    myloc.setPosition(pos);
 }
 function onError(error) {
     alert('code: '    + error.code    + '\n' +
