@@ -4,7 +4,6 @@
 /**
  * Global variables
  */
-var isMobile = false;
 var hasDownloaded = false;
 
 var jsonData = {};
@@ -69,34 +68,6 @@ carModels['VW e-up!'] = schuko.concat(schuko, type1, type2);
 /**
 * Checking if device tye is mobile
 */
-function deviceTypeCheck() {
-    //url: http://stackoverflow.com/questions/3469908/make-a-link-in-the-android-browser-start-up-my-app
-    var mobile = window.matchMedia("only screen and (max-width: 600px)");
-    var isAndroid = false;
-    var isIOS = false;
-    var phonegap = true;
-
-
-    if (mobile.matches) {
-        //Allowing us to have a absolute position on the map rather than relative (default)
-        isMobile = true;
-        $('#map').css("position","absolute");
-    }
-    // if iPod / iPhone, display install app prompt
-    if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i) ||
-        navigator.userAgent.match(/android/i)) {
-        if (navigator.userAgent.match(/android/i)) {
-            //Android spesific logic
-            isAndroid = true;
-        }else{
-            //iOS spesific logic
-            isIOS = true;
-        }
-    }
-    if(phonegap && isIOS){
-        $('head').append('<link rel="stylesheet" type="text/css" href="styles/ios.css">');
-    }
-}
 
 function downloadDump(){
     $.ajax({
