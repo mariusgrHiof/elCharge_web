@@ -151,5 +151,7 @@ function deleteMarkers() {
     markers = [];
 }
 function centerOnUser(){
+    //Refreshing user pos
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
     map.setCenter(pos);
 }
