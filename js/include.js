@@ -17,7 +17,7 @@ function onError(error) {
         'message: ' + error.message + '\n');
 }
 var init = includeHTML(); //Initializing the method once it's loaded.
-function includeHTML() {
+function includeHTML() {//
     /*
     $('header[include]').each(function() {
         $(this).load( $(this).attr('include')).trigger('create');
