@@ -1,0 +1,11 @@
+/*iOS*/
+html{
+    background:black;
+}
+header{
+    margin-top: 20px;/*iPhone sin statusbar er 20px høy*/
+}
+#map{
+    margin-top: 6em;
+    height: calc(100% - 6em);
+}

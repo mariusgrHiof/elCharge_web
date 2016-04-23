@@ -34,6 +34,7 @@ function initMap() {
         }
 
     });
+    $('#map').css("position","absolute");
     //Setting default map layer type to terrain
     map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
     elevationService = new google.maps.ElevationService;

@@ -74,7 +74,16 @@ $( document ).ready(function() {
 
     if (mobile.matches) {
         isMobile = true;
-        $(this).html('<meta name="viewport" content="width=device-width, initial-scale=1.5, maximum-scale=1.5, user-scalable=0"/>');
+    }
+    // if iPod / iPhone, display install app prompt
+    if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i) ||
+        navigator.userAgent.match(/android/i)) {
+        if (navigator.userAgent.match(/android/i)) {
+            is_android = true;
+        }else{
+
+            var is_android = false;
+        }
     }
 });
 
