@@ -40,13 +40,7 @@ include 'ReadStuff.php';
     <script src="js/jQuery-min.js"></script>
 </head>
 <body>
-<?php
-include 'includes/GetDownloadProgress.php';
-include 'includes/login.php';
-include 'includes/userwindow.php';
-//Adding the header & menu elements (Menu is included in the header.php)
-//include 'includes/header.php';
-?>
+
 <header include="includes/header.html">
 
 </header>
@@ -59,9 +53,22 @@ include 'includes/userwindow.php';
         For å bruke dette nettstedet kreves det at javascript er aktivert. Venligst aktiver javascript for dette nettstedet, eller bytt nettleser til en som støtter javascript.
     </p>
 </div>
-<?php
-    //placing all our scripts into the document
-    include 'includes/scripts.php';
-?>
+<!-- Javascripts -->
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script src="js/include.js"> </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8&callback=initMap&sensors=true&libraries=places,visualization,geometry" async="" defer=""> </script>
+<script src="js/googlemaps.js"> </script>
+<script src="js/login.js"> </script>
+<script src="js/global.js"> </script>
+<script src="js/geolocation-marker.js"> </script>
+<script src="js/chargers-nearby.js"> </script>
+<script src="js/MarkerClusterer.js"> </script>
+<script src="js/addStations.js"> </script>
+<script src="js/maplayers.js"> </script>
+<script src="js/navigation.js"> </script>
+<script src="js/buttons.js"> </script>
+<script src="js/elevation.js"> </script>
 </body>
 </html>

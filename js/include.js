@@ -25,6 +25,5 @@ function includeHTML() {
             return;
         }
     }
-    initMap();
 }
 init = null;
