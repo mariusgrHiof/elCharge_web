@@ -1,7 +1,10 @@
 /**
  * Created by jonas on 23.04.2016.
  */
-var phonegap = false;
+var phonegap = true;
+var isMobile = false;
+var isAndroid = false;
+var isIOS = false;
 
 var onSuccess = function(position) {
     geopos = [position.coords.latitude, position.coords.longitude];
@@ -51,3 +54,32 @@ function includeHTML() {
 init = null;
 
 
+/**
+ * Checking if device tye is mobile
+ */
+function deviceTypeCheck() {
+    //url: http://stackoverflow.com/questions/3469908/make-a-link-in-the-android-browser-start-up-my-app
+    var mobile = window.matchMedia("only screen and (max-width: 600px)");
+
+    if (mobile.matches) {
+        //Allowing us to have a absolute position on the map rather than relative (default)
+        isMobile = true;
+        $('#map').css("position","absolute");
+    }
+    // if iPod / iPhone, display install app prompt
+    if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i) ||
+        navigator.userAgent.match(/android/i)) {
+        if (navigator.userAgent.match(/android/i)) {
+            //Android spesific logic
+            isAndroid = true;
+        }else{
+            //iOS spesific logic
+            isIOS = true;
+        }
+    }
+    if(phonegap && isIOS){
+        $('head').append('<link rel="stylesheet" type="text/css" href="styles/ios.css">');
+    }else if(isAndroid){
+        $('head').append('<link rel="stylesheet" type="text/css" href="styles/android.css">');
+    }
+}

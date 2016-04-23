@@ -1,0 +1,14 @@
+
+@media screen and (max-width:600px) {
+    #search {
+        width: 80%;
+    }
+
+    #search input {
+        width: auto;
+    }
+
+    #my-loc-btn {
+        float: right;
+    }
+}

@@ -82,12 +82,12 @@ function initMap() {
         map.fitBounds(bounds);
     });
     //Users current position marker
-    var markerSize = phonegap ? 120 : 15;
+    var scaleSize = phonegap ? 120 : 15;
     var mi = {
         url: 'icons/my_pos_marker.svg',
         anchor: new google.maps.Point(0, 32),
         origin: new google.maps.Point(0, 0),
-        scaledSize: new google.maps.Size(markerSize , markerSize),
+        scaledSize: new google.maps.Size(scaleSize, scaleSize),
         size: new google.maps.Size(64, 64)
     };
     myloc = new google.maps.Marker({
@@ -132,6 +132,7 @@ function initMap() {
             };
             //Storing the user pos value
             geopos = [position.coords.latitude, position.coords.longitude];
+            map.setCenter(pos);
             currentPosMarker(pos);
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -146,7 +147,6 @@ function initMap() {
         handleLocationError(false, infoWindow, map.getCenter());
         geopos = [59.91673,10.74782]; // Defaulting to oslo incase geopos isn't possible
     }
-    map.setCenter(pos);
     //Downloading station data
     downloadDump();
 
