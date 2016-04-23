@@ -274,7 +274,7 @@ function addMarker(index, object){
     markers.push(marker);
 
     //Building closest charging stations list
-    if(compareDistance(geopos, pos) <= 5){
+    if(compareDistance(geopos, pos) <= 30){
         chargers_nearby[chargers_nearby.length] = object.chargerstations[index];
     }
 }

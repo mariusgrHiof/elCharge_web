@@ -3,6 +3,7 @@
  */
 var map;
 var geopos;
+var pos;
 var markers = [];
 var pathtest = [
     {lat: 36.579, lng: -118.292},  // Mt. Whitney
@@ -103,19 +104,17 @@ function initMap() {
     trafficOverlay();
     weatherOverlay();
     cloudOverlay();
-    geopos = [59.91673,10.74782]; // Defaulting to oslo incase geopos isn't possible
     console.log('el ' + getElevation(new google.maps.LatLng(-34.397, 150.644)));
 
     //Finding user location with geolocation
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
+            pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
             //Storing the user pos value
             geopos = [position.coords.latitude, position.coords.longitude];
-            console.log("dadadad"+pos);
             map.setCenter(pos);
             currentPosMarker(pos);
         }, function() {
@@ -129,6 +128,7 @@ function initMap() {
     } else {
         // If the browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
+        geopos = [59.91673,10.74782]; // Defaulting to oslo incase geopos isn't possible
     }
     //Downloading station data
     downloadDump();
@@ -149,4 +149,7 @@ function setMapOnAll(map) {
 function deleteMarkers() {
     setMapOnAll(null);
     markers = [];
+}
+function centerOnUser(){
+    map.setCenter(pos);
 }

@@ -1,18 +1,33 @@
 /**
  * Created by jonas on 23.04.2016.
  */
-var isAndroid = false;
-var isIOS = false;
 var phonegap = true;
-var isMobile = false;
 
+var onSuccess = function(position) {
+    geopos = [position.coords.latitude, position.coords.longitude];
+    alert('Latitude: '          + position.coords.latitude          + '\n' +
+        'Longitude: '         + position.coords.longitude         + '\n' +
+        'Altitude: '          + position.coords.altitude          + '\n' +
+        'Accuracy: '          + position.coords.accuracy          + '\n' +
+        'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+        'Heading: '           + position.coords.heading           + '\n' +
+        'Speed: '             + position.coords.speed             + '\n' +
+        'Timestamp: '         + position.timestamp                + '\n');
+};
+
+// onError Callback receives a PositionError object
+//
+function onError(error) {
+    alert('code: '    + error.code    + '\n' +
+        'message: ' + error.message + '\n');
+}
 var init = includeHTML(); //Initializing the method once it's loaded.
 function includeHTML() {
-    deviceTypeCheck();
     /*
     $('header[include]').each(function() {
         $(this).load( $(this).attr('include')).trigger('create');
     });*/
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
     if(phonegap){
         //Clumsy, but only way I could get it work with phonegap.
         // Do this better if you can please!
@@ -43,28 +58,4 @@ function includeHTML() {
 }
 init = null;
 
-function deviceTypeCheck() {
-    //url: http://stackoverflow.com/questions/3469908/make-a-link-in-the-android-browser-start-up-my-app
-    var mobile = window.matchMedia("only screen and (max-width: 600px)");
 
-
-    if (mobile.matches) {
-        //Allowing us to have a absolute position on the map rather than relative (default)
-        isMobile = true;
-        $('#map').css("position","absolute");
-    }
-    // if iPod / iPhone, display install app prompt
-    if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i) ||
-        navigator.userAgent.match(/android/i)) {
-        if (navigator.userAgent.match(/android/i)) {
-            //Android spesific logic
-            isAndroid = true;
-        }else{
-            //iOS spesific logic
-            isIOS = true;
-        }
-    }
-    if(phonegap && isIOS){
-        $('head').append('<link rel="stylesheet" type="text/css" href="styles/ios.css">');
-    }
-}
