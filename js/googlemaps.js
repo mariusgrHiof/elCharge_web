@@ -99,7 +99,7 @@ function initMap() {
     });
 
     /*
-    ** Search box startPos
+     * Search box startPos
      */
 
     var inputStartPos = document.getElementById('nav-start-pos');
