@@ -103,29 +103,33 @@ function updateCarList(){
 
 
 function generateMarkers(){
+    //TODO: Mer permanent fiks -> La brukeren velge selv
+    var isPublic = false;
     deleteMarkers();
     for(i = 0; i < jsonData.chargerstations.length; i++){
-        var numOfPorts = jsonData.chargerstations[i].csmd.Number_charging_points;
-        //Checking filter
-        if(document.getElementById("select-car").value !=0){
-            carModel = carModels[document.getElementById("select-car").value];
+        isPublic = jsonData.chargerstations[i].attr.st[2].attrvalid == "1" ? true : false;
+        if(isPublic){
+            var numOfPorts = jsonData.chargerstations[i].csmd.Number_charging_points;
+            //Checking filter
+            if(document.getElementById("select-car").value !=0){
+                carModel = carModels[document.getElementById("select-car").value];
 
-            //TODO: Fiks sånn at vi sjekker begge ladeportene og ikke kun den første av de.
-            var isMatch = getCarMatch(i, numOfPorts, jsonData);
-            if(isMatch){
+                //TODO: Fiks sånn at vi sjekker begge ladeportene og ikke kun den første av de.
+                var isMatch = getCarMatch(i, numOfPorts, jsonData);
+                if(isMatch){
+                    addMarker(i, jsonData);
+                }
+            }else{
+                var conns = new Array();
+                for(var c = 1; c <= numOfPorts; c++){
+                    try{
+                        conns.push(jsonData.chargerstations[i].attr.conn[c]);
+                    }catch(e){}
+                }
+                connectors = conns.concat(conns);
+                //Adding all charging stations
                 addMarker(i, jsonData);
             }
-        }else{
-            var conns = new Array();
-            for(var c = 1; c <= numOfPorts; c++){
-                try{
-                    conns.push(jsonData.chargerstations[i].attr.conn[c]);
-                }catch(e){}
-            }
-            connectors = conns.concat(conns);
-            //Adding all charging stations
-            addMarker(i, jsonData);
-
         }
         //TODO: FIX! var mc = new google.maps.MarkerClusterer(map, markers, options);
 
@@ -233,7 +237,7 @@ function addMarker(index, object){
                 "<img src=\"" + (/kommer/i.test(object.chargerstations[index].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ object.chargerstations[index].csmd.Image) + "\"/>" +
             "</div>"+
             "<div class='float-right'>" +
-                "<h3>"+ object.chargerstations[index].csmd.name +"</h3>" +
+                "<h3>"+ object.chargerstations[index].csmd.name + "(ID:" + object.chargerstations[i].csmd.id + ")</h3>" +
                 "<p><strong>Real-time: </strong> " + (parseInt(object.chargerstations[index].attr.st[21].attrvalid) == 1 ? 'Ja': 'Nei') +"</p>" +
                 "<p><strong>Kontakt info:</strong> "+ object.chargerstations[index].csmd.Contact_info+"</p>" +
                 "<p><strong>Adresse:</strong> "+ object.chargerstations[index].csmd.Street +" " + object.chargerstations[index].csmd.House_number +"</p>"+
