@@ -136,6 +136,7 @@ function generateMarkers(){
     }
 
     getNearbyChargers();
+    var mc = new MarkerClusterer(map, markers, mcOptions);
 }
 
 function getCarMatch(index, portCount, object){

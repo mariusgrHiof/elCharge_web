@@ -147,10 +147,6 @@ function initMap() {
     }
     //Downloading station data
     downloadDump();
-
-
-    var mc = new MarkerClusterer(map, markers, mcOptions);
-    //hallabruri(pathtest, elevationService, map);
 }
 
 // Sets the map on all markers in the array.
