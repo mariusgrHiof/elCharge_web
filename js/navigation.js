@@ -102,17 +102,6 @@ function computeTotalDistance(result) {
     document.getElementById('total').innerHTML = 'Total reise distanse '+ total + ' km';
 }
 
-function currentPosMarker(pos){
-    //TODO: Fix!
-    //http://stackoverflow.com/questions/30938021/continuously-updating-google-maps-with-user-location
-    var image = 'icons/geo-marker.svg';
-    var geolocation = new google.maps.Marker({
-        position: {lat: pos.lat, lng: pos.lon},
-        map: map,
-        icon: image
-    });
-}
-
 /**
  * Autocomplete
  * Docs: https://developers.google.com/maps/documentation/javascript/places-autocomplete#introduction

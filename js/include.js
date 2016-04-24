@@ -9,8 +9,12 @@ var isIOS = false;
 var onSuccess = function(position) {
     geopos = [position.coords.latitude, position.coords.longitude];
 
-    pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-    myloc.setPosition(pos);
+    try{
+        pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        myloc.setPosition(pos);
+    }catch(e){
+        console.log("Not able to get your current position.");
+    }
 }
 function onError(error) {
     alert('code: '    + error.code    + '\n' +

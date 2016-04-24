@@ -121,7 +121,6 @@ function initMap() {
     trafficOverlay();
     weatherOverlay();
     cloudOverlay();
-    console.log('el ' + getElevation(new google.maps.LatLng(-34.397, 150.644)));
 
     //Finding user location with geolocation
     if (navigator.geolocation) {
@@ -133,7 +132,6 @@ function initMap() {
             //Storing the user pos value
             geopos = [position.coords.latitude, position.coords.longitude];
             map.setCenter(pos);
-            currentPosMarker(pos);
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
         });
