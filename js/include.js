@@ -1,7 +1,7 @@
 /**
  * Created by jonas on 23.04.2016.
  */
-var phonegap = true; //TODO: Replace with this later -> document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+var phonegap = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1; //true;
 var isMobile = false;
 var isAndroid = false;
 var isIOS = false;

@@ -146,8 +146,8 @@ function initMap() {
         geopos = [59.91673,10.74782]; // Defaulting to oslo incase geopos isn't possible
     }
     //Downloading station data
-    //downloadDump();
     if(phonegap){
+        //Safeguarding against timeout for the cordovaWebView
         setTimeout(
             document.addEventListener("deviceready", downloadDump(), false)
         );
