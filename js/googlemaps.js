@@ -145,8 +145,6 @@ function initMap() {
         handleLocationError(false, infoWindow, map.getCenter());
         geopos = [59.91673,10.74782]; // Defaulting to oslo incase geopos isn't possible
     }
-    //Downloading station data
-    downloadDump();
 }
 
 // Sets the map on all markers in the array.

@@ -65,8 +65,8 @@ carModels['Think'] = schuko;
 carModels['VW e-Golf'] = schuko.concat(schuko, type2, combo);
 carModels['VW e-up!'] = schuko.concat(schuko, type1, type2);
 
-
-
+//Running the function upon page loaded/ready
+$.ready(downloadDump());
 function downloadDump(){
     $.ajax({
         xhr: function()
