@@ -148,7 +148,9 @@ function initMap() {
     //Downloading station data
     //downloadDump();
     if(phonegap){
-        document.addEventListener("deviceready", downloadDump(), false);
+        setTimeout(
+            document.addEventListener("deviceready", downloadDump(), false)
+        );
     }
     //downloadDump();
 }

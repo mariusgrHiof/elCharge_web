@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/checkloggin.php" afterPath="$PROJECT_DIR$/includes/checkloggin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/chargers-nearby.js" afterPath="$PROJECT_DIR$/js/chargers-nearby.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/googlemaps.js" afterPath="$PROJECT_DIR$/js/googlemaps.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/include.js" afterPath="$PROJECT_DIR$/js/include.js" />
     </list>
@@ -40,8 +40,8 @@
       <file leaf-file-name="include.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/include.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+            <state relative-caret-position="90">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding>
                 <element signature="e#0#42#0" expanded="false" />
               </folding>
@@ -49,17 +49,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="googlemaps.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="googlemaps.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="84" column="20" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
+            <state relative-caret-position="577">
+              <caret line="151" column="75" selection-start-line="151" selection-start-column="75" selection-end-line="151" selection-end-column="75" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="checkloggin.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="checkloggin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/checkloggin.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="630">
@@ -89,6 +89,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
               <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chargers-nearby.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -187,7 +197,6 @@
         <option value="$PROJECT_DIR$/js/navigation.js" />
         <option value="/private/var/folders/xn/vgc7mccj4nd6xy21gb3fng2r0000gn/T/fz3temp-1/index.php" />
         <option value="$PROJECT_DIR$/js/addStations.js" />
-        <option value="$PROJECT_DIR$/js/chargers-nearby.js" />
         <option value="$PROJECT_DIR$/styles/android.css" />
         <option value="$PROJECT_DIR$/styles/ios.css" />
         <option value="$PROJECT_DIR$/.htaccess" />
@@ -199,9 +208,10 @@
         <option value="$PROJECT_DIR$/includes/scripts.php" />
         <option value="$PROJECT_DIR$/js/global.js" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/js/googlemaps.js" />
-        <option value="$PROJECT_DIR$/js/include.js" />
         <option value="$PROJECT_DIR$/includes/checkloggin.php" />
+        <option value="$PROJECT_DIR$/js/include.js" />
+        <option value="$PROJECT_DIR$/js/chargers-nearby.js" />
+        <option value="$PROJECT_DIR$/js/googlemaps.js" />
       </list>
     </option>
   </component>
@@ -430,14 +440,7 @@
       <workItem from="1461526879598" duration="634000" />
       <workItem from="1461557699220" duration="3816000" />
       <workItem from="1461565063285" duration="404000" />
-      <workItem from="1461565770655" duration="8412000" />
-    </task>
-    <task id="LOCAL-00063" summary="forsøk på høydegraf">
-      <created>1460054538209</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1460054538209</updated>
+      <workItem from="1461565770655" duration="9556000" />
     </task>
     <task id="LOCAL-00064" summary="forsøk på høydegraf">
       <created>1460056012375</created>
@@ -775,11 +778,18 @@
       <option name="project" value="LOCAL" />
       <updated>1461574095664</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="kommentert ut mysql koblingen sånn at jeg kan jobbe på localhost. @Marius, fikse timeout på'n? :)&#10;http://php.net/manual/en/mysqli.options.php ellnst">
+      <created>1461575826059</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1461575826059</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144044000" />
+    <option name="totallyTimeSpent" value="145188000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -827,7 +837,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fjernet logg fil ting" />
     <MESSAGE value="endtet variabel navn fra stationstatus til isLive" />
     <MESSAGE value="endret navn på knapp." />
     <MESSAGE value="Fikset ladere i nærheten bilder/ikoner.&#10;Fikset sånn at feil brukernan eller passord havner oppe i høyre og ikke inni headeren.&#10;+++" />
@@ -852,7 +861,8 @@
     <MESSAGE value=".." />
     <MESSAGE value="fjernet noen html filer" />
     <MESSAGE value="Sender bruker over til https om de ikke allt er der (kreves for lokasjon -.-)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sender bruker over til https om de ikke allt er der (kreves for lokasjon -.-)" />
+    <MESSAGE value="kommentert ut mysql koblingen sånn at jeg kan jobbe på localhost. @Marius, fikse timeout på'n? :)&#10;http://php.net/manual/en/mysqli.options.php ellnst" />
+    <option name="LAST_COMMIT_MESSAGE" value="kommentert ut mysql koblingen sånn at jeg kan jobbe på localhost. @Marius, fikse timeout på'n? :)&#10;http://php.net/manual/en/mysqli.options.php ellnst" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1085,14 +1095,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="82" selection-start-line="24" selection-start-column="82" selection-end-line="24" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/styles/android.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1185,32 +1187,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/global.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="772">
-          <caret line="113" column="51" selection-start-line="113" selection-start-column="51" selection-end-line="113" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/include.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="84" column="20" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1237,6 +1213,40 @@
           <folding>
             <marker date="1461575788000" expanded="true" signature="592:647" placeholder="select * fro... ec_users" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/global.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="772">
+          <caret line="113" column="51" selection-start-line="113" selection-start-column="51" selection-end-line="113" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/include.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#42#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="151" column="75" selection-start-line="151" selection-start-column="75" selection-end-line="151" selection-end-column="75" />
+          <folding />
         </state>
       </provider>
     </entry>

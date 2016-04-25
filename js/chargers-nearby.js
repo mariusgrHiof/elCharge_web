@@ -21,7 +21,7 @@ function compareDistance(userPos, stationPos){
         //Calculating the distance
         return Math.sqrt( Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2) );
     }catch(e){
-        console.log("Unable to compare distances: " + e);
+        //console.log("Unable to compare distances: " + e);
         return 999;//Unable to get the location so defaulting to unreachable value
     }
 }

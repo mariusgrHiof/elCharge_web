@@ -1,28 +1,35 @@
 /**
  * Created by jonas on 23.04.2016.
  */
-var phonegap = false; //TODO: Replace with this later -> document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+var phonegap = true; //TODO: Replace with this later -> document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
 var isMobile = false;
 var isAndroid = false;
 var isIOS = false;
 var accuracyRadius;
+
 var onSuccess = function(position) {
+
     geopos = [position.coords.latitude, position.coords.longitude];
 
     try{
-        accuracyRadius.setMap(null);
+
         pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         myloc.setPosition(pos);
-        accuracyRadius = new google.maps.Circle({
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35,
-            map: map,
-            center: pos,
-            radius: position.coords.accuracy
-        });
+        if(isMobile){
+            if(accuracyRadius != null)
+                accuracyRadius.setMap(null);
+            accuracyRadius = new google.maps.Circle({
+                strokeColor: '#FF0000',
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: '#FF0000',
+                fillOpacity: 0.35,
+                map: map,
+                center: pos,
+                radius: position.coords.accuracy
+            });
+        }
+
         console.log("GPS accuracy: " + position.coords.accuracy + "m.");
     }catch(e){
         //console.log("Not able to get your current position.");
