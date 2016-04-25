@@ -69,7 +69,6 @@ carModels['VW e-up!'] = schuko.concat(schuko, type1, type2);
 $(document).ready(
     function(){
         if(!phonegap){
-            console.log("Yey");
             downloadDump();
         }else{
             console.log("Is phonegap");
@@ -78,6 +77,7 @@ $(document).ready(
 );
 
 function downloadDump(){
+    console.log("File download initiated");
     $.ajax({
         xhr: function()
         {
@@ -111,6 +111,7 @@ function downloadDump(){
         url: phonegap ? "http://nobil.no/api/server/datadump.php?apikey=274b68192b056e268f128ff63bfcd4a4&fromdate=2005-01-01&format=json":"datadump.json",
         data: {},
         success: function(data){
+            console.log("File download completed");
             $('#download-progression').hide();
             hasDownloaded = true;
             jsonData = data;

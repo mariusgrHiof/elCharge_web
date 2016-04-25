@@ -150,6 +150,7 @@ function initMap() {
     if(phonegap){
         document.addEventListener("deviceready", downloadDump(), false);
     }
+    //downloadDump();
 }
 
 // Sets the map on all markers in the array.

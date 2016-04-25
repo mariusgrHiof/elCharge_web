@@ -44,5 +44,8 @@ $index ="index.html";
 if(!file_exists($index)){
     //Writing index.html file off the contents of the website
     file_put_contents($index, $mobileSite);
+}else{
+    //jkjk writing to file anyways :)
+    file_put_contents($index, $mobileSite);
 }
 ?>
