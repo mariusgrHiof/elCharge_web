@@ -1,7 +1,7 @@
 /**
  * Created by jonas on 23.04.2016.
  */
-var phonegap = false;
+var phonegap = false; //TODO: Replace with this later -> document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
 var isMobile = false;
 var isAndroid = false;
 var isIOS = false;
@@ -13,7 +13,7 @@ var onSuccess = function(position) {
         pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         myloc.setPosition(pos);
     }catch(e){
-        console.log("Not able to get your current position.");
+        //console.log("Not able to get your current position.");
     }
 }
 function onError(error) {

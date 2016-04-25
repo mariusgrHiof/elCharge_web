@@ -14,6 +14,7 @@
         <button onclick="dropdown(this, true)" id="menu-toggle"></button>
         <input id="search-box" type="text"/>
     </div>
+    <button id="my-loc-btn" onclick="centerOnUser()"><img src="icons/my_pos_marker.svg" style="width:1.5em; height:1.5em;"/></button>
     <?php
     include 'menu.php';
     include 'includes/footer.php';

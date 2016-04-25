@@ -69,7 +69,10 @@ carModels['VW e-up!'] = schuko.concat(schuko, type1, type2);
 $.ready(
     function(){
         if(!phonegap){
+            console.log("Yey");
             downloadDump();
+        }else{
+            console.log("Is phonega");
         }
     }
 );
