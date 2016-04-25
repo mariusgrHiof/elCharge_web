@@ -1,26 +1,32 @@
 /*iOS*/
-html{
-    background:black;
-}
 header{
     margin-top: 20px;/*iPhone sin statusbar er 20px høy*/
 }
-header.toggle {
-    height: calc( 100% - 20px);
-    max-height: calc( 100% - 20px);
-}
-#map{
-    margin-top: 6em;
-    height: calc(100% - 6em);
-}
-#search {
-    width: 80%;
-}
+@media screen and (max-width:600px) {
+    html{
+        background:black;
+    }
+    header{
+        margin-top: 20px;/*iPhone sin statusbar er 20px høy*/
+    }
+    header.toggle {
+        height: calc( 100% - 20px);
+        max-height: calc( 100% - 20px);
+    }
+    #map{
+        margin-top: 6em;
+        height: calc(100% - 6em);
+    }
+    #search {
+        width: 75% !important;
+    }
 
-#search input {
-    width: auto;
-}
+    #search input {
+        width: 70% !important;
+    }
 
-#my-loc-btn {
-    float: right;
+    #my-loc-btn {
+        float: right !important;
+        max-width:19% !important;
+    }
 }

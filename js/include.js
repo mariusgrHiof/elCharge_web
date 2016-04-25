@@ -103,8 +103,10 @@ function deviceTypeCheck() {
         }
     }
     if(phonegap && isIOS){
+        console.log("Phonegap && isIOS");
         $('head').append('<link rel="stylesheet" type="text/css" href="styles/ios.css">');
     }else if(isAndroid){
+        console.log("isAndroid");
         $('head').append('<link rel="stylesheet" type="text/css" href="styles/android.css">');
     }
 }
