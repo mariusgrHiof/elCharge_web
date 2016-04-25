@@ -119,7 +119,8 @@ function downloadDump(){
             generateMarkers();
             try{
                 //Starting automatic location update
-                navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy: true, timeout: 100, maximumAge: 20000 });
+                if(isMobile)
+                    navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy: true, timeout: 100, maximumAge: 20000 });
             }catch(e){}
         }
     });

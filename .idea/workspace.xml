@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/googlemaps.js" afterPath="$PROJECT_DIR$/js/googlemaps.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/global.js" afterPath="$PROJECT_DIR$/js/global.js" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="global.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="global.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/global.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="877">
-              <caret line="120" column="52" selection-start-line="120" selection-start-column="52" selection-end-line="120" selection-end-column="52" />
+            <state relative-caret-position="847">
+              <caret line="122" column="138" selection-start-line="122" selection-start-column="138" selection-end-line="122" selection-end-column="138" />
               <folding />
             </state>
           </provider>
@@ -47,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="googlemaps.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="googlemaps.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="87" column="62" selection-start-line="87" selection-start-column="62" selection-end-line="87" selection-end-column="62" />
+            <state relative-caret-position="-275">
+              <caret line="98" column="7" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -208,8 +208,8 @@
         <option value="$PROJECT_DIR$/includes/checkloggin.php" />
         <option value="$PROJECT_DIR$/js/chargers-nearby.js" />
         <option value="$PROJECT_DIR$/js/include.js" />
-        <option value="$PROJECT_DIR$/js/global.js" />
         <option value="$PROJECT_DIR$/js/googlemaps.js" />
+        <option value="$PROJECT_DIR$/js/global.js" />
       </list>
     </option>
   </component>
@@ -438,14 +438,7 @@
       <workItem from="1461526879598" duration="634000" />
       <workItem from="1461557699220" duration="3816000" />
       <workItem from="1461565063285" duration="404000" />
-      <workItem from="1461565770655" duration="11755000" />
-    </task>
-    <task id="LOCAL-00069" summary="mindre fiksing på menyen">
-      <created>1460822954639</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1460822954639</updated>
+      <workItem from="1461565770655" duration="11894000" />
     </task>
     <task id="LOCAL-00070" summary="mindre fiksing på menyen">
       <created>1460849190193</created>
@@ -783,11 +776,18 @@
       <option name="project" value="LOCAL" />
       <updated>1461580470936</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="min lokasjon marker">
+      <created>1461580695115</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1461580695115</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147387000" />
+    <option name="totallyTimeSpent" value="147526000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -835,7 +835,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="css tweaks for ios app" />
     <MESSAGE value="Fjernet behoved for php for å include html filer!" />
     <MESSAGE value="..." />
     <MESSAGE value="midlertidig fix for at phonegap nekter å include filer. har lagt med en header-full html fil som har alt i seg... -.-" />
@@ -860,7 +859,8 @@
     <MESSAGE value="fiks for dl bug i mobilapp" />
     <MESSAGE value="geloc auto update test" />
     <MESSAGE value="Geolocation oppdateres automatisk!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Geolocation oppdateres automatisk!" />
+    <MESSAGE value="min lokasjon marker" />
+    <option name="LAST_COMMIT_MESSAGE" value="min lokasjon marker" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1222,14 +1222,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/global.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="877">
-          <caret line="120" column="52" selection-start-line="120" selection-start-column="52" selection-end-line="120" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/include.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1242,8 +1234,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="87" column="62" selection-start-line="87" selection-start-column="62" selection-end-line="87" selection-end-column="62" />
+        <state relative-caret-position="-275">
+          <caret line="98" column="7" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/global.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="847">
+          <caret line="122" column="138" selection-start-line="122" selection-start-column="138" selection-end-line="122" selection-end-column="138" />
           <folding />
         </state>
       </provider>
