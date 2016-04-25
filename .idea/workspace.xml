@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/global.js" afterPath="$PROJECT_DIR$/js/global.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/googlemaps.js" afterPath="$PROJECT_DIR$/js/googlemaps.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/chargers-nearby.js" afterPath="$PROJECT_DIR$/js/chargers-nearby.js" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,7 +47,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="googlemaps.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="googlemaps.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="565">
@@ -108,8 +107,18 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
+            <state relative-caret-position="585">
               <caret line="78" column="37" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chargers-nearby.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="82" selection-start-line="24" selection-start-column="82" selection-end-line="24" selection-end-column="82" />
               <folding />
             </state>
           </provider>
@@ -182,7 +191,6 @@
         <option value="$PROJECT_DIR$/styles/maps.css" />
         <option value="$PROJECT_DIR$/styles/ios.css" />
         <option value="$PROJECT_DIR$/js/w3data.js" />
-        <option value="$PROJECT_DIR$/js/chargers-nearby.js" />
         <option value="$PROJECT_DIR$/includes/menu.php" />
         <option value="$PROJECT_DIR$/includes/menu.html" />
         <option value="$PROJECT_DIR$/includes/scripts.php" />
@@ -199,6 +207,7 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/global.js" />
         <option value="$PROJECT_DIR$/js/googlemaps.js" />
+        <option value="$PROJECT_DIR$/js/chargers-nearby.js" />
       </list>
     </option>
   </component>
@@ -508,14 +517,7 @@
       <workItem from="1461522780865" duration="1178000" />
       <workItem from="1461525016834" duration="1208000" />
       <workItem from="1461526879598" duration="634000" />
-      <workItem from="1461557699220" duration="1862000" />
-    </task>
-    <task id="LOCAL-00056" summary="mindre fiksing og søking relatert til å vise markør med brukers posisjon på kart">
-      <created>1459979470569</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1459979470569</updated>
+      <workItem from="1461557699220" duration="2780000" />
     </task>
     <task id="LOCAL-00057" summary="mindre endringer..">
       <created>1460019245498</created>
@@ -853,11 +855,18 @@
       <option name="project" value="LOCAL" />
       <updated>1461560756581</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="Fjernet downloadDump metode kall fra initMap for safeguarding">
+      <created>1461561053750</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1461561053750</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133274000" />
+    <option name="totallyTimeSpent" value="134192000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -905,7 +914,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Forsøk på fiksing på problemet som gjør at skjermen er scrollbar sidlengs på mobil." />
     <MESSAGE value="Fikset ett &quot;førsteutkast&quot; av ladere i nærheten.&#10;Foreløpig vises kun ladestasjonene som er innen 5 km unna brukeren i en liste uten noe videre funksjonalitet." />
     <MESSAGE value="forsøkte å legge inn &quot;ta meg hit funksjon&quot; uten å bruke array.. men må nok bruke array alikavel. Fikser senere om noen andre ikke fikser den først." />
     <MESSAGE value="noe" />
@@ -930,7 +938,8 @@
     <MESSAGE value="fikset noen try catches på ting som kan feile." />
     <MESSAGE value="Markerclustering er fikset! FINALLY!" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="Fjernet downloadDump metode kall fra initMap for safeguarding" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fjernet downloadDump metode kall fra initMap for safeguarding" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1204,13 +1213,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/styles/mobile.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1230,16 +1232,6 @@
         <state relative-caret-position="60">
           <caret line="4" column="11" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="11" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="129" selection-start-line="7" selection-start-column="129" selection-end-line="7" selection-end-column="129" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#button#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1268,16 +1260,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/header-full.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1305">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#button#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/addStations.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-465">
@@ -1286,14 +1268,6 @@
             <element signature="e#0#40#0" expanded="false" />
             <marker date="1461559967000" expanded="true" signature="8204:8216" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="78" column="37" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1309,6 +1283,42 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="565">
           <caret line="146" column="5" selection-start-line="146" selection-start-column="5" selection-end-line="146" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="129" selection-start-line="7" selection-start-column="129" selection-end-line="7" selection-end-column="129" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#button#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/header-full.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1305">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#button#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="78" column="37" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="82" selection-start-line="24" selection-start-column="82" selection-end-line="24" selection-end-column="82" />
           <folding />
         </state>
       </provider>
