@@ -169,7 +169,8 @@ function deleteMarkers() {
 }
 function centerOnUser(){
     //Refreshing user pos
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    if(!isMobile)//Only for desktop
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
     map.setCenter(pos);
     map.setZoom(15);
 }
