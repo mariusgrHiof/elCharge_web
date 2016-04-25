@@ -19,10 +19,10 @@ var onSuccess = function(position) {
             if(accuracyRadius != null)
                 accuracyRadius.setMap(null);
             accuracyRadius = new google.maps.Circle({
-                strokeColor: '#FF0000',
+                strokeColor: '#00d8ff',
                 strokeOpacity: 0.8,
                 strokeWeight: 2,
-                fillColor: '#FF0000',
+                fillColor: '#00d8ff',
                 fillOpacity: 0.35,
                 map: map,
                 center: pos,

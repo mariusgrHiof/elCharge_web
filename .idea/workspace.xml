@@ -39,8 +39,8 @@
       <file leaf-file-name="include.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/include.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="3" column="109" selection-start-line="3" selection-start-column="109" selection-end-line="3" selection-end-column="109" />
+            <state relative-caret-position="285">
+              <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
               <folding>
                 <element signature="e#0#42#0" expanded="false" />
               </folding>
@@ -51,8 +51,8 @@
       <file leaf-file-name="googlemaps.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="997">
-              <caret line="149" column="61" selection-start-line="149" selection-start-column="61" selection-end-line="149" selection-end-column="61" />
+            <state relative-caret-position="412">
+              <caret line="142" column="44" selection-start-line="142" selection-start-column="44" selection-end-line="142" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -439,14 +439,7 @@
       <workItem from="1461526879598" duration="634000" />
       <workItem from="1461557699220" duration="3816000" />
       <workItem from="1461565063285" duration="404000" />
-      <workItem from="1461565770655" duration="9965000" />
-    </task>
-    <task id="LOCAL-00065" summary="forsøk på høydegraf">
-      <created>1460056912861</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1460056912861</updated>
+      <workItem from="1461565770655" duration="11208000" />
     </task>
     <task id="LOCAL-00066" summary="Hamburger meny størrelse er endret (justert høyde)">
       <created>1460130382212</created>
@@ -784,11 +777,18 @@
       <option name="project" value="LOCAL" />
       <updated>1461577241912</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="fiks for dl bug i mobilapp">
+      <created>1461578129068</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1461578129068</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145597000" />
+    <option name="totallyTimeSpent" value="146840000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -836,7 +836,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="endret navn på knapp." />
     <MESSAGE value="Fikset ladere i nærheten bilder/ikoner.&#10;Fikset sånn at feil brukernan eller passord havner oppe i høyre og ikke inni headeren.&#10;+++" />
     <MESSAGE value="No more iframe for loggin yolo swag" />
     <MESSAGE value="css tweaks for ios app" />
@@ -861,7 +860,8 @@
     <MESSAGE value="Sender bruker over til https om de ikke allt er der (kreves for lokasjon -.-)" />
     <MESSAGE value="kommentert ut mysql koblingen sånn at jeg kan jobbe på localhost. @Marius, fikse timeout på'n? :)&#10;http://php.net/manual/en/mysqli.options.php ellnst" />
     <MESSAGE value="fikset loading issue på android app?" />
-    <option name="LAST_COMMIT_MESSAGE" value="fikset loading issue på android app?" />
+    <MESSAGE value="fiks for dl bug i mobilapp" />
+    <option name="LAST_COMMIT_MESSAGE" value="fiks for dl bug i mobilapp" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1233,8 +1233,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/include.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="3" column="109" selection-start-line="3" selection-start-column="109" selection-end-line="3" selection-end-column="109" />
+        <state relative-caret-position="285">
+          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
           </folding>
@@ -1243,8 +1243,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="997">
-          <caret line="149" column="61" selection-start-line="149" selection-start-column="61" selection-end-line="149" selection-end-column="61" />
+        <state relative-caret-position="412">
+          <caret line="142" column="44" selection-start-line="142" selection-start-column="44" selection-end-line="142" selection-end-column="44" />
           <folding />
         </state>
       </provider>

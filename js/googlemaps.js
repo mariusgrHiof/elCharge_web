@@ -140,6 +140,7 @@ function initMap() {
          * url: https://chadkillingsworth.github.io/geolocation-marker/
          * alt url: https://toddmotto.com/using-html5-geolocation-to-show-current-location-with-google-maps-api/
          */
+        navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy: true, timeout: 10000, maximumAge: 20000 });
     } else {
         // If the browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
