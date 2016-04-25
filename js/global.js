@@ -118,7 +118,8 @@ function downloadDump(){
             //Adding markers
             generateMarkers();
             try{
-                navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy: true, timeout: 10000, maximumAge: 20000 });
+                //Starting automatic location update
+                navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy: true, timeout: 100, maximumAge: 20000 });
             }catch(e){}
         }
     });
