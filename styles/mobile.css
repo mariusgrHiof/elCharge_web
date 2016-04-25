@@ -25,14 +25,33 @@
     }
 
     #download-progression{
-        width: calc(100% - 1.6em);
+        width: calc(100% - 1.6em) !important;
         height:30%;
-        left:0;
+        left:0 !important;
     }
 
     /*Charger menu*/
     #chargers-nearby {
         height: 22em;
         overflow-y: auto;
+    }
+    .gm-style-iw{
+        width:200% !important;
+        min-width: 130% !important;
+        max-width:130% !important;
+    }
+    .gm-style-iw > div{
+        width: 100% !important;
+    }
+    .gm-style .gm-style-iw{
+        width:100% !important;
+    }
+    #infoLeft{
+        width:100% !important;
+        height:50% !important;
+    }
+    #chargingPoints{
+        width:100% !important;
+        max-height:50% !important;
     }
 }

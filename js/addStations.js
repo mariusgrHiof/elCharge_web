@@ -296,7 +296,7 @@ function addMarker(index, object){
     //object.chargerstations[index].csmd.name;
 
     //TODO: Sjekk ut http://en.marnoto.com/2014/09/5-formas-de-personalizar-infowindow.html
-    var maxWidth = (isMobile?300:500);
+    var maxWidth = (isMobile?500:500);
     var maxHeight = (isMobile?300:500);
     var infowindow = new google.maps.InfoWindow({
         content: contentString,
@@ -308,6 +308,7 @@ function addMarker(index, object){
 
         // Reference to the DIV which receives the contents of the infowindow using jQuery
         var iwOuter = $('.gm-style-iw');
+        //var iwParent = $(iwOuter).parent().css({'height':'100% !important'});
 
         /* The DIV we want to change is above the .gm-style-iw DIV.
          * So, we use jQuery and create a iwBackground variable,
