@@ -118,9 +118,9 @@ function initMap() {
 
     updateCarList();
     //Turning on layers
-    trafficOverlay();
-    weatherOverlay();
-    cloudOverlay();
+    try{
+        trafficOverlay();
+    }catch(e){}
 
     //Finding user location with geolocation
     if (navigator.geolocation) {

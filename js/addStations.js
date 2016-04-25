@@ -106,7 +106,7 @@ function generateMarkers(){
     //TODO: Mer permanent fiks -> La brukeren velge selv
     var isPublic = false;
     deleteMarkers();
-    for(i = 0; i < jsonData.chargerstations.length; i++){
+    for(var i = 0; i < jsonData.chargerstations.length; i++){
         isPublic = jsonData.chargerstations[i].attr.st[2].attrvalid == "1" ? true : false;
         if(isPublic){
             var numOfPorts = jsonData.chargerstations[i].csmd.Number_charging_points;
