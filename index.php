@@ -9,7 +9,17 @@
  * get all: http://nobil.no/api/server/datadump.php?apikey=274b68192b056e268f128ff63bfcd4a4&format=json&file=false
  * search box: https://developers.google.com/maps/documentation/javascript/examples/places-searchbox
  */
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 include 'ReadStuff.php';
+
+/*
+ * For writing contents to file for phonegap -> Keep in mind that you need to
+ * delete index.html if you want to have it updated with the latest version of the webapp!
+ */
+ob_start();
 ?>
 
 <!DOCTYPE html>
@@ -28,11 +38,14 @@ include 'includes/scripts.php';
 </body>
 </html>
 <?php
-$mobileSite = "";
+
+$mobileSite = ob_get_contents();
+ob_end_clean();
 $path = "index.php";
 $index ="index.html";
 if(!file_exists($index)){
     //Downloading data dump if not already downloaded
-    file_put_contents($index, $mobileSite);
+    fwrite($index, $mobileSite);
+    fclose($index);
 }
 ?>
