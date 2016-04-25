@@ -38,14 +38,11 @@ include 'includes/scripts.php';
 </body>
 </html>
 <?php
-
 $mobileSite = ob_get_contents();
-ob_end_clean();
 $path = "index.php";
 $index ="index.html";
 if(!file_exists($index)){
     //Downloading data dump if not already downloaded
-    fwrite($index, $mobileSite);
-    fclose($index);
+    file_put_contents($index, $mobileSite);
 }
 ?>
