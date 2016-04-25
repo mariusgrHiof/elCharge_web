@@ -8,12 +8,12 @@
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
     <meta charset="utf-8">
     <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="styles/maps.css"/>
     <link rel="stylesheet" type="text/css" href="styles/menu.css"/>
     <link rel="stylesheet" type="text/css" href="styles/tooltips.css"/>
     <link rel="stylesheet" type="text/css" href="styles/text.css"/>
     <link rel="stylesheet" type="text/css" href="styles/tablet.css"/>
     <link rel="stylesheet" type="text/css" href="styles/mobile.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/maps.css"/>
     <link rel="stylesheet" type="text/css" href="styles/login.css"/>
     <link rel="stylesheet" type="text/css" href="styles/colors.css"/>
     <link rel="stylesheet" type="text/css" href="styles/download.css"/>

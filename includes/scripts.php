@@ -15,6 +15,8 @@ addJS('js/navigation.js', false, false);
 addJS('js/buttons.js', false, false);
 addJS('js/elevation.js', false, false);
 
+
+
 //Script for adding scripts to the html
 function addJS($src, $async, $defer){
     echo '<script src="'. $src .'"'. ($async? " async":"") . ($defer? " defer":"") .'> </script>';

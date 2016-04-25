@@ -20,12 +20,12 @@ function onError(error) {
     alert('code: '    + error.code    + '\n' +
         'message: ' + error.message + '\n');
 }
+
 var init = includeHTML(); //Initializing the method once it's loaded.
-function includeHTML() {
-    /*
-    $('header[include]').each(function() {
-        $(this).load( $(this).attr('include')).trigger('create');
-    });*/
+/*
+ Depricated
+
+ function includeHTML() {
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
     if(phonegap){
         //Clumsy, but only way I could get it work with phonegap.
@@ -55,7 +55,7 @@ function includeHTML() {
         }
     }
 }
-init = null;
+init = null;*/
 
 
 /**

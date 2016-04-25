@@ -6,7 +6,7 @@
  */
 var hasDownloaded = false;
 
-var jsonData = {};
+var jsonData = new Array();
 
 var typeIDs = new Array();
 typeIDs['0'] = "Unspecified";
@@ -66,13 +66,13 @@ carModels['VW e-Golf'] = schuko.concat(schuko, type2, combo);
 carModels['VW e-up!'] = schuko.concat(schuko, type1, type2);
 
 
-$.ready(
+$(document).ready(
     function(){
         if(!phonegap){
             console.log("Yey");
             downloadDump();
         }else{
-            console.log("Is phonega");
+            console.log("Is phonegap");
         }
     }
 );

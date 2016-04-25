@@ -27,7 +27,7 @@ ob_start();
 <?php include 'includes/head.php';?>
 <body>
 <?php
-include 'includes/GetDownloadProgress.php';
+include 'includes/getDownloadProgress.php';
 include 'includes/login.php';
 include 'includes/userwindow.php';
 //Adding the header & menu elements (Menu is included in the header.php)
@@ -42,7 +42,7 @@ $mobileSite = ob_get_contents();
 $path = "index.php";
 $index ="index.html";
 if(!file_exists($index)){
-    //Downloading data dump if not already downloaded
+    //Writing index.html file off the contents of the website
     file_put_contents($index, $mobileSite);
 }
 ?>
