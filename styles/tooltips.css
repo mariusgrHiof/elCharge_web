@@ -99,8 +99,9 @@ div#station-tooltip div#secondRow img {
     border: 1px solid rgba(72, 181, 233, 0.6);
     border-radius: 2px 2px 0 0;
 }
+/* Blir veldig tynn.
 .gm-style-iw{
     width:100%;
     min-width: 100%;
     max-width:100%;
-}
+}*/
