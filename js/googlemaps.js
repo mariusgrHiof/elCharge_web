@@ -152,7 +152,9 @@ function initMap() {
             document.addEventListener("deviceready", downloadDump(), false)
         );
     }
-    //downloadDump();
+
+
+
 }
 
 // Sets the map on all markers in the array.

@@ -1,14 +1,13 @@
 div#station-tooltip{
     max-width:100%;
-    width:30em;
+    width:auto;
 }
 div#station-tooltip p,div#station-tooltip h3{
     color:black;
 }
 
 div#station-tooltip div.float-left{
-    float:left;
-    width:30%;
+
 }
 div#station-tooltip div.float-left img{
     max-width:100%;
@@ -26,4 +25,77 @@ div#station-tooltip button{
 }
 .read-more.toggle{
     display:block;
+}
+
+div#station-tooltip div#secondRow img {
+    width: 6em;
+    height: 5em;
+    float:left;
+}
+
+/*
+** trying shit out yo
+*/
+
+#topBox {
+    height: 1em;
+    width: 100%;
+
+}
+#secondRow {
+    height: 5em;
+    width: 100%;
+    float:left;
+    border-bottom: 1px solid gray;
+
+
+}
+#placeImage {
+    width: 6em;
+    height: 5em;
+    float:left;
+    max-width: 100%;
+    background-color: red;
+}
+#placeNameIcons {
+    width: calc(100% - 8em);
+    height: 5em;
+    float:left;
+
+}
+
+#markerColor {
+    height: 5em;
+    width: 1em;
+    float:right;
+    background-color: lightgreen;
+}
+#secondContainer {
+    height: 17em;
+    width: 100%;
+
+}
+#infoLeft {
+    height: 25em;
+    width: 49%;
+    float: left;
+    border: 1px solid black;
+    overflow-y: scroll;
+}
+#chargingPoints {
+    height: 25em;
+    width: 49%;
+    float:right;
+    border: 1px solid black;
+    overflow-y: scroll;
+}
+
+.gm-style-iw {
+    width: 35em !important;
+    top: 0 !important;
+    left: 0 !important;
+    background-color: #fff;
+    box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+    border: 1px solid rgba(72, 181, 233, 0.6);
+    border-radius: 2px 2px 0 0;
 }

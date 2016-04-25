@@ -239,6 +239,41 @@ function addMarker(index, object){
 
     var contentString =
         "<div id=\"station-tooltip\">"+
+            "<div id=\"topBox\">"+
+            "</div>"+
+            "<div id=\"secondRow\">"+
+                "<img src=\"" + (/kommer/i.test(object.chargerstations[index].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ object.chargerstations[index].csmd.Image) + "\"/>" +
+                "<div id='placeNameIcons' style='color:blue;'>"+
+                    "<h3>"+ object.chargerstations[index].csmd.name + "(ID:" + object.chargerstations[i].csmd.id + ")</h3>" +
+                "</div>"+
+                "<div id='markerColor' style='background-color:"+ (isLive ? "lightgreen" : "blue") +";'>"+
+                "</div>"+
+            "</div>"+
+            "<div id='secondContainer'>"+
+                "<div id='infoLeft'>"+
+                    "<p><strong>Kontakt info:</strong> "+ object.chargerstations[index].csmd.Contact_info+"</p>" +
+                    "<p><strong>Adresse:</strong> "+ object.chargerstations[index].csmd.Street +" " + object.chargerstations[index].csmd.House_number +"</p>"+
+                    "<p><strong>Beskrivelse:</strong> "+ object.chargerstations[index].csmd.description +"</p>" +
+                    "<p><strong>Lokasjonsbeskrivelse:</strong> "+ object.chargerstations[index].csmd.Description_of_location +"</p>" +
+                    "<p><strong>Eier:</strong> " + object.chargerstations[index].csmd.Owned_by +"</p>" +
+                    "<p><strong>Kommentarer:</strong> "+ object.chargerstations[index].csmd.User_comment+"</p>" +
+                "</div>"+
+                "<div id='chargingPoints'>"+
+                    "<p><strong>Ladepunkter:</strong> "+ connectors.length+" </p>" +
+                    "<div> "+
+                        connectorsString +
+                    "</div>" +
+                "</div>"+
+            "</div>"+
+            "<div id='lowerContainer'>"+
+                "<button onclick='addWaypoint(" + pos[0] + "," + pos[1] + ",/" + object.chargerstations[index].csmd.name + "/)'>Legg til i rute</button>" +
+            "</div>"+
+        "</div>";
+        object.chargerstations[index].csmd.name;
+
+
+    /*var contentString =
+        "<div id=\"station-tooltip\">"+
             "<div class='float-left'>" +
                 "<img src=\"" + (/kommer/i.test(object.chargerstations[index].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ object.chargerstations[index].csmd.Image) + "\"/>" +
             "</div>"+
@@ -257,7 +292,7 @@ function addMarker(index, object){
                 "</div>" +
             "</div>"+
             "<button onclick='addWaypoint(" + pos[0] + "," + pos[1] + ",/" + object.chargerstations[index].csmd.name + "/)'>Legg til i rute</button>" +
-        "</div>";
+        "</div>";*/
     //object.chargerstations[index].csmd.name;
 
     //TODO: Sjekk ut http://en.marnoto.com/2014/09/5-formas-de-personalizar-infowindow.html
@@ -267,6 +302,25 @@ function addMarker(index, object){
         content: contentString,
         maxWidth: maxWidth,
         maxHeight: maxHeight
+    });
+
+    google.maps.event.addListener(infowindow, 'domready', function() {
+
+        // Reference to the DIV which receives the contents of the infowindow using jQuery
+        var iwOuter = $('.gm-style-iw');
+
+        /* The DIV we want to change is above the .gm-style-iw DIV.
+         * So, we use jQuery and create a iwBackground variable,
+         * and took advantage of the existing reference to .gm-style-iw for the previous DIV with .prev().
+         */
+        var iwBackground = iwOuter.prev();
+
+        // Remove the background shadow DIV
+        iwBackground.children(':nth-child(2)').css({'display' : 'none'});
+
+        // Remove the white background DIV
+        iwBackground.children(':nth-child(4)').css({'display' : 'none'});
+
     });
     /*
      * Making it so that the popups disappear upon click outside box
