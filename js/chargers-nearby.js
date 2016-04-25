@@ -31,7 +31,6 @@ function updateNearbyChargers(){
     chargers_nearby = [];
     var sPos;
     for(var i = 0; i < jsonData.chargerstations.length; i++){
-        console.log(jsonData.chargerstations[i].csmd.name);
         sPos = jsonData.chargerstations[i].csmd.Position.replace(/[()]/g,"").split(",");
         if(compareDistance(geopos, sPos) <= 10){
             chargers_nearby[chargers_nearby.length] = jsonData.chargerstations[i];
