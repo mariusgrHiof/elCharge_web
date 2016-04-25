@@ -29,6 +29,7 @@ function compareDistance(userPos, stationPos){
 //For updating just the nearby charger list and not every chargers
 function updateNearbyChargers(){
     chargers_nearby = [];
+    $('#chargers-nearby').html("");
     var sPos;
     for(var i = 0; i < jsonData.chargerstations.length; i++){
         sPos = jsonData.chargerstations[i].csmd.Position.replace(/[()]/g,"").split(",");

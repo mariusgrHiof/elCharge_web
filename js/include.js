@@ -36,7 +36,7 @@ var onSuccess = function(position) {
     }
 }
 function onError(error) {
-    if (window.location.protocol != "https:")
+    if (window.location.protocol != "https:" && !phonegap)
         window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
     console.log('code: '    + error.code    + '\n' +
         'message: ' + error.message + '\n');
