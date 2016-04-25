@@ -117,6 +117,9 @@ function downloadDump(){
             jsonData = data;
             //Adding markers
             generateMarkers();
+            try{
+                navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy: true, timeout: 10000, maximumAge: 20000 });
+            }catch(e){}
         }
     });
 }
