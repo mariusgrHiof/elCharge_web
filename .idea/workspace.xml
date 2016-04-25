@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/chargers-nearby.js" afterPath="$PROJECT_DIR$/js/chargers-nearby.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/global.js" afterPath="$PROJECT_DIR$/js/global.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/googlemaps.js" afterPath="$PROJECT_DIR$/js/googlemaps.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/android.css" afterPath="$PROJECT_DIR$/styles/android.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/ios.css" afterPath="$PROJECT_DIR$/styles/ios.css" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,21 +31,9 @@
       <file leaf-file-name="global.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/global.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="67" column="27" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
+            <state relative-caret-position="698">
+              <caret line="117" column="1" selection-start-line="117" selection-start-column="1" selection-end-line="117" selection-end-column="1" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="include.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/include.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="15" column="59" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
-              <folding>
-                <element signature="e#0#42#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -50,8 +41,8 @@
       <file leaf-file-name="googlemaps.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="565">
-              <caret line="146" column="5" selection-start-line="146" selection-start-column="5" selection-end-line="146" selection-end-column="5" />
+            <state relative-caret-position="698">
+              <caret line="171" column="1" selection-start-line="171" selection-start-column="1" selection-end-line="171" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -114,7 +105,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chargers-nearby.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chargers-nearby.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
@@ -124,11 +115,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="exampleObject.json.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/exampleObject.json.js">
+      <file leaf-file-name="android.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/styles/android.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="11" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="11" />
+            <state relative-caret-position="150">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="20" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ios.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/styles/ios.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -189,7 +190,6 @@
         <option value="$PROJECT_DIR$/js/buttons.js" />
         <option value="$PROJECT_DIR$/includes/login.php" />
         <option value="$PROJECT_DIR$/styles/maps.css" />
-        <option value="$PROJECT_DIR$/styles/ios.css" />
         <option value="$PROJECT_DIR$/js/w3data.js" />
         <option value="$PROJECT_DIR$/includes/menu.php" />
         <option value="$PROJECT_DIR$/includes/menu.html" />
@@ -199,15 +199,16 @@
         <option value="$PROJECT_DIR$/includes/header-full.html" />
         <option value="$PROJECT_DIR$/includes/header.html" />
         <option value="$PROJECT_DIR$/styles/mobile.css" />
-        <option value="$PROJECT_DIR$/styles/android.css" />
         <option value="$PROJECT_DIR$/js/include.js" />
         <option value="$PROJECT_DIR$/js/navigation.js" />
         <option value="/private/var/folders/xn/vgc7mccj4nd6xy21gb3fng2r0000gn/T/fz3temp-1/index.php" />
         <option value="$PROJECT_DIR$/js/addStations.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/chargers-nearby.js" />
         <option value="$PROJECT_DIR$/js/global.js" />
         <option value="$PROJECT_DIR$/js/googlemaps.js" />
-        <option value="$PROJECT_DIR$/js/chargers-nearby.js" />
+        <option value="$PROJECT_DIR$/styles/android.css" />
+        <option value="$PROJECT_DIR$/styles/ios.css" />
       </list>
     </option>
   </component>
@@ -517,14 +518,7 @@
       <workItem from="1461522780865" duration="1178000" />
       <workItem from="1461525016834" duration="1208000" />
       <workItem from="1461526879598" duration="634000" />
-      <workItem from="1461557699220" duration="2780000" />
-    </task>
-    <task id="LOCAL-00057" summary="mindre endringer..">
-      <created>1460019245498</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1460019245499</updated>
+      <workItem from="1461557699220" duration="3816000" />
     </task>
     <task id="LOCAL-00058" summary="lagt inn places biblioteket i google maps API'et (tillater autocomplete osv)">
       <created>1460019647829</created>
@@ -862,11 +856,18 @@
       <option name="project" value="LOCAL" />
       <updated>1461561053750</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="failsafe i compareDist i tilfelle lokasjon ikke er tilgjengelig">
+      <created>1461562084560</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1461562084560</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134192000" />
+    <option name="totallyTimeSpent" value="135228000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -914,7 +915,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fikset ett &quot;førsteutkast&quot; av ladere i nærheten.&#10;Foreløpig vises kun ladestasjonene som er innen 5 km unna brukeren i en liste uten noe videre funksjonalitet." />
     <MESSAGE value="forsøkte å legge inn &quot;ta meg hit funksjon&quot; uten å bruke array.. men må nok bruke array alikavel. Fikser senere om noen andre ikke fikser den først." />
     <MESSAGE value="noe" />
     <MESSAGE value="mindre fix" />
@@ -939,7 +939,8 @@
     <MESSAGE value="Markerclustering er fikset! FINALLY!" />
     <MESSAGE value="fix" />
     <MESSAGE value="Fjernet downloadDump metode kall fra initMap for safeguarding" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fjernet downloadDump metode kall fra initMap for safeguarding" />
+    <MESSAGE value="failsafe i compareDist i tilfelle lokasjon ikke er tilgjengelig" />
+    <option name="LAST_COMMIT_MESSAGE" value="failsafe i compareDist i tilfelle lokasjon ikke er tilgjengelig" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1096,13 +1097,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/w3data.js" />
-    <entry file="file://$PROJECT_DIR$/styles/ios.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/menu-items/chargers-nearby.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1220,13 +1214,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/styles/android.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/exampleObject.json.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1271,22 +1258,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/global.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="67" column="27" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
-          <caret line="146" column="5" selection-start-line="146" selection-start-column="5" selection-end-line="146" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/header.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1315,10 +1286,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/global.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="698">
+          <caret line="117" column="1" selection-start-line="117" selection-start-column="1" selection-end-line="117" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="698">
+          <caret line="171" column="1" selection-start-line="171" selection-start-column="1" selection-end-line="171" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="82" selection-start-line="24" selection-start-column="82" selection-end-line="24" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/android.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="20" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/ios.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="57" />
           <folding />
         </state>
       </provider>

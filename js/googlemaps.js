@@ -46,7 +46,7 @@ function initMap() {
 
 
     /*
-    ** Search box header
+     ** Search box header
      */
 
     // Create the search box and link it to the UI element.
@@ -58,8 +58,8 @@ function initMap() {
 
     // Bias the SearchBox results towards current map's viewport.
     /*map.addListener('bounds-changed', function() {
-        searchBox.setBounds(map.getBounds());
-    });*/
+     searchBox.setBounds(map.getBounds());
+     });*/
 
     searchBox.addListener('places_changed', function() {
         var places = searchBox.getPlaces();
@@ -105,10 +105,10 @@ function initMap() {
     var inputStartPos = document.getElementById('nav-start-pos');
     var searchBoxStartPos = new google.maps.places.SearchBox(inputStartPos);
 
-   searchBoxStartPos.setBounds(map.getBounds());
+    searchBoxStartPos.setBounds(map.getBounds());
 
     /*
-    ** Search box endPos
+     ** Search box endPos
      */
 
     var inputEndPos = document.getElementById('nav-end-pos');
@@ -144,6 +144,11 @@ function initMap() {
         // If the browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
         geopos = [59.91673,10.74782]; // Defaulting to oslo incase geopos isn't possible
+    }
+    //Downloading station data
+    //downloadDump();
+    if(phonegap){
+        document.addEventListener("deviceready", downloadDump(), false);
     }
 }
 
