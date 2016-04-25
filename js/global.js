@@ -7,6 +7,7 @@
 var hasDownloaded = false;
 
 var jsonData = new Array();
+var mc;
 
 var typeIDs = new Array();
 typeIDs['0'] = "Unspecified";
