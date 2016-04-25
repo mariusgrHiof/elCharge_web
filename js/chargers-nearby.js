@@ -26,6 +26,20 @@ function compareDistance(userPos, stationPos){
     }
 }
 
+//For updating just the nearby charger list and not every chargers
+function updateNearbyChargers(){
+    chargers_nearby = [];
+    var sPos;
+    for(var i = 0; i < jsonData.chargerstations.length; i++){
+        console.log(jsonData.chargerstations[i].csmd.name);
+        sPos = jsonData.chargerstations[i].csmd.Position.replace(/[()]/g,"").split(",");
+        if(compareDistance(geopos, sPos) <= 10){
+            chargers_nearby[chargers_nearby.length] = jsonData.chargerstations[i];
+        }
+    }
+    getNearbyChargers();
+}
+
 function getNearbyChargers(){
     var thisPos = [];
     for(var i = 0; i < chargers_nearby.length; i++){

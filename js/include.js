@@ -42,7 +42,7 @@ function onError(error) {
         'message: ' + error.message + '\n');
 }
 
-var init = includeHTML(); //Initializing the method once it's loaded.
+//var init = includeHTML(); //Initializing the method once it's loaded.
 /*
  Depricated
 
