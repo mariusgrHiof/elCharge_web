@@ -5,6 +5,11 @@
  * Date: 3/30/2016
  * Time: 4:23 PM
  */
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
 $_SESSION['UserId'] = rand(1,99);
 
 $servername ="frigg.hiof.no";
@@ -15,7 +20,7 @@ $password ="bgGGY5DB";
 
 try {
 
-
+/*
     $conn = new mysqli($servername, $username, $password, $username);
 
     // Check connection
@@ -35,7 +40,7 @@ try {
         echo "Velkommen, " . $_POST['username'] . ", din id er " . $_SESSION['UserId'] . " <a href='favoritter.php'> Favoritter </a>";
     } else {
         echo "Feil brukernavn eller passord";
-    }
+    }*/
 }
 catch (mysqli_sql_exception $ms){
     echo $ms;

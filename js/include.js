@@ -5,13 +5,25 @@ var phonegap = false; //TODO: Replace with this later -> document.URL.indexOf( '
 var isMobile = false;
 var isAndroid = false;
 var isIOS = false;
-
+var accuracyRadius;
 var onSuccess = function(position) {
     geopos = [position.coords.latitude, position.coords.longitude];
 
     try{
+        accuracyRadius.setMap(null);
         pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         myloc.setPosition(pos);
+        accuracyRadius = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            map: map,
+            center: pos,
+            radius: position.coords.accuracy
+        });
+        console.log("GPS accuracy: " + position.coords.accuracy + "m.");
     }catch(e){
         //console.log("Not able to get your current position.");
     }
