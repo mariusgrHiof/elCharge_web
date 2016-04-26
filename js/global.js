@@ -109,7 +109,7 @@ function downloadDump(){
         },
         type: 'POST',
         //TODO: Check out this URL for persistent storage with phonegap - http://docs.phonegap.com/en/2.5.0/cordova_file_file.md.html
-        url: phonegap ? "http://nobil.no/api/server/datadump.php?apikey=274b68192b056e268f128ff63bfcd4a4&fromdate=2005-01-01&format=json":"datadump.json",
+        url: phonegap && isIOS ? "http://nobil.no/api/server/datadump.php?apikey=274b68192b056e268f128ff63bfcd4a4&fromdate=2005-01-01&format=json":"datadump.json",
         data: {},
         success: function(data){
             console.log("File download completed");
