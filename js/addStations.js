@@ -67,15 +67,35 @@ var carModel = new Array();
  * Charging capacity
  * name, current, kw, v, max a
  * http://nobil.no/admin/attributes.php
+ *
+ * Attribute value id	Name	Translated	Key
+ * 0	Unspecified
+ * 1	Battery exchange
+ * 7	3,6 kW - 230V 1-phase max 16A
+ * 8	7,4 kW - 230V 1-phase max 32A
+ * 10	11 kW - 400V 3-phase max 16A
+ * 11	22 kW - 400V 3-phase max 32A
+ * 12	43 kW - 400V 3-phase max 63A
+ * 13	50 kW - 500VDC max 100A
+ * 23	100 kW - 500VDC max 200A
+ * 16	230V 3-phase max 16A
+ * 17	230V 3-phase max 32A
+ * 18	230V 3-phase max 63A
+ * 19	20 kW - 500VDC max 50A
+ * 20	Less then 100 kW + 43 kW - 500VDC max 200A + 400V 3-phase max 63A
+ * 21	Less then 100 kW + 22 kW - 500VDC max 50A + 400V 3-phase max 32A
+ * 22	135 kW - 480VDC max 270A
  */
+
 var chargingCapacity =[
     {'id':0,'name':'Unspecified','current':'ukjent', 'watt':0, 'volt':0, 'ampere':0},
     {'id':1,'name':'Battery exchange','current':'ukjent', 'watt':0, 'volt':0, 'ampere':0},
-    {'id':7, 'name':'3,6 kW - 230V 1-phase max 16A','current':'AC', 'kW':3.6, 'volt':230, 'ampere':16},
+    {'id':7, 'name':'3,6 kW - 230V 1-phase max 16A','current':'AC', 'kW':3.6, 'volt':230, 'ampere':16},//husholdning
     {'id':8, 'name':'7,4 kW - 230V 1-phase max 32A','current':'AC', 'kW':7.4, 'volt':230, 'ampere':32},
-    {'id':10, 'name':'11 kW - 400V 3-phase max 16A','current':'AC', 'kW':11, 'volt':400, 'ampere':16},
-    {'id':11, 'name':'22 kW - 400V 3-phase max 32A','current':'AC', 'kW':22, 'volt':400, 'ampere':22}
+    {'id':10, 'name':'11 kW - 400V 3-phase max 16A','current':'AC', 'kW':11, 'volt':400, 'ampere':16},//semihurtig
+    {'id':11, 'name':'22 kW - 400V 3-phase max 32A','current':'AC', 'kW':22, 'volt':400, 'ampere':22}//semihurtig
 ];
+
 
 
 var connectors = new Array();
@@ -110,6 +130,10 @@ function generateMarkers(){
         isPublic = jsonData.chargerstations[i].attr.st[2].attrvalid == "1" ? true : false;
         if(isPublic){
             var numOfPorts = jsonData.chargerstations[i].csmd.Number_charging_points;
+            /**
+             * TODO: Hvis ikke filtrer -> duplikater av conns O_o
+             * TODO: Hvis filtrer -> Viser kun de kontakter som funker til bilen O_o
+             */
             //Checking filter
             if(document.getElementById("select-car").value !=0){
                 carModel = carModels[document.getElementById("select-car").value];
@@ -259,7 +283,7 @@ function addMarker(index, object){
                     "<p><strong>Kommentarer:</strong> "+ object.chargerstations[index].csmd.User_comment+"</p>" +
                 "</div>"+
                 "<div id='chargingPoints'>"+
-                    "<p><strong>Ladepunkter:</strong> "+ connectors.length+" </p>" +
+                    "<p><strong>Ladepunkter:</strong> "+ object.chargerstations[index].csmd.Number_charging_points+" </p>" +
                     "<div> "+
                         connectorsString +
                     "</div>" +
