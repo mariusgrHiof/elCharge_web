@@ -384,3 +384,11 @@ function removeWaypoint(element){
         navigate();
     }
 }
+
+/**
+ * Live data
+ * API: http://java-coders.com/p/nobil/nobil-stream-api
+ * Websocket:
+ * - how to: https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications
+ * - Wiki: https://en.wikipedia.org/wiki/WebSocket
+ */
