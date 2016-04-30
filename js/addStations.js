@@ -127,6 +127,7 @@ function generateMarkers(){
     var isPublic = false;
     deleteMarkers();
     for(var i = 0; i < jsonData.chargerstations.length; i++){
+        connectors = [];
         isPublic = jsonData.chargerstations[i].attr.st[2].attrvalid == "1" ? true : false;
         if(isPublic){
             var numOfPorts = jsonData.chargerstations[i].csmd.Number_charging_points;
@@ -147,10 +148,10 @@ function generateMarkers(){
                 var conns = new Array();
                 for(var c = 1; c <= numOfPorts; c++){
                     try{
-                        conns.push(jsonData.chargerstations[i].attr.conn[c]);
+                        connectors.push(jsonData.chargerstations[i].attr.conn[c]);
                     }catch(e){}
                 }
-                connectors = conns.concat(conns);
+                //connectors = conns.concat(conns);
                 //Adding all charging stations
                 addMarker(i, jsonData);
             }
