@@ -115,7 +115,12 @@ function downloadDump(){
             console.log("File download completed");
             $('#download-progression').hide();
             hasDownloaded = true;
-            jsonData = data;
+            jsonData = [];
+
+            for(var i = 0; i < data.chargerstations.length; i++){
+                jsonData[data.chargerstations[i].csmd.id] = data.chargerstations[i];
+            }
+
             //Adding markers
             generateMarkers();
             try{

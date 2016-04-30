@@ -4,6 +4,7 @@
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/addStations.js" afterPath="$PROJECT_DIR$/js/addStations.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/global.js" afterPath="$PROJECT_DIR$/js/global.js" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,8 +39,18 @@
       <file leaf-file-name="global.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/global.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1695">
-              <caret line="115" column="46" selection-start-line="115" selection-start-column="46" selection-end-line="115" selection-end-column="46" />
+            <state relative-caret-position="579">
+              <caret line="121" column="13" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="exampleObject.json.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/exampleObject.json.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -48,13 +59,13 @@
       <file leaf-file-name="addStations.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/addStations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="180" column="19" selection-start-line="180" selection-start-column="19" selection-end-line="180" selection-end-column="19" />
+            <state relative-caret-position="-220">
+              <caret line="203" column="26" selection-start-line="203" selection-start-column="26" selection-end-line="203" selection-end-column="26" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
-                <marker date="1462013257000" expanded="true" signature="8697:8709" placeholder="..." />
-                <marker date="1462013257000" expanded="true" signature="9635:9646" placeholder="..." />
-                <marker date="1462013257000" expanded="true" signature="9849:9905" placeholder="..." />
+                <marker date="1462016057000" expanded="true" signature="8342:8354" placeholder="..." />
+                <marker date="1462016057000" expanded="true" signature="9214:9225" placeholder="..." />
+                <marker date="1462016057000" expanded="true" signature="9388:9444" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -124,7 +135,6 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/includes/menu-items/chargers-nearby.html" />
-        <option value="$PROJECT_DIR$/js/global.js" />
         <option value="$PROJECT_DIR$/js/chargers-nearby.js" />
         <option value="$PROJECT_DIR$/includes/checkloggin.php" />
         <option value="$PROJECT_DIR$/styles/tooltips.css" />
@@ -133,6 +143,7 @@
         <option value="$PROJECT_DIR$/styles/ios.css" />
         <option value="$PROJECT_DIR$/js/googlemaps.js" />
         <option value="$PROJECT_DIR$/includes/scripts.php" />
+        <option value="$PROJECT_DIR$/js/global.js" />
         <option value="$PROJECT_DIR$/js/addStations.js" />
       </list>
     </option>
@@ -181,6 +192,44 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="elCharge_web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elCharge_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elCharge_web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elCharge_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elCharge_web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elCharge_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elCharge_web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -329,14 +378,7 @@
       <workItem from="1461611076655" duration="42000" />
       <workItem from="1461653775623" duration="440000" />
       <workItem from="1461844510259" duration="1987000" />
-      <workItem from="1461970576070" duration="864000" />
-    </task>
-    <task id="LOCAL-00078" summary="mindre fix">
-      <created>1461005405658</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1461005405658</updated>
+      <workItem from="1461970576070" duration="3287000" />
     </task>
     <task id="LOCAL-00079" summary="mindre fix">
       <created>1461006300653</created>
@@ -674,11 +716,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462012809377</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="Fikset bug som gjør at det kun ble vist hvilke kontakter som var match for bilen i laderpunkt listen for en gitt ladestasjon.">
+      <created>1462013381473</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1462013381473</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162226000" />
+    <option name="totallyTimeSpent" value="164649000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -726,7 +775,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fiksing etter flere resets -.-" />
     <MESSAGE value="phonegap = false" />
     <MESSAGE value="midlertidig fiks til at alle uoffentlige ladestasjoner vises er nå på plass. Den viser nå kun offentlige ladere." />
     <MESSAGE value="lagt til &lt;noscript&gt; melding" />
@@ -751,7 +799,8 @@
     <MESSAGE value="..." />
     <MESSAGE value="css fix for dl bar og tooltip" />
     <MESSAGE value="Fiksert feil som forårsaket at det kom opp 2x med ladepunkter på en ladestasjon!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fiksert feil som forårsaket at det kom opp 2x med ladepunkter på en ladestasjon!" />
+    <MESSAGE value="Fikset bug som gjør at det kun ble vist hvilke kontakter som var match for bilen i laderpunkt listen for en gitt ladestasjon." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fikset bug som gjør at det kun ble vist hvilke kontakter som var match for bilen i laderpunkt listen for en gitt ladestasjon." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1057,13 +1106,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/exampleObject.json.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4352">
@@ -1080,23 +1122,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/exampleObject.json.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/global.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1695">
-          <caret line="115" column="46" selection-start-line="115" selection-start-column="46" selection-end-line="115" selection-end-column="46" />
+        <state relative-caret-position="579">
+          <caret line="121" column="13" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/addStations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="180" column="19" selection-start-line="180" selection-start-column="19" selection-end-line="180" selection-end-column="19" />
+        <state relative-caret-position="-220">
+          <caret line="203" column="26" selection-start-line="203" selection-start-column="26" selection-end-line="203" selection-end-column="26" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
-            <marker date="1462013257000" expanded="true" signature="8697:8709" placeholder="..." />
-            <marker date="1462013257000" expanded="true" signature="9635:9646" placeholder="..." />
-            <marker date="1462013257000" expanded="true" signature="9849:9905" placeholder="..." />
+            <marker date="1462016057000" expanded="true" signature="8342:8354" placeholder="..." />
+            <marker date="1462016057000" expanded="true" signature="9214:9225" placeholder="..." />
+            <marker date="1462016057000" expanded="true" signature="9388:9444" placeholder="..." />
           </folding>
         </state>
       </provider>
