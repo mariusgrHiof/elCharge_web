@@ -145,13 +145,11 @@ function generateMarkers(){
                     addMarker(i, jsonData);
                 }
             }else{
-                var conns = new Array();
                 for(var c = 1; c <= numOfPorts; c++){
                     try{
                         connectors.push(jsonData.chargerstations[i].attr.conn[c]);
                     }catch(e){}
                 }
-                //connectors = conns.concat(conns);
                 //Adding all charging stations
                 addMarker(i, jsonData);
             }
@@ -172,22 +170,15 @@ function generateMarkers(){
 function getCarMatch(index, portCount, object){
     var match = false;
     var connType;
-    var connectorArray = new Array();
     for(var c = 1; c <= portCount; c++){
         //Checking if any connection ports match the user prefs
         try{
-            //connType = obj.chargerstations[i].attr.conn[c][4].trans;//.attrvalid;//Getting one of the connectors ID
             connType = object.chargerstations[index].attr.conn[c][4].attrvalid; //id
-            //if(!isMatch && connType.indexOf(typeIDs[document.getElementById("select_port").value]) >= 0)// == typeID)
             if(!match && ($.inArray(connType, carModel)>0)){
                 match = true; //trans
-                connectorArray.push(object.chargerstations[index].attr.conn[c]);
             }
+            connectors.push(object.chargerstations[index].attr.conn[c]);
         }catch(e){}
-    }
-
-    if(match){
-        connectors = connectorArray.concat(connectorArray);
     }
     return match;
 }

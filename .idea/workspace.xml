@@ -48,13 +48,13 @@
       <file leaf-file-name="addStations.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/addStations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="158" column="63" selection-start-line="158" selection-start-column="63" selection-end-line="158" selection-end-column="63" />
+            <state relative-caret-position="540">
+              <caret line="180" column="19" selection-start-line="180" selection-start-column="19" selection-end-line="180" selection-end-column="19" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
-                <marker date="1462012732000" expanded="true" signature="9156:9168" placeholder="..." />
-                <marker date="1462012732000" expanded="true" signature="10094:10105" placeholder="..." />
-                <marker date="1462012732000" expanded="true" signature="10308:10364" placeholder="..." />
+                <marker date="1462013257000" expanded="true" signature="8697:8709" placeholder="..." />
+                <marker date="1462013257000" expanded="true" signature="9635:9646" placeholder="..." />
+                <marker date="1462013257000" expanded="true" signature="9849:9905" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -329,14 +329,7 @@
       <workItem from="1461611076655" duration="42000" />
       <workItem from="1461653775623" duration="440000" />
       <workItem from="1461844510259" duration="1987000" />
-      <workItem from="1461970576070" duration="562000" />
-    </task>
-    <task id="LOCAL-00077" summary="noe">
-      <created>1461001979448</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1461001979449</updated>
+      <workItem from="1461970576070" duration="864000" />
     </task>
     <task id="LOCAL-00078" summary="mindre fix">
       <created>1461005405658</created>
@@ -674,11 +667,18 @@
       <option name="project" value="LOCAL" />
       <updated>1461605932830</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="Fiksert feil som forårsaket at det kom opp 2x med ladepunkter på en ladestasjon!">
+      <created>1462012809375</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1462012809377</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161924000" />
+    <option name="totallyTimeSpent" value="162226000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -695,14 +695,14 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17678382" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.50437635" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23674911" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23716815" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32773852" sideWeight="0.49562362" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -726,7 +726,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="sdfgj" />
     <MESSAGE value="fiksing etter flere resets -.-" />
     <MESSAGE value="phonegap = false" />
     <MESSAGE value="midlertidig fiks til at alle uoffentlige ladestasjoner vises er nå på plass. Den viser nå kun offentlige ladere." />
@@ -751,7 +750,8 @@
     <MESSAGE value="Manuell oppdatering av ladere i nærheten er nå mulig." />
     <MESSAGE value="..." />
     <MESSAGE value="css fix for dl bar og tooltip" />
-    <option name="LAST_COMMIT_MESSAGE" value="css fix for dl bar og tooltip" />
+    <MESSAGE value="Fiksert feil som forårsaket at det kom opp 2x med ladepunkter på en ladestasjon!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fiksert feil som forårsaket at det kom opp 2x med ladepunkter på en ladestasjon!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1090,13 +1090,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/addStations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="158" column="63" selection-start-line="158" selection-start-column="63" selection-end-line="158" selection-end-column="63" />
+        <state relative-caret-position="540">
+          <caret line="180" column="19" selection-start-line="180" selection-start-column="19" selection-end-line="180" selection-end-column="19" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
-            <marker date="1462012732000" expanded="true" signature="9156:9168" placeholder="..." />
-            <marker date="1462012732000" expanded="true" signature="10094:10105" placeholder="..." />
-            <marker date="1462012732000" expanded="true" signature="10308:10364" placeholder="..." />
+            <marker date="1462013257000" expanded="true" signature="8697:8709" placeholder="..." />
+            <marker date="1462013257000" expanded="true" signature="9635:9646" placeholder="..." />
+            <marker date="1462013257000" expanded="true" signature="9849:9905" placeholder="..." />
           </folding>
         </state>
       </provider>
