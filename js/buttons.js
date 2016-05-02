@@ -40,6 +40,27 @@ function userLoggin(form){
     });
     return false;
 }
+function userRegistration(form){
+    var path = "";
+    if(phonegap)
+        path += "https://frigg.hiof.no/bo16-g6/webapp/";
+    path +="includes/register.php";
+
+    //Logging the user in
+    $.post(path,
+        {
+            //Posting username and password
+            username: $(form).children(":input[name='username']").val(),
+            password: $(form).children(":input[name='password']").val() },
+        function( data ){
+            console.log("Registered user feedback");
+            //Populating the user logged in window.
+            $('#logged-in').html( data );
+            //Populating the favorite chargers and routes window
+            /*Some awesome method*/
+        });
+    return false;
+}
 
 $(function(){
     $('.menu-item').click(

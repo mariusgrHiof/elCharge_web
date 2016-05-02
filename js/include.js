@@ -80,7 +80,7 @@ init = null;*/
 
 
 /**
- * Checking if device tye is mobile
+ * Checking if device type is mobile
  */
 function deviceTypeCheck() {
     //url: http://stackoverflow.com/questions/3469908/make-a-link-in-the-android-browser-start-up-my-app
