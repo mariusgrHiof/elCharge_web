@@ -94,6 +94,9 @@ header.toggle{
     float:left;
     max-width:50%;
 }
+.route-element.markerColor {
+    height: 3em;
+}
 
 /*
     Buttons

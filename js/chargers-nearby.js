@@ -31,10 +31,10 @@ function updateNearbyChargers(){
     chargers_nearby = [];
     $('#chargers-nearby').html("");
     var sPos;
-    for(var i = 0; i < jsonData.chargerstations.length; i++){
-        sPos = jsonData.chargerstations[i].csmd.Position.replace(/[()]/g,"").split(",");
+    for(var station in jsonData){
+        sPos = jsonData[station].csmd.Position.replace(/[()]/g,"").split(",");
         if(compareDistance(geopos, sPos) <= 10){
-            chargers_nearby[chargers_nearby.length] = jsonData.chargerstations[i];
+            chargers_nearby[jsonData[station].csmd.id] = jsonData[station];
         }
     }
     getNearbyChargers();
@@ -42,12 +42,12 @@ function updateNearbyChargers(){
 
 function getNearbyChargers(){
     var thisPos = [];
-    for(var i = 0; i < chargers_nearby.length; i++){
-        thisPos = chargers_nearby[i].csmd.Position.replace(/[()]/g,"").split(",");
+    for(var station in chargers_nearby){
+        thisPos = chargers_nearby[station].csmd.Position.replace(/[()]/g,"").split(",");
         $('#chargers-nearby').append(
             '<li class="border img-height-4em">' +
-                '<img class="cover-third float-left img-height-4em" src=\"' + (/kommer/i.test(chargers_nearby[i].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ chargers_nearby[i].csmd.Image) + '\"/>' +
-                '<div>'+ chargers_nearby[i].csmd.name + ' (' + Math.round(compareDistance(geopos, thisPos)) + 'km unna)' +'</div>' +
+                '<img class="cover-third float-left img-height-4em" src=\"' + (/kommer/i.test(chargers_nearby[station].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ chargers_nearby[station].csmd.Image) + '\"/>' +
+                '<div>'+ chargers_nearby[station].csmd.name + ' (' + Math.round(compareDistance(geopos, thisPos)) + 'km unna)' +'</div>' +
                 '<button onclick="navigateFromUser(geopos, this)" value="'+ thisPos +'">Ta meg hit</button>' +
             '</li>');
     }
