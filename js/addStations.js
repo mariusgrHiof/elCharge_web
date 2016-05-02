@@ -371,7 +371,7 @@ function removeWaypoint(element){
     }
 }
 
-/**
+/** 
  * Live data
  * API: http://java-coders.com/p/nobil/nobil-stream-api
  * Websocket:
