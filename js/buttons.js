@@ -20,8 +20,13 @@ function dropdown(event, parent){
     }
 }
 function userLoggin(form){
+    var path = "";
+    if(phonegap)
+        path += "https://frigg.hiof.no/bo16-g6/webapp/";
+    path +="includes/checkloggin.php";
+
     //Logging the user in
-    $.post( "includes/checkloggin.php",
+    $.post(path,
         {
             //Posting username and password
             username: $(form).children(":input[name='username']").val(),

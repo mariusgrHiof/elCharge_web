@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="Mobilversjon funker nå...">
+    <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/menu.php" afterPath="$PROJECT_DIR$/includes/menu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/buttons.js" afterPath="$PROJECT_DIR$/js/buttons.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/login.css" afterPath="$PROJECT_DIR$/styles/login.css" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,7 +66,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="menu.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/menu.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="267">
@@ -76,11 +76,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="exampleObject.json.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/exampleObject.json.js">
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="25" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="25" />
+            <state relative-caret-position="612">
+              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="buttons.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/buttons.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="339">
+              <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/styles/login.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -94,36 +124,6 @@
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GetStations.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GetStations.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="62" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tooltips.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/styles/tooltips.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1560">
-              <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chargers-nearby.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -166,7 +166,6 @@
         <option value="$PROJECT_DIR$/includes/menu-items/help.php" />
         <option value="$PROJECT_DIR$/includes/menu-items/about-us.php" />
         <option value="$PROJECT_DIR$/includes/userwindow@.php" />
-        <option value="$PROJECT_DIR$/styles/login.css" />
         <option value="$PROJECT_DIR$/js/elevation.js" />
         <option value="$PROJECT_DIR$/includes/userwindow.php" />
         <option value="$PROJECT_DIR$/includes/login.php" />
@@ -191,7 +190,6 @@
         <option value="$PROJECT_DIR$/styles/ios.css" />
         <option value="$PROJECT_DIR$/styles/menu.css" />
         <option value="$PROJECT_DIR$/js/chargers-nearby.js" />
-        <option value="$PROJECT_DIR$/js/buttons.js" />
         <option value="$PROJECT_DIR$/styles/tooltips.css" />
         <option value="$PROJECT_DIR$/data/exampleObject.json.js" />
         <option value="$PROJECT_DIR$/includes/scripts.php" />
@@ -202,6 +200,8 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/includes/menu.php" />
+        <option value="$PROJECT_DIR$/styles/login.css" />
+        <option value="$PROJECT_DIR$/js/buttons.js" />
       </list>
     </option>
   </component>
@@ -273,6 +273,20 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elCharge_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elCharge_web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -300,7 +314,7 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="settings.editor.selected.configurable" value="xpath.settings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="addWaypoint&#9;null&#9;null&#10;getNearbyChargers&#9;null&#9;null&#10;myloc&#9;null&#9;null&#10;updateCa&#9;null&#9;null&#10;search&#9;null&#9;null&#10;userPos&#9;null&#9;null&#10;isMobile&#9;null&#9;null&#10;show-login&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="userLog&#9;null&#9;null&#10;addWaypoint&#9;null&#9;null&#10;getNearbyChargers&#9;null&#9;null&#10;myloc&#9;null&#9;null&#10;updateCa&#9;null&#9;null&#10;search&#9;null&#9;null&#10;userPos&#9;null&#9;null&#10;isMobile&#9;null&#9;null&#10;show-login&#9;null&#9;null" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../phonegap/elCharge" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -440,14 +454,7 @@
       <workItem from="1462188780347" duration="115000" />
       <workItem from="1462199041873" duration="617000" />
       <workItem from="1462201225935" duration="1243000" />
-      <workItem from="1462209132831" duration="2841000" />
-    </task>
-    <task id="LOCAL-00089" summary="css tweaks for ios app">
-      <created>1461402160654</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1461402160656</updated>
+      <workItem from="1462209132831" duration="3275000" />
     </task>
     <task id="LOCAL-00090" summary="Fjernet behoved for php for å include html filer!">
       <created>1461408028791</created>
@@ -785,11 +792,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462214801508</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <task id="LOCAL-00138" summary="flyttet login vinduet inn i menyen.">
+      <created>1462215725627</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1462215725627</updated>
+    </task>
+    <option name="localTasksCounter" value="139" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172597000" />
+    <option name="totallyTimeSpent" value="173031000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -837,7 +851,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=".." />
     <MESSAGE value="fjernet noen html filer" />
     <MESSAGE value="Sender bruker over til https om de ikke allt er der (kreves for lokasjon -.-)" />
     <MESSAGE value="kommentert ut mysql koblingen sånn at jeg kan jobbe på localhost. @Marius, fikse timeout på'n? :)&#10;http://php.net/manual/en/mysqli.options.php ellnst" />
@@ -862,7 +875,8 @@
     <MESSAGE value="exampleObject clean up" />
     <MESSAGE value="Fikset sånn at det alltid er siste versjon av nobil databasen som blir lastet ned til brukeren :) Fikset det med å legge inn &quot;contenttype&quot; til jsonp." />
     <MESSAGE value="Mobilversjon funker nå..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Mobilversjon funker nå..." />
+    <MESSAGE value="flyttet login vinduet inn i menyen." />
+    <option name="LAST_COMMIT_MESSAGE" value="flyttet login vinduet inn i menyen." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -871,14 +885,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/styles/tooltips.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="71" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/styles/menu.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -941,20 +947,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="2" column="51" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1136,14 +1128,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/buttons.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1395">
-          <caret line="93" column="33" selection-start-line="93" selection-start-column="33" selection-end-line="93" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/styles/menu.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1455">
@@ -1233,6 +1217,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/styles/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
@@ -1245,6 +1237,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
           <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/buttons.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
           <folding />
         </state>
       </provider>
