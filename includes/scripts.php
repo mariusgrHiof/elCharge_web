@@ -1,6 +1,6 @@
 <?php
-echo '<script type="text/javascript" src="cordova.js"></script>'.
-        '<script type="text/javascript" src="js/index.js"></script>';
+//echo '<script type="text/javascript" src="cordova.js"></script>'.
+//        '<script type="text/javascript" src="js/index.js"></script>';
 addJS('js/include.js', false, false);
 addJS('js/addStations.js', true, false);
 addJS('js/global.js', true, false);

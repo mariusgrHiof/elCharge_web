@@ -125,7 +125,7 @@ function downloadDump(){
             generateMarkers();
             try{
                 //Starting automatic location update
-                if(isMobile)
+                if(isMobile && phonegap)
                     navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy: true, timeout: 100, maximumAge: 20000 });
             }catch(e){}
         }

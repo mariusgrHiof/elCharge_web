@@ -282,12 +282,12 @@ function addMarker(station){
             "</div>"+
             "<div id='secondContainer'>"+
                 "<div id='infoLeft'>"+
-                    "<p><strong>Kontakt info:</strong> "+ station.csmd.Contact_info+"</p>" +
-                    "<p><strong>Adresse:</strong> "+ station.csmd.Street +" " + station.csmd.House_number +"</p>"+
-                    "<p><strong>Beskrivelse:</strong> "+ station.csmd.description +"</p>" +
+                    "<p><strong>Kontakt info:</strong> "+ station.csmd.Contact_info.replace('\r\n','<br />')+"</p>" +
+                    "<p><strong>Adresse:</strong> "+ station.csmd.Street.replace('\r\n','<br />') +" " + station.csmd.House_number.replace('\r\n','<br />') +"</p>"+
+                    "<p><strong>Beskrivelse:</strong> "+ station.csmd.description +"</p>" + // .replace('\r\n','<br />') her også?
                     "<p><strong>Lokasjonsbeskrivelse:</strong> "+ station.csmd.Description_of_location +"</p>" +
-                    "<p><strong>Eier:</strong> " + station.csmd.Owned_by +"</p>" +
-                    "<p><strong>Kommentarer:</strong> "+ station.csmd.User_comment+"</p>" +
+                    "<p><strong>Eier:</strong> " + station.csmd.Owned_by.replace('\r\n','<br />') +"</p>" +
+                    "<p><strong>Kommentarer:</strong> "+ station.csmd.User_comment.replace('\r\n','<br />')+"</p>" +
                 "</div>"+
                 "<div id='chargingPoints'>"+
                     "<p style='border-bottom:1px solid gray;margin-bottom:0;'><strong>Ladepunkter:</strong> "+ station.csmd.Number_charging_points+" </p>" +
