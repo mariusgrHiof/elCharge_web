@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/chargers-nearby.js" afterPath="$PROJECT_DIR$/js/chargers-nearby.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/menu.css" afterPath="$PROJECT_DIR$/styles/menu.css" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,7 +54,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/addStations.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="175">
@@ -95,7 +93,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chargers-nearby.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chargers-nearby.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="264">
@@ -427,14 +425,7 @@
       <workItem from="1461653775623" duration="440000" />
       <workItem from="1461844510259" duration="1987000" />
       <workItem from="1461970576070" duration="3490000" />
-      <workItem from="1462175385410" duration="2797000" />
-    </task>
-    <task id="LOCAL-00084" summary="endret navn på knapp.">
-      <created>1461011364662</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1461011364662</updated>
+      <workItem from="1462175385410" duration="2929000" />
     </task>
     <task id="LOCAL-00085" summary="Fikset ladere i nærheten bilder/ikoner.&#10;Fikset sånn at feil brukernan eller passord havner oppe i høyre og ikke inni headeren.&#10;+++">
       <created>1461030077852</created>
@@ -772,11 +763,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462185956985</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="fix for ladere i nærheten">
+      <created>1462186501479</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1462186501479</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167649000" />
+    <option name="totallyTimeSpent" value="167781000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -824,7 +822,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Markerclustering er fikset! FINALLY!" />
     <MESSAGE value="fix" />
     <MESSAGE value="Fjernet downloadDump metode kall fra initMap for safeguarding" />
     <MESSAGE value="failsafe i compareDist i tilfelle lokasjon ikke er tilgjengelig" />
@@ -849,7 +846,8 @@
     <MESSAGE value="Ta meg hit knapp på en ladestasjon infoboks." />
     <MESSAGE value="fiksing på rute planlegging visning av waypoints" />
     <MESSAGE value="Waypoiints ser litt pener ut" />
-    <option name="LAST_COMMIT_MESSAGE" value="Waypoiints ser litt pener ut" />
+    <MESSAGE value="fix for ladere i nærheten" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix for ladere i nærheten" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -911,13 +909,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="51" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/buttons.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1182,6 +1173,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/buttons.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="607">
+          <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/addStations.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -1196,14 +1203,6 @@
             <marker date="1462185931000" expanded="true" signature="12799:13238" placeholder="..." />
             <marker date="1462185931000" expanded="true" signature="13092:13148" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
