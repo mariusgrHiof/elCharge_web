@@ -28,8 +28,6 @@ ob_start();
 <body>
 <?php
 include 'includes/getDownloadProgress.php';
-include 'includes/login.php';
-include 'includes/userwindow.php';
 //Adding the header & menu elements (Menu is included in the header.php)
 include 'includes/header.php';
 include 'includes/map.php';

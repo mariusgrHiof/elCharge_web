@@ -29,6 +29,10 @@
  */
 ?>
 <nav class="menu">
+    <?php
+    include 'includes/login.php';
+    include 'includes/userwindow.php';
+    ?>
     <ul id="menu-list">
         <li class="border">
             <?php include 'menu-items/chargers-nearby.html' ?>
