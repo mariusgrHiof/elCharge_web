@@ -90,7 +90,7 @@ header.toggle{
     max-width:30%;
     float:left;
 }
-.route-element p{
+.route-element span{
     float:left;
     max-width:50%;
 }

@@ -342,7 +342,7 @@ function addWaypoint(id, lat, lon){
     var content =
         "<div class='route-element'>" +
             "<img src=\"" + (/kommer/i.test(jsonData[id].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[id].csmd.Image) + "\"/>" +
-            "<p>" + jsonData[id].csmd.name +"</p>"+
+            "<span>" + jsonData[id].csmd.name +"</span>"+
             "<div class='markerColor' style='background-color:"+ (isLive ? "lightgreen" : "blue") +";'>"+
             "<button onclick=\"removeWaypoint(this)\">X</button></p>"+
         "</div>";
