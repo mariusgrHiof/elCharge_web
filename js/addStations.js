@@ -278,7 +278,7 @@ function addMarker(station){
                 "</div>"+
             "</div>"+
             "<div id='lowerContainer'>"+
-                "<button onclick='addWaypoint(" + station.csmd.id + "," + pos[0] + "," + pos[1] + ",/" + station.csmd.name + "/)'>Legg til i rute</button>" +
+                "<button onclick='addWaypoint(" + station.csmd.id + "," + pos[0] + "," + pos[1] + "/)'>Legg til i rute</button>" +
                 '<button onclick="navigateFromUser(geopos, this)" value="'+ station.csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
             "</div>"+
         "</div>";
@@ -357,11 +357,17 @@ function addMarker(station){
     }
 }
 
-function addWaypoint(id, lat, lon, name){
+function addWaypoint(id, lat, lon){
     //var parent = btn.target.parentNode;
     //parent.innerHTML.getElementsByClassName();
     waypoints.push({location: lat + "," + lon});
-    document.getElementById('waypoint-list').innerHTML += "<p>" + name +"<button onclick=\"removeWaypoint(this)\">X</button></p>";
+    var content =
+        "<div class='route-element'>" +
+            "<img src=\"" + (/kommer/i.test(jsonData[id].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[id].csmd.Image) + "\"/>" +
+            "<p>" + jsonData[id].csmd.name +"</p>"+
+            "<button onclick=\"removeWaypoint(this)\">X</button></p>"+
+        "</div>";
+    document.getElementById('waypoint-list').innerHTML += content;
 
     //Refreshing the route if it's active
     if($('#nav-start-pos').val() != "" && $('#nav-end-pos').val() != ""){

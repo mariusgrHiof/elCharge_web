@@ -81,6 +81,19 @@ header.toggle{
 .toggle{
     display:block;
 }
+/*Route planner*/
+.route-element{
+    clear:both;
+    float:left;
+}
+.route-element img{
+    max-width:30%;
+    float:left;
+}
+.route-element p{
+    float:left;
+    max-width:50%;
+}
 
 /*
     Buttons
