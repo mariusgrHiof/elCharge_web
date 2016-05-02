@@ -6,6 +6,8 @@
  */
 var hasDownloaded = false;
 
+var url = "https://nobil.no/api/server/datadump.php?apikey=274b68192b056e268f128ff63bfcd4a4&fromdate=";
+
 var jsonData = new Array();
 var mc;
 
@@ -79,6 +81,7 @@ $(document).ready(
 
 function downloadDump(){
     console.log("File download initiated");
+    $('#download-progression').show();//TODO: Fjern?
     $.ajax({
         xhr: function()
         {
@@ -111,7 +114,7 @@ function downloadDump(){
         dataType: 'jsonp',
         //TODO: Check out this URL for persistent storage with phonegap - http://docs.phonegap.com/en/2.5.0/cordova_file_file.md.html
         //TODO: "datadump.json",
-        url: phonegap && isIOS ? "https://nobil.no/api/server/datadump.php?apikey=274b68192b056e268f128ff63bfcd4a4&fromdate=2005-01-01&format=json":"https://nobil.no/api/server/datadump.php?apikey=274b68192b056e268f128ff63bfcd4a4&fromdate=2005-01-01&format=json",
+        url: url + "2005-01-01&format=json",
         data: {},
         success: function(data){
             console.log("File download completed");

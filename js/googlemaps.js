@@ -149,7 +149,7 @@ function initMap() {
     if(phonegap){
         //Safeguarding against timeout for the cordovaWebView
         setTimeout(
-            document.addEventListener("deviceready", downloadDump(), false)
+            document.addEventListener("deviceready", downloadDump(), false), 2000
         );
     }
 

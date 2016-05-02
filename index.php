@@ -39,8 +39,7 @@ include 'includes/scripts.php';
 </html>
 <?php
 $mobileSite = ob_get_contents();
-$path = "index.php";
-$index ="index.html";
+$index ="main.html";
 if(!file_exists($index)){
     //Writing index.html file off the contents of the website
     file_put_contents($index, $mobileSite);

@@ -102,6 +102,8 @@ function deviceTypeCheck() {
             isIOS = true;
         }
     }
+    if(phonegap)
+        $('head').append('<script type="text/javascript" src="cordova.js"></script>');
     if(phonegap && isIOS){
         console.log("Phonegap && isIOS");
         $('head').append('<link rel="stylesheet" type="text/css" href="styles/ios.css">');
