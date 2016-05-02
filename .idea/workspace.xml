@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GetStations.php" afterPath="$PROJECT_DIR$/GetStations.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/scripts.php" afterPath="$PROJECT_DIR$/includes/scripts.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/addStations.js" afterPath="$PROJECT_DIR$/js/addStations.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/global.js" afterPath="$PROJECT_DIR$/js/global.js" />
     </list>
     <ignored path="elCharge_web.iws" />
@@ -38,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="global.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="global.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/global.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
-              <caret line="127" column="39" selection-start-line="127" selection-start-column="39" selection-end-line="127" selection-end-column="39" />
+            <state relative-caret-position="581">
+              <caret line="113" column="154" selection-start-line="113" selection-start-column="154" selection-end-line="113" selection-end-column="154" />
               <folding />
             </state>
           </provider>
@@ -58,23 +55,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/addStations.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="480">
               <caret line="286" column="130" selection-start-line="286" selection-start-column="130" selection-end-line="286" selection-end-column="130" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
-                <marker date="1462199658000" expanded="true" signature="8247:8256" placeholder="..." />
-                <marker date="1462199658000" expanded="true" signature="8711:8746" placeholder="..." />
-                <marker date="1462199658000" expanded="true" signature="8948:9092" placeholder="..." />
-                <marker date="1462199658000" expanded="true" signature="9524:11701" placeholder="..." />
-                <marker date="1462199658000" expanded="true" signature="9851:9862" placeholder="..." />
-                <marker date="1462199658000" expanded="true" signature="10028:10084" placeholder="..." />
-                <marker date="1462199658000" expanded="true" signature="10175:11346" placeholder="..." />
-                <marker date="1462199658000" expanded="true" signature="10214:10992" placeholder="..." />
-                <marker date="1462199658000" expanded="true" signature="11072:11117" placeholder="..." />
-                <marker date="1462199658000" expanded="true" signature="13947:14003" placeholder="..." />
+                <marker date="1462201193000" expanded="true" signature="8247:8256" placeholder="..." />
+                <marker date="1462201193000" expanded="true" signature="8711:8746" placeholder="..." />
+                <marker date="1462201193000" expanded="true" signature="8948:9092" placeholder="..." />
+                <marker date="1462201193000" expanded="true" signature="9524:11701" placeholder="..." />
+                <marker date="1462201193000" expanded="true" signature="9851:9862" placeholder="..." />
+                <marker date="1462201193000" expanded="true" signature="10028:10084" placeholder="..." />
+                <marker date="1462201193000" expanded="true" signature="10175:11346" placeholder="..." />
+                <marker date="1462201193000" expanded="true" signature="10214:10992" placeholder="..." />
+                <marker date="1462201193000" expanded="false" signature="11072:11117" placeholder="..." />
+                <marker date="1462201193000" expanded="true" signature="13947:14003" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -123,7 +120,7 @@
       <file leaf-file-name="chargers-nearby.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
+            <state relative-caret-position="390">
               <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
               <folding />
             </state>
@@ -200,10 +197,10 @@
         <option value="$PROJECT_DIR$/js/buttons.js" />
         <option value="$PROJECT_DIR$/styles/tooltips.css" />
         <option value="$PROJECT_DIR$/data/exampleObject.json.js" />
-        <option value="$PROJECT_DIR$/js/global.js" />
         <option value="$PROJECT_DIR$/includes/scripts.php" />
         <option value="$PROJECT_DIR$/GetStations.php" />
         <option value="$PROJECT_DIR$/js/addStations.js" />
+        <option value="$PROJECT_DIR$/js/global.js" />
       </list>
     </option>
   </component>
@@ -218,7 +215,7 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="height" value="1200" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -245,8 +242,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -427,6 +424,7 @@
       <workItem from="1462175385410" duration="2929000" />
       <workItem from="1462188780347" duration="115000" />
       <workItem from="1462199041873" duration="617000" />
+      <workItem from="1462201225935" duration="1030000" />
     </task>
     <task id="LOCAL-00087" summary="No more iframe for loggin yolo swag">
       <created>1461335587445</created>
@@ -775,7 +773,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168513000" />
+    <option name="totallyTimeSpent" value="169543000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -787,19 +785,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.185836" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18743344" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.50437635" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27722773" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27650177" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32773852" sideWeight="0.49562362" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -863,16 +861,16 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
-            <marker date="1462199658000" expanded="true" signature="8247:8256" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="8711:8746" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="8948:9092" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="9524:11701" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="9851:9862" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="10028:10084" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="10175:11346" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="10214:10992" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="11072:11117" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="13947:14003" placeholder="..." />
+            <marker date="1462201193000" expanded="true" signature="8247:8256" placeholder="..." />
+            <marker date="1462201193000" expanded="true" signature="8711:8746" placeholder="..." />
+            <marker date="1462201193000" expanded="true" signature="8948:9092" placeholder="..." />
+            <marker date="1462201193000" expanded="true" signature="9524:11701" placeholder="..." />
+            <marker date="1462201193000" expanded="true" signature="9851:9862" placeholder="..." />
+            <marker date="1462201193000" expanded="true" signature="10028:10084" placeholder="..." />
+            <marker date="1462201193000" expanded="true" signature="10175:11346" placeholder="..." />
+            <marker date="1462201193000" expanded="true" signature="10214:10992" placeholder="..." />
+            <marker date="1462201193000" expanded="false" signature="11072:11117" placeholder="..." />
+            <marker date="1462201193000" expanded="true" signature="13947:14003" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1183,7 +1181,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1197,24 +1194,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
+        <state relative-caret-position="390">
           <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/global.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="127" column="39" selection-start-line="127" selection-start-column="39" selection-end-line="127" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/scripts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
           <folding />
         </state>
       </provider>
@@ -1241,17 +1222,33 @@
           <caret line="286" column="130" selection-start-line="286" selection-start-column="130" selection-end-line="286" selection-end-column="130" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
-            <marker date="1462199658000" expanded="true" signature="8247:8256" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="8711:8746" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="8948:9092" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="9524:11701" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="9851:9862" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="10028:10084" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="10175:11346" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="10214:10992" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="11072:11117" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="13947:14003" placeholder="..." />
+            <marker date="1462201193000" expanded="true" signature="8247:8256" placeholder="..." />
+            <marker date="1462201193000" expanded="true" signature="8711:8746" placeholder="..." />
+            <marker date="1462201193000" expanded="true" signature="8948:9092" placeholder="..." />
+            <marker date="1462201193000" expanded="true" signature="9524:11701" placeholder="..." />
+            <marker date="1462201193000" expanded="true" signature="9851:9862" placeholder="..." />
+            <marker date="1462201193000" expanded="true" signature="10028:10084" placeholder="..." />
+            <marker date="1462201193000" expanded="true" signature="10175:11346" placeholder="..." />
+            <marker date="1462201193000" expanded="true" signature="10214:10992" placeholder="..." />
+            <marker date="1462201193000" expanded="false" signature="11072:11117" placeholder="..." />
+            <marker date="1462201193000" expanded="true" signature="13947:14003" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/scripts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/global.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="581">
+          <caret line="113" column="154" selection-start-line="113" selection-start-column="154" selection-end-line="113" selection-end-column="154" />
+          <folding />
         </state>
       </provider>
     </entry>
