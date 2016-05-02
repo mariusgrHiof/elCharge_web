@@ -85,17 +85,17 @@ header.toggle{
 .route-element{
     clear:both;
     float:left;
+    border-bottom:1px black;
+    margin:0.5em 0 0 0;
 }
 .route-element img{
     max-width:30%;
     float:left;
 }
 .route-element span{
+    padding:0 0.5em 0 0.5em;
     float:left;
     max-width:50%;
-}
-.route-element.markerColor {
-    height: 3em;
 }
 
 /*

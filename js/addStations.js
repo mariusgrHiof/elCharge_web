@@ -355,7 +355,7 @@ function addWaypoint(id, lat, lon){
 }
 
 function removeWaypoint(element){
-    var parent = $(element).parent();
+    var parent = $(element).parent().parent();
     var index = $(parent).index();
 
     //Removing the waypoint from the html
