@@ -205,7 +205,9 @@ function addMarker(station){
     //Adding markers
     var pos = station.csmd.Position.replace(/[()]/g,"").split(",");
 
-    var isLive = station.attr.st[21].attrvalid == "1" ? true : false;
+    var isLive = station.attr.st[21].attrvalid == "1";
+
+
 
     //TODO: Fikse nestet short if: de markørene som har hurtigladekontakt skal ha _v2.svg (den med vinger)
 
@@ -230,21 +232,38 @@ function addMarker(station){
 
 
 
-    //Showing a info windows when you click on the marker
-    var connectorsString = '<ol>';
-    for(var i = 0; i <connectors.length; i++){
+    var isInService = true;
 
-        try{//Could be one single string.. I know
-            connectorsString += "<li style=\'color:black;\'>";
-            connectorsString += connectors[i][4].trans;
-            connectorsString += " " + connectors[i][5].trans;
-            connectorsString += "</li>";
+    var connStatus = "9";
+
+    //Showing a info windows when you click on the marker
+    var connectorsString = '<div style="margin:0;">';
+    for(var i = 0; i < connectors.length; i++){
+
+        try{//Could be one single string.. I know..and now it is, WOW
+            if(isLive){
+                try {
+                    isInService = connectors[i][9].attrvalid == "0";
+                    connStatus = connectors[i][8].attrvalid;
+                } catch(e) {}
+            }
+            connectorsString +=
+                "<div class='cpelements'>"+
+                    "<span style=\'color:black; width:90%; float:left;\'>"+
+                        connectors[i][4].trans+
+                        "<br />" + connectors[i][5].trans+
+                    "</span>"+
+                    "<div class='chargePointColor' style='background-color:"+ (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'>"+
+                    "</div>"+
+                "</div>";
         }catch(e){
             console.log('Failed to build connectorsString for ' + station.csmd.name);
         }
 
     }
-    connectorsString += "</ol>";
+    connectorsString += "</div>";
+
+
     //var latlng = new Array();//{lat:  lng: };
     //latlng.push();
     //getElevation(new google.maps.LatLng(parseFloat(pos[0]), parseFloat(pos[1])))
@@ -271,7 +290,7 @@ function addMarker(station){
                     "<p><strong>Kommentarer:</strong> "+ station.csmd.User_comment+"</p>" +
                 "</div>"+
                 "<div id='chargingPoints'>"+
-                    "<p><strong>Ladepunkter:</strong> "+ station.csmd.Number_charging_points+" </p>" +
+                    "<p style='border-bottom:1px solid gray;margin-bottom:0;'><strong>Ladepunkter:</strong> "+ station.csmd.Number_charging_points+" </p>" +
                     "<div> "+
                         connectorsString +
                     "</div>" +
