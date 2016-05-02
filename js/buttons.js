@@ -114,7 +114,7 @@ $('input[type=checkbox].onoffswitch-checkbox').change(
 
 $('input[type=text]#search-box').change(
     function(){
-        console.log("mafakashitkeklol");
+
 
         map.setCenter({lat: -33.8688, lng: 151.2195});
     }
