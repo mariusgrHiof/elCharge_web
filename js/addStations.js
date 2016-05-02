@@ -258,7 +258,7 @@ function addMarker(station){
                 "<div id='placeNameIcons' style='color:blue;'>"+
                     "<h3>"+ station.csmd.name + "(ID:" + station.csmd.id + ")</h3>" +
                 "</div>"+
-                "<div id='markerColor' style='background-color:"+ (isLive ? "lightgreen" : "blue") +";'>"+
+                "<div class='markerColor' style='background-color:"+ (isLive ? "lightgreen" : "blue") +";'>"+
                 "</div>"+
             "</div>"+
             "<div id='secondContainer'>"+
@@ -278,35 +278,11 @@ function addMarker(station){
                 "</div>"+
             "</div>"+
             "<div id='lowerContainer'>"+
-                "<button onclick='addWaypoint(" + station.csmd.id + "," + pos[0] + "," + pos[1] + "/)'>Legg til i rute</button>" +
+                "<button onclick='addWaypoint(" + station.csmd.id + "," + pos[0] + "," + pos[1] + ")'>Legg til i rute</button>" +
                 '<button onclick="navigateFromUser(geopos, this)" value="'+ station.csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
             "</div>"+
         "</div>";
         station.csmd.name;
-
-
-    /*var contentString =
-        "<div id=\"station-tooltip\">"+
-            "<div class='float-left'>" +
-                "<img src=\"" + (/kommer/i.test(object.csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ object.csmd.Image) + "\"/>" +
-            "</div>"+
-            "<div class='float-right'>" +
-                "<h3>"+ object.csmd.name + "(ID:" + object.chargerstations[i].csmd.id + ")</h3>" +
-                "<p><strong>Real-time: </strong> " + (parseInt(object.attr.st[21].attrvalid) == 1 ? 'Ja': 'Nei') +"</p>" +
-                "<p><strong>Kontakt info:</strong> "+ object.csmd.Contact_info+"</p>" +
-                "<p><strong>Adresse:</strong> "+ object.csmd.Street +" " + object.csmd.House_number +"</p>"+
-                "<p><strong>Beskrivelse:</strong> "+ object.csmd.description +"</p>" +
-                "<p><strong>Lokasjonsbeskrivelse:</strong> "+ object.csmd.Description_of_location +"</p>" +
-                "<p><strong>Eier:</strong> " + object.csmd.Owned_by +"</p>" +
-                "<p><strong>Kommentarer:</strong> "+ object.csmd.User_comment+"</p>" +
-                "<p><strong>Ladepunkter:</strong> "+ connectors.length+" <button onclick='readMore(this, true)'>vis</button></p>" +
-                "<div class=\"read-more\"> "+
-                    connectorsString +
-                "</div>" +
-            "</div>"+
-            "<button onclick='addWaypoint(" + pos[0] + "," + pos[1] + ",/" + object.csmd.name + "/)'>Legg til i rute</button>" +
-        "</div>";*/
-    //object.csmd.name;
 
     //TODO: Sjekk ut http://en.marnoto.com/2014/09/5-formas-de-personalizar-infowindow.html
     var maxWidth = (isMobile?500:500);
@@ -356,15 +332,18 @@ function addMarker(station){
         chargers_nearby[chargers_nearby.length] = station;
     }
 }
-
+/*
+ * A method for adding a selected station to the waypoints
+ */
 function addWaypoint(id, lat, lon){
-    //var parent = btn.target.parentNode;
-    //parent.innerHTML.getElementsByClassName();
+
+    var isLive = jsonData[id].attr.st[21].attrvalid == "1" ? true : false;
     waypoints.push({location: lat + "," + lon});
     var content =
         "<div class='route-element'>" +
             "<img src=\"" + (/kommer/i.test(jsonData[id].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[id].csmd.Image) + "\"/>" +
             "<p>" + jsonData[id].csmd.name +"</p>"+
+            "<div class='markerColor' style='background-color:"+ (isLive ? "lightgreen" : "blue") +";'>"+
             "<button onclick=\"removeWaypoint(this)\">X</button></p>"+
         "</div>";
     document.getElementById('waypoint-list').innerHTML += content;

@@ -64,7 +64,7 @@ div#station-tooltip div#secondRow img {
 
 }
 
-#markerColor {
+.markerColor {
     height: 5em;
     width: 1em;
     float:right;
