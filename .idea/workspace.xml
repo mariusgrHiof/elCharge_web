@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
+    <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="Fix til innlogging på tlf">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/login.php" afterPath="$PROJECT_DIR$/includes/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/buttons.js" afterPath="$PROJECT_DIR$/js/buttons.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/include.js" afterPath="$PROJECT_DIR$/js/include.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/addStations.js" afterPath="$PROJECT_DIR$/js/addStations.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/global.js" afterPath="$PROJECT_DIR$/js/global.js" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,12 +26,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="global.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="global.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/global.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="106" column="20" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="85" />
+            <state relative-caret-position="397">
+              <caret line="88" column="28" selection-start-line="88" selection-start-column="28" selection-end-line="88" selection-end-column="28" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/addStations.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="555">
+              <caret line="162" column="102" selection-start-line="162" selection-start-column="102" selection-end-line="162" selection-end-column="102" />
+              <folding>
+                <element signature="e#0#40#0" expanded="false" />
+                <marker date="1462219715000" expanded="true" signature="8629:8638" placeholder="..." />
+                <marker date="1462219715000" expanded="true" signature="9093:9128" placeholder="..." />
+                <marker date="1462219715000" expanded="true" signature="9330:9474" placeholder="..." />
+                <marker date="1462219715000" expanded="true" signature="9906:12083" placeholder="..." />
+                <marker date="1462219715000" expanded="true" signature="10233:10244" placeholder="..." />
+                <marker date="1462219715000" expanded="true" signature="10410:10466" placeholder="..." />
+                <marker date="1462219715000" expanded="true" signature="10557:11728" placeholder="..." />
+                <marker date="1462219715000" expanded="true" signature="10596:11374" placeholder="..." />
+                <marker date="1462219715000" expanded="false" signature="11454:11499" placeholder="..." />
+                <marker date="1462219715000" expanded="true" signature="14329:14385" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -41,8 +61,8 @@
       <file leaf-file-name="googlemaps.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="147" column="30" selection-start-line="147" selection-start-column="30" selection-end-line="147" selection-end-column="30" />
+            <state relative-caret-position="115">
+              <caret line="127" column="19" selection-start-line="127" selection-start-column="19" selection-end-line="127" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -51,31 +71,9 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
+            <state relative-caret-position="435">
               <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/addStations.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
-              <caret line="286" column="130" selection-start-line="286" selection-start-column="130" selection-end-line="286" selection-end-column="130" />
-              <folding>
-                <element signature="e#0#40#0" expanded="false" />
-                <marker date="1462199658000" expanded="true" signature="8247:8256" placeholder="..." />
-                <marker date="1462199658000" expanded="true" signature="8711:8746" placeholder="..." />
-                <marker date="1462199658000" expanded="true" signature="8948:9092" placeholder="..." />
-                <marker date="1462199658000" expanded="true" signature="9524:11701" placeholder="..." />
-                <marker date="1462199658000" expanded="true" signature="9851:9862" placeholder="..." />
-                <marker date="1462199658000" expanded="true" signature="10028:10084" placeholder="..." />
-                <marker date="1462199658000" expanded="true" signature="10175:11346" placeholder="..." />
-                <marker date="1462199658000" expanded="true" signature="10214:10992" placeholder="..." />
-                <marker date="1462199658000" expanded="false" signature="11072:11117" placeholder="..." />
-                <marker date="1462199658000" expanded="true" signature="13947:14003" placeholder="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -96,18 +94,6 @@
             <state relative-caret-position="609">
               <caret line="46" column="35" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="include.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/include.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="82" column="25" selection-start-line="82" selection-start-column="25" selection-end-line="82" selection-end-column="25" />
-              <folding>
-                <marker date="1462217231000" expanded="false" signature="0:42" placeholder="/** Created by jonas on 23.04.2016. ...*/" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -203,10 +189,7 @@
         <option value="$PROJECT_DIR$/js/chargers-nearby.js" />
         <option value="$PROJECT_DIR$/styles/tooltips.css" />
         <option value="$PROJECT_DIR$/data/exampleObject.json.js" />
-        <option value="$PROJECT_DIR$/includes/scripts.php" />
         <option value="$PROJECT_DIR$/GetStations.php" />
-        <option value="$PROJECT_DIR$/js/addStations.js" />
-        <option value="$PROJECT_DIR$/js/global.js" />
         <option value="$PROJECT_DIR$/js/googlemaps.js" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/includes/menu.php" />
@@ -216,6 +199,9 @@
         <option value="$PROJECT_DIR$/js/include.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/buttons.js" />
+        <option value="$PROJECT_DIR$/js/global.js" />
+        <option value="$PROJECT_DIR$/js/addStations.js" />
+        <option value="$PROJECT_DIR$/includes/scripts.php" />
       </list>
     </option>
   </component>
@@ -468,14 +454,7 @@
       <workItem from="1462188780347" duration="115000" />
       <workItem from="1462199041873" duration="617000" />
       <workItem from="1462201225935" duration="1243000" />
-      <workItem from="1462209132831" duration="4603000" />
-    </task>
-    <task id="LOCAL-00092" summary="midlertidig fix for at phonegap nekter å include filer. har lagt med en header-full html fil som har alt i seg... -.-">
-      <created>1461416228021</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1461416228021</updated>
+      <workItem from="1462209132831" duration="6697000" />
     </task>
     <task id="LOCAL-00093" summary="mer rot">
       <created>1461419228433</created>
@@ -813,11 +792,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462216623107</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="Fix til innlogging på tlf">
+      <created>1462217669774</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1462217669774</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174359000" />
+    <option name="totallyTimeSpent" value="176453000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -865,7 +851,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="kommentert ut mysql koblingen sånn at jeg kan jobbe på localhost. @Marius, fikse timeout på'n? :)&#10;http://php.net/manual/en/mysqli.options.php ellnst" />
     <MESSAGE value="fikset loading issue på android app?" />
     <MESSAGE value="fiks for dl bug i mobilapp" />
     <MESSAGE value="geloc auto update test" />
@@ -890,7 +875,8 @@
     <MESSAGE value="flyttet login vinduet inn i menyen." />
     <MESSAGE value="liten endring i buttons js for loggin, slik at login skal funke på tlf også?" />
     <MESSAGE value="brukeren kan nå logge inn via tlf :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="brukeren kan nå logge inn via tlf :)" />
+    <MESSAGE value="Fix til innlogging på tlf" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix til innlogging på tlf" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1164,34 +1150,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/scripts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="147" column="30" selection-start-line="147" selection-start-column="30" selection-end-line="147" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/styles/login.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
           <folding />
         </state>
       </provider>
@@ -1233,16 +1195,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/include.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="82" column="25" selection-start-line="82" selection-start-column="25" selection-end-line="82" selection-end-column="25" />
-          <folding>
-            <marker date="1462217231000" expanded="false" signature="0:42" placeholder="/** Created by jonas on 23.04.2016. ...*/" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1259,6 +1211,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/include.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="82" column="25" selection-start-line="82" selection-start-column="25" selection-end-line="82" selection-end-column="25" />
+          <folding>
+            <marker date="1462217231000" expanded="false" signature="0:42" placeholder="/** Created by jonas on 23.04.2016. ...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/buttons.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="609">
@@ -1267,31 +1237,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/global.js">
+    <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="106" column="20" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="85" />
+        <state relative-caret-position="115">
+          <caret line="127" column="19" selection-start-line="127" selection-start-column="19" selection-end-line="127" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/addStations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="286" column="130" selection-start-line="286" selection-start-column="130" selection-end-line="286" selection-end-column="130" />
+        <state relative-caret-position="555">
+          <caret line="162" column="102" selection-start-line="162" selection-start-column="102" selection-end-line="162" selection-end-column="102" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
-            <marker date="1462199658000" expanded="true" signature="8247:8256" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="8711:8746" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="8948:9092" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="9524:11701" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="9851:9862" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="10028:10084" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="10175:11346" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="10214:10992" placeholder="..." />
-            <marker date="1462199658000" expanded="false" signature="11072:11117" placeholder="..." />
-            <marker date="1462199658000" expanded="true" signature="13947:14003" placeholder="..." />
+            <marker date="1462219715000" expanded="true" signature="8629:8638" placeholder="..." />
+            <marker date="1462219715000" expanded="true" signature="9093:9128" placeholder="..." />
+            <marker date="1462219715000" expanded="true" signature="9330:9474" placeholder="..." />
+            <marker date="1462219715000" expanded="true" signature="9906:12083" placeholder="..." />
+            <marker date="1462219715000" expanded="true" signature="10233:10244" placeholder="..." />
+            <marker date="1462219715000" expanded="true" signature="10410:10466" placeholder="..." />
+            <marker date="1462219715000" expanded="true" signature="10557:11728" placeholder="..." />
+            <marker date="1462219715000" expanded="true" signature="10596:11374" placeholder="..." />
+            <marker date="1462219715000" expanded="false" signature="11454:11499" placeholder="..." />
+            <marker date="1462219715000" expanded="true" signature="14329:14385" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/scripts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/global.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="88" column="28" selection-start-line="88" selection-start-column="28" selection-end-line="88" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>

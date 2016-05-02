@@ -120,15 +120,21 @@ function updateCarList(){
         document.getElementById('select-car').innerHTML += '<option value="'+car+'">' + car + '</option>';
     }
 }
+var totalSize = 0;
+var loadedStations = 0;
+var progText;
+function cbTest() {
 
-
+}
 function generateMarkers(){
+    loadedStations = 0;
+    totalSize = Object.keys(jsonData).length;
     //TODO: Mer permanent fiks -> La brukeren velge selv
     var isPublic = false;
     deleteMarkers();
     for(var station in jsonData){
         connectors = [];
-        isPublic = jsonData[station].attr.st[2].attrvalid == "1" ? true : false;
+        isPublic = jsonData[station].attr.st[2].attrvalid == "1";
         if(isPublic){
             var numOfPorts = jsonData[station].csmd.Number_charging_points;
             /**
@@ -154,8 +160,11 @@ function generateMarkers(){
                 addMarker(jsonData[station]);
             }
         }
-        //TODO: FIX! var mc = new google.maps.MarkerClusterer(map, markers, options);
-
+        //TODO: Fjerne senere? + fikse noe form for progresjonsbar som kan kjøre i bakgrunnen ellnst..
+        loadedStations++;
+        progText = loadedStations + ' av ' + totalSize + ' stasjoner er lastet inn.';
+        $('.dl-progress-text').text(progText);
+        console.log(progText); //TODO -> printing out loading progression
     }
 
     getNearbyChargers();

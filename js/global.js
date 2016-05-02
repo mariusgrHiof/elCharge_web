@@ -72,12 +72,23 @@ carModels['VW e-up!'] = schuko.concat(schuko, type1, type2);
 $(document).ready(
     function(){
         if(!phonegap){
-            downloadDump();
+            async(downloadDump(), 0, cbTest());
         }else{
             console.log("Is phonegap");
         }
     }
 );
+
+//Method for running in another thread
+function async(func, timeout, callback){
+    var delay = 0;
+    if(timeout != null)
+        delay = timeout;
+    setTimeout(function() {
+        func();
+        if (callback) {callback();}
+    }, delay);
+}
 
 function downloadDump(){
     console.log("File download initiated");
