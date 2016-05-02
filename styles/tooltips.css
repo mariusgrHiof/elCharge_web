@@ -40,6 +40,7 @@ div#station-tooltip div#secondRow img {
 #topBox {
     height: 1em;
     width: 100%;
+    border-bottom: 1px solid gray;
 
 }
 #secondRow {
@@ -79,14 +80,14 @@ div#station-tooltip div#secondRow img {
     height: 25em;
     width: 49%;
     float: left;
-    border: 1px solid black;
+
     overflow-y: scroll;
 }
 #chargingPoints {
     height: 25em;
     width: 49%;
     float:right;
-    border: 1px solid black;
+
     overflow-y: scroll;
 }
 
