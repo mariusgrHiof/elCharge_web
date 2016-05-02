@@ -278,7 +278,8 @@ function addMarker(station){
                 "</div>"+
             "</div>"+
             "<div id='lowerContainer'>"+
-                "<button onclick='addWaypoint(" + pos[0] + "," + pos[1] + ",/" + station.csmd.name + "/)'>Legg til i rute</button>" +
+                "<button onclick='addWaypoint(" + station.csmd.id + "," + pos[0] + "," + pos[1] + ",/" + station.csmd.name + "/)'>Legg til i rute</button>" +
+                '<button onclick="navigateFromUser(geopos, this)" value="'+ station.csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
             "</div>"+
         "</div>";
         station.csmd.name;
@@ -356,7 +357,7 @@ function addMarker(station){
     }
 }
 
-function addWaypoint(lat, lon, name){
+function addWaypoint(id, lat, lon, name){
     //var parent = btn.target.parentNode;
     //parent.innerHTML.getElementsByClassName();
     waypoints.push({location: lat + "," + lon});
