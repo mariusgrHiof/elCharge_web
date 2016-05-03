@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="Litt code cleanup">
+    <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/addStations.js" afterPath="$PROJECT_DIR$/js/addStations.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/global.js" afterPath="$PROJECT_DIR$/js/global.js" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,25 +58,25 @@
       <file leaf-file-name="addStations.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/addStations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="610">
-              <caret line="280" column="93" selection-start-line="280" selection-start-column="93" selection-end-line="280" selection-end-column="93" />
+            <state relative-caret-position="535">
+              <caret line="361" column="8" selection-start-line="361" selection-start-column="8" selection-end-line="361" selection-end-column="8" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
-                <marker date="1462303315000" expanded="true" signature="8851:8860" placeholder="..." />
-                <marker date="1462303315000" expanded="true" signature="9315:9350" placeholder="..." />
-                <marker date="1462303315000" expanded="true" signature="9552:9696" placeholder="..." />
-                <marker date="1462303315000" expanded="true" signature="10375:12626" placeholder="..." />
-                <marker date="1462303315000" expanded="true" signature="10470:10580" placeholder="..." />
-                <marker date="1462303315000" expanded="true" signature="10470:10593" placeholder="..." />
-                <marker date="1462303315000" expanded="true" signature="10470:10598" placeholder="..." />
-                <marker date="1462303315000" expanded="true" signature="10470:10599" placeholder="..." />
-                <marker date="1462303315000" expanded="true" signature="10470:10958" placeholder="..." />
-                <marker date="1462303315000" expanded="true" signature="10656:10667" placeholder="..." />
-                <marker date="1462303315000" expanded="true" signature="10853:10909" placeholder="..." />
-                <marker date="1462303315000" expanded="true" signature="11000:12251" placeholder="..." />
-                <marker date="1462303315000" expanded="true" signature="11039:11887" placeholder="..." />
-                <marker date="1462303315000" expanded="true" signature="11967:12012" placeholder="..." />
-                <marker date="1462303315000" expanded="true" signature="15057:15113" placeholder="..." />
+                <marker date="1462304322000" expanded="true" signature="8913:8922" placeholder="..." />
+                <marker date="1462304322000" expanded="true" signature="9377:9412" placeholder="..." />
+                <marker date="1462304322000" expanded="true" signature="9614:9758" placeholder="..." />
+                <marker date="1462304322000" expanded="true" signature="10437:12688" placeholder="..." />
+                <marker date="1462304322000" expanded="true" signature="10532:10642" placeholder="..." />
+                <marker date="1462304322000" expanded="true" signature="10532:10655" placeholder="..." />
+                <marker date="1462304322000" expanded="true" signature="10532:10660" placeholder="..." />
+                <marker date="1462304322000" expanded="true" signature="10532:10661" placeholder="..." />
+                <marker date="1462304322000" expanded="true" signature="10532:11020" placeholder="..." />
+                <marker date="1462304322000" expanded="true" signature="10718:10729" placeholder="..." />
+                <marker date="1462304322000" expanded="true" signature="10915:10971" placeholder="..." />
+                <marker date="1462304322000" expanded="true" signature="11062:12313" placeholder="..." />
+                <marker date="1462304322000" expanded="true" signature="11101:11949" placeholder="..." />
+                <marker date="1462304322000" expanded="true" signature="12029:12074" placeholder="..." />
+                <marker date="1462304322000" expanded="true" signature="15213:15269" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -475,14 +474,7 @@
       <workItem from="1462264823049" duration="876000" />
       <workItem from="1462268845442" duration="802000" />
       <workItem from="1462271038403" duration="1012000" />
-      <workItem from="1462286452125" duration="5908000" />
-    </task>
-    <task id="LOCAL-00094" summary="Knapp som lar brukeren fokusere kartet tilbake til nåværende posisjon.">
-      <created>1461419911721</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1461419911722</updated>
+      <workItem from="1462286452125" duration="6759000" />
     </task>
     <task id="LOCAL-00095" summary="sdfgj">
       <created>1461422718800</created>
@@ -820,11 +812,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462286565826</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="Bilder skal nå kun lastes inn i minnet om de trykkes på.">
+      <created>1462303368273</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1462303368273</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186286000" />
+    <option name="totallyTimeSpent" value="187137000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -872,7 +871,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fiks for dl bug i mobilapp" />
     <MESSAGE value="geloc auto update test" />
     <MESSAGE value="Geolocation oppdateres automatisk!" />
     <MESSAGE value="min lokasjon marker" />
@@ -897,7 +895,8 @@
     <MESSAGE value="brukeren kan nå logge inn via tlf :)" />
     <MESSAGE value="Fix til innlogging på tlf" />
     <MESSAGE value="Litt code cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Litt code cleanup" />
+    <MESSAGE value="Bilder skal nå kun lastes inn i minnet om de trykkes på." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bilder skal nå kun lastes inn i minnet om de trykkes på." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1270,25 +1269,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/addStations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
-          <caret line="280" column="93" selection-start-line="280" selection-start-column="93" selection-end-line="280" selection-end-column="93" />
+        <state relative-caret-position="535">
+          <caret line="361" column="8" selection-start-line="361" selection-start-column="8" selection-end-line="361" selection-end-column="8" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
-            <marker date="1462303315000" expanded="true" signature="8851:8860" placeholder="..." />
-            <marker date="1462303315000" expanded="true" signature="9315:9350" placeholder="..." />
-            <marker date="1462303315000" expanded="true" signature="9552:9696" placeholder="..." />
-            <marker date="1462303315000" expanded="true" signature="10375:12626" placeholder="..." />
-            <marker date="1462303315000" expanded="true" signature="10470:10580" placeholder="..." />
-            <marker date="1462303315000" expanded="true" signature="10470:10593" placeholder="..." />
-            <marker date="1462303315000" expanded="true" signature="10470:10598" placeholder="..." />
-            <marker date="1462303315000" expanded="true" signature="10470:10599" placeholder="..." />
-            <marker date="1462303315000" expanded="true" signature="10470:10958" placeholder="..." />
-            <marker date="1462303315000" expanded="true" signature="10656:10667" placeholder="..." />
-            <marker date="1462303315000" expanded="true" signature="10853:10909" placeholder="..." />
-            <marker date="1462303315000" expanded="true" signature="11000:12251" placeholder="..." />
-            <marker date="1462303315000" expanded="true" signature="11039:11887" placeholder="..." />
-            <marker date="1462303315000" expanded="true" signature="11967:12012" placeholder="..." />
-            <marker date="1462303315000" expanded="true" signature="15057:15113" placeholder="..." />
+            <marker date="1462304322000" expanded="true" signature="8913:8922" placeholder="..." />
+            <marker date="1462304322000" expanded="true" signature="9377:9412" placeholder="..." />
+            <marker date="1462304322000" expanded="true" signature="9614:9758" placeholder="..." />
+            <marker date="1462304322000" expanded="true" signature="10437:12688" placeholder="..." />
+            <marker date="1462304322000" expanded="true" signature="10532:10642" placeholder="..." />
+            <marker date="1462304322000" expanded="true" signature="10532:10655" placeholder="..." />
+            <marker date="1462304322000" expanded="true" signature="10532:10660" placeholder="..." />
+            <marker date="1462304322000" expanded="true" signature="10532:10661" placeholder="..." />
+            <marker date="1462304322000" expanded="true" signature="10532:11020" placeholder="..." />
+            <marker date="1462304322000" expanded="true" signature="10718:10729" placeholder="..." />
+            <marker date="1462304322000" expanded="true" signature="10915:10971" placeholder="..." />
+            <marker date="1462304322000" expanded="true" signature="11062:12313" placeholder="..." />
+            <marker date="1462304322000" expanded="true" signature="11101:11949" placeholder="..." />
+            <marker date="1462304322000" expanded="true" signature="12029:12074" placeholder="..." />
+            <marker date="1462304322000" expanded="true" signature="15213:15269" placeholder="..." />
           </folding>
         </state>
       </provider>

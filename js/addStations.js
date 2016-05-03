@@ -4,6 +4,9 @@
 
 
 var contentString;
+var connectorsString;
+var infoWindows = [];
+
 var typeIDs = new Array();
 typeIDs['0'] = "Unspecified";
 typeIDs['14'] = "Schuko";
@@ -127,6 +130,7 @@ function cbTest() {
 
 }
 function generateMarkers(){
+    infowindow = [];
     $('#download-progression').show();
     loadedStations = 0;
     totalSize = Object.keys(jsonData).length;
@@ -248,7 +252,7 @@ function addMarker(station){
     var connStatus = "9";
 
     //Showing a info windows when you click on the marker
-    var connectorsString = '<div style="margin:0;">';
+    connectorsString = '<div style="margin:0;">';
     for(var i = 0; i < connectors.length; i++){
 
         try{//Could be one single string.. I know..and now it is, WOW
@@ -316,12 +320,14 @@ function addMarker(station){
     //TODO: Sjekk ut http://en.marnoto.com/2014/09/5-formas-de-personalizar-infowindow.html
     var maxWidth = (isMobile?500:500);
     var maxHeight = (isMobile?300:500);
+
     var infowindow = new google.maps.InfoWindow({
         content: contentString,
         maxWidth: maxWidth,
         maxHeight: maxHeight
     });
 
+    infoWindows.push(infowindow);
     google.maps.event.addListener(infowindow, 'domready', function() {
 
         // Reference to the DIV which receives the contents of the infowindow using jQuery
@@ -345,15 +351,18 @@ function addMarker(station){
      * Making it so that the popups disappear upon click outside box
      */
     google.maps.event.addListener(map, 'click', function() {
-        if(infowindow){
+        if (infowindow) {
             infowindow.close();
         }
     });
 
     marker.addListener('click', function() {
+        for(iw in infoWindows)
+            infoWindows[iw].close();
+        
         infowindow.open(map, marker);
-        console.log("url: " + imgSrc);
-        //console.log(".img-to-load-"+ jsonData[station].csmd.Image);
+
+        //Loading the image now, instead of on page ready to save data and memory usage
         if(!$(".img-to-load").attr("src"))
             $(".img-to-load").prop("src",imgSrc);
     });
