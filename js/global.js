@@ -139,6 +139,7 @@ function downloadDump(){
             data: {},
             success: function(data){
                 console.log("File download completed");
+                $('.dl-progress-text').text("Oppdaterer ladestasjoner");//progText
                 $('#download-progression').hide();
                 if(!hasDownloaded)
                     jsonData = []; // We only need to create a empty array if we have not already downloaded.

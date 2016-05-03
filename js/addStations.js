@@ -163,7 +163,7 @@ function generateMarkers(){
         //TODO: Fjerne senere? + fikse noe form for progresjonsbar som kan kjøre i bakgrunnen ellnst..
         loadedStations++;
         progText = loadedStations + ' av ' + totalSize + ' stasjoner er lastet inn.';
-        $('.dl-progress-text').text(progText);
+        //$('.dl-progress-text').text("Oppdaterer ladestasjoner");//progText
         console.log(progText); //TODO -> printing out loading progression
     }
 

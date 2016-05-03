@@ -49,8 +49,8 @@ div#title-login button.show-login {
     margin-right:0;
 }
 nav{
-    max-width:99.5%;
     width:99.5%;
+    max-width:99.5%;
     display:none;
     clear:both;
 }
