@@ -154,7 +154,7 @@ function generateMarkers(){
                 var isMatch = getCarMatch(numOfPorts, jsonData[station]);
                 //TODO: Gjør sånn at det kun loopes igjennom connectors en gang! Tar MYE kortere tid
                 if(isMatch)
-                    addMarker(jsonData[station]);
+                    addMarker(station);
             }else{
                 for(var c = 1; c <= numOfPorts; c++){
                     try{
