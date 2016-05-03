@@ -154,6 +154,7 @@ function generateMarkers(){
 
                 //TODO: Fiks sånn at vi sjekker begge ladeportene og ikke kun den første av de.
                 var isMatch = getCarMatch(i, numOfPorts, jsonData[station]);
+                //TODO: Gjør sånn at det kun loopes igjennom connectors en gang! Tar MYE kortere tid
                 if(isMatch){
                     addMarker(i, jsonData);
                 }
