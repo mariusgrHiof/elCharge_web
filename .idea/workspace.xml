@@ -58,7 +58,7 @@
       <file leaf-file-name="global.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/global.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
+            <state relative-caret-position="1575">
               <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
               <folding />
             </state>
@@ -68,20 +68,20 @@
       <file leaf-file-name="addStations.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/addStations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="156" column="100" selection-start-line="156" selection-start-column="100" selection-end-line="156" selection-end-column="100" />
+            <state relative-caret-position="405">
+              <caret line="154" column="45" selection-start-line="154" selection-start-column="45" selection-end-line="154" selection-end-column="45" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
-                <marker date="1462281868000" expanded="true" signature="8872:8881" placeholder="..." />
-                <marker date="1462281868000" expanded="true" signature="9336:9371" placeholder="..." />
-                <marker date="1462281868000" expanded="true" signature="9573:9717" placeholder="..." />
-                <marker date="1462281868000" expanded="true" signature="10149:12326" placeholder="..." />
-                <marker date="1462281868000" expanded="true" signature="10476:10487" placeholder="..." />
-                <marker date="1462281868000" expanded="true" signature="10653:10709" placeholder="..." />
-                <marker date="1462281868000" expanded="true" signature="10800:11971" placeholder="..." />
-                <marker date="1462281868000" expanded="true" signature="10839:11617" placeholder="..." />
-                <marker date="1462281868000" expanded="false" signature="11697:11742" placeholder="..." />
-                <marker date="1462281868000" expanded="true" signature="14572:14628" placeholder="..." />
+                <marker date="1462286508000" expanded="true" signature="8849:8858" placeholder="..." />
+                <marker date="1462286508000" expanded="true" signature="9313:9348" placeholder="..." />
+                <marker date="1462286508000" expanded="true" signature="9550:9694" placeholder="..." />
+                <marker date="1462286508000" expanded="true" signature="10126:12303" placeholder="..." />
+                <marker date="1462286508000" expanded="true" signature="10453:10464" placeholder="..." />
+                <marker date="1462286508000" expanded="true" signature="10630:10686" placeholder="..." />
+                <marker date="1462286508000" expanded="true" signature="10777:11948" placeholder="..." />
+                <marker date="1462286508000" expanded="true" signature="10816:11594" placeholder="..." />
+                <marker date="1462286508000" expanded="false" signature="11674:11719" placeholder="..." />
+                <marker date="1462286508000" expanded="true" signature="14549:14605" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -224,7 +224,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="width" value="779" />
+    <option name="width" value="813" />
     <option name="height" value="1200" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -252,7 +252,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -316,6 +315,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -469,6 +469,7 @@
       <workItem from="1462264823049" duration="876000" />
       <workItem from="1462268845442" duration="802000" />
       <workItem from="1462271038403" duration="1012000" />
+      <workItem from="1462286452125" duration="105000" />
     </task>
     <task id="LOCAL-00093" summary="mer rot">
       <created>1461419228433</created>
@@ -817,7 +818,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180378000" />
+    <option name="totallyTimeSpent" value="180483000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -829,10 +830,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="779" height="1200" extended-state="0" />
+    <frame x="0" y="0" width="813" height="1200" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34056988" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34889755" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.50437635" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1255,7 +1256,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/global.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
+        <state relative-caret-position="1575">
           <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
           <folding />
         </state>
@@ -1263,20 +1264,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/addStations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="156" column="100" selection-start-line="156" selection-start-column="100" selection-end-line="156" selection-end-column="100" />
+        <state relative-caret-position="405">
+          <caret line="154" column="45" selection-start-line="154" selection-start-column="45" selection-end-line="154" selection-end-column="45" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
-            <marker date="1462281868000" expanded="true" signature="8872:8881" placeholder="..." />
-            <marker date="1462281868000" expanded="true" signature="9336:9371" placeholder="..." />
-            <marker date="1462281868000" expanded="true" signature="9573:9717" placeholder="..." />
-            <marker date="1462281868000" expanded="true" signature="10149:12326" placeholder="..." />
-            <marker date="1462281868000" expanded="true" signature="10476:10487" placeholder="..." />
-            <marker date="1462281868000" expanded="true" signature="10653:10709" placeholder="..." />
-            <marker date="1462281868000" expanded="true" signature="10800:11971" placeholder="..." />
-            <marker date="1462281868000" expanded="true" signature="10839:11617" placeholder="..." />
-            <marker date="1462281868000" expanded="false" signature="11697:11742" placeholder="..." />
-            <marker date="1462281868000" expanded="true" signature="14572:14628" placeholder="..." />
+            <marker date="1462286508000" expanded="true" signature="8849:8858" placeholder="..." />
+            <marker date="1462286508000" expanded="true" signature="9313:9348" placeholder="..." />
+            <marker date="1462286508000" expanded="true" signature="9550:9694" placeholder="..." />
+            <marker date="1462286508000" expanded="true" signature="10126:12303" placeholder="..." />
+            <marker date="1462286508000" expanded="true" signature="10453:10464" placeholder="..." />
+            <marker date="1462286508000" expanded="true" signature="10630:10686" placeholder="..." />
+            <marker date="1462286508000" expanded="true" signature="10777:11948" placeholder="..." />
+            <marker date="1462286508000" expanded="true" signature="10816:11594" placeholder="..." />
+            <marker date="1462286508000" expanded="false" signature="11674:11719" placeholder="..." />
+            <marker date="1462286508000" expanded="true" signature="14549:14605" placeholder="..." />
           </folding>
         </state>
       </provider>

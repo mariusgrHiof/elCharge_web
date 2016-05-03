@@ -153,11 +153,10 @@ function generateMarkers(){
                 carModel = carModels[document.getElementById("select-car").value];
 
                 //TODO: Fiks sånn at vi sjekker begge ladeportene og ikke kun den første av de.
-                var isMatch = getCarMatch(i, numOfPorts, jsonData[station]);
+                var isMatch = getCarMatch(numOfPorts, jsonData[station]);
                 //TODO: Gjør sånn at det kun loopes igjennom connectors en gang! Tar MYE kortere tid
-                if(isMatch){
-                    addMarker(i, jsonData);
-                }
+                if(isMatch)
+                    addMarker(jsonData[station]);
             }else{
                 for(var c = 1; c <= numOfPorts; c++){
                     try{
@@ -184,7 +183,7 @@ function generateMarkers(){
     }
 }
 
-function getCarMatch(index, portCount, object){
+function getCarMatch(portCount, object){
     var match = false;
     var connType;
     for(var c = 1; c <= portCount; c++){
