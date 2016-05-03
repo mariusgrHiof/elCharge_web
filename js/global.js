@@ -83,6 +83,7 @@ $(document).ready(
         }
 
         //Background updates every 60 seconds
+        /*TODO: Fjern kommentar sånn at autooppdatering skjer igjen
         setInterval(function() {
             console.log("The time has come!");
             if(hasDownloaded){
@@ -90,7 +91,7 @@ $(document).ready(
             }else{
                 console.log("nope..");
             }
-        }, 60000);
+        }, 60000);*/
     }
 );
 
