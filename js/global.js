@@ -5,6 +5,8 @@
  * Global variables
  */
 var hasDownloaded = false;
+var initiatedMap = false;
+var downloadFrom = "2005-01-01";
 
 var url = "https://nobil.no/api/server/datadump.php?apikey=274b68192b056e268f128ff63bfcd4a4&fromdate=";
 
@@ -71,79 +73,92 @@ carModels['VW e-up!'] = schuko.concat(schuko, type1, type2);
 
 $(document).ready(
     function(){
+        if(!initiatedMap)
+            initMap();
         if(!phonegap){
-            async(downloadDump(), 0, cbTest());
+            downloadDump();
+            console.log("Date is: " + updateTime());
         }else{
             console.log("Is phonegap");
         }
+
+        //Background updates every 60 seconds
+        setInterval(function() {
+            console.log("The time has come!");
+            if(hasDownloaded){
+                downloadDump();
+            }else{
+                console.log("nope..");
+            }
+        }, 60000);
     }
 );
 
-//Method for running in another thread
-function async(func, timeout, callback){
-    var delay = 0;
-    if(timeout != null)
-        delay = timeout;
-    setTimeout(function() {
-        func();
-        if (callback) {callback();}
-    }, delay);
+function updateTime() {
+    var date = new Date();
+    return date.getFullYear() + "-" + date.getMonth() + "-" + date.getDay();
 }
 
 function downloadDump(){
     console.log("File download initiated");
     $('#download-progression').show();//TODO: Fjern?
-    $.ajax({
-        xhr: function()
-        {
-            $('#download-progression').show();
-            var xhr = new window.XMLHttpRequest();
-            //Upload progress
-            xhr.upload.addEventListener("progress", function(evt){
-                if (evt.lengthComputable) {
-                    var percentComplete = evt.loaded / evt.total;
-                    //Do something with upload progress
-                    console.log(percentComplete);
-                }
-            }, false);
-            //Download progress
-            xhr.addEventListener("progress", function(evt){
-                if (evt.lengthComputable) {
-                    var percentComplete = evt.loaded / evt.total;
-                    var downloaded = (evt.loaded/1000000).toFixed(2);
-                    var totalSize = (evt.total/1000000).toFixed(2);
-                    //Do something with download progress
-                    $('.dl-progress').text(Math.round(percentComplete * 100) + '%');
-                    $('.dl-progressbar').css('width', function (){ return Math.round(percentComplete * 100) + '%'});
-                    $('.dl-progress-text').text(downloaded + '/' + totalSize + 'MB');
-                    console.log(Math.round(percentComplete * 100) + '%');
-                }
-            }, false);
-            return xhr;
-        },
-        type: 'POST',
-        dataType: 'jsonp',
-        //TODO: Check out this URL for persistent storage with phonegap - http://docs.phonegap.com/en/2.5.0/cordova_file_file.md.html
-        //TODO: "datadump.json",
-        url: url + "2005-01-01&format=json",
-        data: {},
-        success: function(data){
-            console.log("File download completed");
-            $('#download-progression').hide();
-            hasDownloaded = true;
-            jsonData = [];
+    try{
+        $.ajax({
+            xhr: function()
+            {
+                $('#download-progression').show();
+                var xhr = new window.XMLHttpRequest();
+                //Upload progress
+                xhr.upload.addEventListener("progress", function(evt){
+                    if (evt.lengthComputable) {
+                        var percentComplete = evt.loaded / evt.total;
+                        //Do something with upload progress
+                        console.log(percentComplete);
+                    }
+                }, false);
+                //Download progress
+                xhr.addEventListener("progress", function(evt){
+                    if (evt.lengthComputable) {
+                        var percentComplete = evt.loaded / evt.total;
+                        var downloaded = (evt.loaded/1000000).toFixed(2);
+                        var totalSize = (evt.total/1000000).toFixed(2);
+                        //Do something with download progress
+                        $('.dl-progress').text(Math.round(percentComplete * 100) + '%');
+                        $('.dl-progressbar').css('width', function (){ return Math.round(percentComplete * 100) + '%'});
+                        $('.dl-progress-text').text(downloaded + '/' + totalSize + 'MB');
+                        console.log(Math.round(percentComplete * 100) + '%');
+                    }
+                }, false);
+                return xhr;
+            },
+            type: 'GET',
+            dataType: 'jsonp',
+            //TODO: Check out this URL for persistent storage with phonegap - http://docs.phonegap.com/en/2.5.0/cordova_file_file.md.html
+            //TODO: "datadump.json",
+            url: url + downloadFrom + "&format=json",
+            data: {},
+            success: function(data){
+                console.log("File download completed");
+                $('#download-progression').hide();
+                if(!hasDownloaded)
+                    jsonData = []; // We only need to create a empty array if we have not already downloaded.
 
-            for(var i = 0; i < data.chargerstations.length; i++){
-                jsonData[data.chargerstations[i].csmd.id] = data.chargerstations[i];
+                for(var i = 0; i < data.chargerstations.length; i++){
+                    jsonData[data.chargerstations[i].csmd.International_id] = data.chargerstations[i];
+                }
+
+                //Adding markers
+                generateMarkers();
+                try{
+                    //Starting automatic location update
+                    if(isMobile && phonegap)
+                        navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy: true, timeout: 100, maximumAge: 20000 });
+                }catch(e){}
+                downloadFrom = updateTime();
+                hasDownloaded = true;
             }
-
-            //Adding markers
-            generateMarkers();
-            try{
-                //Starting automatic location update
-                if(isMobile && phonegap)
-                    navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy: true, timeout: 100, maximumAge: 20000 });
-            }catch(e){}
-        }
-    });
+        });
+    }catch(err){
+        console.log(err);
+    }
 }
