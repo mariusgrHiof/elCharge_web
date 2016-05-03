@@ -165,6 +165,17 @@ function setMapOnAll(map) {
 //Deleting all the markers
 function deleteMarkers() {
     setMapOnAll(null);
+    for(l in markerListeners){
+        delete markerListeners[l];
+    }
+    for(iw in infoWindows){
+        delete infoWindows[iw];
+    }
+    for(m in markers){
+        delete markers[m];
+    }
+    markerListeners = [];
+    infoWindows = [];
     markers = [];
 }
 function centerOnUser(){

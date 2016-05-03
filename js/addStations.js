@@ -6,6 +6,7 @@
 var contentString;
 var connectorsString;
 var infoWindows = [];
+var markerListeners = [];
 
 var typeIDs = new Array();
 typeIDs['0'] = "Unspecified";
@@ -130,7 +131,6 @@ function cbTest() {
 
 }
 function generateMarkers(){
-    infowindow = [];
     $('#download-progression').show();
     loadedStations = 0;
     totalSize = Object.keys(jsonData).length;
@@ -327,8 +327,9 @@ function addMarker(station){
         maxHeight: maxHeight
     });
 
+
     infoWindows.push(infowindow);
-    google.maps.event.addListener(infowindow, 'domready', function() {
+    markerListeners.push(google.maps.event.addListener(infowindow, 'domready', function() {
 
         // Reference to the DIV which receives the contents of the infowindow using jQuery
         var iwOuter = $('.gm-style-iw');
@@ -346,27 +347,25 @@ function addMarker(station){
         // Remove the white background DIV
         iwBackground.children(':nth-child(4)').css({'display' : 'none'});
 
-    });
+    }));
     /*
      * Making it so that the popups disappear upon click outside box
      */
-    google.maps.event.addListener(map, 'click', function() {
+    markerListeners.push(google.maps.event.addListener(map, 'click', function() {
         if (infowindow) {
             infowindow.close();
         }
-    });
-
-    marker.addListener('click', function() {
+    }));
+    markerListeners.push(marker.addListener('click', function() {
         for(iw in infoWindows)
             infoWindows[iw].close();
-        
+
         infowindow.open(map, marker);
 
         //Loading the image now, instead of on page ready to save data and memory usage
         if(!$(".img-to-load").attr("src"))
             $(".img-to-load").prop("src",imgSrc);
-    });
-
+    }));
     markers.push(marker);
 
     //Building closest charging stations list

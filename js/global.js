@@ -83,7 +83,7 @@ $(document).ready(
         }
 
         //Background updates every 60 seconds
-        /*TODO: Fjern kommentar sånn at autooppdatering skjer igjen
+        /*TODO: Fjern kommentar sånn at autooppdatering skjer igjen -> Reaktiver når minne problemer er fikset
         setInterval(function() {
             console.log("The time has come!");
             if(hasDownloaded){
