@@ -133,6 +133,13 @@ function generateMarkers(){
     var isPublic = false;
     deleteMarkers();
     for(var station in jsonData){
+        /*
+        * setTimeout(
+        * function(){
+        *   Stuff;
+        * }
+        * ,0);
+        */
         connectors = [];
         isPublic = jsonData[station].attr.st[2].attrvalid == "1";
         if(isPublic){

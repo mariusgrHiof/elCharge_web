@@ -149,7 +149,7 @@ function downloadDump(){
                 }
 
                 //Adding markers
-                generateMarkers();
+                setTimeout(generateMarkers(),0);
                 try{
                     //Starting automatic location update
                     if(isMobile && phonegap)
