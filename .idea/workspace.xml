@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/menu-items/filter.html" afterPath="$PROJECT_DIR$/includes/menu-items/filter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/menu.php" afterPath="$PROJECT_DIR$/includes/menu.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/buttons.js" afterPath="$PROJECT_DIR$/js/buttons.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/global.js" afterPath="$PROJECT_DIR$/js/global.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/menu.css" afterPath="$PROJECT_DIR$/styles/menu.css" />
@@ -52,28 +50,28 @@
       <file leaf-file-name="global.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/global.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="108" column="33" selection-start-line="108" selection-start-column="33" selection-end-line="108" selection-end-column="33" />
+            <state relative-caret-position="220">
+              <caret line="86" column="41" selection-start-line="86" selection-start-column="41" selection-end-line="86" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="menu.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/includes/menu.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
+            <state relative-caret-position="289">
+              <caret line="38" column="62" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="62" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="menu.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/styles/menu.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="121" column="13" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="13" />
+            <state relative-caret-position="169">
+              <caret line="119" column="11" selection-start-line="119" selection-start-column="11" selection-end-line="119" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -82,8 +80,8 @@
       <file leaf-file-name="googlemaps.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2550">
-              <caret line="170" column="31" selection-start-line="170" selection-start-column="31" selection-end-line="170" selection-end-column="31" />
+            <state relative-caret-position="340">
+              <caret line="136" column="11" selection-start-line="136" selection-start-column="11" selection-end-line="136" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -118,6 +116,16 @@
                 <marker date="1462357720000" expanded="false" signature="14538:14583" placeholder="..." />
                 <marker date="1462357720000" expanded="true" signature="15799:15855" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="buttons.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/buttons.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="433">
+              <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="155" selection-end-column="2" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -192,8 +200,8 @@
         <option value="$PROJECT_DIR$/js/googlemaps.js" />
         <option value="$PROJECT_DIR$/js/addStations.js" />
         <option value="$PROJECT_DIR$/includes/menu-items/filter.html" />
-        <option value="$PROJECT_DIR$/js/global.js" />
         <option value="$PROJECT_DIR$/js/buttons.js" />
+        <option value="$PROJECT_DIR$/js/global.js" />
         <option value="$PROJECT_DIR$/styles/menu.css" />
         <option value="$PROJECT_DIR$/includes/menu.php" />
       </list>
@@ -476,14 +484,7 @@
       <workItem from="1462307762509" duration="4000" />
       <workItem from="1462335815197" duration="1907000" />
       <workItem from="1462345266981" duration="5018000" />
-      <workItem from="1462352047564" duration="4931000" />
-    </task>
-    <task id="LOCAL-00100" summary="midlertidig fiks til at alle uoffentlige ladestasjoner vises er nå på plass. Den viser nå kun offentlige ladere.">
-      <created>1461524016034</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1461524016034</updated>
+      <workItem from="1462352047564" duration="5906000" />
     </task>
     <task id="LOCAL-00101" summary="lagt til &lt;noscript&gt; melding">
       <created>1461525761137</created>
@@ -821,11 +822,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462357730862</updated>
     </task>
-    <option name="localTasksCounter" value="149" />
+    <task id="LOCAL-00149" summary="- brukeren kan selv aktivere oppdaterings intervall og definere hvor ofte det skal skje.&#10;- Brukeren kan velge bilmodell rett fra startmenyen.">
+      <created>1462362245980</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1462362245980</updated>
+    </task>
+    <option name="localTasksCounter" value="150" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201639000" />
+    <option name="totallyTimeSpent" value="202614000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -873,7 +881,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ikke flere duplikater av markerclsuterer" />
     <MESSAGE value="Manuell oppdatering av ladere i nærheten er nå mulig." />
     <MESSAGE value="..." />
     <MESSAGE value="css fix for dl bar og tooltip" />
@@ -898,7 +905,8 @@
     <MESSAGE value="deletemakrers metode text fix" />
     <MESSAGE value="Minnebruk tweaks" />
     <MESSAGE value="formatering" />
-    <option name="LAST_COMMIT_MESSAGE" value="formatering" />
+    <MESSAGE value="- brukeren kan selv aktivere oppdaterings intervall og definere hvor ofte det skal skje.&#10;- Brukeren kan velge bilmodell rett fra startmenyen." />
+    <option name="LAST_COMMIT_MESSAGE" value="- brukeren kan selv aktivere oppdaterings intervall og definere hvor ofte det skal skje.&#10;- Brukeren kan velge bilmodell rett fra startmenyen." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1196,47 +1204,47 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1462362102000" expanded="true" signature="7365:8380" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="7365:13894" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="7365:13900" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="7365:13913" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="7382:8275" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="8720:13029" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="8745:13007" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="8909:9157" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="9262:9510" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="9614:9878" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="9965:10215" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="10301:10547" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="10633:10879" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="10981:11231" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="11332:11582" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="11682:11932" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="12020:12272" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="12373:12631" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="12720:12976" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="13083:13782" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="13191:13764" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="13216:13742" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="13360:13426" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="13490:13716" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="13565:13685" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="6948:7870" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="7029:7857" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="7038:7307" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="7097:7297" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="7316:7581" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="7371:7571" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="7590:7851" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="7645:7841" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="7898:8142" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="7973:8129" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="8170:9212" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="8244:9199" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="8293:8492" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="8521:8725" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="8754:8960" placeholder="..." />
-            <marker date="1462362102000" expanded="true" signature="8989:9192" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="7365:8380" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="7365:13894" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="7365:13900" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="7365:13913" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="7382:8275" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="8720:13029" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="8745:13007" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="8909:9157" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="9262:9510" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="9614:9878" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="9965:10215" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="10301:10547" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="10633:10879" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="10981:11231" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="11332:11582" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="11682:11932" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="12020:12272" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="12373:12631" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="12720:12976" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="13083:13782" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="13191:13764" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="13216:13742" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="13360:13426" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="13490:13716" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="13565:13685" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="6948:7870" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="7029:7857" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="7038:7307" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="7097:7297" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="7316:7581" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="7371:7571" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="7590:7851" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="7645:7841" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="7898:8142" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="7973:8129" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="8170:9212" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="8244:9199" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="8293:8492" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="8521:8725" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="8754:8960" placeholder="..." />
+            <marker date="1462362258000" expanded="true" signature="8989:9192" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1265,22 +1273,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2550">
-          <caret line="170" column="31" selection-start-line="170" selection-start-column="31" selection-end-line="170" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/global.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="108" column="33" selection-start-line="108" selection-start-column="33" selection-end-line="108" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/addStations.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1302,22 +1294,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/buttons.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="159" column="26" selection-start-line="159" selection-start-column="26" selection-end-line="159" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/menu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/menu-items/filter.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1326,10 +1302,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="136" column="11" selection-start-line="136" selection-start-column="11" selection-end-line="136" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/buttons.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="155" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/styles/menu.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="121" column="13" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="13" />
+        <state relative-caret-position="169">
+          <caret line="119" column="11" selection-start-line="119" selection-start-column="11" selection-end-line="119" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/global.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="86" column="41" selection-start-line="86" selection-start-column="41" selection-end-line="86" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="38" column="62" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="62" />
           <folding />
         </state>
       </provider>

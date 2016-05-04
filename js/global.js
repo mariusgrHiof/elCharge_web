@@ -71,7 +71,7 @@ carModels['VW e-Golf'] = schuko.concat(schuko, type2, combo);
 carModels['VW e-up!'] = schuko.concat(schuko, type1, type2);
 
 var backgroundDL;
-var intervalTimer;//300000;
+var intervalTimer;
 $(document).ready(
     function(){
         if(!initiatedMap)
@@ -82,9 +82,9 @@ $(document).ready(
         }else{
             console.log("Is phonegap");
         }
-
-        //Background updates once per 5 minutes
-        //updateBGDLTimer(0.5);
+        //Background updates once per x minutes
+        if($('input[type=number]#bg-update-timer').val() > 0)
+            stopBGDLTimer($('input[type=number]#bg-update-timer').val());
     }
 );
 /*

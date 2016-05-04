@@ -153,10 +153,10 @@ $('input[type=number]#bg-update-timer').change(
         else
             updateBGDLTimer($(this).val());
     }
-)
+);
 //Changing the selected car and updating station markers accordingly
 $('#select-car').change(
     function(){
         generateMarkers();
     }
-)
+);
