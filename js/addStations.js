@@ -385,6 +385,7 @@ function addWaypoint(id){
     waypoints.push(
         {location: new google.maps.LatLng(disPos[0],disPos[1])}
     );
+    //TODO: SE PÅ!
     waypoints.sort(function (a, b){
         var arr = [a.lat, a.lon];
         var barr = [b.lat, b.lon];
