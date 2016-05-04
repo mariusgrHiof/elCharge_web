@@ -166,6 +166,9 @@ function setMapOnAll(map) {
 function deleteMarkers() {
     //Memory managenent
     setMapOnAll(null);
+    markerListeners.length = 0;
+    infoWindows.length = 0;
+    chargers_nearby.length = 0;
     markers.length = 0;
 }
 function centerOnUser(){

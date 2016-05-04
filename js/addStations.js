@@ -138,7 +138,7 @@ function generateMarkers(){
     var isPublic = false;
     deleteMarkers();
     for(var station in jsonData){
-        connectors = [];
+        connectors.length = 0;
         isPublic = jsonData[station].attr.st[2].attrvalid == "1";
         if(isPublic){
             var numOfPorts = jsonData[station].csmd.Number_charging_points;
@@ -180,6 +180,7 @@ function generateMarkers(){
         mc.addMarkers(markers);
     }
     $('#download-progression').hide();
+    hasDownloaded = true;
 }
 
 function getCarMatch(portCount, object){
@@ -310,20 +311,19 @@ function createIWContent(station, isLive) {
 
     //Showing a info windows when you click on the marker
     connectorsString = '<div style="margin:0;">';
-    for(var i = 0; i < connectors.length; i++){
-
+    for(var c = 1; c <= jsonData[station].csmd.Number_charging_points; c++){
         try{//Could be one single string.. I know..and now it is, WOW
             if(isLive){
                 try {
-                    isInService = connectors[i][9].attrvalid == "0";
-                    connStatus = connectors[i][8].attrvalid;
+                    isInService = jsonData[station].attr.conn[c][9].attrvalid == "0";
+                    connStatus = jsonData[station].attr.conn[c][8].attrvalid;
                 } catch(e) {}
             }
             connectorsString +=
                 "<div class='cpelements'>"+
                 "<span style=\'color:black; width:90%; float:left;\'>"+
-                connectors[i][4].trans+
-                "<br />" + connectors[i][5].trans+
+                jsonData[station].attr.conn[c][4].trans+
+                "<br />" + jsonData[station].attr.conn[c][5].trans+
                 "</span>"+
                 "<div class='chargePointColor' style='background-color:"+ (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'>"+
                 "</div>"+
@@ -331,7 +331,6 @@ function createIWContent(station, isLive) {
         }catch(e){
             console.log('Failed to build connectorsString for ' + jsonData[station].csmd.name);
         }
-
     }
     connectorsString += "</div>";
 

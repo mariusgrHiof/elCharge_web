@@ -82,16 +82,16 @@ $(document).ready(
             console.log("Is phonegap");
         }
 
-        //Background updates every 60 seconds
-        /*TODO: Fjern kommentar sånn at autooppdatering skjer igjen -> Reaktiver når minne problemer er fikset
+        //Background updates once per 5 minutes
         setInterval(function() {
             console.log("The time has come!");
             if(hasDownloaded){
+                hasDownloaded = false;
                 downloadDump();
             }else{
                 console.log("nope..");
             }
-        }, 60000);*/
+        }, 300000);
     }
 );
 
@@ -142,8 +142,8 @@ function downloadDump(){
                 console.log("File download completed");
                 $('.dl-progress-text').text("Oppdaterer ladestasjoner");//progText
                 $('#download-progression').hide();
-                if(!hasDownloaded)
-                    jsonData = []; // We only need to create a empty array if we have not already downloaded.
+                if(downloadFrom == "2005-01-01")
+                    jsonData = []; // We only need to create a empty array if we haven't already downloaded.
 
                 for(var i = 0; i < data.chargerstations.length; i++){
                     jsonData[data.chargerstations[i].csmd.International_id] = data.chargerstations[i];
@@ -157,7 +157,6 @@ function downloadDump(){
                         navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy: true, timeout: 100, maximumAge: 20000 });
                 }catch(e){}
                 downloadFrom = updateTime();
-                hasDownloaded = true;
             }
         });
     }catch(err){
