@@ -17,7 +17,7 @@
     <button id="my-loc-btn" onclick="centerOnUser()"><img src="icons/my_pos_marker.svg" style="width:1.5em; height:1.5em;"/></button>
     <?php
     include 'menu.php';
-    include 'includes/footer.php';
+    //include 'includes/footer.php';
     ?>
 </header>
 

@@ -32,7 +32,7 @@
 
     /*Charger menu*/
     #chargers-nearby {
-        height: 22em;
+        height: 70vh;
         overflow-y: auto;
     }
     .gm-style-iw{
