@@ -3,30 +3,74 @@ header{
     margin-top: 20px;/*iPhone sin statusbar er 20px høy*/
 }
 @media screen and (max-width:600px) {
+    /*Incase we wish to differentiate between the iPad and iPhone design*/
     html{
         background:black;
     }
+}
+@media screen and (min-width: 601px){
     header{
-        margin-top: 20px;/*iPhone sin statusbar er 20px høy*/
-    }
-    header.toggle {
-        height: calc( 100% - 20px);
-        max-height: calc( 100% - 20px);
+        width:100%;
+        min-width:100%;
+        max-width:100%;
+        position:relative;
     }
     #map{
-        margin-top: 6em;
-        height: calc(100% - 6em);
-    }
-    #search {
-        width: 75% !important;
+        margin-top: 5em;
+        height: calc(100% - 5em);
     }
 
-    #search input {
-        width: 70% !important;
+    header.toggle{
+        height:100%;
+        max-height:100%;
     }
 
-    #my-loc-btn {
-        float: right !important;
-        max-width:19% !important;
+    /*Charger menu*/
+    #chargers-nearby {
+        height: 22em;
+        overflow-y: auto;
     }
+    .gm-style-iw{
+        width:200% !important;
+        min-width: 130% !important;
+        max-width:130% !important;
+    }
+    .gm-style-iw > div{
+        width: 100% !important;
+    }
+    .gm-style .gm-style-iw{
+        width:100% !important;
+    }
+    #infoLeft{
+        width:100% !important;
+        height:50% !important;
+    }
+    #chargingPoints{
+        width:100% !important;
+        max-height:50% !important;
+    }
+}
+
+header{
+    margin-top: 20px;/*iPhone sin statusbar er 20px høy*/
+}
+header.toggle {
+    height: calc( 100% - 20px);
+    max-height: calc( 100% - 20px);
+}
+#map{
+    margin-top: 6em;
+    height: calc(100% - 6em);
+}
+#search {
+    width: 75% !important;
+}
+
+#search input {
+    width: 70% !important;
+}
+
+#my-loc-btn {
+    float: right !important;
+    max-width:19% !important;
 }

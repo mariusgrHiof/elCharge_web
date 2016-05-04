@@ -17,6 +17,7 @@ var pathtest = [
 var mcOptions = {gridSize: 50, maxZoom: 15};
 
 function initMap() {
+    initiatedMap = true;
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 59.91673, lng: 10.74782},
         zoom: 13,
@@ -149,12 +150,9 @@ function initMap() {
     if(phonegap){
         //Safeguarding against timeout for the cordovaWebView
         setTimeout(
-            document.addEventListener("deviceready", downloadDump(), false)
+            document.addEventListener("deviceready", downloadDump(), false), 2000
         );
     }
-
-
-
 }
 
 // Sets the map on all markers in the array.
@@ -166,8 +164,12 @@ function setMapOnAll(map) {
 }
 //Deleting all the markers
 function deleteMarkers() {
+    //Memory managenent
     setMapOnAll(null);
-    markers = [];
+    markerListeners.length = 0;
+    infoWindows.length = 0;
+    chargers_nearby.length = 0;
+    markers.length = 0;
 }
 function centerOnUser(){
     //Refreshing user pos

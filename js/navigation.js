@@ -10,9 +10,7 @@ var directionsDisplay;
 var directionsService;
 function navigate(){
     //Cleaning previous directions
-    if(directionsDisplay != null){
-        directionsDisplay.setMap(null);//The route in the map
-    }
+    clearRoute();
     if(document.getElementById('right-panel').innerHTML != null){
         document.getElementById('right-panel').innerHTML = ""; //The route description
     }
@@ -67,6 +65,12 @@ function navigateFromUser(from, toel){
 
     displayRoute(startDestination, endDestination, directionsService,directionsDisplay);
     console.log("Dirs: " + directionsService.path);
+}
+
+function clearRoute(){
+    if(directionsDisplay != null){
+        directionsDisplay.setMap(null);//The route in the map
+    }
 }
 
 

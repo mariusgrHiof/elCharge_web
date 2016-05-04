@@ -49,12 +49,16 @@ div#title-login button.show-login {
     margin-right:0;
 }
 nav{
-    width:100%;
+    width:99.5%;
+    max-width:99.5%;
     display:none;
     clear:both;
 }
 nav ul{
     margin: 0 0 0 -2.5em;
+}
+#menu-list > ul{
+    height:80vh;
 }
 
 nav li{
@@ -113,7 +117,10 @@ button#menu-toggle{
     Select input
 */
 select{
-    width:100%;
+    /*width:100%;*/
+}
+#bg-update-timer{
+    width:3em;
 }
 .cover-third{
     width:33%;
@@ -192,7 +199,7 @@ select{
     padding: 0.5em 0 0.5em 0;
 }
 #chargers-nearby{
-    height:40em;
+    height: 70vh;
     overflow-y:auto;
 }
 
@@ -225,6 +232,9 @@ ul{
 }
 .float-left{
     float:left;
+}
+.float-right{
+    float:right;
 }
 /*
 * Icons

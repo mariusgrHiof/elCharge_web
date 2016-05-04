@@ -3,6 +3,10 @@
  */
 
 
+var contentString;
+var connectorsString;
+var infoWindows = [];
+var markerListeners = [];
 
 var typeIDs = new Array();
 typeIDs['0'] = "Unspecified";
@@ -120,15 +124,22 @@ function updateCarList(){
         document.getElementById('select-car').innerHTML += '<option value="'+car+'">' + car + '</option>';
     }
 }
+var totalSize = 0;
+var loadedStations = 0;
+var progText;
+function cbTest() {
 
-
+}
 function generateMarkers(){
+    $('#download-progression').show();
+    loadedStations = 0;
+    totalSize = Object.keys(jsonData).length;
     //TODO: Mer permanent fiks -> La brukeren velge selv
     var isPublic = false;
     deleteMarkers();
     for(var station in jsonData){
-        connectors = [];
-        isPublic = jsonData[station].attr.st[2].attrvalid == "1" ? true : false;
+        connectors.length = 0;
+        isPublic = jsonData[station].attr.st[2].attrvalid == "1";
         if(isPublic){
             var numOfPorts = jsonData[station].csmd.Number_charging_points;
             /**
@@ -140,10 +151,10 @@ function generateMarkers(){
                 carModel = carModels[document.getElementById("select-car").value];
 
                 //TODO: Fiks sånn at vi sjekker begge ladeportene og ikke kun den første av de.
-                var isMatch = getCarMatch(i, numOfPorts, jsonData[station]);
-                if(isMatch){
-                    addMarker(i, jsonData);
-                }
+                var isMatch = getCarMatch(numOfPorts, jsonData[station]);
+                //TODO: Gjør sånn at det kun loopes igjennom connectors en gang! Tar MYE kortere tid
+                if(isMatch)
+                    addMarker(station);
             }else{
                 for(var c = 1; c <= numOfPorts; c++){
                     try{
@@ -151,11 +162,14 @@ function generateMarkers(){
                     }catch(e){}
                 }
                 //Adding all charging stations
-                addMarker(jsonData[station]);
+                addMarker(station);
             }
         }
-        //TODO: FIX! var mc = new google.maps.MarkerClusterer(map, markers, options);
-
+        //TODO: Fjerne senere? + fikse noe form for progresjonsbar som kan kjøre i bakgrunnen ellnst..
+        loadedStations++;
+        progText = loadedStations + ' av ' + totalSize + ' stasjoner er lastet inn.';
+        $('.dl-progress-text').text("Oppdaterer ladestasjoner");//progText
+        console.log(progText); //TODO -> printing out loading progression
     }
 
     getNearbyChargers();
@@ -165,9 +179,11 @@ function generateMarkers(){
         mc.clearMarkers();
         mc.addMarkers(markers);
     }
+    $('#download-progression').hide();
+    hasDownloaded = true;
 }
 
-function getCarMatch(index, portCount, object){
+function getCarMatch(portCount, object){
     var match = false;
     var connType;
     for(var c = 1; c <= portCount; c++){
@@ -203,9 +219,11 @@ function getMatchConnectorType(index, portCount, object){
 
 function addMarker(station){
     //Adding markers
-    var pos = station.csmd.Position.replace(/[()]/g,"").split(",");
+    var pos = jsonData[station].csmd.Position.replace(/[()]/g,"").split(",");
 
-    var isLive = station.attr.st[21].attrvalid == "1" ? true : false;
+    var isLive = jsonData[station].attr.st[21].attrvalid == "1";
+
+
 
     //TODO: Fikse nestet short if: de markørene som har hurtigladekontakt skal ha _v2.svg (den med vinger)
 
@@ -218,82 +236,27 @@ function addMarker(station){
     };
 
     var marker = new google.maps.Marker({
-        position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])}/*,
-        icon: {
-            path: markerIcon,
-            scale: 1
-        }*/,
+        position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
         icon: markerIcon,
         map: map,
-        title: station.csmd.name
+        title: jsonData[station].csmd.name
     });
 
 
 
-    //Showing a info windows when you click on the marker
-    var connectorsString = '<ol>';
-    for(var i = 0; i <connectors.length; i++){
-
-        try{//Could be one single string.. I know
-            connectorsString += "<li style=\'color:black;\'>";
-            connectorsString += connectors[i][4].trans;
-            connectorsString += " " + connectors[i][5].trans;
-            connectorsString += "</li>";
-        }catch(e){
-            console.log('Failed to build connectorsString for ' + station.csmd.name);
-        }
-
-    }
-    connectorsString += "</ol>";
-    //var latlng = new Array();//{lat:  lng: };
-    //latlng.push();
-    //getElevation(new google.maps.LatLng(parseFloat(pos[0]), parseFloat(pos[1])))
-
-    var contentString =
-        "<div id=\"station-tooltip\">"+
-            "<div id=\"topBox\">"+
-            "</div>"+
-            "<div id=\"secondRow\">"+
-                "<img src=\"" + (/kommer/i.test(station.csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ station.csmd.Image) + "\"/>" +
-                "<div id='placeNameIcons' style='color:blue;'>"+
-                    "<h3>"+ station.csmd.name + "(ID:" + station.csmd.id + ")</h3>" +
-                "</div>"+
-                "<div class='markerColor' style='background-color:"+ (isLive ? "lightgreen" : "blue") +";'>"+
-                "</div>"+
-            "</div>"+
-            "<div id='secondContainer'>"+
-                "<div id='infoLeft'>"+
-                    "<p><strong>Kontakt info:</strong> "+ station.csmd.Contact_info+"</p>" +
-                    "<p><strong>Adresse:</strong> "+ station.csmd.Street +" " + station.csmd.House_number +"</p>"+
-                    "<p><strong>Beskrivelse:</strong> "+ station.csmd.description +"</p>" +
-                    "<p><strong>Lokasjonsbeskrivelse:</strong> "+ station.csmd.Description_of_location +"</p>" +
-                    "<p><strong>Eier:</strong> " + station.csmd.Owned_by +"</p>" +
-                    "<p><strong>Kommentarer:</strong> "+ station.csmd.User_comment+"</p>" +
-                "</div>"+
-                "<div id='chargingPoints'>"+
-                    "<p><strong>Ladepunkter:</strong> "+ station.csmd.Number_charging_points+" </p>" +
-                    "<div> "+
-                        connectorsString +
-                    "</div>" +
-                "</div>"+
-            "</div>"+
-            "<div id='lowerContainer'>"+
-                "<button onclick='addWaypoint(" + station.csmd.id + "," + pos[0] + "," + pos[1] + ")'>Legg til i rute</button>" +
-                '<button onclick="navigateFromUser(geopos, this)" value="'+ station.csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
-            "</div>"+
-        "</div>";
-        station.csmd.name;
-
     //TODO: Sjekk ut http://en.marnoto.com/2014/09/5-formas-de-personalizar-infowindow.html
     var maxWidth = (isMobile?500:500);
     var maxHeight = (isMobile?300:500);
+
     var infowindow = new google.maps.InfoWindow({
         content: contentString,
         maxWidth: maxWidth,
         maxHeight: maxHeight
     });
 
-    google.maps.event.addListener(infowindow, 'domready', function() {
+
+    infoWindows.push(infowindow);
+    markerListeners.push(google.maps.event.addListener(infowindow, 'domready', function() {
 
         // Reference to the DIV which receives the contents of the infowindow using jQuery
         var iwOuter = $('.gm-style-iw');
@@ -311,27 +274,107 @@ function addMarker(station){
         // Remove the white background DIV
         iwBackground.children(':nth-child(4)').css({'display' : 'none'});
 
-    });
+    }));
     /*
      * Making it so that the popups disappear upon click outside box
      */
-    google.maps.event.addListener(map, 'click', function() {
-        if(infowindow){
+    markerListeners.push(google.maps.event.addListener(map, 'click', function() {
+        if (infowindow) {
             infowindow.close();
         }
-    });
-
-    marker.addListener('click', function() {
+    }));
+    markerListeners.push(marker.addListener('click', function() {
+        for(iw in infoWindows){
+            infoWindows[iw].setContent(null);
+            infoWindows[iw].close();
+        }
         infowindow.open(map, marker);
-    });
 
+        infowindow.setContent(createIWContent(station, isLive));
+        //Loading the image now, instead of on page ready to save data and memory usage
+        /*TODO: if(!$(".img-to-load").attr("src"))
+            $(".img-to-load").prop("src",imgSrc);*/
+    }));
     markers.push(marker);
 
     //Building closest charging stations list
     if(compareDistance(geopos, pos) <= 10){
-        chargers_nearby[chargers_nearby.length] = station;
+        chargers_nearby[chargers_nearby.length] = jsonData[station];
     }
 }
+
+//A method for generating the content of a infowindow
+function createIWContent(station, isLive) {
+    var isInService = true;
+
+    var connStatus = "9";
+
+    //Showing a info windows when you click on the marker
+    connectorsString = '<div style="margin:0;">';
+    for(var c = 1; c <= jsonData[station].csmd.Number_charging_points; c++){
+        try{//Could be one single string.. I know..and now it is, WOW
+            if(isLive){
+                try {
+                    isInService = jsonData[station].attr.conn[c][9].attrvalid == "0";
+                    connStatus = jsonData[station].attr.conn[c][8].attrvalid;
+                } catch(e) {}
+            }
+            connectorsString +=
+                "<div class='cpelements'>"+
+                    "<span style=\'color:black; width:90%; float:left;\'>"+
+                        jsonData[station].attr.conn[c][4].trans+
+                        "<br />" + jsonData[station].attr.conn[c][5].trans+
+                    "</span>"+
+                    "<div class='chargePointColor' style='background-color:"+ (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'>"+
+                    "</div>"+
+                "</div>";
+        }catch(e){
+            console.log('Failed to build connectorsString for ' + jsonData[station].csmd.name);
+        }
+    }
+    connectorsString += "</div>";
+
+
+    //var latlng = new Array();//{lat:  lng: };
+    //latlng.push();
+    //getElevation(new google.maps.LatLng(parseFloat(pos[0]), parseFloat(pos[1])))
+    //TODO: var imgSrc = (/kommer/i.test(jsonData[station].csmd.Image.toLowerCase()) || /no.image.svg/i.test(jsonData[station].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[station].csmd.Image);
+    contentString =
+        "<div id=\"station-tooltip\">"+
+            "<div id=\"topBox\">"+
+            "</div>"+
+            "<div id=\"secondRow\">"+//TODO: Images take up about 40MB Extra RAM -> Find a better solution for this!
+            "<img class='img-to-load' src=\""+(/kommer/i.test(jsonData[station].csmd.Image.toLowerCase()) || /no.image.svg/i.test(jsonData[station].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[station].csmd.Image) + "\"/>" +
+                "<div id='placeNameIcons' style='color:blue;'>"+
+                    "<h3>"+ jsonData[station].csmd.name + "(ID:" + jsonData[station].csmd.id + ")</h3>" +
+                "</div>"+
+                "<div class='markerColor' style='background-color:"+ (isLive ? "lightgreen" : "blue") +";'>"+
+                "</div>"+
+            "</div>"+
+            "<div id='secondContainer'>"+
+                "<div id='infoLeft'>"+
+                    "<p><strong>Kontakt info:</strong> "+ jsonData[station].csmd.Contact_info.replace('\r\n','<br />')+"</p>" +
+                    "<p><strong>Adresse:</strong> "+ jsonData[station].csmd.Street.replace('\r\n','<br />') +" " + jsonData[station].csmd.House_number.replace('\r\n','<br />') +"</p>"+
+                    "<p><strong>Beskrivelse:</strong> "+ jsonData[station].csmd.description +"</p>" + // .replace('\r\n','<br />') her også?
+                    "<p><strong>Lokasjonsbeskrivelse:</strong> "+ jsonData[station].csmd.Description_of_location +"</p>" +
+                    "<p><strong>Eier:</strong> " + jsonData[station].csmd.Owned_by.replace('\r\n','<br />') +"</p>" +
+                    "<p><strong>Kommentarer:</strong> "+ jsonData[station].csmd.User_comment.replace('\r\n','<br />')+"</p>" +
+                "</div>"+
+                "<div id='chargingPoints'>"+
+                    "<p style='border-bottom:1px solid gray;margin-bottom:0;'><strong>Ladepunkter:</strong> "+ jsonData[station].csmd.Number_charging_points+" </p>" +
+                    "<div> "+
+                    connectorsString +
+                    "</div>" +
+                "</div>"+
+            "</div>"+
+            "<div id='lowerContainer'>"+
+                "<button onclick='addWaypoint(" + jsonData[station].csmd.id + "," + pos[0] + "," + pos[1] + ")'>Legg til i rute</button>" +
+                '<button onclick="navigateFromUser(geopos, this)" value="'+ jsonData[station].csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
+            "</div>"+
+        "</div>";
+    return contentString;
+}
+
 /*
  * A method for adding a selected station to the waypoints
  */

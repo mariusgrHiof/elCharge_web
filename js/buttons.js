@@ -20,18 +20,45 @@ function dropdown(event, parent){
     }
 }
 function userLoggin(form){
+    var path = "";
+    if(phonegap)
+        path += "https://frigg.hiof.no/bo16-g6/webapp/";
+    path +="includes/checkloggin.php";
+
     //Logging the user in
-    $.post( "includes/checkloggin.php",
+    $.post(path,
         {
             //Posting username and password
             username: $(form).children(":input[name='username']").val(),
             password: $(form).children(":input[name='password']").val() },
         function( data ){
+            console.log("Logged in feedback");
             //Populating the user logged in window.
             $('#logged-in').html( data );
             //Populating the favorite chargers and routes window
             /*Some awesome method*/
     });
+    return false;
+}
+function userRegistration(form){
+    var path = "";
+    if(phonegap)
+        path += "https://frigg.hiof.no/bo16-g6/webapp/";
+    path +="includes/register.php";
+
+    //Logging the user in
+    $.post(path,
+        {
+            //Posting username and password
+            username: $(form).children(":input[name='username']").val(),
+            password: $(form).children(":input[name='password']").val() },
+        function( data ){
+            console.log("Registered user feedback");
+            //Populating the user logged in window.
+            $('#logged-in').html( data );
+            //Populating the favorite chargers and routes window
+            /*Some awesome method*/
+        });
     return false;
 }
 
@@ -101,6 +128,7 @@ function readMore(event, parent){
 /**
  * Input listeners
  */
+//Turning layers on or off
 $('input[type=checkbox].onoffswitch-checkbox').change(
     function(){
         if($(this).attr('id') == 'traffic-layer')
@@ -114,8 +142,21 @@ $('input[type=checkbox].onoffswitch-checkbox').change(
 
 $('input[type=text]#search-box').change(
     function(){
-
-
         map.setCenter({lat: -33.8688, lng: 151.2195});
     }
 )
+//Changing the autoupdate interval or deactivate autoupdate
+$('input[type=number]#bg-update-timer').change(
+    function(){
+        if($(this).val() <= 0)
+            stopBGDLTimer();
+        else
+            updateBGDLTimer($(this).val());
+    }
+);
+//Changing the selected car and updating station markers accordingly
+$('#select-car').change(
+    function(){
+        generateMarkers();
+    }
+);

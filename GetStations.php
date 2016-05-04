@@ -14,7 +14,7 @@ $json = json_decode($string, true);
 $stations = $json['chargerstations'];
 
 foreach ($stations as $key => $value) {
-    echo json_encode($stations[$key]) . '</br>';
+    echo json_encode($stations[$key]['csmd']['id']) . '</br>';
 }
 //include $fileName;
 ?>
