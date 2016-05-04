@@ -235,11 +235,7 @@ function addMarker(station){
     };
 
     var marker = new google.maps.Marker({
-        position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])}/*,
-        icon: {
-            path: markerIcon,
-            scale: 1
-        }*/,
+        position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
         icon: markerIcon,
         map: map,
         title: jsonData[station].csmd.name
