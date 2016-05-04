@@ -136,40 +136,44 @@ function generateMarkers(){
     totalSize = Object.keys(jsonData).length;
     //TODO: Mer permanent fiks -> La brukeren velge selv
     var isPublic = false;
-    deleteMarkers();
-    for(var station in jsonData){
-        connectors.length = 0;
-        isPublic = jsonData[station].attr.st[2].attrvalid == "1";
-        if(isPublic){
-            var numOfPorts = jsonData[station].csmd.Number_charging_points;
-            /**
-             * TODO: Hvis ikke filtrer -> duplikater av conns O_o
-             * TODO: Hvis filtrer -> Viser kun de kontakter som funker til bilen O_o
-             */
-            //Checking filter
-            if(document.getElementById("select-car").value !=0){
-                carModel = carModels[document.getElementById("select-car").value];
+    try{
+        deleteMarkers();
+        for(var station in jsonData){
+            connectors.length = 0;
+            isPublic = jsonData[station].attr.st[2].attrvalid == "1";
+            if(isPublic){
+                var numOfPorts = jsonData[station].csmd.Number_charging_points;
+                /**
+                 * TODO: Hvis ikke filtrer -> duplikater av conns O_o
+                 * TODO: Hvis filtrer -> Viser kun de kontakter som funker til bilen O_o
+                 */
+                //Checking filter
+                if(document.getElementById("select-car").value !=0){
+                    carModel = carModels[document.getElementById("select-car").value];
 
-                //TODO: Fiks sånn at vi sjekker begge ladeportene og ikke kun den første av de.
-                var isMatch = getCarMatch(numOfPorts, jsonData[station]);
-                //TODO: Gjør sånn at det kun loopes igjennom connectors en gang! Tar MYE kortere tid
-                if(isMatch)
+                    //TODO: Fiks sånn at vi sjekker begge ladeportene og ikke kun den første av de.
+                    var isMatch = getCarMatch(numOfPorts, jsonData[station]);
+                    //TODO: Gjør sånn at det kun loopes igjennom connectors en gang! Tar MYE kortere tid
+                    if(isMatch)
+                        addMarker(station);
+                }else{
+                    for(var c = 1; c <= numOfPorts; c++){
+                        try{
+                            connectors.push(jsonData[station].attr.conn[c]);
+                        }catch(e){}
+                    }
+                    //Adding all charging stations
                     addMarker(station);
-            }else{
-                for(var c = 1; c <= numOfPorts; c++){
-                    try{
-                        connectors.push(jsonData[station].attr.conn[c]);
-                    }catch(e){}
                 }
-                //Adding all charging stations
-                addMarker(station);
             }
+            //TODO: Fjerne senere? + fikse noe form for progresjonsbar som kan kjøre i bakgrunnen ellnst..
+            loadedStations++;
+            progText = loadedStations + ' av ' + totalSize + ' stasjoner er lastet inn.';
+            $('.dl-progress-text').text("Oppdaterer ladestasjoner");//progText
+            console.log(progText); //TODO -> printing out loading progression
         }
-        //TODO: Fjerne senere? + fikse noe form for progresjonsbar som kan kjøre i bakgrunnen ellnst..
-        loadedStations++;
-        progText = loadedStations + ' av ' + totalSize + ' stasjoner er lastet inn.';
-        $('.dl-progress-text').text("Oppdaterer ladestasjoner");//progText
-        console.log(progText); //TODO -> printing out loading progression
+    }catch(e){
+        $('.dl-progress-text').text("Innlasting har feilet med følgende feilmeling: " + e);
     }
 
     getNearbyChargers();

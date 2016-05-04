@@ -32,9 +32,10 @@ function userLoggin(form){
             username: $(form).children(":input[name='username']").val(),
             password: $(form).children(":input[name='password']").val() },
         function( data ){
-            console.log("Logged in feedback");
+            console.log("Logged in feedback = " + data );
             //Populating the user logged in window.
             $('#logged-in').html( data );
+
             //Populating the favorite chargers and routes window
             /*Some awesome method*/
     });
