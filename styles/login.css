@@ -38,8 +38,7 @@
 
 }
 #logged-in{
-    right: 0;
-    position: fixed;
+    padding: 1em;
     z-index: 1;
     background: white;
 }
