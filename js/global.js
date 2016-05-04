@@ -115,11 +115,74 @@ function updateTime() {
     var date = new Date();
     return date.getFullYear() + "-" + date.getMonth() + "-" + date.getDay();
 }
+function downloadDumpPG(){
+    console.log("File download initiated");
+    $('#download-progression').show();//TODO: Fjern?
+    try{
+        $('.dl-progress-text').text("Laster ned stasjoner");
+        $.ajax({
+            xhr: function()
+            {
+                $('#download-progression').show();
+                var xhr = new window.XMLHttpRequest();
+                //Upload progress
+                xhr.upload.addEventListener("progress", function(evt){
+                    if (evt.lengthComputable) {
+                        var percentComplete = evt.loaded / evt.total;
+                        //Do something with upload progress
+                        console.log(percentComplete);
+                    }
+                }, false);
+                //Download progress
+                xhr.addEventListener("progress", function(evt){
+                    if (evt.lengthComputable) {
+                        var percentComplete = evt.loaded / evt.total;
+                        var downloaded = (evt.loaded/1000000).toFixed(2);
+                        var totalSize = (evt.total/1000000).toFixed(2);
+                        //Do something with download progress
+                        $('.dl-progress').text(Math.round(percentComplete * 100) + '%');
+                        $('.dl-progressbar').css('width', function (){ return Math.round(percentComplete * 100) + '%'});
+                        $('.dl-progress-text').text(downloaded + '/' + totalSize + 'MB');
+                        console.log(Math.round(percentComplete * 100) + '%');
+                    }
+                }, false);
+                return xhr;
+            },
+            type: 'POST',
+            url: url + downloadFrom + "&format=json",
+            data: {},
+            success: function(data){
+                console.log("File download completed");
+                $('.dl-progress-text').text("Laster inn ladestasjoner");//progText
+                if(downloadFrom == "2005-01-01")
+                    jsonData = []; // We only need to create a empty array if we haven't already downloaded.
 
+                for(var i = 0; i < data.chargerstations.length; i++){
+                    jsonData[data.chargerstations[i].csmd.International_id] = data.chargerstations[i];
+                }
+                //Adding markers
+                setTimeout(generateMarkers(),0.001);
+                try{
+                    //Starting automatic location update
+                    if(isMobile && phonegap)
+                        navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy: true, timeout: 100, maximumAge: 20000 });
+                }catch(e){
+                    console.log("Failed: " + e);
+                    $('.dl-progress-text').text("Innlasting har feilet med følgende feilmeling: " + e);
+                }
+                downloadFrom = updateTime();
+            }
+        });
+    }catch(err){
+        console.log("Failed: " + err);
+        $('.dl-progress-text').text("Nedlasingen har feilet med følgende feilmelding: " + err);
+    }
+}
 function downloadDump(){
     console.log("File download initiated");
     $('#download-progression').show();//TODO: Fjern?
     try{
+        $('.dl-progress-text').text("Laster ned stasjoner");
         $.ajax({
             xhr: function()
             {
@@ -156,26 +219,28 @@ function downloadDump(){
             data: {},
             success: function(data){
                 console.log("File download completed");
-                $('.dl-progress-text').text("Oppdaterer ladestasjoner");//progText
-                $('#download-progression').hide();
+                $('.dl-progress-text').text("Laster inn ladestasjoner");//progText
                 if(downloadFrom == "2005-01-01")
                     jsonData = []; // We only need to create a empty array if we haven't already downloaded.
 
                 for(var i = 0; i < data.chargerstations.length; i++){
                     jsonData[data.chargerstations[i].csmd.International_id] = data.chargerstations[i];
                 }
-
                 //Adding markers
-                setTimeout(generateMarkers(),0);
+                setTimeout(generateMarkers(),0.001);
                 try{
                     //Starting automatic location update
                     if(isMobile && phonegap)
                         navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy: true, timeout: 100, maximumAge: 20000 });
-                }catch(e){}
+                }catch(e){
+                    console.log("Failed: " + e);
+                    $('.dl-progress-text').text("Innlasting har feilet med følgende feilmeling: " + e);
+                }
                 downloadFrom = updateTime();
             }
         });
     }catch(err){
-        console.log(err);
+        console.log("Failed: " + err);
+        $('.dl-progress-text').text("Nedlasingen har feilet med følgende feilmelding: " + err);
     }
 }
