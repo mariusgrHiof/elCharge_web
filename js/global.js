@@ -70,7 +70,8 @@ carModels['Think'] = schuko;
 carModels['VW e-Golf'] = schuko.concat(schuko, type2, combo);
 carModels['VW e-up!'] = schuko.concat(schuko, type1, type2);
 
-
+var backgroundDL;
+var intervalTimer;//300000;
 $(document).ready(
     function(){
         if(!initiatedMap)
@@ -83,17 +84,32 @@ $(document).ready(
         }
 
         //Background updates once per 5 minutes
-        setInterval(function() {
-            console.log("The time has come!");
-            if(hasDownloaded){
-                hasDownloaded = false;
-                downloadDump();
-            }else{
-                console.log("nope..");
-            }
-        }, 300000);
+        //updateBGDLTimer(0.5);
     }
 );
+/*
+ * Autodownload interval
+ */
+function updateBGDLTimer(minutes){
+    console.log("Timer is now: " + minutes);
+    intervalTimer = minutes * 60000;
+    clearInterval(backgroundDL);
+    backgroundDL = setInterval(function() {
+        console.log("The time has come!");
+        if(hasDownloaded){
+            hasDownloaded = false;
+            downloadDump();
+        }else{
+            console.log("nope..");
+        }
+
+    }, intervalTimer)
+}
+function stopBGDLTimer(){
+    console.log("Stopped interval");
+    clearInterval(backgroundDL);
+}
+
 
 function updateTime() {
     var date = new Date();

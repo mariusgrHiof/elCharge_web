@@ -114,7 +114,10 @@ button#menu-toggle{
     Select input
 */
 select{
-    width:100%;
+    /*width:100%;*/
+}
+#bg-update-timer{
+    width:2em;
 }
 .cover-third{
     width:33%;

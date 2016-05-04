@@ -34,6 +34,14 @@
     include 'includes/userwindow.php';
     ?>
     <ul id="menu-list">
+        <li>
+            Utfør bakgrundsoppdatering hvert
+            <input id="bg-update-timer" type="number" value="5"/> min(0 er aldrig). <br />
+            Velg bilmodell
+            <select id="select-car" name="car-model">
+                <option value="0">Vis alle ladere</option>
+            </select></br>
+        </li>
         <li class="border">
             <?php include 'menu-items/chargers-nearby.html' ?>
         </li>
@@ -42,10 +50,10 @@
         </li>
         <li class="border">
             <?php include 'menu-items/route.html' ?>
-        </li>
+        </li><!--
         <li class="border">
-            <?php include 'menu-items/filter.html' ?>
-        </li>
+            <?php //include 'menu-items/filter.html' ?>
+        </li>-->
         <li class="border">
             <?php include 'menu-items/overlay.html' ?>
         </li>

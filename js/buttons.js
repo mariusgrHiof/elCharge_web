@@ -128,6 +128,7 @@ function readMore(event, parent){
 /**
  * Input listeners
  */
+//Turning layers on or off
 $('input[type=checkbox].onoffswitch-checkbox').change(
     function(){
         if($(this).attr('id') == 'traffic-layer')
@@ -141,8 +142,21 @@ $('input[type=checkbox].onoffswitch-checkbox').change(
 
 $('input[type=text]#search-box').change(
     function(){
-
-
         map.setCenter({lat: -33.8688, lng: 151.2195});
+    }
+)
+//Changing the autoupdate interval or deactivate autoupdate
+$('input[type=number]#bg-update-timer').change(
+    function(){
+        if($(this).val() <= 0)
+            stopBGDLTimer();
+        else
+            updateBGDLTimer($(this).val());
+    }
+)
+//Changing the selected car and updating station markers accordingly
+$('#select-car').change(
+    function(){
+        generateMarkers();
     }
 )
