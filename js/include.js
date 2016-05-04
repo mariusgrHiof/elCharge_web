@@ -12,7 +12,6 @@ var onSuccess = function(position) {
     geopos = [position.coords.latitude, position.coords.longitude];
 
     try{
-
         pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         myloc.setPosition(pos);
         if(isMobile){

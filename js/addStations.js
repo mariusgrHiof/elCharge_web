@@ -127,9 +127,6 @@ function updateCarList(){
 var totalSize = 0;
 var loadedStations = 0;
 var progText;
-function cbTest() {
-
-}
 function generateMarkers(){
     $('#download-progression').show();
     loadedStations = 0;
@@ -143,17 +140,11 @@ function generateMarkers(){
             isPublic = jsonData[station].attr.st[2].attrvalid == "1";
             if(isPublic){
                 var numOfPorts = jsonData[station].csmd.Number_charging_points;
-                /**
-                 * TODO: Hvis ikke filtrer -> duplikater av conns O_o
-                 * TODO: Hvis filtrer -> Viser kun de kontakter som funker til bilen O_o
-                 */
                 //Checking filter
                 if(document.getElementById("select-car").value !=0){
                     carModel = carModels[document.getElementById("select-car").value];
-
-                    //TODO: Fiks sånn at vi sjekker begge ladeportene og ikke kun den første av de.
                     var isMatch = getCarMatch(numOfPorts, jsonData[station]);
-                    //TODO: Gjør sånn at det kun loopes igjennom connectors en gang! Tar MYE kortere tid
+
                     if(isMatch)
                         addMarker(station);
                 }else{
@@ -166,12 +157,14 @@ function generateMarkers(){
                     addMarker(station);
                 }
             }
-            //TODO: Fjerne senere? + fikse noe form for progresjonsbar som kan kjøre i bakgrunnen ellnst..
             loadedStations++;
             progText = loadedStations + ' av ' + totalSize + ' stasjoner er lastet inn.';
-            $('.dl-progress-text').text("Oppdaterer ladestasjoner");//progText
             console.log(progText); //TODO -> printing out loading progression
+            $('#download-progression').hide();
+            hasDownloaded = true;
         }
+        //Telling the app, that it is now allowed to done importing objects, so it can now download stuff if needed.
+        hasDownloaded = true;
     }catch(e){
         $('.dl-progress-text').text("Innlasting har feilet med følgende feilmeling: " + e);
     }
@@ -304,6 +297,7 @@ function addMarker(station){
     //Building closest charging stations list
     if(compareDistance(geopos, pos) <= 10){
         chargers_nearby[chargers_nearby.length] = jsonData[station];
+        chargers_nearby[chargers_nearby.length]["distance"] = compareDistance(geopos, pos);
     }
 }
 

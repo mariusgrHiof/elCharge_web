@@ -35,12 +35,16 @@ function updateNearbyChargers(){
         sPos = jsonData[station].csmd.Position.replace(/[()]/g,"").split(",");
         if(compareDistance(geopos, sPos) <= 10){
             chargers_nearby[jsonData[station].csmd.id] = jsonData[station];
+            chargers_nearby[jsonData[station].csmd.id]["distance"] = compareDistance(geopos, sPos);
         }
     }
     getNearbyChargers();
 }
 
 function getNearbyChargers(){
+    chargers_nearby.sort(function (a, b){
+        return a.distance - b.distance;
+    });
     var thisPos = [];
     for(var station in chargers_nearby){
         thisPos = chargers_nearby[station].csmd.Position.replace(/[()]/g,"").split(",");
