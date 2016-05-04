@@ -136,34 +136,37 @@ function generateMarkers(){
     try{
         deleteMarkers();
         for(var station in jsonData){
-            connectors.length = 0;
-            isPublic = jsonData[station].attr.st[2].attrvalid == "1";
-            if(isPublic){
-                var numOfPorts = jsonData[station].csmd.Number_charging_points;
-                //Checking filter
-                if(document.getElementById("select-car").value !=0){
-                    carModel = carModels[document.getElementById("select-car").value];
-                    var isMatch = getCarMatch(numOfPorts, jsonData[station]);
+            try{
+                connectors.length = 0;
+                isPublic = jsonData[station].attr.st[2].attrvalid == "1";
+                if(isPublic){
+                    var numOfPorts = jsonData[station].csmd.Number_charging_points;
+                    //Checking filter
+                    if(document.getElementById("select-car").value !=0){
+                        carModel = carModels[document.getElementById("select-car").value];
+                        var isMatch = getCarMatch(numOfPorts, jsonData[station]);
 
-                    if(isMatch)
+                        if(isMatch)
+                            addMarker(station);
+                    }else{
+                        for(var c = 1; c <= numOfPorts; c++){
+                            try{
+                                connectors.push(jsonData[station].attr.conn[c]);
+                            }catch(e){}
+                        }
+                        //Adding all charging stations
                         addMarker(station);
-                }else{
-                    for(var c = 1; c <= numOfPorts; c++){
-                        try{
-                            connectors.push(jsonData[station].attr.conn[c]);
-                        }catch(e){}
                     }
-                    //Adding all charging stations
-                    addMarker(station);
                 }
+                loadedStations++;
+                progText = loadedStations + ' av ' + totalSize + ' stasjoner er lastet inn.';
+                console.log(progText); //TODO -> printing out loading progression
+            }catch(err){
+                console.log(err);
             }
-            loadedStations++;
-            progText = loadedStations + ' av ' + totalSize + ' stasjoner er lastet inn.';
-            console.log(progText); //TODO -> printing out loading progression
-            $('#download-progression').hide();
-            hasDownloaded = true;
         }
         //Telling the app, that it is now allowed to done importing objects, so it can now download stuff if needed.
+        $('#download-progression').hide();
         hasDownloaded = true;
     }catch(e){
         $('.dl-progress-text').text("Innlasting har feilet med følgende feilmeling: " + e);
@@ -344,7 +347,7 @@ function createIWContent(station, isLive) {
             "<div id=\"secondRow\">"+//TODO: Images take up about 40MB Extra RAM -> Find a better solution for this!
             "<img class='img-to-load' src=\""+(/kommer/i.test(jsonData[station].csmd.Image.toLowerCase()) || /no.image.svg/i.test(jsonData[station].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[station].csmd.Image) + "\"/>" +
                 "<div id='placeNameIcons' style='color:blue;'>"+
-                    "<h3>"+ jsonData[station].csmd.name + "(ID:" + jsonData[station].csmd.id + ")</h3>" +
+                    "<h3>"+ jsonData[station].csmd.name + "(ID:" + station + ")</h3>" +
                 "</div>"+
                 "<div class='markerColor' style='background-color:"+ (isLive ? "lightgreen" : "blue") +";'>"+
                 "</div>"+
@@ -366,7 +369,7 @@ function createIWContent(station, isLive) {
                 "</div>"+
             "</div>"+
             "<div id='lowerContainer'>"+
-                "<button onclick='addWaypoint(" + jsonData[station].csmd.id + "," + pos[0] + "," + pos[1] + ")'>Legg til i rute</button>" +
+                '<button onclick="addWaypoint(\'' + station + '\')" >Legg til i rute</button>' +
                 '<button onclick="navigateFromUser(geopos, this)" value="'+ jsonData[station].csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
             "</div>"+
         "</div>";
@@ -376,10 +379,17 @@ function createIWContent(station, isLive) {
 /*
  * A method for adding a selected station to the waypoints
  */
-function addWaypoint(id, lat, lon){
-
-    var isLive = jsonData[id].attr.st[21].attrvalid == "1" ? true : false;
-    waypoints.push({location: lat + "," + lon});
+function addWaypoint(id){
+    var disPos = jsonData[id].csmd.Position.replace(/[()]/g,"").split(",");
+    var isLive = jsonData[id].attr.st[21].attrvalid == "1";
+    waypoints.push(
+        {location: new google.maps.LatLng(disPos[0],disPos[1])}
+    );
+    waypoints.sort(function (a, b){
+        var arr = [a.lat, a.lon];
+        var barr = [b.lat, b.lon];
+        return compareDistance(arr, barr) > 0 ? 1 : 0;
+    });
     var content =
         "<div class='route-element'>" +
             "<img src=\"" + (/kommer/i.test(jsonData[id].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[id].csmd.Image) + "\"/>" +
@@ -411,11 +421,3 @@ function removeWaypoint(element){
         navigate();
     }
 }
-
-/** 
- * Live data
- * API: http://java-coders.com/p/nobil/nobil-stream-api
- * Websocket:
- * - how to: https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications
- * - Wiki: https://en.wikipedia.org/wiki/WebSocket
- */

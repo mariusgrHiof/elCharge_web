@@ -37,6 +37,8 @@ function navigate(){
 
 function navigateFromUser(from, toel){
     var to = $(toel).attr('value');
+    $('#nav-start-pos').val(from);
+    $('#nav-end-pos').val(to);
     //Cleaning previous directions
     if(directionsDisplay != null){
         directionsDisplay.setMap(null);//The route in the map
@@ -61,6 +63,7 @@ function navigateFromUser(from, toel){
     //Allows us to do stuff when the route is dragged and/or changed.
     directionsDisplay.addListener('directions_changed', function() {
         computeTotalDistance(directionsDisplay.getDirections());
+        directionsDisplay.setDirections();
     });
 
     displayRoute(startDestination, endDestination, directionsService,directionsDisplay);
