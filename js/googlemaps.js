@@ -165,13 +165,17 @@ function setMapOnAll(map) {
 //Deleting all the markers
 function deleteMarkers() {
     setMapOnAll(null);
+    //Memory managenent
     for(l in markerListeners){
         delete markerListeners[l];
     }
     for(iw in infoWindows){
+        infoWindows[iw].setContent(null)
+        infoWindows[iw] = null;
         delete infoWindows[iw];
     }
     for(m in markers){
+        google.maps.event.clearInstanceListeners(markers[m]);
         delete markers[m];
     }
     markerListeners = [];
