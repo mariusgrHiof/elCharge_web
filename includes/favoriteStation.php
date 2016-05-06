@@ -55,10 +55,10 @@ if (isset($_SESSION['UserId'])) {
 
 
         } else {
-            echo "0 results";
+            echo "[{}]";
         }
     } else {
-        echo "Ugyldig id";
+        echo "[{'error':'Ugyldig id'}]";
     }
     $conn->close();
 } else {

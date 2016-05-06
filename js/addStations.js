@@ -139,6 +139,8 @@ function generateMarkers(){
                     if(isMatch)
                         addMarker(station);
                 }
+                if(inArray(station, favoriteStations))
+                    updateFavoriteStation(station);
                 loadedStations++;
                 progText = loadedStations + ' av ' + totalSize + ' stasjoner er lastet inn.';
                 //console.log(progText); //TODO -> printing out loading progression
@@ -163,6 +165,7 @@ function generateMarkers(){
     updateNearbyChargers();
 }
 
+
 function getCarMatch(portCount, station){
     var match = false;
     var connType;
@@ -170,7 +173,7 @@ function getCarMatch(portCount, station){
         //Checking if any connection ports match the user prefs
         try{
             connType = jsonData[station].attr.conn[c][4].attrvalid; //id
-            if(document.getElementById("select-car").value != 0 && !match && ($.inArray(connType, carModel)>0) && (selectedCapacity <= chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW)){
+            if(document.getElementById("select-car").value != 0 && !match && inArray(connType, carModel) && (selectedCapacity <= chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW)){
                 match = true;
                 console.log(document.getElementById("select-car").value +"Selected: " + selectedCapacity + " Current: " + chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW + " ID is: " +jsonData[station].attr.conn[c][5].attrvalid);
             }else if(document.getElementById("select-car").value == 0 && !match && (selectedCapacity <= chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW)){
@@ -340,7 +343,7 @@ function createIWContent(station, isLive) {
             "<div id=\"topBox\">"+
             "</div>"+
             "<div id=\"secondRow\">" +
-            "<img class='img-to-load' src=\""+(/kommer/i.test(jsonData[station].csmd.Image.toLowerCase()) || /no.image.svg/i.test(jsonData[station].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[station].csmd.Image) + "\"/>" +
+            "<img class='img-to-load' src=\""+ getStationImage(station) + "\"/>" +
                 "<div id='placeNameIcons' style='color:blue;'>"+
                     "<h3>"+ jsonData[station].csmd.name + "(ID:" + station + ")</h3>" +
                 "</div>"+
@@ -388,7 +391,7 @@ function addWaypoint(id){
     });
     var content =
         "<div class='route-element station-"+ id +"'>" +
-            "<img class='cover-third float-left' src=\"" + (/kommer/i.test(jsonData[id].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[id].csmd.Image) + "\"/>" +
+            "<img class='cover-third float-left' src=\"" + getStationImage(id) + "\"/>" +
             "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
                 "<Strong>" + jsonData[id].csmd.name +"</Strong>"+
                 "<p>" + jsonData[id].csmd.User_comment +"</p>"+
@@ -424,3 +427,12 @@ function removeWaypoint(element){
     }
 }
 
+function updateFavoriteStation(station){
+    $('#favorite-stations').append(
+        '<li class="border img-height-4em" >' +
+        '<img class="cover-third float-left img-height-4em" src="icons/logo.svg">' +
+        '<div>' + jsonData[station].csmd.name +
+
+        '</div>' +
+        '</li>');
+}

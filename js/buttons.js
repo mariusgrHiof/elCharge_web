@@ -31,34 +31,24 @@ function userLoggin(form){
             //Posting username and password
             username: $(form).children(":input[name='username']").val(),
             password: $(form).children(":input[name='password']").val() },
-        function( data ){
-            console.log("Logged in feedback = " + data );
-            //Populating the user logged in window.
-            //$('#logged-in').html( data );
+            function( data ){
+                console.log("Logged in feedback = " + data );
+                //Populating the user logged in window.
+                //$('#logged-in').html( data );
 
-            //Populating the favorite chargers and routes window
-            /*Some awesome method*/
-
-            favoriteStations = JSON.parse(data);
-
-            for (var stations in favoriteStations){
-
-
-                var stationId = favoriteStations[stations].station_id.split(' ').join('');
-                var station = jsonData[stationId];
-
-                $('#favorite-stations').append(
-
-                    '<li class="border img-height-4em" >' +
-                    '<img class="cover-third float-left img-height-4em" src="icons/logo.svg">' +
-                    '<div>' + station.csmd.name +
-
-                    '</div>' +
-                    '</li>');
+                //Populating the favorite chargers and routes window
+                /*Some awesome method*/
+                var national_id;
+                for(var obj in JSON.parse(data)){
+                    national_id = JSON.parse(data)[obj].station_id.split(' ').join('');
+                    favoriteStations[national_id] = JSON.parse(data)[obj];
+                    updateFavoriteStation(national_id);
+                }
             }
-    });
+    );
     return false;
 }
+
 function userRegistration(form){
     var path = "";
     if(phonegap)

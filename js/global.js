@@ -11,6 +11,7 @@ var downloadFrom = "2005-01-01";
 var url = "https://nobil.no/api/server/datadump.php?apikey=274b68192b056e268f128ff63bfcd4a4&fromdate=";
 
 var jsonData = new Array();
+var favoriteStations = [];
 var mc;
 
 var typeIDs = new Array();
@@ -268,3 +269,7 @@ function downloadDump(){
         $('.dl-progress-text').text("Nedlasingen har feilet med følgende feilmelding: " + err);
     }
 }
+
+//Strive to be lazy
+function inArray(key, array) {return $.inArray(key, array)>0;}
+function getStationImage(station){return (/kommer/i.test(jsonData[station].csmd.Image.toLowerCase()) || /no.image.svg/i.test(jsonData[station].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[station].csmd.Image);}
