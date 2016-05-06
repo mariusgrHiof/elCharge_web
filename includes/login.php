@@ -16,7 +16,7 @@
 <div id="register-popup">
     <a href="#" class="show-login">Logg inn </a>
     <a href="#" class="show-register">Registrer</a>
-    <form id="registration-form" action="javascript:;" onsubmit="userRegistration(this)>
+    <form id="registration-form" action="javascript:;" onsubmit="userRegistration(this)">
         <input type="text" name="username" placeholder="Brukernavn">
         <br>
         <input type="password" name="password" placeholder="Passord">

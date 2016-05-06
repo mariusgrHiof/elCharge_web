@@ -34,10 +34,28 @@ function userLoggin(form){
         function( data ){
             console.log("Logged in feedback = " + data );
             //Populating the user logged in window.
-            $('#logged-in').html( data );
+            //$('#logged-in').html( data );
 
             //Populating the favorite chargers and routes window
             /*Some awesome method*/
+
+            favoriteStations = JSON.parse(data);
+
+            for (var stations in favoriteStations){
+
+
+                var stationId = favoriteStations[stations].station_id.split(' ').join('');
+                var station = jsonData[stationId];
+
+                $('#favorite-stations').append(
+
+                    '<li class="border img-height-4em" >' +
+                    '<img class="cover-third float-left img-height-4em" src="icons/logo.svg">' +
+                    '<div>' + station.csmd.name +
+
+                    '</div>' +
+                    '</li>');
+            }
     });
     return false;
 }
@@ -59,6 +77,7 @@ function userRegistration(form){
             $('#logged-in').html( data );
             //Populating the favorite chargers and routes window
             /*Some awesome method*/
+
         });
     return false;
 }
