@@ -53,11 +53,22 @@ function initMap() {
         },
         scaleControl: true,
         streetViewControl: true,
-        streetViewControlOptions: {
+        panControlOptions: {
             position: google.maps.ControlPosition.RIGHT_BOTTOM
         }
 
     });
+
+    //Street view controls
+    var panoramaOptions = {
+        addressControlOptions:{
+            position: google.maps.ControlPosition.BOTTOM_CENTER
+        }
+    };
+    var sw = map.getStreetView().setOptions(panoramaOptions);
+
+
+    //sw.setAddressControlOptions({position: google.maps.ControlPosition.BOTTOM_CENTER});
     deviceTypeCheck();
     //Setting default map layer type to terrain
     map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
