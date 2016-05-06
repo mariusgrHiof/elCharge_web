@@ -14,7 +14,28 @@ var pathtest = [
     {lat: 36.34, lng: -117.468},  // Panama Mint Springs
     {lat: 36.24, lng: -116.832}];  // Badwater, Death Valley
 
-var mcOptions = {gridSize: 50, maxZoom: 15};
+var clusterStyles = [
+    {
+        textColor: 'black',
+        url: 'icons/markercluster.svg',
+        height: 50,
+        width: 50
+    },
+    {
+        textColor: 'black',
+        url: 'icons/markercluster.svg',
+        height: 50,
+        width: 50
+    },
+    {
+        textColor: 'black',
+        url: 'icons/markercluster.svg',
+        height: 50,
+        width: 50
+    }
+];
+
+var mcOptions = {gridSize: 50, maxZoom: 15, styles: clusterStyles};
 
 function initMap() {
     initiatedMap = true;
@@ -32,11 +53,22 @@ function initMap() {
         },
         scaleControl: true,
         streetViewControl: true,
-        streetViewControlOptions: {
+        panControlOptions: {
             position: google.maps.ControlPosition.RIGHT_BOTTOM
         }
 
     });
+
+    //Street view controls
+    var panoramaOptions = {
+        addressControlOptions:{
+            position: google.maps.ControlPosition.BOTTOM_CENTER
+        }
+    };
+    var sw = map.getStreetView().setOptions(panoramaOptions);
+
+
+    //sw.setAddressControlOptions({position: google.maps.ControlPosition.BOTTOM_CENTER});
     deviceTypeCheck();
     //Setting default map layer type to terrain
     map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
@@ -136,11 +168,6 @@ function initMap() {
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
         });
-        //Showing current user location
-        /**TODO: Fix! -> var GeoMarker = new GeolocationMarker(map);
-         * url: https://chadkillingsworth.github.io/geolocation-marker/
-         * alt url: https://toddmotto.com/using-html5-geolocation-to-show-current-location-with-google-maps-api/
-         */
     } else {
         // If the browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
@@ -150,7 +177,7 @@ function initMap() {
     if(phonegap){
         //Safeguarding against timeout for the cordovaWebView
         setTimeout(
-            document.addEventListener("deviceready", downloadDump(), false), 2000
+            document.addEventListener("deviceready", downloadDumpPG(), false), 2000
         );
     }
 }

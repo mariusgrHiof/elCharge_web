@@ -78,6 +78,13 @@ nav ul li ul{
     display:none;
     padding:1em;
 }
+.back-btn{
+    display:none;
+}
+.title-box > .back-btn{
+    display:block;
+    height:1em;
+}
 /*On toggle*/
 header.toggle nav{
     display:block;
@@ -96,6 +103,7 @@ header.toggle{
     float:left;
     border-bottom:1px black;
     margin:0.5em 0 0 0;
+    width:100%;
 }
 .route-element img{
     max-width:30%;

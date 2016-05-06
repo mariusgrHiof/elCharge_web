@@ -7,6 +7,7 @@ var contentString;
 var connectorsString;
 var infoWindows = [];
 var markerListeners = [];
+var selectedCapacity = 0;
 
 var typeIDs = new Array();
 typeIDs['0'] = "Unspecified";
@@ -71,35 +72,25 @@ var carModel = new Array();
  * Charging capacity
  * name, current, kw, v, max a
  * http://nobil.no/admin/attributes.php
- *
- * Attribute value id	Name	Translated	Key
- * 0	Unspecified
- * 1	Battery exchange
- * 7	3,6 kW - 230V 1-phase max 16A
- * 8	7,4 kW - 230V 1-phase max 32A
- * 10	11 kW - 400V 3-phase max 16A
- * 11	22 kW - 400V 3-phase max 32A
- * 12	43 kW - 400V 3-phase max 63A
- * 13	50 kW - 500VDC max 100A
- * 23	100 kW - 500VDC max 200A
- * 16	230V 3-phase max 16A
- * 17	230V 3-phase max 32A
- * 18	230V 3-phase max 63A
- * 19	20 kW - 500VDC max 50A
- * 20	Less then 100 kW + 43 kW - 500VDC max 200A + 400V 3-phase max 63A
- * 21	Less then 100 kW + 22 kW - 500VDC max 50A + 400V 3-phase max 32A
- * 22	135 kW - 480VDC max 270A
  */
 
-var chargingCapacity =[
-    {'id':0,'name':'Unspecified','current':'ukjent', 'watt':0, 'volt':0, 'ampere':0},
-    {'id':1,'name':'Battery exchange','current':'ukjent', 'watt':0, 'volt':0, 'ampere':0},
-    {'id':7, 'name':'3,6 kW - 230V 1-phase max 16A','current':'AC', 'kW':3.6, 'volt':230, 'ampere':16},//husholdning
-    {'id':8, 'name':'7,4 kW - 230V 1-phase max 32A','current':'AC', 'kW':7.4, 'volt':230, 'ampere':32},
-    {'id':10, 'name':'11 kW - 400V 3-phase max 16A','current':'AC', 'kW':11, 'volt':400, 'ampere':16},//semihurtig
-    {'id':11, 'name':'22 kW - 400V 3-phase max 32A','current':'AC', 'kW':22, 'volt':400, 'ampere':22}//semihurtig
-];
-
+var chargingCapacity =[];
+chargingCapacity[0] = {'id':0,'name':'Unspecified','current':'ukjent', 'kW':0, 'volt':0, 'ampere':0};
+chargingCapacity[1] = {'id':1,'name':'Battery exchange','current':'ukjent', 'kW':0, 'volt':0, 'ampere':0};
+chargingCapacity[7] = {'id':7, 'name':'3,6 kW - 230V 1-phase max 16A','current':'AC', 'kW':3.6, 'volt':230, 'ampere':16};
+chargingCapacity[8] = {'id':8, 'name':'7,4 kW - 230V 1-phase max 32A','current':'AC', 'kW':7.4, 'volt':230, 'ampere':32};
+chargingCapacity[10] = {'id':10, 'name':'11 kW - 400V 3-phase max 16A','current':'AC', 'kW':11, 'volt':400, 'ampere':16};
+chargingCapacity[11] = {'id':11, 'name':'22 kW - 400V 3-phase max 32A','current':'AC', 'kW':22, 'volt':400, 'ampere':22};
+chargingCapacity[12] = {'id':12, 'name':'43 kW - 400V 3-phase max 63A','current':'AC', 'kW':43, 'volt':400, 'ampere':63};
+chargingCapacity[13] = {'id':13, 'name':'50 kW - 500VDC max 100A','current':'DC', 'kW':50, 'volt':500, 'ampere':100};
+chargingCapacity[23] = {'id':23, 'name':'100 kW - 500VDC max 200A','current':'DC', 'kW':100, 'volt':500, 'ampere':200};
+chargingCapacity[16] = {'id':16, 'name':'230V 3-phase max 16A','current':'AC', 'kW':3.7, 'volt':230, 'ampere':16};
+chargingCapacity[17] = {'id':17, 'name':'230V 3-phase max 32A','current':'AC', 'kW':7.3, 'volt':230, 'ampere':32};
+chargingCapacity[18] = {'id':18, 'name':'230V 3-phase max 63A','current':'AC', 'kW':14.7, 'volt':230, 'ampere':64};
+chargingCapacity[19] = {'id':19, 'name':'20 kW - 500VDC max 50A','current':'DC', 'kW':20, 'volt':500, 'ampere':50};
+chargingCapacity[20] = {'id':20, 'name':'Less then 100 kW + 43 kW - 500VDC max 200A + 400V 3-phase max 63A','current':'DC', 'kW':43, 'volt':400, 'ampere':63};
+chargingCapacity[21] = {'id':21, 'name':'Less then 100 kW + 22 kW - 500VDC max 50A + 400V 3-phase max 32A','current':'DC', 'kW':22, 'volt':400, 'ampere':32};
+chargingCapacity[22] = {'id':22, 'name':'135 kW - 480VDC max 270A','current':'DC', 'kW':135, 'volt':480, 'ampere':270};
 
 
 var connectors = new Array();
@@ -127,9 +118,6 @@ function updateCarList(){
 var totalSize = 0;
 var loadedStations = 0;
 var progText;
-function cbTest() {
-
-}
 function generateMarkers(){
     $('#download-progression').show();
     loadedStations = 0;
@@ -137,46 +125,33 @@ function generateMarkers(){
     //TODO: Mer permanent fiks -> La brukeren velge selv
     var isPublic = false;
     try{
+        if(document.getElementById("select-car").value !=0)
+            carModel = carModels[document.getElementById("select-car").value];
         deleteMarkers();
         for(var station in jsonData){
-            connectors.length = 0;
-            isPublic = jsonData[station].attr.st[2].attrvalid == "1";
-            if(isPublic){
-                var numOfPorts = jsonData[station].csmd.Number_charging_points;
-                /**
-                 * TODO: Hvis ikke filtrer -> duplikater av conns O_o
-                 * TODO: Hvis filtrer -> Viser kun de kontakter som funker til bilen O_o
-                 */
-                //Checking filter
-                if(document.getElementById("select-car").value !=0){
-                    carModel = carModels[document.getElementById("select-car").value];
+            try{
+                connectors.length = 0;
+                isPublic = jsonData[station].attr.st[2].attrvalid == "1";
+                if(isPublic){
+                    //Checking filter
+                    var isMatch = getCarMatch(jsonData[station].csmd.Number_charging_points, station);
 
-                    //TODO: Fiks sånn at vi sjekker begge ladeportene og ikke kun den første av de.
-                    var isMatch = getCarMatch(numOfPorts, jsonData[station]);
-                    //TODO: Gjør sånn at det kun loopes igjennom connectors en gang! Tar MYE kortere tid
                     if(isMatch)
                         addMarker(station);
-                }else{
-                    for(var c = 1; c <= numOfPorts; c++){
-                        try{
-                            connectors.push(jsonData[station].attr.conn[c]);
-                        }catch(e){}
-                    }
-                    //Adding all charging stations
-                    addMarker(station);
                 }
+                loadedStations++;
+                progText = loadedStations + ' av ' + totalSize + ' stasjoner er lastet inn.';
+                //console.log(progText); //TODO -> printing out loading progression
+            }catch(err){
+                console.log(err);
             }
-            //TODO: Fjerne senere? + fikse noe form for progresjonsbar som kan kjøre i bakgrunnen ellnst..
-            loadedStations++;
-            progText = loadedStations + ' av ' + totalSize + ' stasjoner er lastet inn.';
-            $('.dl-progress-text').text("Oppdaterer ladestasjoner");//progText
-            console.log(progText); //TODO -> printing out loading progression
         }
+        //Telling the app, that it is now allowed to done importing objects, so it can now download stuff if needed.
+        $('#download-progression').hide();
+        hasDownloaded = true;
     }catch(e){
         $('.dl-progress-text').text("Innlasting har feilet med følgende feilmeling: " + e);
     }
-
-    getNearbyChargers();
     if(mc == null)
         mc = new MarkerClusterer(map, markers, mcOptions);
     else{
@@ -185,20 +160,27 @@ function generateMarkers(){
     }
     $('#download-progression').hide();
     hasDownloaded = true;
+    updateNearbyChargers();
 }
 
-function getCarMatch(portCount, object){
+function getCarMatch(portCount, station){
     var match = false;
     var connType;
     for(var c = 1; c <= portCount; c++){
         //Checking if any connection ports match the user prefs
         try{
-            connType = object.attr.conn[c][4].attrvalid; //id
-            if(!match && ($.inArray(connType, carModel)>0)){
-                match = true; //trans
+            connType = jsonData[station].attr.conn[c][4].attrvalid; //id
+            if(document.getElementById("select-car").value != 0 && !match && ($.inArray(connType, carModel)>0) && (selectedCapacity <= chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW)){
+                match = true;
+                console.log(document.getElementById("select-car").value +"Selected: " + selectedCapacity + " Current: " + chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW + " ID is: " +jsonData[station].attr.conn[c][5].attrvalid);
+            }else if(document.getElementById("select-car").value == 0 && !match && (selectedCapacity <= chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW)){
+               //If no car or type is selected
+               match = true;
             }
             connectors.push(object.attr.conn[c]);
-        }catch(e){}
+        }catch(e){
+            //console.log(e);
+        }
     }
     return match;
 }
@@ -302,9 +284,12 @@ function addMarker(station){
     markers.push(marker);
 
     //Building closest charging stations list
-    if(compareDistance(geopos, pos) <= 10){
-        chargers_nearby[chargers_nearby.length] = jsonData[station];
-    }
+    try{
+        if(compareDistance(geopos, pos) <= 10){
+            chargers_nearby[jsonData[station].csmd.id] = jsonData[station];
+            chargers_nearby[jsonData[station].csmd.id]["distance"] = compareDistance(geopos, pos);
+        }
+    }catch(e){console.log(e);}
 }
 
 //A method for generating the content of a infowindow
@@ -312,6 +297,11 @@ function createIWContent(station, isLive) {
     var isInService = true;
 
     var connStatus = "9";
+
+    var match = false;
+    var connType;
+    if(document.getElementById("select-car").value !=0)
+        carModel = carModels[document.getElementById("select-car").value];
 
     //Showing a info windows when you click on the marker
     connectorsString = '<div style="margin:0;">';
@@ -323,11 +313,13 @@ function createIWContent(station, isLive) {
                     connStatus = jsonData[station].attr.conn[c][8].attrvalid;
                 } catch(e) {}
             }
+            var capacity = (chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW);
+            var dass = (capacity >= 43 ? 'Hurtiglader' : (capacity >= 12 ? "Semihurtig": "Vanlig"));
             connectorsString +=
                 "<div class='cpelements'>"+
                     "<span style=\'color:black; width:90%; float:left;\'>"+
-                        jsonData[station].attr.conn[c][4].trans+
-                        "<br />" + jsonData[station].attr.conn[c][5].trans+
+                        jsonData[station].attr.conn[c][4].trans + "(" + dass +")" +
+                        "<br />" + jsonData[station].attr.conn[c][5].trans +
                     "</span>"+
                     "<div class='chargePointColor' style='background-color:"+ (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'>"+
                     "</div>"+
@@ -347,10 +339,10 @@ function createIWContent(station, isLive) {
         "<div id=\"station-tooltip\">"+
             "<div id=\"topBox\">"+
             "</div>"+
-            "<div id=\"secondRow\">"+//TODO: Images take up about 40MB Extra RAM -> Find a better solution for this!
+            "<div id=\"secondRow\">" +
             "<img class='img-to-load' src=\""+(/kommer/i.test(jsonData[station].csmd.Image.toLowerCase()) || /no.image.svg/i.test(jsonData[station].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[station].csmd.Image) + "\"/>" +
                 "<div id='placeNameIcons' style='color:blue;'>"+
-                    "<h3>"+ jsonData[station].csmd.name + "(ID:" + jsonData[station].csmd.id + ")</h3>" +
+                    "<h3>"+ jsonData[station].csmd.name + "(ID:" + station + ")</h3>" +
                 "</div>"+
                 "<div class='markerColor' style='background-color:"+ (isLive ? "lightgreen" : "blue") +";'>"+
                 "</div>"+
@@ -372,7 +364,7 @@ function createIWContent(station, isLive) {
                 "</div>"+
             "</div>"+
             "<div id='lowerContainer'>"+
-                "<button onclick='addWaypoint(" + jsonData[station].csmd.id + "," + pos[0] + "," + pos[1] + ")'>Legg til i rute</button>" +
+                '<button onclick="addWaypoint(\'' + station + '\')" >Legg til i rute</button>' +
                 '<button onclick="navigateFromUser(geopos, this)" value="'+ jsonData[station].csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
             "</div>"+
         "</div>";
@@ -382,16 +374,30 @@ function createIWContent(station, isLive) {
 /*
  * A method for adding a selected station to the waypoints
  */
-function addWaypoint(id, lat, lon){
-
-    var isLive = jsonData[id].attr.st[21].attrvalid == "1" ? true : false;
-    waypoints.push({location: lat + "," + lon});
+function addWaypoint(id){
+    var disPos = jsonData[id].csmd.Position.replace(/[()]/g,"").split(",");
+    var isLive = jsonData[id].attr.st[21].attrvalid == "1";
+    waypoints.push(
+        {location: new google.maps.LatLng(disPos[0],disPos[1])}
+    );
+    //TODO: SE PÅ!
+    waypoints.sort(function (a, b){
+        var arr = [a.lat, a.lon];
+        var barr = [b.lat, b.lon];
+        return compareDistance(arr, barr) > 0 ? 1 : 0;
+    });
     var content =
-        "<div class='route-element'>" +
-            "<img src=\"" + (/kommer/i.test(jsonData[id].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[id].csmd.Image) + "\"/>" +
-            "<span>" + jsonData[id].csmd.name +"</span>"+
-            "<div class='markerColor' style='background-color:"+ (isLive ? "lightgreen" : "blue") +";'>"+
-            "<button onclick=\"removeWaypoint(this)\">X</button></p>"+
+        "<div class='route-element station-"+ id +"'>" +
+            "<img class='cover-third float-left' src=\"" + (/kommer/i.test(jsonData[id].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[id].csmd.Image) + "\"/>" +
+            "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
+                "<Strong>" + jsonData[id].csmd.name +"</Strong>"+
+                "<p>" + jsonData[id].csmd.User_comment +"</p>"+
+                "<button onclick='readMorev2(this)'>Vis mer</button>"+
+                "<div class='read-more'>Stuff</div>"
+            "</div>"+
+            "<div class='markerColor' style='background-color:"+ (isLive ? "lightgreen" : "blue") +";'>" +
+                "<button onclick=\"removeWaypoint(this)\">X</button>" +
+            "</div>"+
         "</div>";
     document.getElementById('waypoint-list').innerHTML += content;
 
@@ -418,10 +424,3 @@ function removeWaypoint(element){
     }
 }
 
-/** 
- * Live data
- * API: http://java-coders.com/p/nobil/nobil-stream-api
- * Websocket:
- * - how to: https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications
- * - Wiki: https://en.wikipedia.org/wiki/WebSocket
- */

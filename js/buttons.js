@@ -123,9 +123,15 @@ function readMore(event, parent){
             $(element).removeClass('toggle');
         }
     }
-
 }
 
+function readMorev2(ele){
+    if(!$(ele).hasClass('toggle')){
+        $(ele).addClass('toggle');
+    }else{
+        $(ele).removeClass('toggle');
+    }
+}
 /**
  * Input listeners
  */
@@ -158,6 +164,15 @@ $('input[type=number]#bg-update-timer').change(
 //Changing the selected car and updating station markers accordingly
 $('#select-car').change(
     function(){
+        generateMarkers();
+    }
+);
+
+$("#selected-charger-capacity").change(
+    function(){
+        selectedCapacity = $(this).children(":input[name='kW']:checked").val();
+        console.log("Selected: " + selectedCapacity);
+        //Updating the map with markers
         generateMarkers();
     }
 );

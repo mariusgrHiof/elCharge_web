@@ -23,7 +23,7 @@ div#station-tooltip button{
 .read-more{
     display:none;
 }
-.read-more.toggle{
+.toggle + .read-more{
     display:block;
 }
 
