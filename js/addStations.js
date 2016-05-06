@@ -389,11 +389,14 @@ function addWaypoint(id){
     var content =
         "<div class='route-element station-"+ id +"'>" +
             "<img class='cover-third float-left' src=\"" + (/kommer/i.test(jsonData[id].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[id].csmd.Image) + "\"/>" +
-            "<div class='cover-twothird float-left'>"+
+            "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
                 "<Strong>" + jsonData[id].csmd.name +"</Strong>"+
-                "<div class='markerColor' style='background-color:"+ (isLive ? "lightgreen" : "blue") +";'>" +
-                    "<button onclick=\"removeWaypoint(this)\">X</button>" +
-                "</div>"+
+                "<p>" + jsonData[id].csmd.User_comment +"</p>"+
+                "<button onclick='readMorev2(this)'>Vis mer</button>"+
+                "<div class='read-more'>Stuff</div>"
+            "</div>"+
+            "<div class='markerColor' style='background-color:"+ (isLive ? "lightgreen" : "blue") +";'>" +
+                "<button onclick=\"removeWaypoint(this)\">X</button>" +
             "</div>"+
         "</div>";
     document.getElementById('waypoint-list').innerHTML += content;

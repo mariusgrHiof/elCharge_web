@@ -123,9 +123,15 @@ function readMore(event, parent){
             $(element).removeClass('toggle');
         }
     }
-
 }
 
+function readMorev2(ele){
+    if(!$(ele).hasClass('toggle')){
+        $(ele).addClass('toggle');
+    }else{
+        $(ele).removeClass('toggle');
+    }
+}
 /**
  * Input listeners
  */
