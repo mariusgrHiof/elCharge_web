@@ -387,11 +387,14 @@ function addWaypoint(id){
         return compareDistance(arr, barr) > 0 ? 1 : 0;
     });
     var content =
-        "<div class='route-element'>" +
-            "<img src=\"" + (/kommer/i.test(jsonData[id].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[id].csmd.Image) + "\"/>" +
-            "<span>" + jsonData[id].csmd.name +"</span>"+
-            "<div class='markerColor' style='background-color:"+ (isLive ? "lightgreen" : "blue") +";'>"+
-            "<button onclick=\"removeWaypoint(this)\">X</button></p>"+
+        "<div class='route-element station-"+ id +"'>" +
+            "<img class='cover-third float-left' src=\"" + (/kommer/i.test(jsonData[id].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[id].csmd.Image) + "\"/>" +
+            "<div class='cover-twothird float-left'>"+
+                "<Strong>" + jsonData[id].csmd.name +"</Strong>"+
+                "<div class='markerColor' style='background-color:"+ (isLive ? "lightgreen" : "blue") +";'>" +
+                    "<button onclick=\"removeWaypoint(this)\">X</button>" +
+                "</div>"+
+            "</div>"+
         "</div>";
     document.getElementById('waypoint-list').innerHTML += content;
 

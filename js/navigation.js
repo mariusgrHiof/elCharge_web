@@ -44,7 +44,7 @@ function navigateFromUser(from, toel){
         directionsDisplay.setMap(null);//The route in the map
     }
     if(document.getElementById('right-panel').innerHTML != null){
-        document.getElementById('right-panel').innerHTML = ""; //The route description
+        $("#right-panel").html(""); //The route description
     }
 
     console.log(to);
@@ -72,6 +72,7 @@ function navigateFromUser(from, toel){
 
 function clearRoute(){
     if(directionsDisplay != null){
+        $("#right-panel").html("");
         directionsDisplay.setMap(null);//The route in the map
     }
 }
@@ -107,24 +108,4 @@ function computeTotalDistance(result) {
     }
     total = total / 1000;
     document.getElementById('total').innerHTML = 'Total reise distanse '+ total + ' km';
-}
-
-/**
- * Autocomplete
- * Docs: https://developers.google.com/maps/documentation/javascript/places-autocomplete#introduction
- * TODO: FIX!
-*/
-function autocomplete(){
-
-
-    // Create the search box and link it to the UI element.
-    var input = document.getElementById('search-box');
-    var searchBox = new google.maps.places.SearchBox(input);
-    //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-    // Bias the SearchBox results towards current map's viewport.
-    map.addListener('bounds-changed', function() {
-        searchBox.setBounds(map.getBounds());
-    });
-
 }
