@@ -152,7 +152,7 @@ function downloadDumpPG(){
         type: 'POST',
         datatype:'json',
         contentType: 'application/json; charset=utf-8',
-        url: (downloadFrom == "2005-01-01" ? "datadump.json" : url + downloadFrom + "&format=json"),
+        url: (downloadFrom == "2005-01-01" && isAndroid ? "datadump.json" : url + downloadFrom + "&format=json"),
         data: {},
         success: function(i){
             console.log("File download completed");

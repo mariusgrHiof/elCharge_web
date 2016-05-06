@@ -72,24 +72,6 @@ var carModel = new Array();
  * Charging capacity
  * name, current, kw, v, max a
  * http://nobil.no/admin/attributes.php
- *
- * Attribute value id	Name	Translated	Key
- * 0	Unspecified
- * 1	Battery exchange
- * 7	3,6 kW - 230V 1-phase max 16A
- * 8	7,4 kW - 230V 1-phase max 32A
- * 10	11 kW - 400V 3-phase max 16A
- * 11	22 kW - 400V 3-phase max 32A
- * 12	43 kW - 400V 3-phase max 63A
- * 13	50 kW - 500VDC max 100A
- * 23	100 kW - 500VDC max 200A
- * 16	230V 3-phase max 16A
- * 17	230V 3-phase max 32A
- * 18	230V 3-phase max 63A
- * 19	20 kW - 500VDC max 50A
- * 20	Less then 100 kW + 43 kW - 500VDC max 200A + 400V 3-phase max 63A
- * 21	Less then 100 kW + 22 kW - 500VDC max 50A + 400V 3-phase max 32A
- * 22	135 kW - 480VDC max 270A
  */
 
 var chargingCapacity =[];
@@ -170,8 +152,6 @@ function generateMarkers(){
     }catch(e){
         $('.dl-progress-text').text("Innlasting har feilet med følgende feilmeling: " + e);
     }
-
-    getNearbyChargers();
     if(mc == null)
         mc = new MarkerClusterer(map, markers, mcOptions);
     else{
@@ -180,6 +160,7 @@ function generateMarkers(){
     }
     $('#download-progression').hide();
     hasDownloaded = true;
+    updateNearbyChargers();
 }
 
 function getCarMatch(portCount, station){
@@ -303,10 +284,12 @@ function addMarker(station){
     markers.push(marker);
 
     //Building closest charging stations list
-    if(compareDistance(geopos, pos) <= 10){
-        chargers_nearby[chargers_nearby.length] = jsonData[station];
-        chargers_nearby[chargers_nearby.length]["distance"] = compareDistance(geopos, pos);
-    }
+    try{
+        if(compareDistance(geopos, pos) <= 10){
+            chargers_nearby[jsonData[station].csmd.id] = jsonData[station];
+            chargers_nearby[jsonData[station].csmd.id]["distance"] = compareDistance(geopos, pos);
+        }
+    }catch(e){console.log(e);}
 }
 
 //A method for generating the content of a infowindow
