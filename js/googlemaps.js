@@ -16,19 +16,19 @@ var pathtest = [
 
 var clusterStyles = [
     {
-        textColor: 'blue',
+        textColor: 'black',
         url: 'icons/markercluster.svg',
         height: 50,
         width: 50
     },
     {
-        textColor: 'green',
+        textColor: 'black',
         url: 'icons/markercluster.svg',
         height: 50,
         width: 50
     },
     {
-        textColor: 'pink',
+        textColor: 'black',
         url: 'icons/markercluster.svg',
         height: 50,
         width: 50
