@@ -143,6 +143,8 @@ function generateMarkers(){
     //TODO: Mer permanent fiks -> La brukeren velge selv
     var isPublic = false;
     try{
+        if(document.getElementById("select-car").value !=0)
+            carModel = carModels[document.getElementById("select-car").value];
         deleteMarkers();
         for(var station in jsonData){
             try{
@@ -183,17 +185,14 @@ function generateMarkers(){
 function getCarMatch(portCount, station){
     var match = false;
     var connType;
-    if(document.getElementById("select-car").value !=0)
-        carModel = carModels[document.getElementById("select-car").value];
-
     for(var c = 1; c <= portCount; c++){
         //Checking if any connection ports match the user prefs
         try{
             connType = jsonData[station].attr.conn[c][4].attrvalid; //id
-            if(document.getElementById("select-car").value !=0 && !match && ($.inArray(connType, carModel)>0) && (selectedCapacity <= chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW)){
+            if(document.getElementById("select-car").value != 0 && !match && ($.inArray(connType, carModel)>0) && (selectedCapacity <= chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW)){
                 match = true;
-                console.log("Selected: " + selectedCapacity + " Current: " + chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW + " ID is: " +jsonData[station].attr.conn[c][5].attrvalid);
-            }else if(!match && (selectedCapacity <= chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW)){
+                console.log(document.getElementById("select-car").value +"Selected: " + selectedCapacity + " Current: " + chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW + " ID is: " +jsonData[station].attr.conn[c][5].attrvalid);
+            }else if(document.getElementById("select-car").value == 0 && !match && (selectedCapacity <= chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW)){
                //If no car or type is selected
                match = true;
             }
