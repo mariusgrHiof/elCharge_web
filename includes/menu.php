@@ -41,6 +41,11 @@
             <select id="select-car" name="car-model">
                 <option value="0">Vis alle ladere</option>
             </select></br>
+            <form id="selected-charger-capacity" action="">
+                <input type="radio" name="kW" value="0" checked> Alle kapasiteter<br>
+                <input type="radio" name="kW" value="12"> Semihurtig og hurtig<br>
+                <input type="radio" name="kW" value="43"> Hurtigladere
+            </form>
         </li>
         <li class="border">
             <?php include 'menu-items/chargers-nearby.html' ?>

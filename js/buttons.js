@@ -161,3 +161,12 @@ $('#select-car').change(
         generateMarkers();
     }
 );
+
+$("#selected-charger-capacity").change(
+    function(){
+        selectedCapacity = $(this).children(":input[name='kW']:checked").val();
+        console.log("Selected: " + selectedCapacity);
+        //Updating the map with markers
+        generateMarkers();
+    }
+);
