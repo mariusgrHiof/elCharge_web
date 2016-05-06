@@ -421,3 +421,4 @@ function removeWaypoint(element){
         navigate();
     }
 }
+

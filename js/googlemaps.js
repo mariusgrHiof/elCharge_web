@@ -14,7 +14,28 @@ var pathtest = [
     {lat: 36.34, lng: -117.468},  // Panama Mint Springs
     {lat: 36.24, lng: -116.832}];  // Badwater, Death Valley
 
-var mcOptions = {gridSize: 50, maxZoom: 15};
+var clusterStyles = [
+    {
+        textColor: 'blue',
+        url: 'icons/markercluster.svg',
+        height: 50,
+        width: 50
+    },
+    {
+        textColor: 'green',
+        url: 'icons/markercluster.svg',
+        height: 50,
+        width: 50
+    },
+    {
+        textColor: 'pink',
+        url: 'icons/markercluster.svg',
+        height: 50,
+        width: 50
+    }
+];
+
+var mcOptions = {gridSize: 50, maxZoom: 15, styles: clusterStyles};
 
 function initMap() {
     initiatedMap = true;
