@@ -165,28 +165,7 @@ function downloadDumpPG(){
                 data = i;
                 console.log(e);
             }
-            if(downloadFrom == "2005-01-01"){
-                jsonData = []; // We only need to create a empty array if we haven't already downloaded.
-            }
-            console.log("Yeah - "+ typeof data + data.chargerstations);
-            for(var st in data.chargerstations){
-                jsonData[data.chargerstations[st].csmd.International_id] = data.chargerstations[st];
-            }
-            /*
-            for(var i = 0; i < data.length; i++){
-                jsonData[data.chargerstations[i].csmd.International_id] = data.chargerstations[i];
-            }*/
-            //Adding markers
-            setTimeout(generateMarkers(),0.001);
-            try{
-                //Starting automatic location update
-                if(isMobile && phonegap)
-                    navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy: true, timeout: 100, maximumAge: 20000 });
-            }catch(e){
-                console.log("Failed: " + e);
-                $('.dl-progress-text').text("Innlasting har feilet med følgende feilmeling: " + e);
-            }
-            downloadFrom = updateTime();
+            processDL(data);
 
             event.preventDefault();
         },
@@ -238,25 +217,7 @@ function downloadDump(){
             url: url + downloadFrom + "&format=json",
             data: {},
             success: function(data){
-                console.log("File download completed");
-                $('.dl-progress-text').text("Laster inn ladestasjoner");//progText
-                if(downloadFrom == "2005-01-01")
-                    jsonData = []; // We only need to create a empty array if we haven't already downloaded.
-
-                for(var i = 0; i < data.chargerstations.length; i++){
-                    jsonData[data.chargerstations[i].csmd.International_id] = data.chargerstations[i];
-                }
-                //Adding markers
-                setTimeout(generateMarkers(),0.001);
-                try{
-                    //Starting automatic location update
-                    if(isMobile && phonegap)
-                        navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy: true, timeout: 100, maximumAge: 20000 });
-                }catch(e){
-                    console.log("Failed: " + e);
-                    $('.dl-progress-text').text("Innlasting har feilet med følgende feilmeling: " + e);
-                }
-                downloadFrom = updateTime();
+                processDL(data);
             },
             error: function(err){
                 console.log("Unable to download file: ");
@@ -270,10 +231,32 @@ function downloadDump(){
     }
 }
 
+function processDL(data){
+    console.log("File download completed");
+    $('.dl-progress-text').text("Laster inn ladestasjoner");//progText
+    if(downloadFrom == "2005-01-01")
+        jsonData = []; // We only need to create a empty array if we haven't already downloaded.
+
+    for(var i = 0; i < data.chargerstations.length; i++){
+        jsonData[data.chargerstations[i].csmd.International_id] = data.chargerstations[i];
+    }
+    //Adding markers
+    setTimeout(generateMarkers(),0.001);
+    try{
+        //Starting automatic location update
+        if(isMobile && phonegap)
+            navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy: true, timeout: 100, maximumAge: 20000 });
+    }catch(e){
+        console.log("Failed: " + e);
+        $('.dl-progress-text').text("Innlasting har feilet med følgende feilmeling: " + e);
+    }
+    downloadFrom = updateTime();
+}
+
 //Strive to be lazy
 function inArray(key, array) {return $.inArray(key, array)>0;}
 function getStationImage(station){return (/kommer/i.test(jsonData[station].csmd.Image.toLowerCase()) || /no.image.svg/i.test(jsonData[station].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[station].csmd.Image);}
-function connCapacityString (station){
-    var capacity = chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW;
+function connCapacityString (station, connectorID){
+    var capacity = chargingCapacity[jsonData[station].attr.conn[connectorID][5].attrvalid].kW;
     return capacity >= 43 ? 'Hurtiglader' : (capacity >= 12 ? "Semihurtig": "Vanlig");
 }

@@ -301,7 +301,7 @@ function createIWContent(station, isLive) {
             connectorsString +=
                 "<div class='cpelements'>"+
                     "<span style=\'color:black; width:90%; float:left;\'>"+
-                        jsonData[station].attr.conn[c][4].trans + "(" + connCapacityString(station) +")" +
+                        jsonData[station].attr.conn[c][4].trans + "(" + connCapacityString(station, c) +")" +
                         "<br />" + jsonData[station].attr.conn[c][5].trans +
                     "</span>"+
                     "<div class='chargePointColor' style='background-color:"+ (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'>"+
