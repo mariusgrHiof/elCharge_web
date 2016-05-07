@@ -391,7 +391,6 @@ function addWaypoint(id){
             "</div>"+
             "<button onclick='readMorev2(this)'>Vis mer</button>"+
             "<div class='read-more clear-both'>" +
-                jsonData[id].csmd.User_comment +
                 generateConnectorString(id,jsonData[id].attr.st[21].attrvalid == "1") +
             "</div>" +
         "</div>";
