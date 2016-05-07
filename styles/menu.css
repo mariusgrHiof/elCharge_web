@@ -115,6 +115,9 @@ header.toggle{
     max-width:50%;
 }
 
+.marg-bot-1em{
+    margin-bottom: 1em;
+  }
 /*
     Buttons
 */
@@ -141,9 +144,10 @@ select{
 .cover-twothird{
     width:66%;
 }
-.cover-twothird input{
+.cover-twothird input.cover-100{
     width:100%;
 }
+
 
 /*source = https://proto.io/freebies/onoff/*/
 .onoffswitch {

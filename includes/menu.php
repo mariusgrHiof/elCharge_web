@@ -35,17 +35,10 @@
     ?>
     <ul id="menu-list">
         <li>
-            Utfør bakgrundsoppdatering hvert
-            <input id="bg-update-timer" type="number" value="5"/> min(0 er aldrig). <br />
             Velg bilmodell
             <select id="select-car" name="car-model">
                 <option value="0">Vis alle ladere</option>
-            </select></br>
-            <form id="selected-charger-capacity" action="">
-                <input type="radio" name="kW" value="0" checked> Alle kapasiteter<br>
-                <input type="radio" name="kW" value="12"> Semihurtig og hurtig<br>
-                <input type="radio" name="kW" value="43"> Hurtigladere
-            </form>
+            </select>
         </li>
         <li class="border">
             <?php include 'menu-items/chargers-nearby.html' ?>
@@ -55,12 +48,12 @@
         </li>
         <li class="border">
             <?php include 'menu-items/route.html' ?>
-        </li><!--
-        <li class="border">
-            <?php //include 'menu-items/filter.html' ?>
+        </li>
+        <!--<li class="border">
+            <?php //include 'menu-items/overlay.html' ?>
         </li>-->
         <li class="border">
-            <?php include 'menu-items/overlay.html' ?>
+            <?php include 'menu-items/filter.html' ?>
         </li>
         <li class="border">
             <?php include 'menu-items/about-us.html' ?>
