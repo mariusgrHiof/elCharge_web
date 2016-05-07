@@ -204,7 +204,7 @@ function addMarker(station){
     //TODO: Fikse nestet short if: de markørene som har hurtigladekontakt skal ha _v2.svg (den med vinger)
 
     var markerIcon = {
-        url: 'icons/'+(isLive ? (hasFastCharge ? 'marker_green' : 'marker_green_v3'):(hasFastCharge ? 'marker_blue':'marker_blue_v3'))+'.svg', //Changing the color of the marker based on if it has live status or not.
+        url: 'icons/'+(isLive ? (hasFastCharge ? 'marker_green_v2' : 'marker_green_v3'):(hasFastCharge ? 'marker_blue_v2':'marker_blue_v3'))+'.svg', //Changing the color of the marker based on if it has live status or not.
         anchor: new google.maps.Point(0, 32),
         origin: new google.maps.Point(0, 0),
         scaledSize: new google.maps.Size(32, 51),
