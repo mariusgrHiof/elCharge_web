@@ -165,7 +165,6 @@ function generateMarkers(){
     }
     $('#download-progression').hide();
     hasDownloaded = true;
-    updateNearbyChargers();
 }
 
 

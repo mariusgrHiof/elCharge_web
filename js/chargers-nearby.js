@@ -46,18 +46,24 @@ function getNearbyChargers(){
         return a.distance - b.distance;
     });
     var thisPos = [];
+    var id;
     for(var station in chargers_nearby){
+        id = chargers_nearby[station].csmd.International_id;
         //If it is matching our filters and is available to the public
-        if(getCarMatch(chargers_nearby[station].csmd.Number_charging_points, chargers_nearby[station].csmd.International_id) && chargers_nearby[station].attr.st[2].attrvalid == "1"){
+        if(getCarMatch(chargers_nearby[station].csmd.Number_charging_points, id) && chargers_nearby[station].attr.st[2].attrvalid == "1"){
             thisPos = chargers_nearby[station].csmd.Position.replace(/[()]/g,"").split(",");
             $('#chargers-nearby').append(
                 '<li class="border img-height-4em">' +
-                '<img class="cover-third float-left img-height-4em" src=\"' + getStationImage(chargers_nearby[station].csmd.International_id) + '\"/>' +
-                '<div class="cover-twothird float-left">'+
-                '<strong class="float-left">' + chargers_nearby[station].csmd.name + '</strong><br />'+
-                '<span>' + Math.round(chargers_nearby[station].distance)+ 'km</span><br />'+
-                '<button onclick="navigateFromUser(geopos, this)" value="'+ thisPos +'">Ta meg hit</button>' +
-                '</div>' +
+                    '<img class="cover-third float-left img-height-4em" src=\"' + getStationImage(id) + '\"/>' +
+                    '<div class="cover-twothird float-left">'+
+                        '<strong class="float-left">' + chargers_nearby[station].csmd.name + '</strong><br />'+
+                        '<span>' + Math.round(chargers_nearby[station].distance)+ 'km</span><br />'+
+                        '<button onclick="navigateFromUser(geopos, this)" value="'+ thisPos +'">Ta meg hit</button>' +
+                        "<button onclick='readMorev2(this)'>Vis mer</button>"+
+                        "<div class='read-more clear-both'>" +
+                            generateConnectorString(id,jsonData[id].attr.st[21].attrvalid == "1") +
+                        "</div>" +
+                    '</div>' +
                 '</li>');
         }
     }

@@ -179,6 +179,11 @@ function initMap() {
         setTimeout(
             document.addEventListener("deviceready", downloadDumpPG(), false), 2000
         );
+        setInterval(function () {
+            //Updating the "nearby chargers" list
+            console.log("dadada");
+            updateNearbyChargers();
+        }, 10000);
     }
 }
 
