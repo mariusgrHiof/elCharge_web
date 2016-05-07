@@ -7,6 +7,4 @@
  */
 
 ?>
-<div id="logged-in">
-
-</div>
+<div id="logged-in"></div>

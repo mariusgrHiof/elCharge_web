@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
+    <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="fjernet kode som ikke ksu være der.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/userwindow.php" afterPath="$PROJECT_DIR$/includes/userwindow.php" />
     </list>
@@ -90,8 +90,8 @@
       <file leaf-file-name="userwindow.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/includes/userwindow.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+            <state relative-caret-position="60">
+              <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -454,14 +454,7 @@
       <workItem from="1462518257993" duration="14462000" />
       <workItem from="1462547905556" duration="4107000" />
       <workItem from="1462554139793" duration="3946000" />
-      <workItem from="1462576759156" duration="2932000" />
-    </task>
-    <task id="LOCAL-00116" summary="Geolocation oppdateres automatisk!">
-      <created>1461580228787</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1461580228787</updated>
+      <workItem from="1462576759156" duration="2980000" />
     </task>
     <task id="LOCAL-00117" summary="Geolocation oppdateres automatisk!">
       <created>1461580470936</created>
@@ -799,11 +792,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462579289209</updated>
     </task>
-    <option name="localTasksCounter" value="165" />
+    <task id="LOCAL-00165" summary="fjernet kode som ikke ksu være der.">
+      <created>1462579812746</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1462579812746</updated>
+    </task>
+    <option name="localTasksCounter" value="166" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="248025000" />
+    <option name="totallyTimeSpent" value="248073000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -851,7 +851,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="litt tooltips.css" />
     <MESSAGE value="exampleObject clean up" />
     <MESSAGE value="Fikset sånn at det alltid er siste versjon av nobil databasen som blir lastet ned til brukeren :) Fikset det med å legge inn &quot;contenttype&quot; til jsonp." />
     <MESSAGE value="Mobilversjon funker nå..." />
@@ -876,7 +875,8 @@
     <MESSAGE value="Fikset bug som gjorde at bil filterekt ikke fungerte riktig" />
     <MESSAGE value="Fikser streetview controls! FINALLY!" />
     <MESSAGE value="quality of life for a lazy programmer" />
-    <option name="LAST_COMMIT_MESSAGE" value="quality of life for a lazy programmer" />
+    <MESSAGE value="fjernet kode som ikke ksu være der." />
+    <option name="LAST_COMMIT_MESSAGE" value="fjernet kode som ikke ksu være der." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1283,8 +1283,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/userwindow.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+        <state relative-caret-position="60">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
           <folding />
         </state>
       </provider>
