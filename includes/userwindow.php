@@ -8,7 +8,5 @@
 
 ?>
 <div id="logged-in">
-    <!--<?php include 'checkloggin.php' ?> -->
-
 
 </div>
