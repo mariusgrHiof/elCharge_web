@@ -66,7 +66,7 @@ carModels['Think'] = schuko;
 carModels['VW e-Golf'] = schuko.concat(schuko, type2, combo);
 carModels['VW e-up!'] = schuko.concat(schuko, type1, type2);
 
-var carModel = new Array();
+var usersCarConns = new Array();
 
 /*
  * Charging capacity
@@ -126,7 +126,7 @@ function generateMarkers(){
     var isPublic = false;
     try{
         if(document.getElementById("select-car").value !=0)
-            carModel = carModels[document.getElementById("select-car").value];
+            usersCarConns = carModels[document.getElementById("select-car").value];
         deleteMarkers();
         for(var station in jsonData){
             try{
@@ -173,9 +173,8 @@ function getCarMatch(portCount, station){
         //Checking if any connection ports match the user prefs
         try{
             connType = jsonData[station].attr.conn[c][4].attrvalid; //id
-            if(document.getElementById("select-car").value != 0 && !match && inArray(connType, carModel) && (selectedCapacity <= chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW)){
+            if(document.getElementById("select-car").value != 0 && !match && inArray(connType, usersCarConns) && (selectedCapacity <= chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW)){
                 match = true;
-                console.log(document.getElementById("select-car").value +"Selected: " + selectedCapacity + " Current: " + chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW + " ID is: " +jsonData[station].attr.conn[c][5].attrvalid);
             }else if(document.getElementById("select-car").value == 0 && !match && (selectedCapacity <= chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW)){
                //If no car or type is selected
                match = true;
@@ -184,24 +183,6 @@ function getCarMatch(portCount, station){
         }catch(e){
             //console.log(e);
         }
-    }
-    return match;
-}
-
-function getMatchConnectorType(index, portCount, object){
-    var match = false;
-    var connType;
-    for(var c = 1; c <= portCount; c++){
-        console.log("connector num: "+c);
-        //Checking if any connection ports match the user prefs
-        try{
-            connType = object.attr.conn[c][4].trans;//.attrvalid;//Getting one of the connectors ID
-            if(!match && connType.indexOf(typeIDs[document.getElementById("select_port").value]) >= 0){// == typeID)
-                match = true; //trans
-                console.log('index: ' + connectorArray.length-1 + ' trans: ' + object.attr.conn[c][4].trans);
-            }
-            connectors.push(object.attr.conn[c]);
-        }catch(e){}
     }
     return match;
 }
@@ -304,7 +285,7 @@ function createIWContent(station, isLive) {
     var match = false;
     var connType;
     if(document.getElementById("select-car").value !=0)
-        carModel = carModels[document.getElementById("select-car").value];
+        usersCarConns = carModels[document.getElementById("select-car").value];
 
     //Showing a info windows when you click on the marker
     connectorsString = '<div style="margin:0;">';
@@ -332,7 +313,7 @@ function createIWContent(station, isLive) {
     }
     connectorsString += "</div>";
 
-    
+
 
     //var latlng = new Array();//{lat:  lng: };
     //latlng.push();
