@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/menu-items/help.html" afterPath="$PROJECT_DIR$/includes/menu-items/help.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/addStations.js" afterPath="$PROJECT_DIR$/js/addStations.js" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,26 +45,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/addStations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3060">
-              <caret line="206" column="120" selection-start-line="206" selection-start-column="120" selection-end-line="206" selection-end-column="120" />
+            <state relative-caret-position="287">
+              <caret line="390" column="21" selection-start-line="390" selection-start-column="21" selection-end-line="390" selection-end-column="21" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
-                <marker date="1462617708000" expanded="true" signature="11951:11960" placeholder="..." />
-                <marker date="1462617708000" expanded="true" signature="12478:12513" placeholder="..." />
-                <marker date="1462617708000" expanded="true" signature="12795:12939" placeholder="..." />
-                <marker date="1462617708000" expanded="true" signature="13626:15763" placeholder="..." />
-                <marker date="1462617708000" expanded="true" signature="13858:13869" placeholder="..." />
-                <marker date="1462617708000" expanded="true" signature="14037:14093" placeholder="..." />
-                <marker date="1462617708000" expanded="true" signature="14184:15431" placeholder="..." />
-                <marker date="1462617708000" expanded="true" signature="14223:15071" placeholder="..." />
-                <marker date="1462617708000" expanded="true" signature="15151:15196" placeholder="..." />
-                <marker date="1462617708000" expanded="true" signature="16511:16537" placeholder="..." />
-                <marker date="1462617708000" expanded="true" signature="16863:16919" placeholder="..." />
-                <marker date="1462617708000" expanded="true" signature="17848:18020" placeholder="..." />
-                <marker date="1462617708000" expanded="true" signature="17952:18002" placeholder="..." />
+                <marker date="1462619036000" expanded="true" signature="12387:14524" placeholder="..." />
+                <marker date="1462619036000" expanded="true" signature="12619:12630" placeholder="..." />
+                <marker date="1462619036000" expanded="true" signature="12798:12854" placeholder="..." />
+                <marker date="1462619036000" expanded="true" signature="12945:14192" placeholder="..." />
+                <marker date="1462619036000" expanded="true" signature="12984:13832" placeholder="..." />
+                <marker date="1462619036000" expanded="true" signature="13912:13957" placeholder="..." />
+                <marker date="1462619036000" expanded="true" signature="14692:14701" placeholder="..." />
+                <marker date="1462619036000" expanded="true" signature="15205:15240" placeholder="..." />
+                <marker date="1462619036000" expanded="true" signature="15498:15642" placeholder="..." />
+                <marker date="1462619036000" expanded="true" signature="16440:17191" placeholder="..." />
+                <marker date="1462619036000" expanded="true" signature="16579:16605" placeholder="..." />
+                <marker date="1462619036000" expanded="true" signature="16606:16694" placeholder="..." />
+                <marker date="1462619036000" expanded="true" signature="16743:16799" placeholder="..." />
+                <marker date="1462619036000" expanded="true" signature="18006:18178" placeholder="..." />
+                <marker date="1462619036000" expanded="true" signature="18110:18160" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -90,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="help.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="help.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/menu-items/help.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="130" selection-start-line="14" selection-start-column="130" selection-end-line="14" selection-end-column="130" />
+            <state relative-caret-position="300">
+              <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -182,8 +184,8 @@
         <option value="$PROJECT_DIR$/includes/menu.php" />
         <option value="$PROJECT_DIR$/styles/menu.css" />
         <option value="$PROJECT_DIR$/includes/menu-items/filter.html" />
-        <option value="$PROJECT_DIR$/js/addStations.js" />
         <option value="$PROJECT_DIR$/includes/menu-items/help.html" />
+        <option value="$PROJECT_DIR$/js/addStations.js" />
       </list>
     </option>
   </component>
@@ -485,14 +487,8 @@
       <workItem from="1462554139793" duration="3946000" />
       <workItem from="1462576759156" duration="4785000" />
       <workItem from="1462613898383" duration="3574000" />
-      <workItem from="1462618265399" duration="8000" />
-    </task>
-    <task id="LOCAL-00124" summary="...">
-      <created>1461585963541</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1461585963541</updated>
+      <workItem from="1462618265399" duration="34000" />
+      <workItem from="1462618433226" duration="633000" />
     </task>
     <task id="LOCAL-00125" summary="css fix for dl bar og tooltip">
       <created>1461605932830</created>
@@ -830,11 +826,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462617897908</updated>
     </task>
-    <option name="localTasksCounter" value="173" />
+    <task id="LOCAL-00173" summary="skriveleif">
+      <created>1462618282014</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1462618282015</updated>
+    </task>
+    <option name="localTasksCounter" value="174" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="253460000" />
+    <option name="totallyTimeSpent" value="254119000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -849,7 +852,7 @@
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1629393" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16453674" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.50437635" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -882,7 +885,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix til innlogging på tlf" />
     <MESSAGE value="Litt code cleanup" />
     <MESSAGE value="Bilder skal nå kun lastes inn i minnet om de trykkes på." />
     <MESSAGE value="- Alle andre vinduer en det som er trykket på lukkes nå. (Laget en array med alle infowindows i)&#10;- [Minne tewak] Bilder skal nå lastes riktig ved klikking på et infovindu.&#10;- [Minne tewak] Andre minne tweaks" />
@@ -907,7 +909,8 @@
     <MESSAGE value="Ryddet i menyer osv" />
     <MESSAGE value="Egne markører for hurtigladere" />
     <MESSAGE value="korrigering i markører" />
-    <option name="LAST_COMMIT_MESSAGE" value="korrigering i markører" />
+    <MESSAGE value="skriveleif" />
+    <option name="LAST_COMMIT_MESSAGE" value="skriveleif" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1248,29 +1251,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/addStations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3060">
-          <caret line="206" column="120" selection-start-line="206" selection-start-column="120" selection-end-line="206" selection-end-column="120" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-            <marker date="1462617708000" expanded="true" signature="11951:11960" placeholder="..." />
-            <marker date="1462617708000" expanded="true" signature="12478:12513" placeholder="..." />
-            <marker date="1462617708000" expanded="true" signature="12795:12939" placeholder="..." />
-            <marker date="1462617708000" expanded="true" signature="13626:15763" placeholder="..." />
-            <marker date="1462617708000" expanded="true" signature="13858:13869" placeholder="..." />
-            <marker date="1462617708000" expanded="true" signature="14037:14093" placeholder="..." />
-            <marker date="1462617708000" expanded="true" signature="14184:15431" placeholder="..." />
-            <marker date="1462617708000" expanded="true" signature="14223:15071" placeholder="..." />
-            <marker date="1462617708000" expanded="true" signature="15151:15196" placeholder="..." />
-            <marker date="1462617708000" expanded="true" signature="16511:16537" placeholder="..." />
-            <marker date="1462617708000" expanded="true" signature="16863:16919" placeholder="..." />
-            <marker date="1462617708000" expanded="true" signature="17848:18020" placeholder="..." />
-            <marker date="1462617708000" expanded="true" signature="17952:18002" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/menu-items/filter.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1281,8 +1261,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/menu-items/help.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="130" selection-start-line="14" selection-start-column="130" selection-end-line="14" selection-end-column="130" />
+        <state relative-caret-position="300">
+          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -1292,6 +1272,31 @@
         <state relative-caret-position="2190">
           <caret line="146" column="31" selection-start-line="146" selection-start-column="31" selection-end-line="146" selection-end-column="31" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/addStations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="390" column="21" selection-start-line="390" selection-start-column="21" selection-end-line="390" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+            <marker date="1462619036000" expanded="true" signature="12387:14524" placeholder="..." />
+            <marker date="1462619036000" expanded="true" signature="12619:12630" placeholder="..." />
+            <marker date="1462619036000" expanded="true" signature="12798:12854" placeholder="..." />
+            <marker date="1462619036000" expanded="true" signature="12945:14192" placeholder="..." />
+            <marker date="1462619036000" expanded="true" signature="12984:13832" placeholder="..." />
+            <marker date="1462619036000" expanded="true" signature="13912:13957" placeholder="..." />
+            <marker date="1462619036000" expanded="true" signature="14692:14701" placeholder="..." />
+            <marker date="1462619036000" expanded="true" signature="15205:15240" placeholder="..." />
+            <marker date="1462619036000" expanded="true" signature="15498:15642" placeholder="..." />
+            <marker date="1462619036000" expanded="true" signature="16440:17191" placeholder="..." />
+            <marker date="1462619036000" expanded="true" signature="16579:16605" placeholder="..." />
+            <marker date="1462619036000" expanded="true" signature="16606:16694" placeholder="..." />
+            <marker date="1462619036000" expanded="true" signature="16743:16799" placeholder="..." />
+            <marker date="1462619036000" expanded="true" signature="18006:18178" placeholder="..." />
+            <marker date="1462619036000" expanded="true" signature="18110:18160" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

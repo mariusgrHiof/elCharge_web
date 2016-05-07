@@ -284,9 +284,7 @@ function addMarker(station){
 
 //A method for generating the content of a infowindow
 function createIWContent(station, isLive) {
-    var isInService = true;
 
-    var connStatus = "9";
 
     var match = false;
     var connType;
@@ -294,30 +292,7 @@ function createIWContent(station, isLive) {
         usersCarConns = carModels[document.getElementById("select-car").value];
 
     //Showing a info windows when you click on the marker
-    connectorsString = '<div style="margin:0;">';
-    for(var c = 1; c <= jsonData[station].csmd.Number_charging_points; c++){
-        try{//Could be one single string.. I know..and now it is, WOW
-            if(isLive){
-                try {
-                    isInService = jsonData[station].attr.conn[c][9].attrvalid == "0";
-                    connStatus = jsonData[station].attr.conn[c][8].attrvalid;
-                } catch(e) {}
-            }
-
-            connectorsString +=
-                "<div class='cpelements'>"+
-                    "<span style=\'color:black; width:90%; float:left;\'>"+
-                        jsonData[station].attr.conn[c][4].trans + "(" + connCapacityString(station, c) +")" +
-                        "<br />" + jsonData[station].attr.conn[c][5].trans +
-                    "</span>"+
-                    "<div class='chargePointColor' style='background-color:"+ (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'>"+
-                    "</div>"+
-                "</div>";
-        }catch(e){
-            console.log('Failed to build connectorsString for ' + jsonData[station].csmd.name);
-        }
-    }
-    connectorsString += "</div>";
+    connectorsString = generateConnectorString(station, isLive);
 
 
 
@@ -360,6 +335,35 @@ function createIWContent(station, isLive) {
         "</div>";
     return contentString;
 }
+function generateConnectorString(station, isLive){
+    var isInService = true;
+    var connStatus = "9";
+
+    var result = '<div style="margin:0;">';
+    for(var c = 1; c <= jsonData[station].csmd.Number_charging_points; c++){
+        try{//Could be one single string.. I know..and now it is, WOW
+            if(isLive){
+                try {
+                    isInService = jsonData[station].attr.conn[c][9].attrvalid == "0";
+                    connStatus = jsonData[station].attr.conn[c][8].attrvalid;
+                } catch(e) {}
+            }
+
+            result +=
+                "<div class='cpelements'>"+
+                "<span style=\'color:black; width:90%; float:left;\'>"+
+                jsonData[station].attr.conn[c][4].trans + "(" + connCapacityString(station, c) +")" +
+                "<br />" + jsonData[station].attr.conn[c][5].trans +
+                "</span>"+
+                "<div class='chargePointColor' style='background-color:"+ (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'>"+
+                "</div>"+
+                "</div>";
+        }catch(e){
+            console.log('Failed to build connectorsString for ' + jsonData[station].csmd.name);
+        }
+    }
+    return result += "</div>";
+}
 
 /*
  * A method for adding a selected station to the waypoints
@@ -381,13 +385,15 @@ function addWaypoint(id){
             "<img class='cover-third float-left' src=\"" + getStationImage(id) + "\"/>" +
             "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
                 "<Strong>" + jsonData[id].csmd.name +"</Strong>"+
-                "<p>" + jsonData[id].csmd.User_comment +"</p>"+
-                "<button onclick='readMorev2(this)'>Vis mer</button>"+
-                "<div class='read-more'>Stuff</div>"
             "</div>"+
             "<div class='markerColor' style='background-color:"+ (isLive ? "lightgreen" : "blue") +";'>" +
                 "<button onclick=\"removeWaypoint(this)\">X</button>" +
             "</div>"+
+            "<button onclick='readMorev2(this)'>Vis mer</button>"+
+            "<div class='read-more clear-both'>" +
+                jsonData[id].csmd.User_comment +
+                generateConnectorString(id,jsonData[id].attr.st[21].attrvalid == "1") +
+            "</div>" +
         "</div>";
     document.getElementById('waypoint-list').innerHTML += content;
 
