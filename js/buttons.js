@@ -41,7 +41,7 @@ function userLoggin(form){
                 var national_id;
                 $("#favorite-stations").html("");
                 for(var obj in JSON.parse(data)){
-                    national_id = JSON.parse(data)[obj].station_id.split(' ').join('');
+                    national_id = JSON.parse(data)[obj].station_id;
                     favoriteStations[national_id] = JSON.parse(data)[obj];
                     updateFavoriteStation(national_id);
                 }
