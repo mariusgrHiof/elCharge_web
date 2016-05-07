@@ -118,6 +118,9 @@ function updateCarList(){
 var totalSize = 0;
 var loadedStations = 0;
 var progText;
+
+var hasFastCharge = false; // For the marker icons
+
 function generateMarkers(){
     $('#download-progression').show();
     loadedStations = 0;
@@ -169,6 +172,8 @@ function generateMarkers(){
 function getCarMatch(portCount, station){
     var match = false;
     var connType;
+    var hasFastCharge_temp = false;
+    hasFastCharge = false;
     for(var c = 1; c <= portCount; c++){
         //Checking if any connection ports match the user prefs
         try{
@@ -179,6 +184,9 @@ function getCarMatch(portCount, station){
                //If no car or type is selected
                match = true;
             }
+            //For the markers, to indicate if a station has a fast charger or not!
+            if(!hasFastCharge_temp && (fastCharge <= chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW))
+                hasFastCharge = true;
             connectors.push(object.attr.conn[c]);
         }catch(e){
             //console.log(e);
@@ -193,12 +201,10 @@ function addMarker(station){
 
     var isLive = jsonData[station].attr.st[21].attrvalid == "1";
 
-
-
     //TODO: Fikse nestet short if: de markørene som har hurtigladekontakt skal ha _v2.svg (den med vinger)
 
     var markerIcon = {
-        url: 'icons/'+(isLive ? 'marker_green_v3':'marker_blue_v3')+'.svg', //Changing the color of the marker based on if it has live status or not.
+        url: 'icons/'+(isLive ? (hasFastCharge ? 'marker_green' : 'marker_green_v3'):(hasFastCharge ? 'marker_blue':'marker_blue_v3'))+'.svg', //Changing the color of the marker based on if it has live status or not.
         anchor: new google.maps.Point(0, 32),
         origin: new google.maps.Point(0, 0),
         scaledSize: new google.maps.Size(32, 51),
