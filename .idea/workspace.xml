@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/addStations.js" afterPath="$PROJECT_DIR$/js/addStations.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/scripts.php" afterPath="$PROJECT_DIR$/includes/scripts.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/googlemaps.js" afterPath="$PROJECT_DIR$/js/googlemaps.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/ios.css" afterPath="$PROJECT_DIR$/styles/ios.css" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,29 +47,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/addStations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
+            <state relative-caret-position="459">
               <caret line="392" column="50" selection-start-line="392" selection-start-column="50" selection-end-line="392" selection-end-column="50" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
-                <marker date="1462619307000" expanded="true" signature="12387:14524" placeholder="..." />
-                <marker date="1462619307000" expanded="true" signature="12619:12630" placeholder="..." />
-                <marker date="1462619307000" expanded="true" signature="12798:12854" placeholder="..." />
-                <marker date="1462619307000" expanded="true" signature="12945:14192" placeholder="..." />
-                <marker date="1462619307000" expanded="true" signature="12984:13832" placeholder="..." />
-                <marker date="1462619307000" expanded="true" signature="13912:13957" placeholder="..." />
-                <marker date="1462619307000" expanded="true" signature="14692:14701" placeholder="..." />
-                <marker date="1462619307000" expanded="true" signature="15205:15240" placeholder="..." />
-                <marker date="1462619307000" expanded="true" signature="15498:15642" placeholder="..." />
-                <marker date="1462619307000" expanded="true" signature="16440:17142" placeholder="..." />
-                <marker date="1462619307000" expanded="true" signature="16579:16605" placeholder="..." />
-                <marker date="1462619307000" expanded="true" signature="16606:16694" placeholder="..." />
-                <marker date="1462619307000" expanded="true" signature="16743:16799" placeholder="..." />
-                <marker date="1462619307000" expanded="true" signature="17957:18129" placeholder="..." />
-                <marker date="1462619307000" expanded="true" signature="18061:18111" placeholder="..." />
+                <marker date="1462627794000" expanded="true" signature="12387:14524" placeholder="..." />
+                <marker date="1462627794000" expanded="false" signature="12619:12630" placeholder="..." />
+                <marker date="1462627794000" expanded="false" signature="12798:12854" placeholder="..." />
+                <marker date="1462627794000" expanded="true" signature="12945:14192" placeholder="..." />
+                <marker date="1462627794000" expanded="true" signature="12984:13832" placeholder="..." />
+                <marker date="1462627794000" expanded="true" signature="13912:13957" placeholder="..." />
+                <marker date="1462627794000" expanded="true" signature="14692:14701" placeholder="..." />
+                <marker date="1462627794000" expanded="true" signature="15205:15240" placeholder="..." />
+                <marker date="1462627794000" expanded="true" signature="15498:15642" placeholder="..." />
+                <marker date="1462627794000" expanded="true" signature="16579:16605" placeholder="..." />
+                <marker date="1462627794000" expanded="true" signature="16743:16799" placeholder="..." />
+                <marker date="1462627794000" expanded="true" signature="17957:18129" placeholder="..." />
+                <marker date="1462627794000" expanded="true" signature="18061:18111" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ios.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/styles/ios.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="55" column="1" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,8 +105,28 @@
       <file leaf-file-name="menu.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/styles/menu.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="1905">
               <caret line="127" column="14" selection-start-line="127" selection-start-column="14" selection-end-line="127" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="googlemaps.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="51" column="62" selection-start-line="51" selection-start-column="62" selection-end-line="51" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="scripts.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/includes/scripts.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -151,8 +181,6 @@
         <option value="$PROJECT_DIR$/GetStations.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/includes/scripts.php" />
-        <option value="$PROJECT_DIR$/styles/ios.css" />
         <option value="$PROJECT_DIR$/includes/menu-items/route.html" />
         <option value="$PROJECT_DIR$/styles/mobile.css" />
         <option value="$PROJECT_DIR$/includes/header.php" />
@@ -160,7 +188,6 @@
         <option value="$PROJECT_DIR$/styles/login.css" />
         <option value="$PROJECT_DIR$/includes/menu-items/chargers-nearby.html" />
         <option value="$PROJECT_DIR$/js/include.js" />
-        <option value="$PROJECT_DIR$/js/googlemaps.js" />
         <option value="$PROJECT_DIR$/js/navigation.js" />
         <option value="$PROJECT_DIR$/styles/tooltips.css" />
         <option value="$PROJECT_DIR$/includes/checkloggin.php" />
@@ -176,6 +203,9 @@
         <option value="$PROJECT_DIR$/includes/menu-items/help.html" />
         <option value="$PROJECT_DIR$/styles/menu.css" />
         <option value="$PROJECT_DIR$/js/addStations.js" />
+        <option value="$PROJECT_DIR$/styles/ios.css" />
+        <option value="$PROJECT_DIR$/js/googlemaps.js" />
+        <option value="$PROJECT_DIR$/includes/scripts.php" />
       </list>
     </option>
   </component>
@@ -190,7 +220,7 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="height" value="1200" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -217,7 +247,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -313,6 +342,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -479,6 +509,7 @@
       <workItem from="1462613898383" duration="3574000" />
       <workItem from="1462618265399" duration="34000" />
       <workItem from="1462618433226" duration="879000" />
+      <workItem from="1462627805541" duration="1168000" />
     </task>
     <task id="LOCAL-00127" summary="Fikset bug som gjør at det kun ble vist hvilke kontakter som var match for bilen i laderpunkt listen for en gitt ladestasjon.">
       <created>1462013381473</created>
@@ -827,7 +858,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254365000" />
+    <option name="totallyTimeSpent" value="255533000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -839,19 +870,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16453674" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16613418" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.50437635" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33366337" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33303887" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32773852" sideWeight="0.49562362" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1000,20 +1031,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/scripts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/ios.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/styles/mobile.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1074,13 +1091,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -1259,7 +1269,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/styles/menu.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="1905">
           <caret line="127" column="14" selection-start-line="127" selection-start-column="14" selection-end-line="127" selection-end-column="14" />
           <folding />
         </state>
@@ -1267,26 +1277,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/addStations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
+        <state relative-caret-position="459">
           <caret line="392" column="50" selection-start-line="392" selection-start-column="50" selection-end-line="392" selection-end-column="50" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
-            <marker date="1462619307000" expanded="true" signature="12387:14524" placeholder="..." />
-            <marker date="1462619307000" expanded="true" signature="12619:12630" placeholder="..." />
-            <marker date="1462619307000" expanded="true" signature="12798:12854" placeholder="..." />
-            <marker date="1462619307000" expanded="true" signature="12945:14192" placeholder="..." />
-            <marker date="1462619307000" expanded="true" signature="12984:13832" placeholder="..." />
-            <marker date="1462619307000" expanded="true" signature="13912:13957" placeholder="..." />
-            <marker date="1462619307000" expanded="true" signature="14692:14701" placeholder="..." />
-            <marker date="1462619307000" expanded="true" signature="15205:15240" placeholder="..." />
-            <marker date="1462619307000" expanded="true" signature="15498:15642" placeholder="..." />
-            <marker date="1462619307000" expanded="true" signature="16440:17142" placeholder="..." />
-            <marker date="1462619307000" expanded="true" signature="16579:16605" placeholder="..." />
-            <marker date="1462619307000" expanded="true" signature="16606:16694" placeholder="..." />
-            <marker date="1462619307000" expanded="true" signature="16743:16799" placeholder="..." />
-            <marker date="1462619307000" expanded="true" signature="17957:18129" placeholder="..." />
-            <marker date="1462619307000" expanded="true" signature="18061:18111" placeholder="..." />
+            <marker date="1462627794000" expanded="true" signature="12387:14524" placeholder="..." />
+            <marker date="1462627794000" expanded="false" signature="12619:12630" placeholder="..." />
+            <marker date="1462627794000" expanded="false" signature="12798:12854" placeholder="..." />
+            <marker date="1462627794000" expanded="true" signature="12945:14192" placeholder="..." />
+            <marker date="1462627794000" expanded="true" signature="12984:13832" placeholder="..." />
+            <marker date="1462627794000" expanded="true" signature="13912:13957" placeholder="..." />
+            <marker date="1462627794000" expanded="true" signature="14692:14701" placeholder="..." />
+            <marker date="1462627794000" expanded="true" signature="15205:15240" placeholder="..." />
+            <marker date="1462627794000" expanded="true" signature="15498:15642" placeholder="..." />
+            <marker date="1462627794000" expanded="true" signature="16579:16605" placeholder="..." />
+            <marker date="1462627794000" expanded="true" signature="16743:16799" placeholder="..." />
+            <marker date="1462627794000" expanded="true" signature="17957:18129" placeholder="..." />
+            <marker date="1462627794000" expanded="true" signature="18061:18111" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/ios.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="55" column="1" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="51" column="62" selection-start-line="51" selection-start-column="62" selection-end-line="51" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/scripts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>

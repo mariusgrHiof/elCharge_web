@@ -45,11 +45,11 @@ function initMap() {
         mapTypeControl: true,
         mapTypeControlOptions: {
             style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-            position: google.maps.ControlPosition.TOP_CENTER
+            position: google.maps.ControlPosition.BOTTOM_LEFT
         },
         zoomControl: true,
         zoomControlOptions: {
-            position: google.maps.ControlPosition.RIGHT_CENTER
+            position: google.maps.ControlPosition.RIGHT_BOTTOM
         },
         scaleControl: true,
         streetViewControl: true,
