@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/favoriteStation.php" afterPath="$PROJECT_DIR$/includes/favoriteStation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/addStations.js" afterPath="$PROJECT_DIR$/js/addStations.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/buttons.js" afterPath="$PROJECT_DIR$/js/buttons.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/chargers-nearby.js" afterPath="$PROJECT_DIR$/js/chargers-nearby.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/global.js" afterPath="$PROJECT_DIR$/js/global.js" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,11 +70,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/addStations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="393" column="89" selection-start-line="393" selection-start-column="89" selection-end-line="393" selection-end-column="89" />
+            <state relative-caret-position="360">
+              <caret line="394" column="74" selection-start-line="394" selection-start-column="74" selection-end-line="394" selection-end-column="74" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
                 <marker date="1462579062000" expanded="true" signature="12485:12494" placeholder="..." />
@@ -119,11 +115,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="buttons.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="buttons.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/buttons.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+            <state relative-caret-position="324">
+              <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -219,10 +215,10 @@
         <option value="$PROJECT_DIR$/includes/login.php" />
         <option value="$PROJECT_DIR$/includes/menu-items/Favourites.html" />
         <option value="$PROJECT_DIR$/includes/favoriteStation.php" />
-        <option value="$PROJECT_DIR$/js/buttons.js" />
         <option value="$PROJECT_DIR$/js/global.js" />
         <option value="$PROJECT_DIR$/js/chargers-nearby.js" />
         <option value="$PROJECT_DIR$/js/addStations.js" />
+        <option value="$PROJECT_DIR$/js/buttons.js" />
       </list>
     </option>
   </component>
@@ -476,14 +472,7 @@
       <workItem from="1462518257993" duration="14462000" />
       <workItem from="1462547905556" duration="4107000" />
       <workItem from="1462554139793" duration="3946000" />
-      <workItem from="1462576759156" duration="2260000" />
-    </task>
-    <task id="LOCAL-00114" summary="fiks for dl bug i mobilapp">
-      <created>1461578129068</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1461578129068</updated>
+      <workItem from="1462576759156" duration="2459000" />
     </task>
     <task id="LOCAL-00115" summary="geloc auto update test">
       <created>1461580106138</created>
@@ -821,11 +810,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462556494745</updated>
     </task>
-    <option name="localTasksCounter" value="163" />
+    <task id="LOCAL-00163" summary="quality of life for a lazy programmer">
+      <created>1462579099977</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1462579099977</updated>
+    </task>
+    <option name="localTasksCounter" value="164" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="247353000" />
+    <option name="totallyTimeSpent" value="247552000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -842,14 +838,14 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15974441" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.50437635" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33300394" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33366337" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32773852" sideWeight="0.49562362" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -873,7 +869,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix for ladere i nærheten" />
     <MESSAGE value="litt tooltips.css" />
     <MESSAGE value="exampleObject clean up" />
     <MESSAGE value="Fikset sånn at det alltid er siste versjon av nobil databasen som blir lastet ned til brukeren :) Fikset det med å legge inn &quot;contenttype&quot; til jsonp." />
@@ -898,7 +893,8 @@
     <MESSAGE value="infowindow viser hvilke kontaktpunkter som er hurtig og ikke" />
     <MESSAGE value="Fikset bug som gjorde at bil filterekt ikke fungerte riktig" />
     <MESSAGE value="Fikser streetview controls! FINALLY!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fikser streetview controls! FINALLY!" />
+    <MESSAGE value="quality of life for a lazy programmer" />
+    <option name="LAST_COMMIT_MESSAGE" value="quality of life for a lazy programmer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1255,11 +1251,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/buttons.js">
+    <entry file="file://$PROJECT_DIR$/js/addStations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="360">
+          <caret line="394" column="74" selection-start-line="394" selection-start-column="74" selection-end-line="394" selection-end-column="74" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+            <marker date="1462579062000" expanded="true" signature="12485:12494" placeholder="..." />
+            <marker date="1462579062000" expanded="true" signature="13207:13242" placeholder="..." />
+            <marker date="1462579062000" expanded="true" signature="13498:13642" placeholder="..." />
+            <marker date="1462579062000" expanded="true" signature="14328:16465" placeholder="..." />
+            <marker date="1462579062000" expanded="true" signature="14560:14571" placeholder="..." />
+            <marker date="1462579062000" expanded="true" signature="14739:14795" placeholder="..." />
+            <marker date="1462579062000" expanded="true" signature="14886:16133" placeholder="..." />
+            <marker date="1462579062000" expanded="true" signature="14925:15773" placeholder="..." />
+            <marker date="1462579062000" expanded="true" signature="15853:15898" placeholder="..." />
+            <marker date="1462579062000" expanded="true" signature="17213:17239" placeholder="..." />
+            <marker date="1462579062000" expanded="true" signature="17565:17621" placeholder="..." />
+            <marker date="1462579062000" expanded="true" signature="18550:18722" placeholder="..." />
+            <marker date="1462579062000" expanded="true" signature="18654:18704" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1279,26 +1290,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/addStations.js">
+    <entry file="file://$PROJECT_DIR$/js/buttons.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="393" column="89" selection-start-line="393" selection-start-column="89" selection-end-line="393" selection-end-column="89" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-            <marker date="1462579062000" expanded="true" signature="12485:12494" placeholder="..." />
-            <marker date="1462579062000" expanded="true" signature="13207:13242" placeholder="..." />
-            <marker date="1462579062000" expanded="true" signature="13498:13642" placeholder="..." />
-            <marker date="1462579062000" expanded="true" signature="14328:16465" placeholder="..." />
-            <marker date="1462579062000" expanded="true" signature="14560:14571" placeholder="..." />
-            <marker date="1462579062000" expanded="true" signature="14739:14795" placeholder="..." />
-            <marker date="1462579062000" expanded="true" signature="14886:16133" placeholder="..." />
-            <marker date="1462579062000" expanded="true" signature="14925:15773" placeholder="..." />
-            <marker date="1462579062000" expanded="true" signature="15853:15898" placeholder="..." />
-            <marker date="1462579062000" expanded="true" signature="17213:17239" placeholder="..." />
-            <marker date="1462579062000" expanded="true" signature="17565:17621" placeholder="..." />
-            <marker date="1462579062000" expanded="true" signature="18550:18722" placeholder="..." />
-            <marker date="1462579062000" expanded="true" signature="18654:18704" placeholder="..." />
-          </folding>
+        <state relative-caret-position="324">
+          <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
