@@ -273,3 +273,7 @@ function downloadDump(){
 //Strive to be lazy
 function inArray(key, array) {return $.inArray(key, array)>0;}
 function getStationImage(station){return (/kommer/i.test(jsonData[station].csmd.Image.toLowerCase()) || /no.image.svg/i.test(jsonData[station].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[station].csmd.Image);}
+function connCapacityString (station){
+    var capacity = chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW;
+    return capacity >= 43 ? 'Hurtiglader' : (capacity >= 12 ? "Semihurtig": "Vanlig");
+}

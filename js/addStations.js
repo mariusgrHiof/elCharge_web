@@ -316,12 +316,11 @@ function createIWContent(station, isLive) {
                     connStatus = jsonData[station].attr.conn[c][8].attrvalid;
                 } catch(e) {}
             }
-            var capacity = (chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW);
-            var dass = (capacity >= 43 ? 'Hurtiglader' : (capacity >= 12 ? "Semihurtig": "Vanlig"));
+
             connectorsString +=
                 "<div class='cpelements'>"+
                     "<span style=\'color:black; width:90%; float:left;\'>"+
-                        jsonData[station].attr.conn[c][4].trans + "(" + dass +")" +
+                        jsonData[station].attr.conn[c][4].trans + "(" + connCapacityString(station) +")" +
                         "<br />" + jsonData[station].attr.conn[c][5].trans +
                     "</span>"+
                     "<div class='chargePointColor' style='background-color:"+ (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'>"+
@@ -333,6 +332,7 @@ function createIWContent(station, isLive) {
     }
     connectorsString += "</div>";
 
+    
 
     //var latlng = new Array();//{lat:  lng: };
     //latlng.push();
