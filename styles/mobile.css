@@ -52,8 +52,6 @@
         width:100% !important;
         height:50% !important;
     }
-    #chargingPoints{
-    }
     #chargingPoints {
         width:100% !important;
         max-height:50% !important;
@@ -61,6 +59,6 @@
     }
     #chargingPoints > div{
         overflow-y: scroll;
-        height: 12vh;
+        height: 9vh;
     }
 }
