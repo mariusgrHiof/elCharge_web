@@ -202,8 +202,13 @@ function addMarker(station){
 
     //TODO: Fikse nestet short if: de markørene som har hurtigladekontakt skal ha _v2.svg (den med vinger)
 
+    //var isAvailable = (jsonData[station].csmd.Available_charging_points / jsonData[station].csmd.Number_charging_points) > 1;
     var markerIcon = {
-        url: 'icons/'+(isLive ? (hasFastCharge ? 'marker_green_v2' : 'marker_green_v3'):(hasFastCharge ? 'marker_blue_v2':'marker_blue_v3'))+'.svg', //Changing the color of the marker based on if it has live status or not.
+        url: 'icons/'+(
+            isLive ? (hasFastCharge ?
+                    ( isStationOccupiedStatus(station) > 0.4 ? 'marker_green_v2' : 'marker_yellow_v2') :
+                    ( isStationOccupiedStatus(station) > 0.4 ? 'marker_green_v3' : 'marker_yellow_v3'))
+                :(hasFastCharge ? 'marker_blue_v2':'marker_blue_v3'))+'.svg', //Changing the color of the marker based on if it has live status or not.
         anchor: new google.maps.Point(0, 32),
         origin: new google.maps.Point(0, 0),
         scaledSize: new google.maps.Size(32, 51),
@@ -281,6 +286,11 @@ function addMarker(station){
     }catch(e){console.log(e);}
 }
 
+function isStationOccupiedStatus(station){
+
+    return parseFloat(jsonData[station].csmd.Available_charging_points) / parseFloat(jsonData[station].csmd.Number_charging_points);
+}
+
 //A method for generating the content of a infowindow
 function createIWContent(station, isLive) {
 
@@ -341,7 +351,7 @@ function generateConnectorString(station, isLive){
     var isInService = true;
     var connStatus = "9";
 
-    var result = '<div style="margin:0;">';
+    var result = '<div style="margin:0.1em 0 0.1em 0;">';
     for(var c = 1; c <= jsonData[station].csmd.Number_charging_points; c++){
         try{//Could be one single string.. I know..and now it is, WOW
             if(isLive){
@@ -354,8 +364,8 @@ function generateConnectorString(station, isLive){
             result +=
                 "<div class='cpelements'>"+
                 "<span style=\'color:black; width:90%; float:left;\'>"+
-                jsonData[station].attr.conn[c][4].trans + "(" + connCapacityString(station, c) +")" +
-                "<br />" + jsonData[station].attr.conn[c][5].trans +
+                jsonData[station].attr.conn[c][4].trans + "(" + connCapacityString(station, c) +")" + connectorImg(jsonData[station].attr.conn[c][4].attrvalid) +
+                //"<br />" + jsonData[station].attr.conn[c][5].trans +
                 "</span>"+
                 "<div class='chargePointColor' style='background-color:"+ (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'>"+
                 "</div>"+
@@ -365,6 +375,32 @@ function generateConnectorString(station, isLive){
         }
     }
     return result += "</div>";
+}
+
+function connectorImg(connType) {
+    var img;
+    if(inArrayVal(connType, schuko))
+        img = 'schuko.svg';
+    else if(inArrayVal(connType, type1))
+        img = 'type1.svg';
+    else if(inArrayVal(connType, type2))
+        img = 'type2_tesla.svg';
+    else if(inArrayVal(connType, chademo))
+        img = 'chademo.svg';
+    else if(inArrayVal(connType, combo))
+        img = 'combo1.svg';
+    else if(inArrayVal(connType, ind3pin))
+        img = 'industrial3pin.svg';
+    else if(inArrayVal(connType, ind4pin))
+        img = 'industrial4pin.svg';
+    else if(inArrayVal(connType, ind5pin))
+        img = 'industrial5pin.svg';
+    else if(inArrayVal(connType, teslaModelS))
+        img = 'type2_tesla.svg';
+    else if(inArrayVal(connType, teslaRoadster))
+        img = 'tesla_r.svg';
+
+    return '<img class="float-right" src="icons/conn/'+ img +'" style="max-height:2em; max-width:2em;"/>';
 }
 
 function strToLtLng(pos){

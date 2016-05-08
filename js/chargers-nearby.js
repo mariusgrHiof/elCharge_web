@@ -43,17 +43,19 @@ function getNearbyChargers(){
         if(getCarMatch(chargers_nearby[station].csmd.Number_charging_points, id) && chargers_nearby[station].attr.st[2].attrvalid == "1"){
             thisPos = chargers_nearby[station].csmd.Position.replace(/[()]/g,"").split(",");
             $('#chargers-nearby').append(
-                '<li class="border img-height-4em">' +
+                '<li class="border img-height-4em" style="padding: 0.5em 0 0.5em 0;">' +
                     '<img class="cover-third float-left img-height-4em" src=\"' + getStationImage(id) + '\"/>' +
-                    '<div class="cover-twothird float-left">'+
+                    '<div class="cover-twothird float-left" style="width:calc(66% - 1em);">'+
                         '<strong class="float-left">' + chargers_nearby[station].csmd.name + '</strong><br />'+
                         '<span>' + chargers_nearby[station].distance.toFixed(2)+ 'km</span><br />'+
                         '<button onclick="navigateFromUser(geopos, this)" value="'+ thisPos +'">Ta meg hit</button>' +
-                        "<button onclick='readMorev2(this)'>Vis mer</button>"+
-                        "<div class='read-more clear-both'>" +
-                            generateConnectorString(id,jsonData[id].attr.st[21].attrvalid == "1") +
-                        "</div>" +
+                        //"<button onclick='readMorev2(this)'>Vis mer</button>"+
+                        '<div class="clear-both">' +//read-more
+                           // generateConnectorString(id,jsonData[id].attr.st[21].attrvalid == "1") +
+                        '</div>' +
                     '</div>' +
+                    '<div class="chargePointColor" style="height:4em;background-color:' +
+                        (jsonData[id].attr.st[21].attrvalid == "1" ? (isStationOccupiedStatus(id) > 0.4 ? 'lightgreen' : 'yellow') : 'blue') + ';"></div>'+
                 '</li>');
         }
     }

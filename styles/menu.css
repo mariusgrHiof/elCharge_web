@@ -142,6 +142,7 @@ select{
     width:33%;
 }
 .cover-twothird{
+    padding-left: 0.2em;
     width:66%;
 }
 .cover-twothird input.cover-100{
@@ -259,4 +260,5 @@ ul{
 
 .img-height-4em{
     height: 4em;
+    width: auto;
 }

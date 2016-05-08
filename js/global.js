@@ -203,6 +203,14 @@ function processDL(data){
 
 //Strive to be lazy
 function inArray(key, array) {return $.inArray(key, array)>0;}
+function inArrayVal(value, array){
+    for(var i in array){
+        if(array[i] == value ){
+            return true;
+        }
+    }
+    return false;
+}
 function getStationImage(station){return (/kommer/i.test(jsonData[station].csmd.Image.toLowerCase()) || /no.image.svg/i.test(jsonData[station].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[station].csmd.Image);}
 function connCapacityString (station, connectorID){
     var capacity = chargingCapacity[jsonData[station].attr.conn[connectorID][5].attrvalid].kW;
