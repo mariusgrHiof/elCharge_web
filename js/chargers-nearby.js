@@ -9,17 +9,7 @@ var chargers_nearby = new Array();
 */
 function compareDistance(userPos, stationPos){
     try{
-        //1 deg lat = 110.574 KM
-        var m_lat = 110.574;
-        var y1 = userPos[0] * m_lat;
-        var y2 = stationPos[0] * m_lat;
-        //1 deg lon = 111.320*cos(lat) KM
-        var m_lon = 111.320;
-        var x1 = Math.cos(userPos[1]) * m_lon;
-        var x2 = Math.cos(stationPos[1]) * m_lon;
-
-        //Calculating the distance
-        return Math.sqrt( Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2) );
+        return google.maps.geometry.spherical.computeDistanceBetween (strToLtLng(userPos[0] + "," + userPos[1]), strToLtLng(stationPos[0] + "," + stationPos[1]))/1000;
     }catch(e){
         //console.log("Unable to compare distances: " + e);
         return 999;//Unable to get the location so defaulting to unreachable value
