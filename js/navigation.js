@@ -159,7 +159,27 @@ function getLocationNameFromLatLng(latlng,index, subIndex){
             var data = JSON.parse(request.responseText);
             console.log(data);
             console.log("Sub waypoint" + index + "." + subIndex + " - " + data.results[0].formatted_address);
+            showDraggedInList(latlng, data.results[0].formatted_address);
         }
     };
     request.send();
 };
+
+function showDraggedInList(ltlng, address){
+    waypoints.push(
+        {location: ltlng}
+    );
+    var content =
+        "<div class='route-element'>" +
+            "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
+                "<Strong>" + address +"</Strong>"+
+            "</div>"+
+            "<button onclick=\"removeWaypoint(this)\">X</button>" +
+        "</div>";
+    document.getElementById('waypoint-list').innerHTML += content;
+
+    //Refreshing the route if it's active
+    if($('#nav-start-pos').val() != "" && $('#nav-end-pos').val() != ""){
+        navigate();
+    }
+}
