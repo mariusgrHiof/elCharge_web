@@ -15,11 +15,26 @@ function getElevation(latlng){
     //https://developers.google.com/maps/documentation/javascript/examples/map-latlng-literal
     //https://maps.googleapis.com/maps/api/elevation/json?locations=39.7391536,-104.9847034&key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8
 }
-
+var elevationPath = [];
 function displayPathElevation(path, elevator){
+    elevationPath.length = 0;
+    for(var i = 0; i < path.legs.length; i++){
+        //The start position
+        if(i == 0)
+            elevationPath.push(path.legs[i].start_location);
+
+        //Looping through points
+        for(var s in path.legs[i].steps){
+            //Grabbing the first element, so that we don't overload the elevtion API with points
+            elevationPath.push(path.legs[i].steps[s].lat_lngs[0]);
+        }
+        //The final destination
+        if(i == path.legs.length-1)
+            elevationPath.push(path.legs[i].end_location);
+    }
 
     elevator.getElevationAlongPath({
-        'path': path,
+        'path': elevationPath,
         'samples': 256
     }, plotElevation);
 }

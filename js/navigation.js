@@ -8,6 +8,8 @@ var startDestination = "";
 var endDestination ="";
 var directionsDisplay;
 var directionsService;
+
+var myroute = [];
 function navigate(){
     //Cleaning previous directions
     clearRoute();
@@ -47,7 +49,6 @@ function navigateFromUser(from, toel){
         $("#right-panel").html(""); //The route description
     }
 
-    console.log(to);
     //Getting destinations
     startDestination = from[0] + "," + from[1];
     endDestination = to;
@@ -62,6 +63,7 @@ function navigateFromUser(from, toel){
 
     //Allows us to do stuff when the route is dragged and/or changed.
     directionsDisplay.addListener('directions_changed', function() {
+
         computeTotalDistance(directionsDisplay.getDirections());
         directionsDisplay.setDirections();
     });
@@ -102,10 +104,14 @@ function displayRoute(origin, destination, service, display) {
 
 function computeTotalDistance(result) {
     var total = 0;
-    var myroute = result.routes[0];
+    myroute = result.routes[0];
+
+    console.log(myroute);
     for (var i = 0; i < myroute.legs.length; i++) {
         total += myroute.legs[i].distance.value;
     }
     total = total / 1000;
-    document.getElementById('total').innerHTML = 'Total reise distanse '+ total + ' km';
+    $('#total').html('Total reise distanse '+ total + ' km');
+    //Showing the path elevation
+    displayPathElevation(myroute, elevationService);
 }
