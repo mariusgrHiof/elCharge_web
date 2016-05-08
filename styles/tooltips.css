@@ -94,9 +94,12 @@ div#station-tooltip div#secondRow img {
     height: 25em;
     width: 49%;
     float:right;
-
-    overflow-y: scroll;
 }
+#chargingPoints > div{
+    overflow-y: scroll;
+    height: 22em;
+}
+
 .cpelements {
     width:100%;
     height:3em;

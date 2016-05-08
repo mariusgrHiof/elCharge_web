@@ -35,6 +35,8 @@
         height: 70vh;
         overflow-y: auto;
     }
+
+
     .gm-style-iw{
         width:200% !important;
         min-width: 130% !important;
@@ -51,7 +53,14 @@
         height:50% !important;
     }
     #chargingPoints{
+    }
+    #chargingPoints {
         width:100% !important;
         max-height:50% !important;
+        float:right;
+    }
+    #chargingPoints > div{
+        overflow-y: scroll;
+        height: 12vh;
     }
 }

@@ -333,7 +333,7 @@ function createIWContent(station, isLive) {
                 "<div id='chargingPoints'>"+
                     "<p style='border-bottom:1px solid gray;margin-bottom:0;'><strong>Ladepunkter:</strong> "+ jsonData[station].csmd.Number_charging_points+" </p>" +
                     "<div> "+
-                    connectorsString +
+                        connectorsString +
                     "</div>" +
                 "</div>"+
             "</div>"+
