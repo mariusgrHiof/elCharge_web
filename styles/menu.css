@@ -132,6 +132,7 @@ button#my-loc-btn{
     background: transparent;
     border:none;
     vertical-align: middle;
+    padding:0;
 }
 
 /*

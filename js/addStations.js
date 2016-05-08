@@ -429,7 +429,7 @@ function addWaypoint(id){
                 "<Strong>" + jsonData[id].csmd.name +"</Strong>"+
             "</div>"+
             "<div class='markerColor' style='background-color:"+ (isLive ? "lightgreen" : "blue") +";'>" +
-                "<button onclick=\"removeWaypoint(this)\">X</button>" +
+                "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"removeWaypoint(this)\">X</button>" +
             "</div>"+
             "<button onclick='readMorev2(this)'>Vis mer</button>"+
             "<div class='read-more clear-both'>" +
