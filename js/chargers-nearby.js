@@ -47,7 +47,7 @@ function getNearbyChargers(){
                     '<img class="cover-third float-left img-height-4em" src=\"' + getStationImage(id) + '\"/>' +
                     '<div class="cover-twothird float-left">'+
                         '<strong class="float-left">' + chargers_nearby[station].csmd.name + '</strong><br />'+
-                        '<span>' + Math.round(chargers_nearby[station].distance)+ 'km</span><br />'+
+                        '<span>' + chargers_nearby[station].distance.toFixed(2)+ 'km</span><br />'+
                         '<button onclick="navigateFromUser(geopos, this)" value="'+ thisPos +'">Ta meg hit</button>' +
                         "<button onclick='readMorev2(this)'>Vis mer</button>"+
                         "<div class='read-more clear-both'>" +
