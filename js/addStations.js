@@ -364,6 +364,10 @@ function generateConnectorString(station, isLive){
     return result += "</div>";
 }
 
+function strToLtLng(pos){
+    var arr = pos.replace(/[()]/g,"").split(",");
+    return new google.maps.LatLng(arr[0],arr[1]);
+}
 /*
  * A method for adding a selected station to the waypoints
  */

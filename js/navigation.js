@@ -110,9 +110,56 @@ function computeTotalDistance(result) {
     console.log(myroute);
     for (var i = 0; i < myroute.legs.length; i++) {
         total += myroute.legs[i].distance.value;
+        console.log(myroute.legs[i].start_address);
+        getStationMatch(i);
     }
+    getRouteData();
     total = total / 1000;
     $('#total').html('Total reise distanse '+ total + ' km');
     //Showing the path elevation
     displayPathElevation(myroute, elevationService);
 }
+
+function getStationMatch(routeIndex){
+    for(var station in jsonData){
+        if((myroute.legs[routeIndex].start_location.lat()).toFixed(3) == (strToLtLng(jsonData[station].csmd.Position).lat()).toFixed(3)
+            && (myroute.legs[routeIndex].start_location.lng()).toFixed(3) == (strToLtLng(jsonData[station].csmd.Position).lng()).toFixed(3))
+            console.log("Denne stasjonen er i listen ->  "+ jsonData[station].csmd.name + " adresse: " + myroute.legs[routeIndex].start_address);
+    }
+}
+
+//Printing out information about a given route
+function getRouteData(){
+    for(var i in myroute.legs){
+        if(i == 0)
+            //Getting starting pos
+            console.log("Start pos is: " + myroute.legs[i].start_address);
+        if(myroute.legs.length > 0 && i != 0)
+            //Getting all waypoints
+            console.log("Waypoint "+ i +": " + myroute.legs[i].start_address);
+        for(var sWP in myroute.legs[i].via_waypoints){
+            getLocationNameFromLatLng(myroute.legs[i].via_waypoints[sWP],i, sWP); // Can be used for something fancy?
+        }
+        if (i == myroute.legs.length -1)
+            //Getting end destination
+            console.log("End dest is: " + myroute.legs[i].end_address);
+    }
+}
+
+//Getting the adress of a given latlong object
+function getLocationNameFromLatLng(latlng,index, subIndex){
+    var request = new XMLHttpRequest();
+
+    var method = 'GET';
+    var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latlng.lat().toFixed(4) +','+latlng.lng().toFixed(4) +'&sensor=true';
+    var async = true;
+    request.open(method, url, async);
+    request.onreadystatechange = function(){
+        if(request.readyState == 4 && request.status == 200){
+            var data = JSON.parse(request.responseText);
+            console.log(data);
+            console.log("Sub waypoint" + index + "." + subIndex + " - " + data.results[0].formatted_address);
+        }
+    };
+    request.send();
+};
