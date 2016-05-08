@@ -87,6 +87,7 @@ function displayRoute(origin, destination, service, display) {
     service.route({
         origin: origin,
         destination: destination,
+        optimizeWaypoints: true,
         waypoints: waypoints,
         travelMode: google.maps.TravelMode.DRIVING,
         avoidTolls: avoidTolls,

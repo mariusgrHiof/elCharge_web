@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/menu-items/route.html" afterPath="$PROJECT_DIR$/includes/menu-items/route.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/elevation.js" afterPath="$PROJECT_DIR$/js/elevation.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/navigation.js" afterPath="$PROJECT_DIR$/js/navigation.js" />
     </list>
     <ignored path="elCharge_web.iws" />
@@ -30,8 +28,8 @@
       <file leaf-file-name="addStations.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/addStations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1000">
-              <caret line="299" column="18" selection-start-line="299" selection-start-column="9" selection-end-line="299" selection-end-column="18" />
+            <state relative-caret-position="438">
+              <caret line="392" column="53" selection-start-line="392" selection-start-column="53" selection-end-line="392" selection-end-column="53" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
                 <marker date="1462660500000" expanded="true" signature="12359:14496" placeholder="..." />
@@ -65,8 +63,8 @@
       <file leaf-file-name="navigation.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/navigation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="95" column="57" selection-start-line="95" selection-start-column="57" selection-end-line="95" selection-end-column="57" />
+            <state relative-caret-position="615">
+              <caret line="89" column="32" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -476,14 +474,7 @@
       <workItem from="1462627805541" duration="1435000" />
       <workItem from="1462659446342" duration="309000" />
       <workItem from="1462660142118" duration="954000" />
-      <workItem from="1462695640639" duration="3381000" />
-    </task>
-    <task id="LOCAL-00129" summary="Ta meg hit knapp på en ladestasjon infoboks.">
-      <created>1462184282794</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1462184282794</updated>
+      <workItem from="1462695640639" duration="4359000" />
     </task>
     <task id="LOCAL-00130" summary="fiksing på rute planlegging visning av waypoints">
       <created>1462185389967</created>
@@ -821,11 +812,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462661200119</updated>
     </task>
-    <option name="localTasksCounter" value="178" />
+    <task id="LOCAL-00178" summary="Path elevation er fikset langs den valgte ruten">
+      <created>1462702623045</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1462702623046</updated>
+    </task>
+    <option name="localTasksCounter" value="179" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="260444000" />
+    <option name="totallyTimeSpent" value="261422000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -842,14 +840,14 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17092651" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.50437635" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33300394" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33366337" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32773852" sideWeight="0.49562362" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -873,7 +871,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Minnebruk tweaks" />
     <MESSAGE value="formatering" />
     <MESSAGE value="- brukeren kan selv aktivere oppdaterings intervall og definere hvor ofte det skal skje.&#10;- Brukeren kan velge bilmodell rett fra startmenyen." />
     <MESSAGE value="meny endringer &#10;- blant annet lagt inn &quot;fjern rute&quot;" />
@@ -898,7 +895,8 @@
     <MESSAGE value="css fix" />
     <MESSAGE value="tweaks for ipad app" />
     <MESSAGE value="Automatisk oppdatering av ladere i nærheten hvert 10 sec samt kontakt info er nå tilgjengelig i ladere i nærheten. dog litt stygg foreløpig." />
-    <option name="LAST_COMMIT_MESSAGE" value="Automatisk oppdatering av ladere i nærheten hvert 10 sec samt kontakt info er nå tilgjengelig i ladere i nærheten. dog litt stygg foreløpig." />
+    <MESSAGE value="Path elevation er fikset langs den valgte ruten" />
+    <option name="LAST_COMMIT_MESSAGE" value="Path elevation er fikset langs den valgte ruten" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1268,8 +1266,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/addStations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1000">
-          <caret line="299" column="18" selection-start-line="299" selection-start-column="9" selection-end-line="299" selection-end-column="18" />
+        <state relative-caret-position="438">
+          <caret line="392" column="53" selection-start-line="392" selection-start-column="53" selection-end-line="392" selection-end-column="53" />
           <folding>
             <element signature="e#0#40#0" expanded="false" />
             <marker date="1462660500000" expanded="true" signature="12359:14496" placeholder="..." />
@@ -1291,8 +1289,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/navigation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="95" column="57" selection-start-line="95" selection-start-column="57" selection-end-line="95" selection-end-column="57" />
+        <state relative-caret-position="615">
+          <caret line="89" column="32" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
           <folding />
         </state>
       </provider>
