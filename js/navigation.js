@@ -174,7 +174,7 @@ function showDraggedInList(ltlng, address){
             "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
                 "<Strong>" + address +"</Strong>"+
             "</div>"+
-            "<button onclick=\"removeWaypoint(this)\">X</button>" +
+            "<div><button onclick=\"removeWaypoint(this)\">X</button></div>" +
         "</div>";
     document.getElementById('waypoint-list').innerHTML += content;
 
