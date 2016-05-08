@@ -327,9 +327,12 @@ function createIWContent(station, isLive) {
                     "</div>" +
                 "</div>"+
             "</div>"+
+
             "<div id='lowerContainer'>"+
                 '<button onclick="addWaypoint(\'' + station + '\')" >Legg til i rute</button>' +
                 '<button onclick="navigateFromUser(geopos, this)" value="'+ jsonData[station].csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
+
+                '<button onclick="addToFavorites(\'' + station + '\')" >Legg til favoritt</button>' +
             "</div>"+
         "</div>";
     return contentString;
@@ -442,3 +445,23 @@ function showHideMarkers(ele){
     }
     $(ele).html(!visible ? 'Skjul stasjonsmarkører' : 'Vis stasjonsmarkører');
 }
+//Add station to favorite list
+function addToFavorites(id){
+    var path ="";
+    if(phonegap)
+        path += "https://frigg.hiof.no/bo16-g6/webapp/";
+
+    path +="includes/addToFavorite.php";
+
+    $.post( path,{
+        stationId: id
+    }, function( data ) {
+        $( "#favorite-stations" ).append(
+            '<div>' +
+                'data: ' + data +
+            '</div>'
+        );
+    });
+    return false;
+}
+

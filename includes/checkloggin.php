@@ -12,7 +12,8 @@ error_reporting(E_ALL);
 
 session_start();
 
-$_SESSION['UserId'] = rand(1,99);
+$_SESSION['sessionId'] = uniqid();
+$_SESSION['username'] = $_POST['username'];
 $ecnryptedPass = md5($_POST['password']);
 
 // Create connection

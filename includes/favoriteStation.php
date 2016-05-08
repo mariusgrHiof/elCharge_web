@@ -7,7 +7,7 @@
  */
 
 
-if (isset($_SESSION['UserId'])) {
+if (isset($_SESSION['sessionId'])) {
 
     include 'connectToDb.php';
     $favoriteArray = array();
