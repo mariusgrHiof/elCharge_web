@@ -427,3 +427,14 @@ function updateFavoriteStation(station){
         '</div>' +
         '</li>');
 }
+
+//Showing and hiding markers
+function showHideMarkers(ele){
+    var visible = true;
+
+    for(var marker in markers){
+        visible = markers[marker].getVisible();
+        markers[marker].setVisible(!visible);
+    }
+    $(ele).html(!visible ? 'Skjul stasjonsmarkører' : 'Vis stasjonsmarkører');
+}

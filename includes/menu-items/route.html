@@ -30,7 +30,7 @@
 
         </div>
         <div class="float-left cover-third">
-            Start posisjon</br>
+            Start lokasjon</br>
         </div>
         <div class="float-left cover-twothird">
             <input id="nav-start-pos" type="text"/>
@@ -46,13 +46,14 @@
     </div>
     <div class="clear-both">
         <div class="float-left cover-third">
-            Mål
+            Destinasjon
         </div>
         <div class="float-left cover-twothird">
             <input id="nav-end-pos" type="text"/>
         </div>
     </div>
     <button class="float-left cover-third" onclick="clearRoute()">Fjern rute</button>
+    <button onclick="showHideMarkers(this)">Skjul stasjonsmarkører</button>
     <button class="float-right cover-third" onclick="navigate()">Bygg rute</button>
     <div id="total"></div>
     <div id="right-panel" class="clear-both">
