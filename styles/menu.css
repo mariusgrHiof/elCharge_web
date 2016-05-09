@@ -267,4 +267,5 @@ ul{
 .img-height-4em{
     height: 4em;
     width: auto;
+    max-width:30%;
 }
