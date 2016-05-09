@@ -74,46 +74,41 @@ function initMap() {
     map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
     elevationService = new google.maps.ElevationService;
 
+    try{
+        /*
+         ** Search box header
+         */
+
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('search-box');
+        var searchBox = new google.maps.places.SearchBox(input);
+
+        searchBox.setBounds(map.getBounds());
 
 
+        searchBox.addListener('places_changed', function() {
+            var places = searchBox.getPlaces();
 
-
-    /*
-     ** Search box header
-     */
-
-    // Create the search box and link it to the UI element.
-    var input = document.getElementById('search-box');
-    var searchBox = new google.maps.places.SearchBox(input);
-
-    searchBox.setBounds(map.getBounds());
-
-
-    // Bias the SearchBox results towards current map's viewport.
-    /*map.addListener('bounds-changed', function() {
-     searchBox.setBounds(map.getBounds());
-     });*/
-
-    searchBox.addListener('places_changed', function() {
-        var places = searchBox.getPlaces();
-
-        if (places.length == 0) {
-            return;
-        }
-
-        // For each place, get the icon, name and location.
-        var bounds = new google.maps.LatLngBounds();
-        places.forEach(function(place) {
-
-            if (place.geometry.viewport) {
-                // Only geocodes have viewport.
-                bounds.union(place.geometry.viewport);
-            } else {
-                bounds.extend(place.geometry.location);
+            if (places.length == 0) {
+                return;
             }
+
+            // For each place, get the icon, name and location.
+            var bounds = new google.maps.LatLngBounds();
+            places.forEach(function(place) {
+
+                if (place.geometry.viewport) {
+                    // Only geocodes have viewport.
+                    bounds.union(place.geometry.viewport);
+                } else {
+                    bounds.extend(place.geometry.location);
+                }
+            });
+            map.fitBounds(bounds);
         });
-        map.fitBounds(bounds);
-    });
+    }catch(e){console.log(e);}
+
+
     //Users current position marker
     var scaleSize = isIOS ? 120 : 15;
     var mi = {
@@ -131,23 +126,25 @@ function initMap() {
         map: map
     });
 
-    /*
-     * Search box startPos
-     */
+    try{
+        /*
+         * Search box startPos
+         */
 
-    var inputStartPos = document.getElementById('nav-start-pos');
-    var searchBoxStartPos = new google.maps.places.SearchBox(inputStartPos);
+        var inputStartPos = document.getElementById('nav-start-pos');
+        var searchBoxStartPos = new google.maps.places.SearchBox(inputStartPos);
 
-    searchBoxStartPos.setBounds(map.getBounds());
+        searchBoxStartPos.setBounds(map.getBounds());
 
-    /*
-     ** Search box endPos
-     */
+        /*
+         ** Search box endPos
+         */
 
-    var inputEndPos = document.getElementById('nav-end-pos');
-    var searchBoxEndPos = new google.maps.places.SearchBox(inputEndPos);
+        var inputEndPos = document.getElementById('nav-end-pos');
+        var searchBoxEndPos = new google.maps.places.SearchBox(inputEndPos);
 
-    searchBoxEndPos.setBounds(map.getBounds());
+        searchBoxEndPos.setBounds(map.getBounds());
+    }catch(e){console.log(e);}
 
     updateCarList();
     //Turning on layers
