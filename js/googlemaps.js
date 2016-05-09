@@ -6,13 +6,6 @@ var geopos;
 var pos;
 var myloc;
 var markers = [];
-var pathtest = [
-    {lat: 36.579, lng: -118.292},  // Mt. Whitney
-    {lat: 36.606, lng: -118.0638},  // Lone Pine
-    {lat: 36.433, lng: -117.951},  // Owens Lake
-    {lat: 36.588, lng: -116.943},  // Beatty Junction
-    {lat: 36.34, lng: -117.468},  // Panama Mint Springs
-    {lat: 36.24, lng: -116.832}];  // Badwater, Death Valley
 
 var clusterStyles = [
     {
@@ -180,7 +173,7 @@ function initMap() {
             //Updating the "nearby chargers" list
             console.log("dadada");
             updateNearbyChargers();
-        }, 10000);
+        }, 1000);
     }
 }
 

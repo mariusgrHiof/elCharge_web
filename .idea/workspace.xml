@@ -2,9 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icon.png" afterPath="$PROJECT_DIR$/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/android/drawable-hdpi-icon.png" afterPath="$PROJECT_DIR$/res/icon/android/drawable-hdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/android/drawable-ldpi-icon.png" afterPath="$PROJECT_DIR$/res/icon/android/drawable-ldpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/android/drawable-mdpi-icon.png" afterPath="$PROJECT_DIR$/res/icon/android/drawable-mdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/android/drawable-xhdpi-icon.png" afterPath="$PROJECT_DIR$/res/icon/android/drawable-xhdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/android/drawable-xxhdpi-icon.png" afterPath="$PROJECT_DIR$/res/icon/android/drawable-xxhdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/android/drawable-xxxhdpi-icon.png" afterPath="$PROJECT_DIR$/res/icon/android/drawable-xxxhdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon-40.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon-40.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon-40@2x.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon-40@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon-60@2x.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon-60@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon-60@3x.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon-60@3x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon-76.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon-76.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon-76@2x.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon-76@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon-small.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon-small.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon-small@2x.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon-small@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon-small@3x.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon-small@3x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon@2x.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon@2x.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/chargers-nearby.js" afterPath="$PROJECT_DIR$/js/chargers-nearby.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/menu.css" afterPath="$PROJECT_DIR$/styles/menu.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/googlemaps.js" afterPath="$PROJECT_DIR$/js/googlemaps.js" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,7 +65,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chargers-nearby.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chargers-nearby.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
@@ -65,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="googlemaps.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="googlemaps.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="183" column="5" selection-start-line="183" selection-start-column="5" selection-end-line="183" selection-end-column="5" />
+            <state relative-caret-position="1079">
+              <caret line="175" column="12" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -78,8 +95,8 @@
       <file leaf-file-name="menu.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/styles/menu.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="269" column="4" selection-start-line="269" selection-start-column="4" selection-end-line="269" selection-end-column="18" />
+            <state relative-caret-position="197">
+              <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -206,9 +223,9 @@
         <option value="$PROJECT_DIR$/styles/tooltips.css" />
         <option value="$PROJECT_DIR$/styles/mobile.css" />
         <option value="$PROJECT_DIR$/js/addStations.js" />
+        <option value="$PROJECT_DIR$/js/chargers-nearby.js" />
         <option value="$PROJECT_DIR$/styles/menu.css" />
         <option value="$PROJECT_DIR$/js/googlemaps.js" />
-        <option value="$PROJECT_DIR$/js/chargers-nearby.js" />
       </list>
     </option>
   </component>
@@ -222,7 +239,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="366" />
+    <option name="x" value="239" />
     <option name="y" value="23" />
     <option name="width" value="1554" />
     <option name="height" value="1139" />
@@ -504,14 +521,7 @@
       <workItem from="1462730038821" duration="9370000" />
       <workItem from="1462748957181" duration="703000" />
       <workItem from="1462754249065" duration="570000" />
-      <workItem from="1462781160331" duration="665000" />
-    </task>
-    <task id="LOCAL-00136" summary="Fikset sånn at det alltid er siste versjon av nobil databasen som blir lastet ned til brukeren :) Fikset det med å legge inn &quot;contenttype&quot; til jsonp.">
-      <created>1462206642299</created>
-      <option name="number" value="00136" />
-      <option name="presentableId" value="LOCAL-00136" />
-      <option name="project" value="LOCAL" />
-      <updated>1462206642303</updated>
+      <workItem from="1462781160331" duration="1700000" />
     </task>
     <task id="LOCAL-00137" summary="Mobilversjon funker nå...">
       <created>1462214801508</created>
@@ -849,11 +859,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462747486265</updated>
     </task>
-    <option name="localTasksCounter" value="185" />
+    <task id="LOCAL-00185" summary="Fix for ladere i nærheten info">
+      <created>1462782042530</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1462782042530</updated>
+    </task>
+    <option name="localTasksCounter" value="186" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="281546000" />
+    <option name="totallyTimeSpent" value="282581000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -865,19 +882,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="366" y="23" width="1554" height="1139" extended-state="0" />
+    <frame x="239" y="23" width="1554" height="1139" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22486773" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.50437635" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40038133" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40114614" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32773852" sideWeight="0.49562362" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -901,7 +918,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="customMarkerClusterer" />
     <MESSAGE value="Ferdigstilt laderkapasitet array" />
     <MESSAGE value="infowindow viser hvilke kontaktpunkter som er hurtig og ikke" />
     <MESSAGE value="Fikset bug som gjorde at bil filterekt ikke fungerte riktig" />
@@ -926,7 +942,8 @@
     <MESSAGE value="Dratte posisjoner i ruten lagres midlertidig nå!" />
     <MESSAGE value="ladere i nærheten viser nå distanse med to desimaler. Litt penere om kan er ute å kjører." />
     <MESSAGE value="Laderikoner" />
-    <option name="LAST_COMMIT_MESSAGE" value="Laderikoner" />
+    <MESSAGE value="Fix for ladere i nærheten info" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix for ladere i nærheten info" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1282,22 +1299,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/styles/menu.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="269" column="4" selection-start-line="269" selection-start-column="4" selection-end-line="269" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="183" column="5" selection-start-line="183" selection-start-column="5" selection-end-line="183" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1310,6 +1311,22 @@
             <marker date="1462781948000" expanded="true" signature="2269:2926" placeholder="..." />
             <marker date="1462781948000" expanded="true" signature="2747:2895" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/menu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1079">
+          <caret line="175" column="12" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
