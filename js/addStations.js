@@ -143,7 +143,7 @@ function generateMarkers(){
                         addMarker(station);
                 }
                 if(inArray(station, favoriteStations))
-                    updateFavoriteStation(station);
+                    updateFavoriteStations(station);
                 loadedStations++;
                 progText = loadedStations + ' av ' + totalSize + ' stasjoner er lastet inn.';
                 //console.log(progText); //TODO -> printing out loading progression
@@ -461,14 +461,36 @@ function removeWaypoint(element){
     }
 }
 
-function updateFavoriteStation(station){
-    $('#favorite-stations').append(
-        '<li class="border img-height-4em" >' +
-        '<img class="cover-third float-left img-height-4em" src="icons/logo.svg">' +
-        '<div>' + jsonData[station].csmd.name +
+function updateFavoriteStations(){
+    for(var station in favoriteStations){
+        favoriteStations[station]["distance"] = compareDistance(geopos, jsonData[station].csmd.Position.replace(/[()]/g,"").split(","));
+    }
+    try{
+        favoriteStations.sort(function (a, b){
+            //TODO: Do this without wasint resources
+            console.log(a.distance + " and " + b.distance);
+            return a.distance - b.distance;
+        });
+    }catch(e){console.log(e);}
+    $("#favorite-stations").html("");
+    for(var station in favoriteStations){
+        $('#favorite-stations').append(
+            '<li class="border" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
+                '<img class="cover-third float-left img-height-4em" src=\"' + getStationImage(station) + '\"/>' +
+                '<div class="chargePointColor" style="height:4em;background-color:' +
+                    (jsonData[station].attr.st[21].attrvalid == "1" ? (isStationOccupiedStatus(station) > 0.4 ? 'lightgreen' : 'yellow') : 'blue') + ';"></div>'+
+                '<div class="cover-twothird float-right" style="width:calc(66% - 1em);">'+
+                    '<strong class="float-left">' + jsonData[station].csmd.name + '</strong><br />'+
+                    '<span>' + compareDistance(geopos, jsonData[station].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>'+
+                    '<button class="float-left" onclick="navigateFromUser(geopos, this)" value="'+ jsonData[station].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
+                    //"<button onclick='readMorev2(this)'>Vis mer</button>"+
+                '<div class="clear-both">' +//read-more
+                // generateConnectorString(id,jsonData[id].attr.st[21].attrvalid == "1") +
+                '</div>' +
+                '</div>' +
+            '</li>');
+    }
 
-        '</div>' +
-        '</li>');
 }
 
 //Showing and hiding markers
@@ -488,15 +510,17 @@ function addToFavorites(id){
         path += "https://frigg.hiof.no/bo16-g6/webapp/";
 
     path +="includes/addToFavorite.php";
-
+    favoriteStations[id] = "";
+    if(!phonegap)
+        updateFavoriteStations();
     $.post( path,{
         stationId: id
     }, function( data ) {
-        $( "#favorite-stations" ).append(
+        /*$( "#favorite-stations" ).append(
             '<div>' +
                 'data: ' + data +
             '</div>'
-        );
+        );*/
     });
     return false;
 }

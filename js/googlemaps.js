@@ -172,6 +172,7 @@ function initMap() {
         setInterval(function () {
             //Updating the "nearby chargers" list
             updateNearbyChargers();
+            updateFavoriteStations();
         }, 1000);
     }
     window.addEventListener("resize",function(){
