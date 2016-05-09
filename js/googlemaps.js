@@ -106,7 +106,7 @@ function initMap() {
     var scaleSize = isIOS ? 120 : 15;
     var mi = {
         url: 'icons/my_pos_marker.svg',
-        anchor: new google.maps.Point( (phonegap && !isIOS ? scaleSize/2 : scaleSize/10), (phonegap && !isIOS ? scaleSize/2 : scaleSize/10) ),
+        anchor: new google.maps.Point( (phonegap && !isIOS ? scaleSize/2 : scaleSize/20), (phonegap && !isIOS ? scaleSize/2 : scaleSize/20) ),
         origin: new google.maps.Point(0, 0),
         scaledSize: new google.maps.Size(scaleSize, scaleSize),
         size: new google.maps.Size(64, 64)
@@ -192,10 +192,14 @@ function deleteMarkers() {
     chargers_nearby.length = 0;
     markers.length = 0;
 }
-function centerOnUser(){
+function centerOnUser(camtilt){
     //Refreshing user pos
     if(!isMobile)//Only for desktop
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    //Applying wanted cam tilt
+    if (map.getTilt()) {
+        map.setTilt(camtilt);
+    }
     map.setCenter(pos);
-    map.setZoom(15);
+    map.setZoom(18);
 }

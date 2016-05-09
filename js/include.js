@@ -6,6 +6,7 @@ var isMobile = false;
 var isAndroid = false;
 var isIOS = false;
 var accuracyRadius;
+var lockPos = false;
 
 var onSuccess = function(position) {
 
@@ -28,8 +29,8 @@ var onSuccess = function(position) {
                 radius: position.coords.accuracy
             });
         }
-
-        console.log("GPS accuracy: " + position.coords.accuracy + "m.");
+        if(lockPos)
+            centerOnUser(45);
     }catch(e){
         //console.log("Not able to get your current position.");
     }

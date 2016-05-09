@@ -186,3 +186,9 @@ $("#selected-charger-capacity").change(
         generateMarkers();
     }
 );
+
+function lockMapToUser(ele) {
+    //Making it so that the user can toggle if they want the map to follow or not
+    lockPos = !lockPos;
+    $(ele).html(lockPos ? 'U' : 'L');
+}
