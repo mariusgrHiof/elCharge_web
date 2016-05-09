@@ -171,7 +171,6 @@ function initMap() {
         );
         setInterval(function () {
             //Updating the "nearby chargers" list
-            console.log("dadada");
             updateNearbyChargers();
         }, 1000);
     }
