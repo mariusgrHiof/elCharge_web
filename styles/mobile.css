@@ -10,7 +10,7 @@
         position:relative;
     }
     #map{
-        margin-top:-0.1em;
+        top: -0.3em;
         height: calc(100% - 5em);
         position:relative !important;
     }

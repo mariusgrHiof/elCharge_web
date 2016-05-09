@@ -1,11 +1,7 @@
 /*iOS*/
-html{
+html,body {
     background:black;
-}
-
-header.toggle {
-    height: calc( 100vh - 20px);
-    max-height: calc( 100vh - 20px);
+    height: auto;
 }
 
 #search {
@@ -26,19 +22,17 @@ header.toggle {
         margin-top: 20px;/*iPhone sin statusbar er 20px høy*/
     }
     nav{
-        top:calc(5em + 20px);
+        top: calc(5em + 20px);
         height:calc(100vh - 5em - 20px);
     }
     #map{
-        margin-top: 6em;
-        height: calc(100% - 6em);
+        height: calc(100vh - 5.4em - 20px);
     }
     /*Charger menu*/
     #chargers-nearby {
         overflow-y: auto;
     }
     .gm-style-iw{
-        width:200% !important;
         min-width: 130% !important;
         max-width:130% !important;
     }
@@ -48,18 +42,25 @@ header.toggle {
     .gm-style .gm-style-iw{
         width:100% !important;
     }
+
     #infoLeft{
         width:100% !important;
-        height:50% !important;
+        height:9em !important;
     }
     #chargingPoints {
         width:100% !important;
         max-height:50% !important;
         float:right;
+        clear:both;
+        height:10em;
+        padding-bottom:4em;
     }
     #chargingPoints > div{
         overflow-y: scroll;
-        height: 12vh;
+        height: 10em;
+    }
+    #lowerContainer{
+        clear:both;
     }
 }
 @media screen and (min-width: 601px){
@@ -72,5 +73,3 @@ header.toggle {
         height: calc( 100vh - 20px );
     }
 }
-
-
