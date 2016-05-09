@@ -193,7 +193,7 @@ function processDL(data){
     try{
         //Starting automatic location update
         if(isMobile && phonegap)
-            navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy: true, timeout: 100, maximumAge: 20000 });
+            navigator.geolocation.watchPosition(onSuccess, onError, {enableHighAccuracy: true, timeout: 100, maximumAge: 1000 });
     }catch(e){
         console.log("Failed: " + e);
         $('.dl-progress-text').text("Innlasting har feilet med følgende feilmeling: " + e);
