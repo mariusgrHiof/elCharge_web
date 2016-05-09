@@ -4,7 +4,6 @@
         max-height: 100%;
     }
     #map{
-        margin-top: 5em;
         height: calc(100% - 5em);
     }
     #search {

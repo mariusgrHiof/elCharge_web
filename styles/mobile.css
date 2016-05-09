@@ -7,10 +7,11 @@
         width:100%;
         min-width:100%;
         max-width:100%;
+        position:relative;
     }
     #map{
-        margin-top: 5em;
         height: calc(100% - 5em);
+        position:relative !important;
     }
 
     nav{
@@ -46,6 +47,7 @@
     }
     .gm-style .gm-style-iw{
         width:100% !important;
+        height:30em !important;
     }
     #infoLeft{
         width:100% !important;
@@ -53,11 +55,11 @@
     }
     #chargingPoints {
         width:100% !important;
-        max-height:50% !important;
+        max-height: 12em !important;
         float:right;
     }
     #chargingPoints > div{
         overflow-y: scroll;
-        height: 9vh;
+        height: 10em;
     }
 }

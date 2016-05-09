@@ -174,6 +174,11 @@ function initMap() {
             updateNearbyChargers();
         }, 1000);
     }
+    window.addEventListener("resize",function(){
+        google.maps.event.trigger(map, 'resize');
+        var queryString = '?reload=' + new Date().getTime();
+
+    }, false);
 }
 
 // Sets the map on all markers in the array.
