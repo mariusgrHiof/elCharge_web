@@ -1,6 +1,6 @@
 /*iOS*/
 html{
-    background:white;
+    background:black;
 }
 
 header.toggle {
@@ -35,7 +35,6 @@ header.toggle {
     }
     /*Charger menu*/
     #chargers-nearby {
-        height: 22em;
         overflow-y: auto;
     }
     .gm-style-iw{
