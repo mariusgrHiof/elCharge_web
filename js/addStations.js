@@ -254,7 +254,21 @@ function addMarker(station){
         // Remove the white background DIV
         iwBackground.children(':nth-child(4)').css({'display' : 'none'});
 
+        var iwCloseBtn = iwOuter.next();
+        iwCloseBtn.css({
+            opacity: '1',
+            right: '52px',
+            top: '16px'
+
+        });
+
+        iwCloseBtn.mouseout(function(){
+           $(this).css({opacity: '1'});
+        });
+
     }));
+
+
     /*
      * Making it so that the popups disappear upon click outside box
      */

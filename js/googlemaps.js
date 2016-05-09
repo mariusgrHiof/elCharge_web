@@ -67,6 +67,10 @@ function initMap() {
     map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
     elevationService = new google.maps.ElevationService;
 
+
+
+
+
     try{
         /*
          ** Search box header
