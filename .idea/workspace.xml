@@ -2,26 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icon.png" afterPath="$PROJECT_DIR$/icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/android/drawable-hdpi-icon.png" afterPath="$PROJECT_DIR$/res/icon/android/drawable-hdpi-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/android/drawable-ldpi-icon.png" afterPath="$PROJECT_DIR$/res/icon/android/drawable-ldpi-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/android/drawable-mdpi-icon.png" afterPath="$PROJECT_DIR$/res/icon/android/drawable-mdpi-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/android/drawable-xhdpi-icon.png" afterPath="$PROJECT_DIR$/res/icon/android/drawable-xhdpi-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/android/drawable-xxhdpi-icon.png" afterPath="$PROJECT_DIR$/res/icon/android/drawable-xxhdpi-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/android/drawable-xxxhdpi-icon.png" afterPath="$PROJECT_DIR$/res/icon/android/drawable-xxxhdpi-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon-40.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon-40.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon-40@2x.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon-40@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon-60@2x.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon-60@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon-60@3x.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon-60@3x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon-76.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon-76.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon-76@2x.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon-76@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon-small.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon-small.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon-small@2x.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon-small@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon-small@3x.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon-small@3x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/icon/ios/icon@2x.png" afterPath="$PROJECT_DIR$/res/icon/ios/icon@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/screen/ios/Default-568h@2x~iphone.png" afterPath="$PROJECT_DIR$/res/screen/ios/Default-568h@2x~iphone.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/screen/ios/Default-667h.png" afterPath="$PROJECT_DIR$/res/screen/ios/Default-667h.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/screen/ios/Default-736h.png" afterPath="$PROJECT_DIR$/res/screen/ios/Default-736h.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/screen/ios/Default-Landscape-736h.png" afterPath="$PROJECT_DIR$/res/screen/ios/Default-Landscape-736h.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/screen/ios/Default-Landscape@2x~ipad.png" afterPath="$PROJECT_DIR$/res/screen/ios/Default-Landscape@2x~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/screen/ios/Default-Landscape~ipad.png" afterPath="$PROJECT_DIR$/res/screen/ios/Default-Landscape~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/screen/ios/Default-Portrait@2x~ipad.png" afterPath="$PROJECT_DIR$/res/screen/ios/Default-Portrait@2x~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/screen/ios/Default-Portrait~ipad.png" afterPath="$PROJECT_DIR$/res/screen/ios/Default-Portrait~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/screen/ios/Default@2x~iphone.png" afterPath="$PROJECT_DIR$/res/screen/ios/Default@2x~iphone.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/screen/ios/Default~iphone.png" afterPath="$PROJECT_DIR$/res/screen/ios/Default~iphone.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/googlemaps.js" afterPath="$PROJECT_DIR$/js/googlemaps.js" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,7 +59,7 @@
       <file leaf-file-name="chargers-nearby.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="630">
               <caret line="42" column="57" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
               <folding>
                 <marker date="1462781948000" expanded="true" signature="1764:1813" placeholder="..." />
@@ -85,7 +76,7 @@
       <file leaf-file-name="googlemaps.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1079">
+            <state relative-caret-position="991">
               <caret line="175" column="12" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="12" />
               <folding />
             </state>
@@ -95,7 +86,7 @@
       <file leaf-file-name="menu.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/styles/menu.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
+            <state relative-caret-position="960">
               <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
               <folding />
             </state>
@@ -270,7 +261,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -347,6 +337,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -521,14 +512,8 @@
       <workItem from="1462730038821" duration="9370000" />
       <workItem from="1462748957181" duration="703000" />
       <workItem from="1462754249065" duration="570000" />
-      <workItem from="1462781160331" duration="1700000" />
-    </task>
-    <task id="LOCAL-00137" summary="Mobilversjon funker nå...">
-      <created>1462214801508</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1462214801508</updated>
+      <workItem from="1462781160331" duration="1739000" />
+      <workItem from="1462786065747" duration="321000" />
     </task>
     <task id="LOCAL-00138" summary="flyttet login vinduet inn i menyen.">
       <created>1462215725627</created>
@@ -866,11 +851,18 @@
       <option name="project" value="LOCAL" />
       <updated>1462782042530</updated>
     </task>
-    <option name="localTasksCounter" value="186" />
+    <task id="LOCAL-00186" summary="App icons">
+      <created>1462785633528</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1462785633528</updated>
+    </task>
+    <option name="localTasksCounter" value="187" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="282581000" />
+    <option name="totallyTimeSpent" value="282941000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -883,18 +875,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="239" y="23" width="1554" height="1139" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22486773" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22751322" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.50437635" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40114614" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40038133" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32773852" sideWeight="0.49562362" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -918,7 +910,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Ferdigstilt laderkapasitet array" />
     <MESSAGE value="infowindow viser hvilke kontaktpunkter som er hurtig og ikke" />
     <MESSAGE value="Fikset bug som gjorde at bil filterekt ikke fungerte riktig" />
     <MESSAGE value="Fikser streetview controls! FINALLY!" />
@@ -943,7 +934,8 @@
     <MESSAGE value="ladere i nærheten viser nå distanse med to desimaler. Litt penere om kan er ute å kjører." />
     <MESSAGE value="Laderikoner" />
     <MESSAGE value="Fix for ladere i nærheten info" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix for ladere i nærheten info" />
+    <MESSAGE value="App icons" />
+    <option name="LAST_COMMIT_MESSAGE" value="App icons" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1180,7 +1172,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="825">
           <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1223,7 +1214,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1241,18 +1231,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/exampleObject.json.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="100" column="30" selection-start-line="100" selection-start-column="21" selection-end-line="100" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/global.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3075">
           <caret line="207" column="11" selection-start-line="207" selection-start-column="11" selection-end-line="207" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/addStations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6435">
+          <caret line="431" column="69" selection-start-line="431" selection-start-column="69" selection-end-line="431" selection-end-column="69" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="57" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
+          <folding>
+            <marker date="1462781948000" expanded="true" signature="1764:1813" placeholder="..." />
+            <marker date="1462781948000" expanded="true" signature="1814:2952" placeholder="..." />
+            <marker date="1462781948000" expanded="false" signature="1990:2167" placeholder="..." />
+            <marker date="1462781948000" expanded="true" signature="2246:2268" placeholder="..." />
+            <marker date="1462781948000" expanded="true" signature="2269:2926" placeholder="..." />
+            <marker date="1462781948000" expanded="true" signature="2747:2895" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="991">
+          <caret line="175" column="12" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/menu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/scripts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
           <folding />
         </state>
       </provider>
@@ -1281,51 +1312,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/addStations.js">
+    <entry file="file://$PROJECT_DIR$/data/exampleObject.json.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6435">
-          <caret line="431" column="69" selection-start-line="431" selection-start-column="69" selection-end-line="431" selection-end-column="69" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/scripts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="42" column="57" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
-          <folding>
-            <marker date="1462781948000" expanded="true" signature="1764:1813" placeholder="..." />
-            <marker date="1462781948000" expanded="true" signature="1814:2952" placeholder="..." />
-            <marker date="1462781948000" expanded="false" signature="1990:2167" placeholder="..." />
-            <marker date="1462781948000" expanded="true" signature="2246:2268" placeholder="..." />
-            <marker date="1462781948000" expanded="true" signature="2269:2926" placeholder="..." />
-            <marker date="1462781948000" expanded="true" signature="2747:2895" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/menu.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/googlemaps.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1079">
-          <caret line="175" column="12" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="12" />
+        <state relative-caret-position="1500">
+          <caret line="100" column="30" selection-start-line="100" selection-start-column="21" selection-end-line="100" selection-end-column="30" />
           <folding />
         </state>
       </provider>
