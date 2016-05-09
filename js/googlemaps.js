@@ -176,7 +176,6 @@ function initMap() {
     }
     window.addEventListener("resize",function(){
         google.maps.event.trigger(map, 'resize');
-        var queryString = '?reload=' + new Date().getTime();
 
     }, false);
 }
