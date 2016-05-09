@@ -11,7 +11,6 @@ var downloadFrom = "2005-01-01";
 var url = "https://nobil.no/api/server/datadump.php?apikey=274b68192b056e268f128ff63bfcd4a4&fromdate=";
 
 var jsonData = new Array();
-var favoriteStations = [];
 var mc;
 
 //Vars to define how many kW is fast and semifast

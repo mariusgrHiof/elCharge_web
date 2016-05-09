@@ -461,19 +461,21 @@ function removeWaypoint(element){
     }
 }
 
+var favoriteStations = [];
 function updateFavoriteStations(){
-    for(var station in favoriteStations){
-        favoriteStations[station]["distance"] = compareDistance(geopos, jsonData[station].csmd.Position.replace(/[()]/g,"").split(","));
+    for(var station in favoriteStations) {
+        favoriteStations[station]["distance"] = compareDistance(geopos, jsonData[station].csmd.Position.replace(/[()]/g, "").split(","));
+        console.log("Distance for " + station + " is " + favoriteStations[station]["distance"]);
     }
     try{
-        favoriteStations.sort(function (a, b){
+        favoriteStations = favoriteStations.sort(function (a, b){
             //TODO: Do this without wasint resources
-            console.log(a.distance + " and " + b.distance);
             return a.distance - b.distance;
         });
     }catch(e){console.log(e);}
     $("#favorite-stations").html("");
     for(var station in favoriteStations){
+        console.log(favoriteStations[station].distance);
         $('#favorite-stations').append(
             '<li class="border" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
                 '<img class="cover-third float-left img-height-4em" src=\"' + getStationImage(station) + '\"/>' +
