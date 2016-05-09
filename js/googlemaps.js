@@ -155,7 +155,7 @@ function initMap() {
             //Storing the user pos value
             geopos = [position.coords.latitude, position.coords.longitude];
             map.setCenter(pos);
-        }, function() {
+        }, function() { 
             handleLocationError(true, infoWindow, map.getCenter());
         });
     } else {
