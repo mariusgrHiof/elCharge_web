@@ -3,6 +3,7 @@ header{
     position:absolute;
     width:27em;
     border-bottom:1px gray solid;
+    height: 5em;
 }
 
 div#title h1{
@@ -40,20 +41,17 @@ div#title-login h1{
     margin:auto;
 }
 
-#right-panel{
-    overflow:auto;
-    max-height: 20em;
-}
 div#title-login button.show-login {
     float:right;
     margin-right:0;
 }
 nav{
-    width:99.5%;
-    max-width:99.5%;
-    display:none;
-    clear:both;
-    height:90vh;
+    z-index:1;
+    background:white;
+    position: fixed;
+    width:27em;
+    top:5em;
+    height:calc(100vh - 5em);
 }
 nav ul{
     margin: 0 0 0 -2.5em;
@@ -77,6 +75,8 @@ nav ul li ul{
 .sub-item{
     display:none;
     padding:1em;
+    overflow: auto;
+    height: calc(100vh - 5em - 6em);
 }
 .back-btn{
     display:none;
@@ -127,6 +127,9 @@ button#menu-toggle{
     border-style:none;
     width:3em;
     height:2em;
+}
+button#menu-toggle.toggle{
+    background: url(../icons/colapse_icon.svg) no-repeat transparent;
 }
 button#my-loc-btn{
     background: transparent;
@@ -253,6 +256,7 @@ select{
     margin-top:0;
     cursor:pointer;
     cursor:hand;
+    height: 1.2em;
 }
 ul{
     margin-left:0;

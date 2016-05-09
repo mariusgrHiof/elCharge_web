@@ -3,7 +3,8 @@
  * If we want slide in, check this out: http://stackoverflow.com/questions/521291/jquery-slide-left-and-show
  */
 function dropdown(event, parent){
-    if(parent){
+     if(parent){
+
         var parent = $(event).parent().parent();
         if(!$(parent).hasClass('toggle')){
             $(parent).addClass('toggle');
@@ -19,6 +20,20 @@ function dropdown(event, parent){
         }
     }
 }
+
+function slideIn() {//$(target).css("left") == "-27em"
+    try{
+        var target = $('.menu');
+        if($(target).css("left") == "-700px"){
+            $('#menu-toggle').addClass('toggle');
+            $(target).animate({left:'0px'}, {queue: false, duration: 300});
+        }else{
+            $('#menu-toggle').removeClass('toggle');
+            $(target).animate({left:'-700px'}, {queue: false, duration: 300});
+        }
+    }catch(e){console.log(e);}
+}
+
 function userLoggin(form){
     var path = "";
     if(phonegap)

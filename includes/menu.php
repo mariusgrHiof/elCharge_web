@@ -28,7 +28,7 @@
 51	Type 2 + Danish (Section 107-2-D1)
  */
 ?>
-<nav class="menu">
+<nav class="menu" style="left:-700px;">
     <?php
     include 'includes/login.php';
     include 'includes/userwindow.php';

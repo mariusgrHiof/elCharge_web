@@ -25,6 +25,10 @@ header.toggle {
     header{
         margin-top: 20px;/*iPhone sin statusbar er 20px høy*/
     }
+    nav{
+        top:calc(5em + 20px);
+        height:calc(100vh - 5em - 20px);
+    }
     #map{
         margin-top: 6em;
         height: calc(100% - 6em);
@@ -60,6 +64,10 @@ header.toggle {
     }
 }
 @media screen and (min-width: 601px){
+    nav{
+        top:calc(5em + 20px);
+        height:calc(100vh - 5em - 20px);
+    }
     #map{
         margin-top: 20px;
         height: calc( 100vh - 20px );

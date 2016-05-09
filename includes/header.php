@@ -11,14 +11,14 @@
         <h1>elCharge</h1>
     </div>
     <div id="search">
-        <button onclick="dropdown(this, true)" id="menu-toggle"></button>
+        <button onclick="slideIn()" id="menu-toggle"></button>
         <input id="search-box" type="text"/>
         <button id="my-loc-btn" onclick="centerOnUser(0)"><img src="icons/my_pos_marker.svg" style="width:1.5em; height:1.5em;"/></button>
         <button id="lock-to-my-pos-btn" onclick="lockMapToUser(this)">L</button>
     </div>
-    <?php
-    include 'menu.php';
-    //include 'includes/footer.php';
-    ?>
-</header>
 
+</header>
+<?php
+include 'menu.php';
+//include 'includes/footer.php';
+?>
