@@ -463,16 +463,6 @@ function removeWaypoint(element){
 
 var favoriteStations = [];
 function updateFavoriteStations(){
-    for(var station in favoriteStations) {
-        favoriteStations[station]["distance"] = compareDistance(geopos, jsonData[station].csmd.Position.replace(/[()]/g, "").split(","));
-        console.log("Distance for " + station + " is " + favoriteStations[station]["distance"]);
-    }
-    try{
-        favoriteStations = favoriteStations.sort(function (a, b){
-            //TODO: Do this without wasint resources
-            return a.distance - b.distance;
-        });
-    }catch(e){console.log(e);}
     $("#favorite-stations").html("");
     for(var station in favoriteStations){
         console.log(favoriteStations[station].distance);
@@ -513,11 +503,12 @@ function addToFavorites(id){
 
     path +="includes/addToFavorite.php";
     favoriteStations[id] = "";
-    if(!phonegap)
-        updateFavoriteStations();
     $.post( path,{
         stationId: id
     }, function( data ) {
+        console.log("Response: " + data);
+        if(!phonegap)
+            updateFavoriteStations();
         /*$( "#favorite-stations" ).append(
             '<div>' +
                 'data: ' + data +
