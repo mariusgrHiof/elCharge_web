@@ -513,7 +513,7 @@ function showHideMarkers(ele){
 function addToFavorites(id){
     var path ="";
     if(phonegap)
-        path += "https://frigg.hiof.no/bo16-g6/webapp/";
+        path += "http://frigg.hiof.no/bo16-g6/webapp/";
 
     path +="includes/addToFavorite.php";
     favoriteStations[id] = "";

@@ -37,7 +37,7 @@ function slideIn() {//$(target).css("left") == "-27em"
 function userLoggin(form){
     var path = "";
     if(phonegap)
-        path += "https://frigg.hiof.no/bo16-g6/webapp/";
+        path += "http://frigg.hiof.no/bo16-g6/webapp/";
     path +="includes/checkloggin.php";
 
     //Logging the user in
@@ -69,7 +69,7 @@ function userLoggin(form){
 function userRegistration(form){
     var path = "";
     if(phonegap)
-        path += "https://frigg.hiof.no/bo16-g6/webapp/";
+        path += "http://frigg.hiof.no/bo16-g6/webapp/";
     path +="includes/register.php";
 
     //Logging the user in
