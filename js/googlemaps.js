@@ -171,7 +171,7 @@ function initMap() {
     if(phonegap){
         //Safeguarding against timeout for the cordovaWebView
         setTimeout(
-            document.addEventListener("deviceready", downloadDumpPG(), false), 2000
+            document.addEventListener("deviceready", downloadDumpPG(), false), 2000//downloadDumpPG()
         );
         setInterval(function () {
             //Updating the "nearby chargers" list

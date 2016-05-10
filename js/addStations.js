@@ -261,6 +261,7 @@ function addMarker(station){
             top: '16px'
 
         });
+        iwCloseBtn.addClass('iw-close-btn');
 
         iwCloseBtn.mouseout(function(){
            $(this).css({opacity: '1'});

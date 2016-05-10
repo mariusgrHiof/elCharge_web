@@ -63,4 +63,9 @@
         overflow-y: scroll;
         height: 10em;
     }
+
+    .iw-close-btn{
+        display:none;
+    }
+
 }

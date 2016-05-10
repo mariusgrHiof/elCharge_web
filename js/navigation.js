@@ -149,9 +149,10 @@ function getRouteData(){
 //Getting the adress of a given latlong object
 function getLocationNameFromLatLng(latlng,index, subIndex){
     var request = new XMLHttpRequest();
+    //showDraggedInList(latlng);
 
     var method = 'GET';
-    var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latlng.lat().toFixed(4) +','+latlng.lng().toFixed(4) +'&sensor=true';
+    var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+latlng.lat().toFixed(4) +','+latlng.lng().toFixed(4) +'&sensor=true';
     var async = true;
     request.open(method, url, async);
     request.onreadystatechange = function(){
@@ -159,22 +160,41 @@ function getLocationNameFromLatLng(latlng,index, subIndex){
             var data = JSON.parse(request.responseText);
             console.log(data);
             console.log("Sub waypoint" + index + "." + subIndex + " - " + data.results[0].formatted_address);
-            showDraggedInList(latlng, data.results[0].formatted_address);
+            showDraggedInListAdress(latlng, data.results[0].formatted_address);
         }
     };
     request.send();
 };
 
-function showDraggedInList(ltlng, address){
+function showDraggedInList(ltlng){
     waypoints.push(
         {location: ltlng}
     );
     var content =
         "<div class='route-element'>" +
             "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
-                "<Strong>" + address +"</Strong>"+
+                "<Strong>" + ltlng.lat() + "," + ltlng.lng() +"</Strong>"+
             "</div>"+
             "<div><button onclick=\"removeWaypoint(this)\">X</button></div>" +
+        "</div>";
+    document.getElementById('waypoint-list').innerHTML += content;
+
+    //Refreshing the route if it's active
+    if($('#nav-start-pos').val() != "" && $('#nav-end-pos').val() != ""){
+        navigate();
+    }
+}
+
+function showDraggedInListAdress(ltlng, address){
+    waypoints.push(
+        {location: ltlng}
+    );
+    var content =
+        "<div class='route-element'>" +
+        "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
+        "<Strong>" + address +"</Strong>"+
+        "</div>"+
+        "<div><button onclick=\"removeWaypoint(this)\">X</button></div>" +
         "</div>";
     document.getElementById('waypoint-list').innerHTML += content;
 

@@ -213,5 +213,5 @@ function inArrayVal(value, array){
 function getStationImage(station){return (/kommer/i.test(jsonData[station].csmd.Image.toLowerCase()) || /no.image.svg/i.test(jsonData[station].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[station].csmd.Image);}
 function connCapacityString (station, connectorID){
     var capacity = chargingCapacity[jsonData[station].attr.conn[connectorID][5].attrvalid].kW;
-    return capacity >= fastCharge ? 'Hurtiglader' : (capacity >= semiFastCharge ? "Semihurtig": "Vanlig");
+    return capacity >= fastCharge ? capacity + "kW " + 'hurtiglader' : (capacity >= semiFastCharge ? capacity + "kW " +"semihurtig": capacity + "kW "+ "vanlig");
 }
