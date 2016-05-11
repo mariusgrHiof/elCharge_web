@@ -9,6 +9,8 @@ var endDestination ="";
 var directionsDisplay;
 var directionsService;
 
+var jsonRoute = [];
+
 var myroute = [];
 function navigate(){
     //Cleaning previous directions
@@ -202,4 +204,45 @@ function showDraggedInListAdress(ltlng, address){
     if($('#nav-start-pos').val() != "" && $('#nav-end-pos').val() != ""){
         navigate();
     }
+}
+
+function saveRouteData(){
+
+
+
+    for(var i in myroute.legs){
+        if(i == 0)
+        //Getting starting pos
+            jsonRoute["start"] = myroute.legs[i].start_address;//console.log("Start pos is: " + myroute.legs[i].start_address);
+
+        if (i == myroute.legs.length -1)
+        //Getting end destination
+            jsonRoute["end"] =  myroute.legs[i].end_address;//console.log("End dest is: " + myroute.legs[i].end_address);
+    }
+
+    jsonRoute['waypoints'] = waypoints;
+
+    console.log(JSON.stringify(jsonRoute));
+
+
+    $.post("includes/myRoute.php", {
+       route: jsonRoute
+    }, function(data){
+        $('#myRoute-saved').html(data);
+        console.log("Feedback " + data);
+    });
+    return false;
+
+
+   /* {
+    ’start’:’Oslo, Norge’
+    ‘end’:’Halden, Norge’
+ 'waypoints’:[
+        {’id’:’NOR_123’, ’name’:’Ola ladestasjon’, ‘position’:’53.01, 90.123’},
+        {’id’:’NOR_123’, ’name’:’Ola ladestasjon’, ‘position’:’53.01, 90.123'}
+        ]
+        }*/
+
+
+
 }

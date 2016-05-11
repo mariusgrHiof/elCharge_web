@@ -49,7 +49,7 @@ function userLoggin(form){
             function( data ){
                 console.log("Logged in feedback = " + data );
                 //Populating the user logged in window.
-                //$('#logged-in').html( data );
+                $('#logged-in').html( data );
 
                 //Populating the favorite chargers and routes window
                 //Cleaning out the array
@@ -65,6 +65,7 @@ function userLoggin(form){
     );
     return false;
 }
+
 
 function userRegistration(form){
     var path = "";
