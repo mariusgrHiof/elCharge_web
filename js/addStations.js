@@ -8,7 +8,7 @@ var connectorsString;
 var infoWindows = [];
 var markerListeners = [];
 var selectedCapacity = 0;
-
+var occupiedLimit = 0.4;
 var typeIDs = new Array();
 typeIDs['0'] = "Unspecified";
 typeIDs['14'] = "Schuko";
@@ -185,6 +185,7 @@ function getCarMatch(portCount, station){
                //If no car or type is selected
                match = true;
             }
+
             if(jsonData[station].attr.conn[c][9].attrvalid == 1){//Is a faulty connector
                 faultyConns++;
             }
@@ -211,8 +212,8 @@ function addMarker(numOfPorts, station){
     var markerIcon = {
         url: 'icons/'+(
             isLive ? (hasFastCharge ?
-                (faultyConns/numOfPorts == 1 ? 'marker_red_v2' :( isStationOccupiedStatus(station) > 0.4 ? 'marker_green_v2' : 'marker_yellow_v2')):
-                (faultyConns/numOfPorts == 1 ? 'marker_red_v3' :( isStationOccupiedStatus(station) > 0.4 ? 'marker_green_v3' : 'marker_yellow_v3')))
+                (faultyConns/numOfPorts == 1 ? 'marker_red_v2' :( isStationOccupiedStatus(station) > occupiedLimit ? 'marker_green_v2' : 'marker_yellow_v2')):
+                (faultyConns/numOfPorts == 1 ? 'marker_red_v3' :( isStationOccupiedStatus(station) > occupiedLimit ? 'marker_green_v3' : 'marker_yellow_v3')))
                 :(hasFastCharge ? (faultyConns/numOfPorts == 1 ? 'marker_red_v2' :'marker_blue_v2'):(faultyConns/numOfPorts == 1 ? 'marker_red_v3' :'marker_blue_v3')))+'.svg', //Changing the color of the marker based on if it has live status or not.
         anchor: new google.maps.Point(0, 32),
         origin: new google.maps.Point(0, 0),
@@ -346,7 +347,7 @@ function createIWContent(station, isLive) {
                 "<div id='placeNameIcons' style='color:blue;'>"+
                     "<h3>"+ jsonData[station].csmd.name + "(ID:" + station + ")</h3>" +
                 "</div>"+
-                "<div class='markerColor' style='background-color:"+ (isLive ? "lightgreen" : "blue") +";'>"+
+                "<div class='markerColor' style='background-color:"+ (faultyConns / jsonData[station].csmd.Number_charging_points == 1 ? "red" : (isLive ? (isStationOccupiedStatus(station) > occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>"+
                 "</div>"+
             "</div>"+
             "<div id='secondContainer'>"+
@@ -359,7 +360,7 @@ function createIWContent(station, isLive) {
                     "<p><strong>Kommentarer:</strong> "+ jsonData[station].csmd.User_comment.replace('\r\n','<br />')+"</p>" +
                 "</div>"+
                 "<div id='chargingPoints'>"+
-                    "<p style='border-bottom:1px solid gray;margin-bottom:0;'><strong>Ladepunkter:</strong> "+ jsonData[station].csmd.Number_charging_points+" </p>" +
+                    "<p style='border-bottom:1px solid gray;margin-bottom:0;'><strong>Ladepunkter:</strong> "+ jsonData[station].csmd.Number_charging_points + " </p>" +
                     "<div> "+
                         connectorsString +
                     "</div>" +
@@ -378,6 +379,7 @@ function createIWContent(station, isLive) {
 function generateConnectorString(station, isLive){
     var isInService = true;
     var connStatus = "9";
+    faultyConns = 0;
 
     var result = '<div style="margin:0.1em 0 0.1em 0;">';
     for(var c = 1; c <= jsonData[station].csmd.Number_charging_points; c++){
@@ -386,8 +388,12 @@ function generateConnectorString(station, isLive){
                 try {
                     isInService = jsonData[station].attr.conn[c][9].attrvalid == "0";
                     connStatus = jsonData[station].attr.conn[c][8].attrvalid;
+                    if(jsonData[station].attr.conn[c][9].attrvalid == 1){//Is a faulty connector
+                        faultyConns++;
+                    }
                 } catch(e) {}
             }
+
 
             result +=
                 "<div class='cpelements'>"+
@@ -400,7 +406,7 @@ function generateConnectorString(station, isLive){
                     "</div>"+
                 "</div>";
         }catch(e){
-            console.log('Failed to build connectorsString for ' + jsonData[station].csmd.name);
+            console.log('Failed to build connectorsString for ' + jsonData[station].csmd.name + " Error: " + e);
         }
     }
     return result += "</div>";
@@ -451,13 +457,14 @@ function addWaypoint(id){
         var barr = [b.lat, b.lon];
         return compareDistance(arr, barr) > 0 ? 1 : 0;
     });
+
     var content =
         "<div class='route-element station-"+ id +"'>" +
             "<img class='cover-third float-left' src=\"" + getStationImage(id) + "\"/>" +
             "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
                 "<Strong>" + jsonData[id].csmd.name +"</Strong>"+
             "</div>"+
-            "<div class='markerColor' style='background-color:"+ (isLive ? "lightgreen" : "blue") +";'>" +
+            "<div class='markerColor' style='background-color:"+ (faultyConns / jsonData[station].csmd.Number_charging_points == 1 ? "red" : (isLive ? (isStationOccupiedStatus(station) > occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>" +
                 "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"removeWaypoint(this)\">X</button>" +
             "</div>"+
             "<button onclick='readMorev2(this)'>Vis mer</button>"+
@@ -499,7 +506,7 @@ function updateFavoriteStations(){
             '<li class="border" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
                 '<img class="cover-third float-left img-height-4em" src=\"' + getStationImage(station) + '\"/>' +
                 '<div class="chargePointColor" style="height:4em;background-color:' +
-                    (jsonData[station].attr.st[21].attrvalid == "1" ? (isStationOccupiedStatus(station) > 0.4 ? 'lightgreen' : 'yellow') : 'blue') + ';"></div>'+
+                    (jsonData[station].attr.st[21].attrvalid == "1" ? (isStationOccupiedStatus(station) > occupiedLimit ? 'lightgreen' : 'yellow') : 'blue') + ';"></div>'+
                 '<div class="cover-twothird float-right" style="width:calc(66% - 1em);">'+
                     '<strong class="float-left">' + jsonData[station].csmd.name + '</strong><br />'+
                     '<span>' + compareDistance(geopos, jsonData[station].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>'+
