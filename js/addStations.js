@@ -391,12 +391,13 @@ function generateConnectorString(station, isLive){
 
             result +=
                 "<div class='cpelements'>"+
-                "<span style=\'color:black; width:90%; float:left;\'>"+
-                jsonData[station].attr.conn[c][4].trans + "(" + connCapacityString(station, c) +")" + connectorImg(jsonData[station].attr.conn[c][4].attrvalid) +
-                //"<br />" + jsonData[station].attr.conn[c][5].trans +
-                "</span>"+
-                "<div class='chargePointColor' style='background-color:"+ (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'>"+
-                "</div>"+
+                    "<span style=\'color:black; width:90%; float:left;\'>"+
+                        jsonData[station].attr.conn[c][4].trans + "(" + connCapacityString(station, c) + ")" +
+                        //"<br />" + chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW + "kW " + chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].volt + "V " +chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].current + " " + chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].ampere + "A" +
+                        connectorImg(jsonData[station].attr.conn[c][4].attrvalid) +
+                    "</span>"+
+                    "<div class='chargePointColor' style='background-color:" + (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'>"+
+                    "</div>"+
                 "</div>";
         }catch(e){
             console.log('Failed to build connectorsString for ' + jsonData[station].csmd.name);
