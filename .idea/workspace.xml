@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/icons/marker_red_v2.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/icons/marker_red_v3.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/jsontest.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/menu-items/help.html" afterPath="$PROJECT_DIR$/includes/menu-items/help.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/addStations.js" afterPath="$PROJECT_DIR$/js/addStations.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/global.js" afterPath="$PROJECT_DIR$/js/global.js" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,97 +31,74 @@
       <file leaf-file-name="global.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/global.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="405">
+              <caret line="139" column="25" selection-start-line="139" selection-start-column="25" selection-end-line="139" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="buttons.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/buttons.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="975">
-              <caret line="65" column="17" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="navigation.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/navigation.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3420">
-              <caret line="228" column="23" selection-start-line="228" selection-start-column="14" selection-end-line="228" selection-end-column="23" />
-              <folding>
-                <marker date="1462989912000" expanded="true" signature="6335:6361" placeholder="..." />
-                <marker date="1462989912000" expanded="true" signature="6974:7000" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Favourites.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/menu-items/Favourites.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="checkloggin.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/checkloggin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="favoriteStation.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/favoriteStation.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="44" column="40" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
-              <folding>
-                <marker date="1462730023000" expanded="true" signature="280:345" placeholder="select user_... ec_users" />
-                <marker date="1462730023000" expanded="true" signature="614:845" placeholder="select ec_us... ec_users_has_favorite_station" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/addStations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="999">
-              <caret line="178" column="36" selection-start-line="178" selection-start-column="14" selection-end-line="178" selection-end-column="36" />
+            <state relative-caret-position="405">
+              <caret line="220" column="6" selection-start-line="220" selection-start-column="6" selection-end-line="220" selection-end-column="6" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
-                <marker date="1462897249000" expanded="true" signature="13165:15410" placeholder="..." />
-                <marker date="1462897249000" expanded="true" signature="13397:13408" placeholder="..." />
-                <marker date="1462897249000" expanded="true" signature="13576:13632" placeholder="..." />
-                <marker date="1462897249000" expanded="true" signature="13723:14974" placeholder="..." />
-                <marker date="1462897249000" expanded="true" signature="13762:14610" placeholder="..." />
-                <marker date="1462897249000" expanded="false" signature="14690:14735" placeholder="..." />
-                <marker date="1462897249000" expanded="true" signature="15016:15392" placeholder="..." />
-                <marker date="1462897249000" expanded="true" signature="15578:15601" placeholder="..." />
-                <marker date="1462897249000" expanded="true" signature="16105:16140" placeholder="..." />
-                <marker date="1462897249000" expanded="true" signature="16460:16604" placeholder="..." />
-                <marker date="1462897249000" expanded="true" signature="17688:17718" placeholder="..." />
-                <marker date="1462897249000" expanded="true" signature="18570:18596" placeholder="..." />
-                <marker date="1462897249000" expanded="true" signature="18734:18790" placeholder="..." />
-                <marker date="1462897249000" expanded="true" signature="18828:18893" placeholder="..." />
-                <marker date="1462897249000" expanded="true" signature="20181:20230" placeholder="..." />
-                <marker date="1462897249000" expanded="true" signature="20231:21419" placeholder="..." />
-                <marker date="1462897249000" expanded="true" signature="20404:20587" placeholder="..." />
-                <marker date="1462897249000" expanded="true" signature="20662:20684" placeholder="..." />
-                <marker date="1462897249000" expanded="true" signature="20685:21397" placeholder="..." />
-                <marker date="1462897249000" expanded="true" signature="21241:21370" placeholder="..." />
+                <marker date="1463221159000" expanded="true" signature="14159:14170" placeholder="..." />
+                <marker date="1463221159000" expanded="true" signature="14338:14394" placeholder="..." />
+                <marker date="1463221159000" expanded="true" signature="15452:15497" placeholder="..." />
+                <marker date="1463221159000" expanded="true" signature="16340:16363" placeholder="..." />
+                <marker date="1463221159000" expanded="true" signature="16867:16902" placeholder="..." />
+                <marker date="1463221159000" expanded="true" signature="17222:17366" placeholder="..." />
+                <marker date="1463221159000" expanded="true" signature="18450:18480" placeholder="..." />
+                <marker date="1463221159000" expanded="true" signature="19332:19358" placeholder="..." />
+                <marker date="1463221159000" expanded="true" signature="19496:19552" placeholder="..." />
+                <marker date="1463221159000" expanded="true" signature="19590:19655" placeholder="..." />
+                <marker date="1463221159000" expanded="true" signature="20943:20992" placeholder="..." />
+                <marker date="1463221159000" expanded="true" signature="21166:21349" placeholder="..." />
+                <marker date="1463221159000" expanded="true" signature="21424:21446" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="help.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/includes/menu-items/help.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="marker_blue_v2.svg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/icons/marker_blue_v2.svg">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="259" selection-start-line="0" selection-start-column="258" selection-end-line="0" selection-end-column="259" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jsontest.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/jsontest.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="555">
+              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="exampleObject.json.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/exampleObject.json.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="121" column="17" selection-start-line="121" selection-start-column="17" selection-end-line="121" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -127,7 +106,7 @@
       <file leaf-file-name="myRoute.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/myRoute.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
+            <state relative-caret-position="450">
               <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
               <folding>
                 <element signature="e#6#89#0#PHP" expanded="true" />
@@ -179,7 +158,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/styles/colors.css" />
         <option value="$PROJECT_DIR$/includes/menu-items/chargers-nearby.php" />
         <option value="$PROJECT_DIR$/includes/menu-items/help.php" />
         <option value="$PROJECT_DIR$/includes/menu-items/about-us.php" />
@@ -205,7 +183,6 @@
         <option value="$PROJECT_DIR$/includes/scripts.php" />
         <option value="$PROJECT_DIR$/data/exampleRoute.json" />
         <option value="$PROJECT_DIR$/js/elevation.js" />
-        <option value="$PROJECT_DIR$/includes/menu-items/help.html" />
         <option value="$PROJECT_DIR$/includes/favoriteStation.php" />
         <option value="$PROJECT_DIR$/includes/checkloggin.php" />
         <option value="$PROJECT_DIR$/includes/addToFavorite.php" />
@@ -221,31 +198,33 @@
         <option value="$PROJECT_DIR$/includes/menu-items/route.html" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/js/googlemaps.js" />
-        <option value="$PROJECT_DIR$/js/addStations.js" />
         <option value="$PROJECT_DIR$/styles/tooltips.css" />
         <option value="$PROJECT_DIR$/styles/mobile.css" />
         <option value="$PROJECT_DIR$/includes/menu-items/filter.html" />
-        <option value="$PROJECT_DIR$/js/global.js" />
         <option value="$PROJECT_DIR$/js/buttons.js" />
         <option value="$PROJECT_DIR$/includes/menu-items/Favourites.html" />
         <option value="$PROJECT_DIR$/js/navigation.js" />
         <option value="$PROJECT_DIR$/includes/myRoute.php" />
+        <option value="$PROJECT_DIR$/data/jsontest.json" />
+        <option value="$PROJECT_DIR$/js/global.js" />
+        <option value="$PROJECT_DIR$/js/addStations.js" />
+        <option value="$PROJECT_DIR$/includes/menu-items/help.html" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" />
-  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpServers">
     <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1920" />
     <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="height" value="1200" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -272,8 +251,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -292,8 +269,84 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elCharge_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elCharge_web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elCharge_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elCharge_web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="includes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elCharge_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elCharge_web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="includes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="menu-items" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elCharge_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elCharge_web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icons" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elCharge_web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elCharge_web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -487,6 +540,7 @@
       <workItem from="1462967520607" duration="30000" />
       <workItem from="1462989920026" duration="1556000" />
       <workItem from="1463089245400" duration="991000" />
+      <workItem from="1463215933040" duration="4836000" />
     </task>
     <task id="LOCAL-00148" summary="formatering">
       <created>1462357730862</created>
@@ -835,7 +889,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="307641000" />
+    <option name="totallyTimeSpent" value="312477000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -847,10 +901,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14376996" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14536741" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.50437635" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -917,27 +971,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index_.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="78" column="37" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="229" selection-start-line="0" selection-start-column="229" selection-end-line="0" selection-end-column="229" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/bootstrap.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/styles/download.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1029,13 +1062,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/menu-items/help.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/elevation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1054,13 +1080,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/exampleObject.json.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="100" column="30" selection-start-line="100" selection-start-column="21" selection-end-line="100" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -1214,14 +1233,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/global.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/checkloggin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1242,10 +1253,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="44" column="40" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
-          <folding>
-            <marker date="1462730023000" expanded="true" signature="280:345" placeholder="select user_... ec_users" />
-            <marker date="1462730023000" expanded="true" signature="614:845" placeholder="select ec_us... ec_users_has_favorite_station" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1253,46 +1261,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3420">
           <caret line="228" column="23" selection-start-line="228" selection-start-column="14" selection-end-line="228" selection-end-column="23" />
-          <folding>
-            <marker date="1462989912000" expanded="true" signature="6335:6361" placeholder="..." />
-            <marker date="1462989912000" expanded="true" signature="6974:7000" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/addStations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="999">
-          <caret line="178" column="36" selection-start-line="178" selection-start-column="14" selection-end-line="178" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-            <marker date="1462897249000" expanded="true" signature="13165:15410" placeholder="..." />
-            <marker date="1462897249000" expanded="true" signature="13397:13408" placeholder="..." />
-            <marker date="1462897249000" expanded="true" signature="13576:13632" placeholder="..." />
-            <marker date="1462897249000" expanded="true" signature="13723:14974" placeholder="..." />
-            <marker date="1462897249000" expanded="true" signature="13762:14610" placeholder="..." />
-            <marker date="1462897249000" expanded="false" signature="14690:14735" placeholder="..." />
-            <marker date="1462897249000" expanded="true" signature="15016:15392" placeholder="..." />
-            <marker date="1462897249000" expanded="true" signature="15578:15601" placeholder="..." />
-            <marker date="1462897249000" expanded="true" signature="16105:16140" placeholder="..." />
-            <marker date="1462897249000" expanded="true" signature="16460:16604" placeholder="..." />
-            <marker date="1462897249000" expanded="true" signature="17688:17718" placeholder="..." />
-            <marker date="1462897249000" expanded="true" signature="18570:18596" placeholder="..." />
-            <marker date="1462897249000" expanded="true" signature="18734:18790" placeholder="..." />
-            <marker date="1462897249000" expanded="true" signature="18828:18893" placeholder="..." />
-            <marker date="1462897249000" expanded="true" signature="20181:20230" placeholder="..." />
-            <marker date="1462897249000" expanded="true" signature="20231:21419" placeholder="..." />
-            <marker date="1462897249000" expanded="true" signature="20404:20587" placeholder="..." />
-            <marker date="1462897249000" expanded="true" signature="20662:20684" placeholder="..." />
-            <marker date="1462897249000" expanded="true" signature="20685:21397" placeholder="..." />
-            <marker date="1462897249000" expanded="true" signature="21241:21370" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/myRoute.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
+        <state relative-caret-position="450">
           <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
           <folding>
             <element signature="e#6#89#0#PHP" expanded="true" />
@@ -1312,6 +1287,77 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/exampleObject.json.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="121" column="17" selection-start-line="121" selection-start-column="17" selection-end-line="121" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/jsontest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/global.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="139" column="25" selection-start-line="139" selection-start-column="25" selection-end-line="139" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icons/logo.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icons/marker_blue_v2.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="259" selection-start-line="0" selection-start-column="258" selection-end-line="0" selection-end-column="259" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/addStations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="220" column="6" selection-start-line="220" selection-start-column="6" selection-end-line="220" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+            <marker date="1463221159000" expanded="true" signature="14159:14170" placeholder="..." />
+            <marker date="1463221159000" expanded="true" signature="14338:14394" placeholder="..." />
+            <marker date="1463221159000" expanded="true" signature="15452:15497" placeholder="..." />
+            <marker date="1463221159000" expanded="true" signature="16340:16363" placeholder="..." />
+            <marker date="1463221159000" expanded="true" signature="16867:16902" placeholder="..." />
+            <marker date="1463221159000" expanded="true" signature="17222:17366" placeholder="..." />
+            <marker date="1463221159000" expanded="true" signature="18450:18480" placeholder="..." />
+            <marker date="1463221159000" expanded="true" signature="19332:19358" placeholder="..." />
+            <marker date="1463221159000" expanded="true" signature="19496:19552" placeholder="..." />
+            <marker date="1463221159000" expanded="true" signature="19590:19655" placeholder="..." />
+            <marker date="1463221159000" expanded="true" signature="20943:20992" placeholder="..." />
+            <marker date="1463221159000" expanded="true" signature="21166:21349" placeholder="..." />
+            <marker date="1463221159000" expanded="true" signature="21424:21446" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/menu-items/help.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
           <folding />
         </state>
       </provider>

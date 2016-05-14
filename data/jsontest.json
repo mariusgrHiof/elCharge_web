@@ -1,0 +1,37 @@
+[
+  {
+    "id": 228,
+    "active": true,
+    "name": "Statens arbeidsmilj\u00f8institutt, Oslo",
+    "address": "Gydasvei 8",
+    "zip": "0383",
+    "city": "OSLO",
+    "municipalityid": "0301",
+    "municipality": "OSLO",
+    "countyid": "03",
+    "county": "Oslo",
+    "di scription": "",
+    "placetype": "Street",
+    "accessibility": "Visitors",
+    "owner": "Statens arbeidsmilj\u00f8institutt",
+    "chargerpointnumber": 4,
+    "parkingfee": false,
+    "timelimit": 9,
+    "chargerspeed": "16A",
+    "geol ocation": "(59.93255,10.71514)",
+    "constructionsupportname": "Oslo kommune",
+    "image": "228.jpg",
+    "usercomment": "Tilgjengelig 07-16.00",
+    "contactinfo": "Statens arbeidsmilj\u00f8institutt\r\nSteinar Messel\r\nsteinarm@stami.no\r\n23195153",
+    "created": "2010-04-14 12:55:02",
+    "createdbygivenname": "Hans H.",
+    "createdbyfamilyname": "Kvisle",
+    "updated": "2010-06-04 09:56:44",
+    "updatedbygivenname": "Hans H.",
+    "updatedbyfamilyname": "Kvisle",
+    "accesstype": "Standard key",
+    "url": "http:\/\/www.ladestasjoner.no\/2010\/07\/statens-arbeidsmiljinstitutt- oslo_06.html",
+    "countrycode": "NO"
+  }
+]
+

@@ -121,6 +121,7 @@ var progText;
 
 var hasFastCharge = false; // For the marker icons
 
+var faultyConns = 0;
 function generateMarkers(){
     $('#download-progression').show();
     loadedStations = 0;
@@ -140,7 +141,7 @@ function generateMarkers(){
                     var isMatch = getCarMatch(jsonData[station].csmd.Number_charging_points, station);
 
                     if(isMatch)
-                        addMarker(station);
+                        addMarker(jsonData[station].csmd.Number_charging_points, station);
                 }
                 if(inArray(station, favoriteStations))
                     updateFavoriteStations(station);
@@ -167,12 +168,13 @@ function generateMarkers(){
     hasDownloaded = true;
 }
 
-
 function getCarMatch(portCount, station){
     var match = false;
     var connType;
     var hasFastCharge_temp = false;
+    var isFaulty = false;
     hasFastCharge = false;
+    faultyConns = 0;
     for(var c = 1; c <= portCount; c++){
         //Checking if any connection ports match the user prefs
         try{
@@ -182,6 +184,9 @@ function getCarMatch(portCount, station){
             }else if(document.getElementById("select-car").value == 0 && !match && (selectedCapacity <= chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW)){
                //If no car or type is selected
                match = true;
+            }
+            if(jsonData[station].attr.conn[c][9].attrvalid == 1){//Is a faulty connector
+                faultyConns++;
             }
             //For the markers, to indicate if a station has a fast charger or not!
             if(!hasFastCharge_temp && (fastCharge <= chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW))
@@ -194,7 +199,7 @@ function getCarMatch(portCount, station){
     return match;
 }
 
-function addMarker(station){
+function addMarker(numOfPorts, station){
     //Adding markers
     var pos = jsonData[station].csmd.Position.replace(/[()]/g,"").split(",");
 
@@ -206,21 +211,29 @@ function addMarker(station){
     var markerIcon = {
         url: 'icons/'+(
             isLive ? (hasFastCharge ?
-                    ( isStationOccupiedStatus(station) > 0.4 ? 'marker_green_v2' : 'marker_yellow_v2') :
-                    ( isStationOccupiedStatus(station) > 0.4 ? 'marker_green_v3' : 'marker_yellow_v3'))
-                :(hasFastCharge ? 'marker_blue_v2':'marker_blue_v3'))+'.svg', //Changing the color of the marker based on if it has live status or not.
+                (faultyConns/numOfPorts == 1 ? 'marker_red_v2' :( isStationOccupiedStatus(station) > 0.4 ? 'marker_green_v2' : 'marker_yellow_v2')):
+                (faultyConns/numOfPorts == 1 ? 'marker_red_v3' :( isStationOccupiedStatus(station) > 0.4 ? 'marker_green_v3' : 'marker_yellow_v3')))
+                :(hasFastCharge ? (faultyConns/numOfPorts == 1 ? 'marker_red_v2' :'marker_blue_v2'):(faultyConns/numOfPorts == 1 ? 'marker_red_v3' :'marker_blue_v3')))+'.svg', //Changing the color of the marker based on if it has live status or not.
         anchor: new google.maps.Point(0, 32),
         origin: new google.maps.Point(0, 0),
         scaledSize: new google.maps.Size(32, 51),
         size: new google.maps.Size(64, 64)
     };
 
-    var marker = new google.maps.Marker({
-        position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
-        icon: markerIcon,
-        map: map,
-        title: jsonData[station].csmd.name
-    });
+    var marker;
+    if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1)
+        var marker = new google.maps.Marker({
+            position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
+            map: map,
+            title: jsonData[station].csmd.name
+        });
+    else
+        var marker = new google.maps.Marker({
+            position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
+            icon: markerIcon,
+            map: map,
+            title: jsonData[station].csmd.name
+        });
 
 
 

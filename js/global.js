@@ -8,7 +8,8 @@ var hasDownloaded = false;
 var initiatedMap = false;
 var downloadFrom = "2005-01-01";
 
-var url = "https://nobil.no/api/server/datadump.php?apikey=274b68192b056e268f128ff63bfcd4a4&fromdate=";
+var url = "https://nobil.no/api/server/datadump.php?";
+var apiKey = "274b68192b056e268f128ff63bfcd4a4";
 
 var jsonData = new Array();
 var mc;
@@ -124,6 +125,22 @@ function downloadDumpPG(){
 
     });
 }
+
+function dl(){
+    jQuery.ajax({
+        url: 'http://nobil.no/api/server/datadump.php',
+        data: {
+            'apikey': apiKey,
+            'apiversion': '3',
+            'action': "datadump",
+            'fromdate': downloadFrom,
+
+        },
+        success: function(data){console.log(data)},
+        dataType: 'jsonp'
+    });
+}
+
 function downloadDump(){
     console.log("File download initiated");
     $('#download-progression').show();//TODO: Fjern?
@@ -157,12 +174,18 @@ function downloadDump(){
                 }, false);
                 return xhr;
             },
-            type: 'GET',
-            dataType: 'jsonp',
+
             //TODO: Check out this URL for persistent storage with phonegap - http://docs.phonegap.com/en/2.5.0/cordova_file_file.md.html
             //TODO: "datadump.json",
-            url: url + downloadFrom + "&format=json",
-            data: {},
+            dataType: 'jsonp',
+            url: 'http://nobil.no/api/server/datadump.php',
+            data: {
+                'apikey': apiKey,
+                'apiversion': '3',
+                'action': "datadump",
+                'fromdate': downloadFrom,
+
+            },
             success: function(data){
                 processDL(data);
             },
