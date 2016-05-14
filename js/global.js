@@ -48,8 +48,7 @@ $(document).ready(
             console.log("Is phonegap");
         }
         //Background updates once per x minutes
-        if($('input[type=number]#bg-update-timer').val() > 0)
-            stopBGDLTimer($('input[type=number]#bg-update-timer').val());
+        stopBGDLTimer(5);
     }
 );
 /*
@@ -81,7 +80,7 @@ function stopBGDLTimer(){
 
 function updateTime() {
     var date = new Date();
-    return date.getFullYear() + "-" + date.getMonth() + "-" + date.getDay();
+    return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
 }
 function downloadDumpPG(){
     console.log("File downloadPG initiated");
@@ -117,7 +116,7 @@ function downloadDumpPG(){
         type: 'POST',
         datatype:'json',
         contentType: 'application/json; charset=utf-8',
-        url: (downloadFrom == "2005-01-01" && isAndroid ? "datadump.json" : url + "&apikey=" + apiKey + "&fromdate=" + downloadFrom + "&format=json"),
+        url: url + "&apikey=" + apiKey + "&fromdate=" + downloadFrom + "&format=json",//(downloadFrom == "2005-01-01" && isAndroid ? "datadump.json" : url + "&apikey=" + apiKey + "&fromdate=" + downloadFrom + "&format=json"),
         data: {},
         success: function(i){
             console.log("File download completed");
@@ -134,8 +133,10 @@ function downloadDumpPG(){
         },
         error: function(err){
             console.log("Unable to download file: ");
+            console.log("URL: "+url);
             console.log(JSON.stringify(err));
-            $('.dl-progress-text').html("Error: " + JSON.stringify(err) + "<button onclick='$('.dl-progress-text').hide()'>Lukk</button>");
+            $('#download-progression').hide();
+            hasDownloaded = true;
         }
 
     });
@@ -207,7 +208,8 @@ function downloadDump(){
                 console.log("Unable to download file: ");
                 console.log("URL: "+url);
                 console.log(JSON.stringify(err));
-                $('.dl-progress-text').html("Error: " + JSON.stringify(err) + "<button onclick='$('.dl-progress-text').hide()'>Lukk</button>");
+                $('#download-progression').hide();
+                hasDownloaded = true;
             }
         });
     }catch(err){
@@ -221,13 +223,35 @@ function processDL(data){
     if(downloadFrom == "2005-01-01")
         jsonData = []; // We only need to create a empty array if we haven't already downloaded.
 
+    var numOfPorts = 0;
+    var id;
     for(var i = 0; i < data.chargerstations.length; i++){
-        jsonData[data.chargerstations[i].csmd.International_id] = data.chargerstations[i];
+        id = data.chargerstations[i].csmd.International_id;
+        jsonData[id] = data.chargerstations[i];
+        try{
+            numOfPorts = jsonData[id].csmd.Number_charging_points;
+            getCarMatch(id);
+            var markerIcon = {
+                url: 'icons/'+(
+                    hasFastCharge ?
+                    (faultyConns/numOfPorts == 1 ? 'marker_red_v2' :( isStationOccupiedStatus(id) > occupiedLimit ? 'marker_green_v2' : 'marker_yellow_v2')):
+                    (faultyConns/numOfPorts == 1 ? 'marker_red_v3' :( isStationOccupiedStatus(id) > occupiedLimit ? 'marker_green_v3' : 'marker_yellow_v3')))+'.svg', //Changing the color of the marker based on if it has live status or not.
+                anchor: new google.maps.Point(0, 32),
+                origin: new google.maps.Point(0, 0),
+                scaledSize: new google.maps.Size(32, 51),
+                size: new google.maps.Size(64, 64)
+            };
+            markers[id].setIcon(markerIcon);
+        }catch(ex){}
+
     }
     //Adding markers
     if(!initDownloaded){
         setTimeout(generateMarkers(),0.001);
         initDownloaded = true;
+    }else{
+        $('#download-progression').hide();
+        hasDownloaded = true;
     }
     try{
         //Starting automatic location update
@@ -238,7 +262,6 @@ function processDL(data){
         $('.dl-progress-text').text("Innlasting har feilet med følgende feilmeling: " + e);
     }
     downloadFrom = updateTime();
-
 }
 
 //Strive to be lazy

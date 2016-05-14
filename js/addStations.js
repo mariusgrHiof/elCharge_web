@@ -138,7 +138,7 @@ function generateMarkers(){
                 isPublic = jsonData[station].attr.st[2].attrvalid == "1";
                 if(isPublic){
                     //Checking filter
-                    var isMatch = getCarMatch(jsonData[station].csmd.Number_charging_points, station);
+                    var isMatch = getCarMatch(station);
 
                     if(isMatch)
                         addMarker(jsonData[station].csmd.Number_charging_points, station);
@@ -168,14 +168,14 @@ function generateMarkers(){
     hasDownloaded = true;
 }
 
-function getCarMatch(portCount, station){
+function getCarMatch(station){
     var match = false;
     var connType;
     var hasFastCharge_temp = false;
     var isFaulty = false;
     hasFastCharge = false;
     faultyConns = 0;
-    for(var c = 1; c <= portCount; c++){
+    for(var c = 1; c <= jsonData[station].csmd.Number_charging_points; c++){
         //Checking if any connection ports match the user prefs
         try{
             connType = jsonData[station].attr.conn[c][4].attrvalid; //id
@@ -304,7 +304,7 @@ function addMarker(numOfPorts, station){
         /*TODO: if(!$(".img-to-load").attr("src"))
             $(".img-to-load").prop("src",imgSrc);*/
     }));
-    markers.push(marker);
+    markers[station] = marker;
 
     //Building closest charging stations list
     try{
