@@ -5,6 +5,7 @@
  * Global variables
  */
 var hasDownloaded = false;
+var initDownloaded = false;
 var initiatedMap = false;
 var downloadFrom = "2005-01-01";
 
@@ -14,10 +15,25 @@ var apiKey = "274b68192b056e268f128ff63bfcd4a4";
 var jsonData = new Array();
 var mc;
 
+var dlAnimation;
+var animfaded = false;
+dlAnimation = setInterval(
+    function () {
+        if(animfaded){
+            $( '.spinning' ).fadeTo( "slow", 1 );
+            animfaded = false;
+        }
+        else{
+            $( '.spinning' ).fadeTo( "slow", 0.1 );
+            animfaded = true;
+        }
+    },
+    3
+);
 //Vars to define how many kW is fast and semifast
 var semiFastCharge = 12;
 var fastCharge = 43;
-
+var rotation = 0;
 
 var backgroundDL;
 var intervalTimer;
@@ -114,7 +130,6 @@ function downloadDumpPG(){
                 console.log(e);
             }
             processDL(data);
-
             event.preventDefault();
         },
         error: function(err){
@@ -190,6 +205,7 @@ function downloadDump(){
             },
             error: function(err){
                 console.log("Unable to download file: ");
+                console.log("URL: "+url);
                 console.log(JSON.stringify(err));
                 $('.dl-progress-text').html("Error: " + JSON.stringify(err) + "<button onclick='$('.dl-progress-text').hide()'>Lukk</button>");
             }
@@ -202,7 +218,6 @@ function downloadDump(){
 
 function processDL(data){
     console.log("File download completed");
-    $('.dl-progress-text').text("Laster inn ladestasjoner");//progText
     if(downloadFrom == "2005-01-01")
         jsonData = []; // We only need to create a empty array if we haven't already downloaded.
 
@@ -210,7 +225,10 @@ function processDL(data){
         jsonData[data.chargerstations[i].csmd.International_id] = data.chargerstations[i];
     }
     //Adding markers
-    setTimeout(generateMarkers(),0.001);
+    if(!initDownloaded){
+        setTimeout(generateMarkers(),0.001);
+        initDownloaded = true;
+    }
     try{
         //Starting automatic location update
         if(isMobile && phonegap)
@@ -220,6 +238,7 @@ function processDL(data){
         $('.dl-progress-text').text("Innlasting har feilet med følgende feilmeling: " + e);
     }
     downloadFrom = updateTime();
+
 }
 
 //Strive to be lazy

@@ -170,9 +170,10 @@ function initMap() {
     //Downloading station data
     if(phonegap){
         //Safeguarding against timeout for the cordovaWebView
-        setTimeout(
-            document.addEventListener("deviceready", downloadDumpPG(), false), 2000//downloadDumpPG()
-        );
+
+        setTimeout(document.addEventListener("deviceready", onDeviceReady, false), 2000);
+
+
         setInterval(function () {
             //Updating the "nearby chargers" list
             updateNearbyChargers();
@@ -182,6 +183,23 @@ function initMap() {
     window.addEventListener("resize",function(){
         google.maps.event.trigger(map, 'resize');
     }, false);
+}
+
+function onDeviceReady(){
+    if(isIOS)
+        downloadDump();
+    else
+        downloadDumpPG();
+    document.addEventListener("backbutton", slideIn, false);
+
+    document.addEventListener("pause", onPause, false);
+    document.addEventListener("resume", onResume, false);
+
+    function onPause() {
+    }
+
+    function onResume() {
+    }
 }
 
 // Sets the map on all markers in the array.
