@@ -1,7 +1,6 @@
 <?php
 //echo '<script type="text/javascript" src="cordova.js"></script>'.
 //        '<script type="text/javascript" src="js/index.js"></script>';
-addJS('js/include.js', true, false);
 addJS('js/addStations.js', false, false);
 addJS('js/global.js', false, false);
 addJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8&sensors=true&libraries=places,visualization,geometry&callback=initMap', true, true);

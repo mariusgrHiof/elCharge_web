@@ -128,7 +128,7 @@ function downloadDumpPG(){
 
 function dl(){
     jQuery.ajax({
-        url: 'http://nobil.no/api/server/datadump.php',
+        url: 'https://nobil.no/api/server/datadump.php',
         data: {
             'apikey': apiKey,
             'apiversion': '3',
@@ -178,13 +178,12 @@ function downloadDump(){
             //TODO: Check out this URL for persistent storage with phonegap - http://docs.phonegap.com/en/2.5.0/cordova_file_file.md.html
             //TODO: "datadump.json",
             dataType: 'jsonp',
-            url: 'http://nobil.no/api/server/datadump.php',
+            url: 'https://nobil.no/api/server/datadump.php',
             data: {
                 'apikey': apiKey,
                 'apiversion': '3',
                 'action': "datadump",
-                'fromdate': downloadFrom,
-
+                'fromdate': downloadFrom
             },
             success: function(data){
                 processDL(data);

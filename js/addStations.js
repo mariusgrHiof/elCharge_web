@@ -347,7 +347,7 @@ function createIWContent(station, isLive) {
                 "<div id='placeNameIcons' style='color:blue;'>"+
                     "<h3>"+ jsonData[station].csmd.name + "(ID:" + station + ")</h3>" +
                 "</div>"+
-                "<div class='markerColor' style='background-color:"+ (faultyConns / jsonData[station].csmd.Number_charging_points == 1 ? "red" : (isLive ? (isStationOccupiedStatus(station) > occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>"+
+                "<div class='markerColor' style='background-color:"+ (faultyConns / jsonData[station].csmd.Number_charging_points == 1 ? "red" : (isLive ? (isStationOccupiedStatus(station) < occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>"+
                 "</div>"+
             "</div>"+
             "<div id='secondContainer'>"+
@@ -464,7 +464,7 @@ function addWaypoint(id){
             "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
                 "<Strong>" + jsonData[id].csmd.name +"</Strong>"+
             "</div>"+
-            "<div class='markerColor' style='background-color:"+ (faultyConns / jsonData[station].csmd.Number_charging_points == 1 ? "red" : (isLive ? (isStationOccupiedStatus(station) > occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>" +
+            "<div class='markerColor' style='background-color:"+ (faultyConns / jsonData[station].csmd.Number_charging_points == 1 ? "red" : (isLive ? (isStationOccupiedStatus(station) < occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>" +
                 "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"removeWaypoint(this)\">X</button>" +
             "</div>"+
             "<button onclick='readMorev2(this)'>Vis mer</button>"+
@@ -506,7 +506,7 @@ function updateFavoriteStations(){
             '<li class="border" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
                 '<img class="cover-third float-left img-height-4em" src=\"' + getStationImage(station) + '\"/>' +
                 '<div class="chargePointColor" style="height:4em;background-color:' +
-                    (jsonData[station].attr.st[21].attrvalid == "1" ? (isStationOccupiedStatus(station) > occupiedLimit ? 'lightgreen' : 'yellow') : 'blue') + ';"></div>'+
+                    (jsonData[station].attr.st[21].attrvalid == "1" ? (isStationOccupiedStatus(station) < occupiedLimit ? 'lightgreen' : 'yellow') : 'blue') + ';"></div>'+
                 '<div class="cover-twothird float-right" style="width:calc(66% - 1em);">'+
                     '<strong class="float-left">' + jsonData[station].csmd.name + '</strong><br />'+
                     '<span>' + compareDistance(geopos, jsonData[station].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>'+
