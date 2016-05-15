@@ -48,7 +48,7 @@ function getNearbyChargers(){
                     '<div class="chargePointColor" style="height:4em;background-color:' +
                         (jsonData[id].attr.st[21].attrvalid == "1" ? (isStationOccupiedStatus(id) > 0.4 ? 'lightgreen' : 'yellow') : 'blue') + ';"></div>'+
                     '<div class="cover-twothird float-right" style="width:calc(66% - 1em);">'+
-                        '<strong class="float-left">' + chargers_nearby[station].csmd.name + '</strong><br />'+
+                        '<strong class="float-left station-title">' + chargers_nearby[station].csmd.name + '</strong><br />'+
                         '<span>' + chargers_nearby[station].distance.toFixed(2)+ 'km </span>'+
                         '<button class="float-left" onclick="navigateFromUser(geopos, this)" value="'+ thisPos +'">Ta meg hit</button>' +
                         //"<button onclick='readMorev2(this)'>Vis mer</button>"+

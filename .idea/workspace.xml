@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/chargers-nearby.js" afterPath="$PROJECT_DIR$/js/chargers-nearby.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/menu.css" afterPath="$PROJECT_DIR$/styles/menu.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/tooltips.css" afterPath="$PROJECT_DIR$/styles/tooltips.css" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,15 +36,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chargers-nearby.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="chargers-nearby.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="42" column="40" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
+            <state relative-caret-position="698">
+              <caret line="50" column="51" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
               <folding>
-                <marker date="1463307545000" expanded="true" signature="1710:1759" placeholder="..." />
-                <marker date="1463307545000" expanded="true" signature="1936:2113" placeholder="..." />
-                <marker date="1463307545000" expanded="true" signature="2192:2214" placeholder="..." />
+                <marker date="1463309441000" expanded="true" signature="1710:1759" placeholder="..." />
+                <marker date="1463309441000" expanded="true" signature="1936:2113" placeholder="..." />
+                <marker date="1463309441000" expanded="true" signature="2192:2214" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -80,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tooltips.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tooltips.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/styles/tooltips.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+            <state relative-caret-position="321">
+              <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="47" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -93,8 +93,8 @@
       <file leaf-file-name="menu.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/styles/menu.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="252" column="1" selection-start-line="252" selection-start-column="1" selection-end-line="252" selection-end-column="1" />
+            <state relative-caret-position="717">
+              <caret line="282" column="30" selection-start-line="282" selection-start-column="16" selection-end-line="282" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -224,10 +224,10 @@
         <option value="$PROJECT_DIR$/js/googlemaps.js" />
         <option value="$PROJECT_DIR$/js/addStations.js" />
         <option value="$PROJECT_DIR$/js/global.js" />
-        <option value="$PROJECT_DIR$/js/chargers-nearby.js" />
         <option value="$PROJECT_DIR$/includes/menu-items/filter.html" />
-        <option value="$PROJECT_DIR$/styles/menu.css" />
         <option value="$PROJECT_DIR$/styles/tooltips.css" />
+        <option value="$PROJECT_DIR$/styles/menu.css" />
+        <option value="$PROJECT_DIR$/js/chargers-nearby.js" />
       </list>
     </option>
   </component>
@@ -575,14 +575,7 @@
       <workItem from="1463089245400" duration="991000" />
       <workItem from="1463215933040" duration="8784000" />
       <workItem from="1463227073758" duration="14026000" />
-      <workItem from="1463307407625" duration="1251000" />
-    </task>
-    <task id="LOCAL-00157" summary="customMarkerClusterer">
-      <created>1462520681561</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1462520681561</updated>
+      <workItem from="1463307407625" duration="1792000" />
     </task>
     <task id="LOCAL-00158" summary="Ferdigstilt laderkapasitet array">
       <created>1462522517793</created>
@@ -920,11 +913,18 @@
       <option name="project" value="LOCAL" />
       <updated>1463308198945</updated>
     </task>
-    <option name="localTasksCounter" value="206" />
+    <task id="LOCAL-00206" summary="fikset overflow for tooltips">
+      <created>1463308958112</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1463308958113</updated>
+    </task>
+    <option name="localTasksCounter" value="207" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="331702000" />
+    <option name="totallyTimeSpent" value="332243000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -972,7 +972,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Path elevation er fikset langs den valgte ruten" />
     <MESSAGE value="Ruter går ikke blindt etter når punkter var lagt til, men heller hvilke rekkefølge det ville vært naturlig å følge de i(optimalisert for tid/distanse)." />
     <MESSAGE value="vis og skjul knapp for markører i rute er nå lagt til" />
     <MESSAGE value="Laget noen metoder for å få informasjon ut av ruter. Kan muligens brukes relatert til lagring av en rute senere?" />
@@ -997,7 +996,8 @@
     <MESSAGE value="- Reduksjon i MB nedlastet&#10;- Markører fjernet for så å bli lastet inn på nytt ved oppdatering. Eksisterende markører blir heller oppdatert." />
     <MESSAGE value="Fikset bug i ladere i nærheten" />
     <MESSAGE value="Tekstbryting" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tekstbryting" />
+    <MESSAGE value="fikset overflow for tooltips" />
+    <option name="LAST_COMMIT_MESSAGE" value="fikset overflow for tooltips" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1350,18 +1350,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="42" column="40" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
-          <folding>
-            <marker date="1463307545000" expanded="true" signature="1710:1759" placeholder="..." />
-            <marker date="1463307545000" expanded="true" signature="1936:2113" placeholder="..." />
-            <marker date="1463307545000" expanded="true" signature="2192:2214" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/menu-items/filter.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -1386,19 +1374,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/styles/menu.css">
+    <entry file="file://$PROJECT_DIR$/styles/tooltips.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="252" column="1" selection-start-line="252" selection-start-column="1" selection-end-line="252" selection-end-column="1" />
+        <state relative-caret-position="321">
+          <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="47" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/styles/tooltips.css">
+    <entry file="file://$PROJECT_DIR$/styles/menu.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+        <state relative-caret-position="717">
+          <caret line="282" column="30" selection-start-line="282" selection-start-column="16" selection-end-line="282" selection-end-column="30" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/chargers-nearby.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="698">
+          <caret line="50" column="51" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
+          <folding>
+            <marker date="1463309441000" expanded="true" signature="1710:1759" placeholder="..." />
+            <marker date="1463309441000" expanded="true" signature="1936:2113" placeholder="..." />
+            <marker date="1463309441000" expanded="true" signature="2192:2214" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
