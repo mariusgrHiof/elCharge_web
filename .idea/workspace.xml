@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/menu-items/filter.html" afterPath="$PROJECT_DIR$/includes/menu-items/filter.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/menu.css" afterPath="$PROJECT_DIR$/styles/menu.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/tooltips.css" afterPath="$PROJECT_DIR$/styles/tooltips.css" />
     </list>
     <ignored path="elCharge_web.iws" />
@@ -83,8 +83,18 @@
       <file leaf-file-name="tooltips.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/styles/tooltips.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+            <state relative-caret-position="396">
+              <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/styles/menu.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="252" column="1" selection-start-line="252" selection-start-column="1" selection-end-line="252" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -144,16 +154,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="buttons.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/buttons.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1905">
-              <caret line="127" column="1" selection-start-line="127" selection-start-column="1" selection-end-line="127" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -205,7 +205,6 @@
         <option value="$PROJECT_DIR$/styles/maps.css" />
         <option value="$PROJECT_DIR$/styles/ios.css" />
         <option value="$PROJECT_DIR$/includes/menu-items/favourites.html" />
-        <option value="$PROJECT_DIR$/styles/menu.css" />
         <option value="$PROJECT_DIR$/includes/menu-items/route.html" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/includes/menu-items/Favourites.html" />
@@ -227,6 +226,7 @@
         <option value="$PROJECT_DIR$/js/global.js" />
         <option value="$PROJECT_DIR$/js/chargers-nearby.js" />
         <option value="$PROJECT_DIR$/includes/menu-items/filter.html" />
+        <option value="$PROJECT_DIR$/styles/menu.css" />
         <option value="$PROJECT_DIR$/styles/tooltips.css" />
       </list>
     </option>
@@ -575,14 +575,7 @@
       <workItem from="1463089245400" duration="991000" />
       <workItem from="1463215933040" duration="8784000" />
       <workItem from="1463227073758" duration="14026000" />
-      <workItem from="1463307407625" duration="648000" />
-    </task>
-    <task id="LOCAL-00156" summary="customMarkerClusterer">
-      <created>1462520437391</created>
-      <option name="number" value="00156" />
-      <option name="presentableId" value="LOCAL-00156" />
-      <option name="project" value="LOCAL" />
-      <updated>1462520437391</updated>
+      <workItem from="1463307407625" duration="1251000" />
     </task>
     <task id="LOCAL-00157" summary="customMarkerClusterer">
       <created>1462520681561</created>
@@ -920,11 +913,18 @@
       <option name="project" value="LOCAL" />
       <updated>1463307603450</updated>
     </task>
-    <option name="localTasksCounter" value="205" />
+    <task id="LOCAL-00205" summary="Tekstbryting">
+      <created>1463308198944</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1463308198945</updated>
+    </task>
+    <option name="localTasksCounter" value="206" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="331099000" />
+    <option name="totallyTimeSpent" value="331702000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -972,7 +972,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Automatisk oppdatering av ladere i nærheten hvert 10 sec samt kontakt info er nå tilgjengelig i ladere i nærheten. dog litt stygg foreløpig." />
     <MESSAGE value="Path elevation er fikset langs den valgte ruten" />
     <MESSAGE value="Ruter går ikke blindt etter når punkter var lagt til, men heller hvilke rekkefølge det ville vært naturlig å følge de i(optimalisert for tid/distanse)." />
     <MESSAGE value="vis og skjul knapp for markører i rute er nå lagt til" />
@@ -997,7 +996,8 @@
     <MESSAGE value="fikset download prog til å ikke vise en % verdi lik 0.&#10;Backbutton på android lukker menyen." />
     <MESSAGE value="- Reduksjon i MB nedlastet&#10;- Markører fjernet for så å bli lastet inn på nytt ved oppdatering. Eksisterende markører blir heller oppdatert." />
     <MESSAGE value="Fikset bug i ladere i nærheten" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fikset bug i ladere i nærheten" />
+    <MESSAGE value="Tekstbryting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tekstbryting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1247,13 +1247,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/styles/menu.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="137" column="4" selection-start-line="137" selection-start-column="4" selection-end-line="137" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/styles/mobile.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1393,10 +1386,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/styles/menu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="252" column="1" selection-start-line="252" selection-start-column="1" selection-end-line="252" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/styles/tooltips.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+        <state relative-caret-position="396">
+          <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
           <folding />
         </state>
       </provider>

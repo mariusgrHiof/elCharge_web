@@ -42,7 +42,7 @@ div#station-tooltip div#secondRow img {
     width: 100%;
     border-bottom: 1px solid gray;
 }
-#placeNameIcons{
+#placeNameIcons h3{
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;

@@ -279,3 +279,13 @@ ul{
     width: auto;
     max-width:30%;
 }
+/*
+button{
+    background-color: lightgreen;
+    border: 1px black solid;
+    padding: 1px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+}*/
