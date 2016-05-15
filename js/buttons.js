@@ -174,11 +174,6 @@ $('input[type=checkbox].onoffswitch-checkbox').change(
 
     });
 
-$('input[type=text]#search-box').change(
-    function(){
-        map.setCenter({lat: -33.8688, lng: 151.2195});
-    }
-)
 //Changing the autoupdate interval or deactivate autoupdate
 $('input[type=number]#bg-update-timer').change(
     function(){
