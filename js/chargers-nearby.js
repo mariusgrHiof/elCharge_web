@@ -40,7 +40,7 @@ function getNearbyChargers(){
     for(var station in chargers_nearby){
         id = chargers_nearby[station].csmd.International_id;
         //If it is matching our filters and is available to the public
-        if(getCarMatch(chargers_nearby[station].csmd.Number_charging_points, id) && chargers_nearby[station].attr.st[2].attrvalid == "1"){
+        if(getCarMatch(id) && chargers_nearby[station].attr.st[2].attrvalid == "1"){
             thisPos = chargers_nearby[station].csmd.Position.replace(/[()]/g,"").split(",");
             $('#chargers-nearby').append(
                 '<li class="border" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
