@@ -41,7 +41,11 @@ div#station-tooltip div#secondRow img {
     height: 1em;
     width: 100%;
     border-bottom: 1px solid gray;
-
+}
+#placeNameIcons{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 #secondRow {
     height: 5em;
