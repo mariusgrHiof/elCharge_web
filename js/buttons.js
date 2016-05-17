@@ -46,22 +46,39 @@ function userLoggin(form){
             //Posting username and password
             username: $(form).children(":input[name='username']").val(),
             password: $(form).children(":input[name='password']").val() },
-            function( data ){
-                console.log("Logged in feedback = " + data );
-                //Populating the user logged in window.
-                $('#logged-in').html( data );
+        function( data ){
+            console.log("Logged in feedback = " + data );
+            console.log(JSON.parse(data));
+            console.log(data);
+            //Populating the user logged in window.
 
-                //Populating the favorite chargers and routes window
-                //Cleaning out the array
-                favoriteStations.length = 0;
-                var national_id;
-                $("#favorite-stations").html("");
+            //Populating the favorite chargers and routes window
+            //Cleaning out the array
+            favoriteStations.length = 0;
+            var national_id;
+            var startPos;
+            var username;
+            $("#favorite-stations").html("");
+
+            if(data != "[{}]"){
                 for(var obj in JSON.parse(data)){
-                    national_id = JSON.parse(data)[obj].station_id;
-                    favoriteStations[national_id] = JSON.parse(data)[obj];
+
+                    favoriteStations[ JSON.parse(data)[obj].station_id] = JSON.parse(data)[obj];
+
+
                 }
                 updateFavoriteStations();
+
+                $('#auth').hide();
+                $('#logged-in').html('Velkommen, ' + JSON.parse(data)[0].username);
+            }else {
+                $('#logged-in').html('Feil brukernavn eller passord');
             }
+
+
+
+
+        }
     );
     return false;
 }
@@ -82,7 +99,7 @@ function userRegistration(form){
         function( data ){
             console.log("Registered user feedback");
             //Populating the user logged in window.
-            $('#logged-in').html( data );
+            $('#logged-in').html(data );
             //Populating the favorite chargers and routes window
             /*Some awesome method*/
 
@@ -204,3 +221,45 @@ function lockMapToUser(ele) {
     lockPos = !lockPos;
     $(ele).html(lockPos ? 'U' : 'L');
 }
+
+var favoriteRoutes = [];
+function getFavoriteRoutes(){
+    $.post("includes/getMyRoutes.php",function (data){
+        //Populating the user logged in window.
+        //$('#logged-in').html( data );
+        console.log("Data fra sql: " + data);
+        //Populating the favorite chargers and routes window
+        //Cleaning out the array
+        favoriteRoutes.length = 0;
+        var startPos;
+        //var endPos;
+        //var waypoints = [];
+        console.log("Feeback " + data);
+        $("#favorite-routes").html("");
+        for(var obj in data){
+            startPos = data[obj].start;
+            //endPos = JSON.parse(data)[obj].end;
+            //waypoints = JSON.parse(data)[obj].waypoints[obj];
+            favoriteRoutes[startPos] = data[obj];
+        }
+
+    } )
+
+}
+
+function logOut(){
+    var path = "";
+    if(phonegap)
+        path += "http://frigg.hiof.no/bo16-g6/webapp/";
+    path +="includes/logOut.php";
+
+    $.post(path, function data(){
+       $('#logged-in').html("logget ut");
+
+    });
+
+    updateFavoriteStations();
+
+}
+
+

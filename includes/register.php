@@ -41,9 +41,9 @@ if(!empty(($_POST['username'] && $_POST['password']))){
                     '". md5($_POST['password']) . "'
                     )";
     if ($conn->query($sql) === TRUE) {
-        echo "User added successfully";
+        echo "Registrering fullført";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Brukernavn allerede registrert, velg et annet brukernavn";
     }
 
 }

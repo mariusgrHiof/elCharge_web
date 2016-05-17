@@ -6,17 +6,18 @@
  * Time: 4:14 PM
  */
 
-/*session_start();
+session_start();
 include 'connectToDb.php';
 
 $userIdResult = $conn->query("select user_id from ec_users where username = '" . $_SESSION['username'] . "'")->fetch_assoc()['user_id'];
 echo $userIdResult;
 
 echo $_SESSION['username'];
+
 if(isset($_SESSION['sessionId'])){
     if(isset($_SESSION['username'])){
 
-        $sql = "insert into ec_users_has_favorite_station(route_id,user_id, routeName, route) values(0," . $userIdResult . ",'" . "Rutenavn" ."'," . $_REQUEST['myRoute-saved'] . ")";
+        $sql = "insert into ec_users_has_favorite_route(route_id,user_id, routeName, route) values(0," . $userIdResult . ",'" . "Rutenavn" ."','" . $_POST['data'] . "');";
         echo $sql;
         $conn->query($sql);
     }
@@ -26,9 +27,7 @@ if(isset($_SESSION['sessionId'])){
 
 }
 else
-    echo "Session er ikke satt";*/
-
-    echo "Rute: " . $_REQUEST['route'];
+    echo "Session er ikke satt";
 
 ?>
 

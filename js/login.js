@@ -16,12 +16,17 @@ $(document).ready(function(){
     //Show register popup
     $('.show-register').click(function(){
         showRegisterPopup();
+        hideLoginPopup();
     });
 
     //show login from the registrer form
     $('.show-login').click(function(){
         showLoginPopup();
     });
+
+
+
+
 
     //Close login and register popup
     $('.close-form').click(function(){

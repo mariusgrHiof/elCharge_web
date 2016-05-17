@@ -31,10 +31,10 @@ try {
 
 
     if ($row = $prepStatment->fetch()) {
-        include 'favoriteStation.php';
+        $stations = include_once 'favoriteStation.php';
 
     } else {
-        echo "Feil brukernavn eller passord";
+        echo "[{}]";
 
     }
 

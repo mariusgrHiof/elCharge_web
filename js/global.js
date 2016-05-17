@@ -12,6 +12,7 @@ var downloadFrom = "2005-01-01";
 var url = "https://nobil.no/api/server/datadump.php?";
 var apiKey = "274b68192b056e268f128ff63bfcd4a4";
 
+var favoriteRoutes = [];
 var jsonData = new Array();
 var mc;
 
@@ -259,7 +260,13 @@ function inArrayVal(value, array){
     }
     return false;
 }
-function getStationImage(station){return (/kommer/i.test(jsonData[station].csmd.Image.toLowerCase()) || /no.image.svg/i.test(jsonData[station].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[station].csmd.Image);}
+function getStationImage(station){
+    try{
+        return (/kommer/i.test(jsonData[station].csmd.Image.toLowerCase()) || /no.image.svg/i.test(jsonData[station].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[station].csmd.Image);
+    }catch(e){
+        console.log("Failed for: " + station + " MSG: " + e)
+    }
+}
 function connCapacityString (station, connectorID){
     var capacity = chargingCapacity[jsonData[station].attr.conn[connectorID][5].attrvalid].kW;
     return capacity >= fastCharge ? capacity + "kW " + 'hurtiglader' : (capacity >= semiFastCharge ? capacity + "kW " +"semihurtig": capacity + "kW "+ "vanlig");

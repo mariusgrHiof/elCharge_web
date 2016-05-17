@@ -28,8 +28,12 @@ if (isset($_SESSION['sessionId'])) {
 
 
 
+
     if ($userId >= 0) {
-        $sql = "select ec_users_has_favorite_station.user_id,station_id from ec_users_has_favorite_station,ec_users
+
+
+
+        $sql = "select ec_users_has_favorite_station.user_id,station_id, ec_users.username from ec_users_has_favorite_station,ec_users
             where ec_users.user_id = ec_users_has_favorite_station.user_id
             and ec_users_has_favorite_station.user_id = " . $userId;
 
@@ -46,12 +50,9 @@ if (isset($_SESSION['sessionId'])) {
                 //echo json_encode($row);
             }
 
+
             echo json_encode($favoriteArray);
 
-            //Srkive favoritt stasjoner til en json fil
-            /*$jsonFile = fopen("../FavoriteStations.json","w");
-            fwrite($jsonFile,json_encode($favoriteArray));
-            fclose($jsonFile);*/
 
 
         } else {
