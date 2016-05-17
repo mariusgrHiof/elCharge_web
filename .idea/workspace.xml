@@ -4,7 +4,7 @@
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/addStations.js" afterPath="$PROJECT_DIR$/js/addStations.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/googlemaps.js" afterPath="$PROJECT_DIR$/js/googlemaps.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/global.js" afterPath="$PROJECT_DIR$/js/global.js" />
     </list>
     <ignored path="elCharge_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,22 +39,22 @@
       <file leaf-file-name="addStations.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/addStations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="307" column="11" selection-start-line="307" selection-start-column="11" selection-end-line="307" selection-end-column="11" />
+            <state relative-caret-position="449">
+              <caret line="302" column="8" selection-start-line="302" selection-start-column="8" selection-end-line="302" selection-end-column="8" />
               <folding>
-                <marker date="1463481383000" expanded="true" signature="14238:14249" placeholder="..." />
-                <marker date="1463481383000" expanded="true" signature="14417:14613" placeholder="..." />
-                <marker date="1463481383000" expanded="true" signature="15671:15716" placeholder="..." />
-                <marker date="1463481383000" expanded="true" signature="16582:16605" placeholder="..." />
-                <marker date="1463481383000" expanded="true" signature="17272:17307" placeholder="..." />
-                <marker date="1463481383000" expanded="true" signature="17939:18084" placeholder="..." />
-                <marker date="1463481383000" expanded="true" signature="19189:19219" placeholder="..." />
-                <marker date="1463481383000" expanded="true" signature="20072:20098" placeholder="..." />
-                <marker date="1463481383000" expanded="true" signature="20236:20432" placeholder="..." />
-                <marker date="1463481383000" expanded="true" signature="20470:20535" placeholder="..." />
-                <marker date="1463481383000" expanded="true" signature="21823:21872" placeholder="..." />
-                <marker date="1463481383000" expanded="true" signature="22046:22239" placeholder="..." />
-                <marker date="1463481383000" expanded="true" signature="22314:22336" placeholder="..." />
+                <marker date="1463483956000" expanded="true" signature="14014:14025" placeholder="..." />
+                <marker date="1463483956000" expanded="true" signature="14193:14389" placeholder="..." />
+                <marker date="1463483956000" expanded="true" signature="15447:15492" placeholder="..." />
+                <marker date="1463483956000" expanded="true" signature="16358:16381" placeholder="..." />
+                <marker date="1463483956000" expanded="true" signature="17048:17083" placeholder="..." />
+                <marker date="1463483956000" expanded="true" signature="17715:17860" placeholder="..." />
+                <marker date="1463483956000" expanded="true" signature="18965:18995" placeholder="..." />
+                <marker date="1463483956000" expanded="true" signature="19848:19874" placeholder="..." />
+                <marker date="1463483956000" expanded="true" signature="20012:20208" placeholder="..." />
+                <marker date="1463483956000" expanded="true" signature="20246:20311" placeholder="..." />
+                <marker date="1463483956000" expanded="true" signature="21599:21648" placeholder="..." />
+                <marker date="1463483956000" expanded="true" signature="21822:22015" placeholder="..." />
+                <marker date="1463483956000" expanded="true" signature="22090:22112" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -63,8 +63,8 @@
       <file leaf-file-name="global.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/global.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="249" column="8" selection-start-line="249" selection-start-column="8" selection-end-line="249" selection-end-column="44" />
+            <state relative-caret-position="569">
+              <caret line="236" column="44" selection-start-line="236" selection-start-column="44" selection-end-line="236" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -155,7 +155,6 @@
         <option value="$PROJECT_DIR$/includes/getDownloadProgress.php" />
         <option value="$PROJECT_DIR$/styles/mobile.css" />
         <option value="$PROJECT_DIR$/styles/download.css" />
-        <option value="$PROJECT_DIR$/js/global.js" />
         <option value="$PROJECT_DIR$/includes/menu-items/filter.html" />
         <option value="$PROJECT_DIR$/styles/menu.css" />
         <option value="$PROJECT_DIR$/js/chargers-nearby.js" />
@@ -163,6 +162,7 @@
         <option value="$PROJECT_DIR$/js/buttons.js" />
         <option value="$PROJECT_DIR$/includes/scripts.php" />
         <option value="$PROJECT_DIR$/js/googlemaps.js" />
+        <option value="$PROJECT_DIR$/js/global.js" />
         <option value="$PROJECT_DIR$/js/addStations.js" />
       </list>
     </option>
@@ -486,14 +486,7 @@
       <workItem from="1463307407625" duration="2306000" />
       <workItem from="1463311453895" duration="2077000" />
       <workItem from="1463383182875" duration="54000" />
-      <workItem from="1463474666454" duration="2471000" />
-    </task>
-    <task id="LOCAL-00160" summary="Fikset bug som gjorde at bil filterekt ikke fungerte riktig">
-      <created>1462537493194</created>
-      <option name="number" value="00160" />
-      <option name="presentableId" value="LOCAL-00160" />
-      <option name="project" value="LOCAL" />
-      <updated>1462537493194</updated>
+      <workItem from="1463474666454" duration="2869000" />
     </task>
     <task id="LOCAL-00161" summary="Fikser streetview controls! FINALLY!">
       <created>1462552235202</created>
@@ -831,11 +824,18 @@
       <option name="project" value="LOCAL" />
       <updated>1463313482445</updated>
     </task>
-    <option name="localTasksCounter" value="209" />
+    <task id="LOCAL-00209" summary="Temp bug fix...">
+      <created>1463481452854</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1463481452855</updated>
+    </task>
+    <option name="localTasksCounter" value="210" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="337359000" />
+    <option name="totallyTimeSpent" value="337757000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -883,7 +883,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Laget noen metoder for å få informasjon ut av ruter. Kan muligens brukes relatert til lagring av en rute senere?" />
     <MESSAGE value="Dratte posisjoner i ruten lagres midlertidig nå!" />
     <MESSAGE value="ladere i nærheten viser nå distanse med to desimaler. Litt penere om kan er ute å kjører." />
     <MESSAGE value="Laderikoner" />
@@ -908,7 +907,8 @@
     <MESSAGE value="fikset overflow for tooltips" />
     <MESSAGE value="fikset overflow for ladere i nærheten" />
     <MESSAGE value="Fjernet en change listener som hang igjen på søkeboksen. Forårsaket noen ganger at folk havnet i Sydney." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fjernet en change listener som hang igjen på søkeboksen. Forårsaket noen ganger at folk havnet i Sydney." />
+    <MESSAGE value="Temp bug fix..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Temp bug fix..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1265,30 +1265,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/global.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="249" column="8" selection-start-line="249" selection-start-column="8" selection-end-line="249" selection-end-column="44" />
+        <state relative-caret-position="569">
+          <caret line="236" column="44" selection-start-line="236" selection-start-column="44" selection-end-line="236" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/addStations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="307" column="11" selection-start-line="307" selection-start-column="11" selection-end-line="307" selection-end-column="11" />
+        <state relative-caret-position="449">
+          <caret line="302" column="8" selection-start-line="302" selection-start-column="8" selection-end-line="302" selection-end-column="8" />
           <folding>
-            <marker date="1463481383000" expanded="true" signature="14238:14249" placeholder="..." />
-            <marker date="1463481383000" expanded="true" signature="14417:14613" placeholder="..." />
-            <marker date="1463481383000" expanded="true" signature="15671:15716" placeholder="..." />
-            <marker date="1463481383000" expanded="true" signature="16582:16605" placeholder="..." />
-            <marker date="1463481383000" expanded="true" signature="17272:17307" placeholder="..." />
-            <marker date="1463481383000" expanded="true" signature="17939:18084" placeholder="..." />
-            <marker date="1463481383000" expanded="true" signature="19189:19219" placeholder="..." />
-            <marker date="1463481383000" expanded="true" signature="20072:20098" placeholder="..." />
-            <marker date="1463481383000" expanded="true" signature="20236:20432" placeholder="..." />
-            <marker date="1463481383000" expanded="true" signature="20470:20535" placeholder="..." />
-            <marker date="1463481383000" expanded="true" signature="21823:21872" placeholder="..." />
-            <marker date="1463481383000" expanded="true" signature="22046:22239" placeholder="..." />
-            <marker date="1463481383000" expanded="true" signature="22314:22336" placeholder="..." />
+            <marker date="1463483956000" expanded="true" signature="14014:14025" placeholder="..." />
+            <marker date="1463483956000" expanded="true" signature="14193:14389" placeholder="..." />
+            <marker date="1463483956000" expanded="true" signature="15447:15492" placeholder="..." />
+            <marker date="1463483956000" expanded="true" signature="16358:16381" placeholder="..." />
+            <marker date="1463483956000" expanded="true" signature="17048:17083" placeholder="..." />
+            <marker date="1463483956000" expanded="true" signature="17715:17860" placeholder="..." />
+            <marker date="1463483956000" expanded="true" signature="18965:18995" placeholder="..." />
+            <marker date="1463483956000" expanded="true" signature="19848:19874" placeholder="..." />
+            <marker date="1463483956000" expanded="true" signature="20012:20208" placeholder="..." />
+            <marker date="1463483956000" expanded="true" signature="20246:20311" placeholder="..." />
+            <marker date="1463483956000" expanded="true" signature="21599:21648" placeholder="..." />
+            <marker date="1463483956000" expanded="true" signature="21822:22015" placeholder="..." />
+            <marker date="1463483956000" expanded="true" signature="22090:22112" placeholder="..." />
           </folding>
         </state>
       </provider>

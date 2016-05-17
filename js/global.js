@@ -228,29 +228,13 @@ function processDL(data){
     for(var i = 0; i < data.chargerstations.length; i++){
         id = data.chargerstations[i].csmd.International_id;
         jsonData[id] = data.chargerstations[i];
-        try{
-            numOfPorts = jsonData[id].csmd.Number_charging_points;
-            getCarMatch(id);
-            var markerIcon = {
-                url: 'icons/'+(
-                    hasFastCharge ?
-                    (faultyConns/numOfPorts == 1 ? 'marker_red_v2' :( isStationOccupiedStatus(id) > occupiedLimit ? 'marker_green_v2' : 'marker_yellow_v2')):
-                    (faultyConns/numOfPorts == 1 ? 'marker_red_v3' :( isStationOccupiedStatus(id) > occupiedLimit ? 'marker_green_v3' : 'marker_yellow_v3')))+'.svg', //Changing the color of the marker based on if it has live status or not.
-                anchor: new google.maps.Point(0, 32),
-                origin: new google.maps.Point(0, 0),
-                scaledSize: new google.maps.Size(32, 51),
-                size: new google.maps.Size(64, 64)
-            };
-            markers[id].setIcon(markerIcon);
-        }catch(ex){}
-
     }
     //Adding markers
     if(!initDownloaded){
         setTimeout(generateMarkers(),0.001);
         initDownloaded = true;
     }else{
-        $('#download-progression').hide();
+        setTimeout(generateMarkers(),0.001);
         hasDownloaded = true;
     }
     try{

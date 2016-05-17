@@ -300,11 +300,7 @@ function addMarker(numOfPorts, station){
         infowindow.open(map, marker);
 
         infowindow.setContent(createIWContent(station, isLive));
-        //Loading the image now, instead of on page ready to save data and memory usage
-        /*TODO: if(!$(".img-to-load").attr("src"))
-            $(".img-to-load").prop("src",imgSrc);*/
     }));
-    //markers[station] = marker;
     markers.push(marker);
 
     //Building closest charging stations list
