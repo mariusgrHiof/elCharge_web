@@ -203,7 +203,7 @@ function getCarMatch(station){
 function addMarker(numOfPorts, station){
     //Adding markers
     var pos = jsonData[station].csmd.Position.replace(/[()]/g,"").split(",");
-
+    console.log('addedmarker');
     var isLive = jsonData[station].attr.st[21].attrvalid == "1";
 
     //TODO: Fikse nestet short if: de markørene som har hurtigladekontakt skal ha _v2.svg (den med vinger)
@@ -223,13 +223,13 @@ function addMarker(numOfPorts, station){
 
     var marker;
     if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1)
-        var marker = new google.maps.Marker({
+        marker = new google.maps.Marker({
             position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
             map: map,
             title: jsonData[station].csmd.name
         });
     else
-        var marker = new google.maps.Marker({
+        marker = new google.maps.Marker({
             position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
             icon: markerIcon,
             map: map,
@@ -304,7 +304,8 @@ function addMarker(numOfPorts, station){
         /*TODO: if(!$(".img-to-load").attr("src"))
             $(".img-to-load").prop("src",imgSrc);*/
     }));
-    markers[station] = marker;
+    //markers[station] = marker;
+    markers.push(marker);
 
     //Building closest charging stations list
     try{
