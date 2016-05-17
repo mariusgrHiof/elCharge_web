@@ -430,38 +430,35 @@ function strToLtLng(pos){
  * A method for adding a selected station to the waypoints
  */
 function addWaypoint(id){
-    var disPos = jsonData[id].csmd.Position.replace(/[()]/g,"").split(",");
-    var isLive = jsonData[id].attr.st[21].attrvalid == "1";
-    waypoints.push(
-        {location: new google.maps.LatLng(disPos[0],disPos[1])}
-    );
-    //TODO: SE PÅ!
-    waypoints.sort(function (a, b){
-        var arr = [a.lat, a.lon];
-        var barr = [b.lat, b.lon];
-        return compareDistance(arr, barr) > 0 ? 1 : 0;
-    });
+    try{
+        var disPos = jsonData[id].csmd.Position.replace(/[()]/g,"").split(",");
+        var isLive = jsonData[id].attr.st[21].attrvalid == "1";
+        waypoints.push(
+            {location: new google.maps.LatLng(disPos[0],disPos[1])}
+        );
+        console.log(id);
 
-    var content =
-        "<div class='route-element station-"+ id +"'>" +
+        var content =
+            "<div class='route-element station-"+ id +"'>" +
             "<img class='cover-third float-left' src=\"" + getStationImage(id) + "\"/>" +
             "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
-                "<Strong>" + jsonData[id].csmd.name +"</Strong>"+
+            "<Strong>" + jsonData[id].csmd.name +"</Strong>"+
             "</div>"+
             "<div class='markerColor' style='background-color:"+ (faultyConns / jsonData[id].csmd.Number_charging_points == 1 ? "red" : (isLive ? (isStationOccupiedStatus(id) < occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>" +
-                "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"removeWaypoint(this)\">X</button>" +
+            "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"removeWaypoint(this)\">X</button>" +
             "</div>"+
             "<button onclick='readMorev2(this)'>Vis mer</button>"+
             "<div class='read-more clear-both'>" +
-                generateConnectorString(id,jsonData[id].attr.st[21].attrvalid == "1") +
+            generateConnectorString(id,jsonData[id].attr.st[21].attrvalid == "1") +
             "</div>" +
-        "</div>";
-    document.getElementById('waypoint-list').innerHTML += content;
+            "</div>";
+        document.getElementById('waypoint-list').innerHTML += content;
 
-    //Refreshing the route if it's active
-    if($('#nav-start-pos').val() != "" && $('#nav-end-pos').val() != ""){
-        navigate();
-    }
+        //Refreshing the route if it's active
+        if($('#nav-start-pos').val() != "" && $('#nav-end-pos').val() != ""){
+            navigate();
+        }
+    }catch(e){console.log(e);}
 }
 
 function removeWaypoint(element){

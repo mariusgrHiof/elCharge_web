@@ -13,8 +13,6 @@ var jsonRoute = [];
 
 var myroute = [];
 function navigate(){
-    //Cleaning previous directions
-    clearRoute();
     if(document.getElementById('right-panel').innerHTML != null){
         document.getElementById('right-panel').innerHTML = ""; //The route description
     }
@@ -36,7 +34,6 @@ function navigate(){
     });
 
     displayRoute(startDestination, endDestination, directionsService,directionsDisplay);
-    console.log("Dirs: " + directionsService.path);
 }
 
 function navigateFromUser(from, toel){
@@ -115,8 +112,6 @@ function displayRoute(origin, destination, service, display) {
 function computeTotalDistance(result) {
     var total = 0;
     myroute = result.routes[0];
-
-    console.log(myroute);
     for (var i = 0; i < myroute.legs.length; i++) {
         total += myroute.legs[i].distance.value;
         console.log(myroute.legs[i].start_address);
