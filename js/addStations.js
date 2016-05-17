@@ -132,19 +132,19 @@ function generateMarkers(){
         if(document.getElementById("select-car").value !=0)
             usersCarConns = carModels[document.getElementById("select-car").value];
         deleteMarkers();
-        for(var station in jsonData){
+        for(var id in jsonData){
             try{
                 connectors.length = 0;
-                isPublic = jsonData[station].attr.st[2].attrvalid == "1";
+                isPublic = jsonData[id].attr.st[2].attrvalid == "1";
                 if(isPublic){
                     //Checking filter
-                    var isMatch = getCarMatch(station);
+                    var isMatch = getCarMatch(id);
 
                     if(isMatch)
-                        addMarker(jsonData[station].csmd.Number_charging_points, station);
+                        addMarker(jsonData[id].csmd.Number_charging_points, id);
                 }
-                if(inArray(station, favoriteStations))
-                    updateFavoriteStations(station);
+                if(inArray(id, favoriteStations))
+                    updateFavoriteStations(id);
                 loadedStations++;
                 progText = loadedStations + ' av ' + totalSize + ' stasjoner er lastet inn.';
                 //console.log(progText); //TODO -> printing out loading progression
@@ -168,29 +168,26 @@ function generateMarkers(){
     hasDownloaded = true;
 }
 
-function getCarMatch(station){
+function getCarMatch(id){
     var match = false;
     var connType;
     var hasFastCharge_temp = false;
     var isFaulty = false;
     hasFastCharge = false;
     faultyConns = 0;
-    for(var c = 1; c <= jsonData[station].csmd.Number_charging_points; c++){
+    for(var c = 1; c <= jsonData[id].csmd.Number_charging_points; c++){
         //Checking if any connection ports match the user prefs
         try{
-            connType = jsonData[station].attr.conn[c][4].attrvalid; //id
-            if(document.getElementById("select-car").value != 0 && !match && inArray(connType, usersCarConns) && (selectedCapacity <= chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW)){
+            connType = jsonData[id].attr.conn[c][4].attrvalid; //id
+            if(document.getElementById("select-car").value != 0 && !match && inArray(connType, usersCarConns) && (selectedCapacity <= chargingCapacity[jsonData[id].attr.conn[c][5].attrvalid].kW))
                 match = true;
-            }else if(document.getElementById("select-car").value == 0 && !match && (selectedCapacity <= chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW)){
+            else if(document.getElementById("select-car").value == 0 && !match && (selectedCapacity <= chargingCapacity[jsonData[id].attr.conn[c][5].attrvalid].kW))
                //If no car or type is selected
                match = true;
-            }
-
-            if(jsonData[station].attr.conn[c][9].attrvalid == 1){//Is a faulty connector
+            if(jsonData[id].attr.conn[c][9].attrvalid == 1)//Is a faulty connector
                 faultyConns++;
-            }
-            //For the markers, to indicate if a station has a fast charger or not!
-            if(!hasFastCharge_temp && (fastCharge <= chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW))
+            //For the markers, to indicate if a id has a fast charger or not!
+            if(!hasFastCharge_temp && (fastCharge <= chargingCapacity[jsonData[id].attr.conn[c][5].attrvalid].kW))
                 hasFastCharge = true;
             connectors.push(object.attr.conn[c]);
         }catch(e){
@@ -200,20 +197,16 @@ function getCarMatch(station){
     return match;
 }
 
-function addMarker(numOfPorts, station){
+function addMarker(numOfPorts, id){
     //Adding markers
-    var pos = jsonData[station].csmd.Position.replace(/[()]/g,"").split(",");
-    console.log('addedmarker');
-    var isLive = jsonData[station].attr.st[21].attrvalid == "1";
+    var pos = jsonData[id].csmd.Position.replace(/[()]/g,"").split(",");
+    var isLive = jsonData[id].attr.st[21].attrvalid == "1";
 
-    //TODO: Fikse nestet short if: de markørene som har hurtigladekontakt skal ha _v2.svg (den med vinger)
-
-    //var isAvailable = (jsonData[station].csmd.Available_charging_points / jsonData[station].csmd.Number_charging_points) > 1;
     var markerIcon = {
         url: 'icons/'+(
             isLive ? (hasFastCharge ?
-                (faultyConns/numOfPorts == 1 ? 'marker_red_v2' :( isStationOccupiedStatus(station) > occupiedLimit ? 'marker_green_v2' : 'marker_yellow_v2')):
-                (faultyConns/numOfPorts == 1 ? 'marker_red_v3' :( isStationOccupiedStatus(station) > occupiedLimit ? 'marker_green_v3' : 'marker_yellow_v3')))
+                (faultyConns/numOfPorts == 1 ? 'marker_red_v2' :( isStationOccupiedStatus(id) > occupiedLimit ? 'marker_green_v2' : 'marker_yellow_v2')):
+                (faultyConns/numOfPorts == 1 ? 'marker_red_v3' :( isStationOccupiedStatus(id) > occupiedLimit ? 'marker_green_v3' : 'marker_yellow_v3')))
                 :(hasFastCharge ? (faultyConns/numOfPorts == 1 ? 'marker_red_v2' :'marker_blue_v2'):(faultyConns/numOfPorts == 1 ? 'marker_red_v3' :'marker_blue_v3')))+'.svg', //Changing the color of the marker based on if it has live status or not.
         anchor: new google.maps.Point(0, 32),
         origin: new google.maps.Point(0, 0),
@@ -226,14 +219,14 @@ function addMarker(numOfPorts, station){
         marker = new google.maps.Marker({
             position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
             map: map,
-            title: jsonData[station].csmd.name
+            title: jsonData[id].csmd.name
         });
     else
         marker = new google.maps.Marker({
             position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
             icon: markerIcon,
             map: map,
-            title: jsonData[station].csmd.name
+            title: jsonData[id].csmd.name
         });
 
 
@@ -299,26 +292,26 @@ function addMarker(numOfPorts, station){
         }
         infowindow.open(map, marker);
 
-        infowindow.setContent(createIWContent(station, isLive));
+        infowindow.setContent(createIWContent(id, isLive));
     }));
     markers.push(marker);
 
     //Building closest charging stations list
     try{
         if(compareDistance(geopos, pos) <= 10){
-            chargers_nearby[jsonData[station].csmd.id] = jsonData[station];
-            chargers_nearby[jsonData[station].csmd.id]["distance"] = compareDistance(geopos, pos);
+            chargers_nearby[jsonData[id].csmd.id] = jsonData[id];
+            chargers_nearby[jsonData[id].csmd.id]["distance"] = compareDistance(geopos, pos);
         }
     }catch(e){console.log(e);}
 }
 
-function isStationOccupiedStatus(station){
+function isStationOccupiedStatus(id){
 
-    return parseFloat(jsonData[station].csmd.Available_charging_points) / parseFloat(jsonData[station].csmd.Number_charging_points);
+    return parseFloat(jsonData[id].csmd.Available_charging_points) / parseFloat(jsonData[id].csmd.Number_charging_points);
 }
 
 //A method for generating the content of a infowindow
-function createIWContent(station, isLive) {
+function createIWContent(id, isLive) {
 
 
     var match = false;
@@ -327,37 +320,31 @@ function createIWContent(station, isLive) {
         usersCarConns = carModels[document.getElementById("select-car").value];
 
     //Showing a info windows when you click on the marker
-    connectorsString = generateConnectorString(station, isLive);
+    connectorsString = generateConnectorString(id, isLive);
 
-
-
-    //var latlng = new Array();//{lat:  lng: };
-    //latlng.push();
-    //getElevation(new google.maps.LatLng(parseFloat(pos[0]), parseFloat(pos[1])))
-    //TODO: var imgSrc = (/kommer/i.test(jsonData[station].csmd.Image.toLowerCase()) || /no.image.svg/i.test(jsonData[station].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[station].csmd.Image);
     contentString =
         "<div id=\"station-tooltip\">"+
             "<div id=\"topBox\">"+
             "</div>"+
             "<div id=\"secondRow\">" +
-            "<img class='img-to-load' src=\""+ getStationImage(station) + "\"/>" +
+                "<img class='img-to-load' src=\""+ getStationImage(id) + "\"/>" +
                 "<div id='placeNameIcons' style='color:blue;'>"+
-                    "<h3>"+ jsonData[station].csmd.name + "(ID:" + station + ")</h3>" +
+                    "<h3>"+ jsonData[id].csmd.name + "(ID:" + id + ")</h3>" +
                 "</div>"+
-                "<div class='markerColor' style='background-color:"+ (faultyConns / jsonData[station].csmd.Number_charging_points == 1 ? "red" : (isLive ? (isStationOccupiedStatus(station) < occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>"+
+                "<div class='markerColor' style='background-color:"+ (faultyConns / jsonData[id].csmd.Number_charging_points == 1 ? "red" : (isLive ? (isStationOccupiedStatus(id) < occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>"+
                 "</div>"+
             "</div>"+
             "<div id='secondContainer'>"+
                 "<div id='infoLeft'>"+
-                    "<p><strong>Kontakt info:</strong> "+ jsonData[station].csmd.Contact_info.replace('\r\n','<br />')+"</p>" +
-                    "<p><strong>Adresse:</strong> "+ jsonData[station].csmd.Street.replace('\r\n','<br />') +" " + jsonData[station].csmd.House_number.replace('\r\n','<br />') +"</p>"+
-                    "<p><strong>Beskrivelse:</strong> "+ jsonData[station].csmd.description +"</p>" + // .replace('\r\n','<br />') her også?
-                    "<p><strong>Lokasjonsbeskrivelse:</strong> "+ jsonData[station].csmd.Description_of_location +"</p>" +
-                    "<p><strong>Eier:</strong> " + jsonData[station].csmd.Owned_by.replace('\r\n','<br />') +"</p>" +
-                    "<p><strong>Kommentarer:</strong> "+ jsonData[station].csmd.User_comment.replace('\r\n','<br />')+"</p>" +
+                    "<p><strong>Kontakt info:</strong> "+ jsonData[id].csmd.Contact_info.replace('\r\n','<br />')+"</p>" +
+                    "<p><strong>Adresse:</strong> "+ jsonData[id].csmd.Street.replace('\r\n','<br />') +" " + jsonData[id].csmd.House_number.replace('\r\n','<br />') +"</p>"+
+                    "<p><strong>Beskrivelse:</strong> "+ jsonData[id].csmd.description +"</p>" + // .replace('\r\n','<br />') her også?
+                    "<p><strong>Lokasjonsbeskrivelse:</strong> "+ jsonData[id].csmd.Description_of_location +"</p>" +
+                    "<p><strong>Eier:</strong> " + jsonData[id].csmd.Owned_by.replace('\r\n','<br />') +"</p>" +
+                    "<p><strong>Kommentarer:</strong> "+ jsonData[id].csmd.User_comment.replace('\r\n','<br />')+"</p>" +
                 "</div>"+
                 "<div id='chargingPoints'>"+
-                    "<p style='border-bottom:1px solid gray;margin-bottom:0;'><strong>Ladepunkter:</strong> "+ jsonData[station].csmd.Number_charging_points + " </p>" +
+                    "<p style='border-bottom:1px solid gray;margin-bottom:0;'><strong>Ladepunkter:</strong> "+ jsonData[id].csmd.Number_charging_points + " </p>" +
                     "<div> "+
                         connectorsString +
                     "</div>" +
@@ -365,10 +352,10 @@ function createIWContent(station, isLive) {
             "</div>"+
 
             "<div id='lowerContainer'>"+
-                '<button onclick="addWaypoint(\'' + station + '\')" >Legg til i rute</button>' +
-                '<button onclick="navigateFromUser(geopos, this)" value="'+ jsonData[station].csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
+                '<button onclick="addWaypoint(\'' + id + '\')" >Legg til i rute</button>' +
+                '<button onclick="navigateFromUser(geopos, this)" value="'+ jsonData[id].csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
 
-                '<button onclick="addToFavorites(\'' + station + '\')" >Legg til favoritt</button>' +
+                '<button onclick="addToFavorites(\'' + id + '\')" >Legg til favoritt</button>' +
             "</div>"+
         "</div>";
     return contentString;
@@ -497,17 +484,17 @@ function removeWaypoint(element){
 var favoriteStations = [];
 function updateFavoriteStations(){
     $("#favorite-stations").html("");
-    for(var station in favoriteStations){
-        console.log(favoriteStations[station].distance);
+    for(var id in favoriteStations){
+        console.log(favoriteStations[id].distance);
         $('#favorite-stations').append(
             '<li class="border" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
-                '<img class="cover-third float-left img-height-4em" src=\"' + getStationImage(station) + '\"/>' +
+                '<img class="cover-third float-left img-height-4em" src=\"' + getStationImage(id) + '\"/>' +
                 '<div class="chargePointColor" style="height:4em;background-color:' +
-                    (jsonData[station].attr.st[21].attrvalid == "1" ? (isStationOccupiedStatus(station) < occupiedLimit ? 'lightgreen' : 'yellow') : 'blue') + ';"></div>'+
+                    (jsonData[id].attr.st[21].attrvalid == "1" ? (isStationOccupiedStatus(id) < occupiedLimit ? 'lightgreen' : 'yellow') : 'blue') + ';"></div>'+
                 '<div class="cover-twothird float-right" style="width:calc(66% - 1em);">'+
-                    '<strong class="float-left">' + jsonData[station].csmd.name + '</strong><br />'+
-                    '<span>' + compareDistance(geopos, jsonData[station].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>'+
-                    '<button class="float-left" onclick="navigateFromUser(geopos, this)" value="'+ jsonData[station].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
+                    '<strong class="float-left">' + jsonData[id].csmd.name + '</strong><br />'+
+                    '<span>' + compareDistance(geopos, jsonData[id].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>'+
+                    '<button class="float-left" onclick="navigateFromUser(geopos, this)" value="'+ jsonData[id].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
                     //"<button onclick='readMorev2(this)'>Vis mer</button>"+
                 '<div class="clear-both">' +//read-more
                 // generateConnectorString(id,jsonData[id].attr.st[21].attrvalid == "1") +
