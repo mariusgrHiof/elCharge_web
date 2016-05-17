@@ -168,18 +168,16 @@ function initMap() {
         geopos = [59.91673,10.74782]; // Defaulting to oslo incase geopos isn't possible
     }
     //Downloading station data
-    if(phonegap){
+    if(phonegap)
         //Safeguarding against timeout for the cordovaWebView
-
         setTimeout(document.addEventListener("deviceready", onDeviceReady, false), 2000);
-
-
+    if(isMobile)
         setInterval(function () {
             //Updating the "nearby chargers" list
             updateNearbyChargers();
             updateFavoriteStations();
         }, 1000);
-    }
+
     window.addEventListener("resize",function(){
         google.maps.event.trigger(map, 'resize');
     }, false);

@@ -461,7 +461,7 @@ function addWaypoint(id){
             "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
                 "<Strong>" + jsonData[id].csmd.name +"</Strong>"+
             "</div>"+
-            "<div class='markerColor' style='background-color:"+ (faultyConns / jsonData[station].csmd.Number_charging_points == 1 ? "red" : (isLive ? (isStationOccupiedStatus(station) < occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>" +
+            "<div class='markerColor' style='background-color:"+ (faultyConns / jsonData[id].csmd.Number_charging_points == 1 ? "red" : (isLive ? (isStationOccupiedStatus(id) < occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>" +
                 "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"removeWaypoint(this)\">X</button>" +
             "</div>"+
             "<button onclick='readMorev2(this)'>Vis mer</button>"+
