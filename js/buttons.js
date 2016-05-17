@@ -37,7 +37,7 @@ function slideIn() {//$(target).css("left") == "-27em"
 function userLoggin(form){
     var path = "";
     if(phonegap)
-        path += "http://frigg.hiof.no/bo16-g6/webapp/";
+        path += "http://172.16.0.3:8888/elCharge_web/";
     path +="includes/checkloggin.php";
 
     //Logging the user in
@@ -87,7 +87,7 @@ function userLoggin(form){
 function userRegistration(form){
     var path = "";
     if(phonegap)
-        path += "http://frigg.hiof.no/bo16-g6/webapp/";
+        path += "http://172.16.0.3:8888/elCharge_web/";
     path +="includes/register.php";
 
     //Logging the user in
@@ -250,7 +250,7 @@ function getFavoriteRoutes(){
 function logOut(){
     var path = "";
     if(phonegap)
-        path += "http://frigg.hiof.no/bo16-g6/webapp/";
+        path += "http://172.16.0.3:8888/elCharge_web/";
     path +="includes/logOut.php";
 
     $.post(path, function data(){
