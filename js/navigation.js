@@ -79,6 +79,13 @@ function clearRoute(){
         $("#right-panel").html("");
         directionsDisplay.setMap(null);//The route in the map
     }
+    //Removing waypoints as well as the route
+    $("#waypoint-list").children().each(
+        function(){
+            $(this).remove();
+        }
+    );
+    waypoints.length = 0;
 }
 
 
