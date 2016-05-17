@@ -234,6 +234,7 @@ function processDL(data){
         setTimeout(generateMarkers(),0.001);
         initDownloaded = true;
     }else{
+        //TODO:Remove when the K,V markerlist works propperly again
         setTimeout(generateMarkers(),0.001);
         hasDownloaded = true;
     }
