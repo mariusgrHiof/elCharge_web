@@ -66,38 +66,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="navigation.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="navigation.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/navigation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+            <state relative-caret-position="540">
+              <caret line="43" column="61" selection-start-line="43" selection-start-column="61" selection-end-line="43" selection-end-column="61" />
               <folding>
-                <marker date="1463498829000" expanded="true" signature="6383:6409" placeholder="..." />
-                <marker date="1463498829000" expanded="true" signature="7022:7048" placeholder="..." />
+                <marker date="1463498937000" expanded="true" signature="6664:6690" placeholder="..." />
+                <marker date="1463498937000" expanded="true" signature="7303:7329" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="addStations.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/addStations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="463" column="0" selection-start-line="463" selection-start-column="0" selection-end-line="479" selection-end-column="0" />
+            <state relative-caret-position="285">
+              <caret line="442" column="52" selection-start-line="442" selection-start-column="52" selection-end-line="442" selection-end-column="52" />
               <folding>
-                <marker date="1463498779000" expanded="true" signature="13153:13164" placeholder="..." />
-                <marker date="1463498779000" expanded="true" signature="13322:13508" placeholder="..." />
-                <marker date="1463498779000" expanded="true" signature="14531:14576" placeholder="..." />
-                <marker date="1463498779000" expanded="true" signature="15422:15445" placeholder="..." />
-                <marker date="1463498779000" expanded="true" signature="16112:16147" placeholder="..." />
-                <marker date="1463498779000" expanded="true" signature="16779:16924" placeholder="..." />
-                <marker date="1463498779000" expanded="true" signature="18029:18059" placeholder="..." />
-                <marker date="1463498779000" expanded="true" signature="18787:18813" placeholder="..." />
-                <marker date="1463498779000" expanded="true" signature="18947:19133" placeholder="..." />
-                <marker date="1463498779000" expanded="true" signature="19167:19232" placeholder="..." />
-                <marker date="1463498779000" expanded="true" signature="20561:20610" placeholder="..." />
-                <marker date="1463498779000" expanded="true" signature="20779:20962" placeholder="..." />
-                <marker date="1463498779000" expanded="true" signature="21037:21059" placeholder="..." />
+                <marker date="1463498959000" expanded="true" signature="13153:13164" placeholder="..." />
+                <marker date="1463498959000" expanded="true" signature="13322:13508" placeholder="..." />
+                <marker date="1463498959000" expanded="true" signature="14531:14576" placeholder="..." />
+                <marker date="1463498959000" expanded="true" signature="15422:15445" placeholder="..." />
+                <marker date="1463498959000" expanded="true" signature="16112:16147" placeholder="..." />
+                <marker date="1463498959000" expanded="true" signature="16779:16924" placeholder="..." />
+                <marker date="1463498959000" expanded="true" signature="18029:18059" placeholder="..." />
+                <marker date="1463498959000" expanded="true" signature="18762:18788" placeholder="..." />
+                <marker date="1463498959000" expanded="true" signature="18922:19108" placeholder="..." />
+                <marker date="1463498959000" expanded="true" signature="19142:19207" placeholder="..." />
+                <marker date="1463498959000" expanded="true" signature="20536:20585" placeholder="..." />
+                <marker date="1463498959000" expanded="true" signature="20754:20937" placeholder="..." />
+                <marker date="1463498959000" expanded="true" signature="21012:21034" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -185,8 +185,8 @@
         <option value="$PROJECT_DIR$/js/googlemaps.js" />
         <option value="$PROJECT_DIR$/styles/tooltips.css" />
         <option value="$PROJECT_DIR$/styles/menu.css" />
-        <option value="$PROJECT_DIR$/js/addStations.js" />
         <option value="$PROJECT_DIR$/js/navigation.js" />
+        <option value="$PROJECT_DIR$/js/addStations.js" />
       </list>
     </option>
   </component>
@@ -510,14 +510,7 @@
       <workItem from="1463311453895" duration="2077000" />
       <workItem from="1463383182875" duration="54000" />
       <workItem from="1463474666454" duration="3188000" />
-      <workItem from="1463495697285" duration="2773000" />
-    </task>
-    <task id="LOCAL-00167" summary="String metode som returnerer tekst for laderkapasitet type">
-      <created>1462580395336</created>
-      <option name="number" value="00167" />
-      <option name="presentableId" value="LOCAL-00167" />
-      <option name="project" value="LOCAL" />
-      <updated>1462580395336</updated>
+      <workItem from="1463495697285" duration="2974000" />
     </task>
     <task id="LOCAL-00168" summary="fjernet en console.log">
       <created>1462580624262</created>
@@ -855,11 +848,18 @@
       <option name="project" value="LOCAL" />
       <updated>1463498113944</updated>
     </task>
-    <option name="localTasksCounter" value="216" />
+    <task id="LOCAL-00216" summary="Fix">
+      <created>1463498844552</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1463498844552</updated>
+    </task>
+    <option name="localTasksCounter" value="217" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="340849000" />
+    <option name="totallyTimeSpent" value="341050000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -907,7 +907,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix for ladere i nærheten info" />
     <MESSAGE value="App icons" />
     <MESSAGE value="design fix med slidein fra siden som vi snakket om tidligere" />
     <MESSAGE value="ting" />
@@ -932,7 +931,8 @@
     <MESSAGE value="bug fix for ruteplanlegging" />
     <MESSAGE value="rydding og fiksing" />
     <MESSAGE value="Alle waypoints blir nå fjernet om bruker sletter en rute" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alle waypoints blir nå fjernet om bruker sletter en rute" />
+    <MESSAGE value="Fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1284,35 +1284,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/addStations.js">
+    <entry file="file://$PROJECT_DIR$/js/navigation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="463" column="0" selection-start-line="463" selection-start-column="0" selection-end-line="479" selection-end-column="0" />
+        <state relative-caret-position="540">
+          <caret line="43" column="61" selection-start-line="43" selection-start-column="61" selection-end-line="43" selection-end-column="61" />
           <folding>
-            <marker date="1463498779000" expanded="true" signature="13153:13164" placeholder="..." />
-            <marker date="1463498779000" expanded="true" signature="13322:13508" placeholder="..." />
-            <marker date="1463498779000" expanded="true" signature="14531:14576" placeholder="..." />
-            <marker date="1463498779000" expanded="true" signature="15422:15445" placeholder="..." />
-            <marker date="1463498779000" expanded="true" signature="16112:16147" placeholder="..." />
-            <marker date="1463498779000" expanded="true" signature="16779:16924" placeholder="..." />
-            <marker date="1463498779000" expanded="true" signature="18029:18059" placeholder="..." />
-            <marker date="1463498779000" expanded="true" signature="18787:18813" placeholder="..." />
-            <marker date="1463498779000" expanded="true" signature="18947:19133" placeholder="..." />
-            <marker date="1463498779000" expanded="true" signature="19167:19232" placeholder="..." />
-            <marker date="1463498779000" expanded="true" signature="20561:20610" placeholder="..." />
-            <marker date="1463498779000" expanded="true" signature="20779:20962" placeholder="..." />
-            <marker date="1463498779000" expanded="true" signature="21037:21059" placeholder="..." />
+            <marker date="1463498937000" expanded="true" signature="6664:6690" placeholder="..." />
+            <marker date="1463498937000" expanded="true" signature="7303:7329" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/navigation.js">
+    <entry file="file://$PROJECT_DIR$/js/addStations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+        <state relative-caret-position="285">
+          <caret line="442" column="52" selection-start-line="442" selection-start-column="52" selection-end-line="442" selection-end-column="52" />
           <folding>
-            <marker date="1463498829000" expanded="true" signature="6383:6409" placeholder="..." />
-            <marker date="1463498829000" expanded="true" signature="7022:7048" placeholder="..." />
+            <marker date="1463498959000" expanded="true" signature="13153:13164" placeholder="..." />
+            <marker date="1463498959000" expanded="true" signature="13322:13508" placeholder="..." />
+            <marker date="1463498959000" expanded="true" signature="14531:14576" placeholder="..." />
+            <marker date="1463498959000" expanded="true" signature="15422:15445" placeholder="..." />
+            <marker date="1463498959000" expanded="true" signature="16112:16147" placeholder="..." />
+            <marker date="1463498959000" expanded="true" signature="16779:16924" placeholder="..." />
+            <marker date="1463498959000" expanded="true" signature="18029:18059" placeholder="..." />
+            <marker date="1463498959000" expanded="true" signature="18762:18788" placeholder="..." />
+            <marker date="1463498959000" expanded="true" signature="18922:19108" placeholder="..." />
+            <marker date="1463498959000" expanded="true" signature="19142:19207" placeholder="..." />
+            <marker date="1463498959000" expanded="true" signature="20536:20585" placeholder="..." />
+            <marker date="1463498959000" expanded="true" signature="20754:20937" placeholder="..." />
+            <marker date="1463498959000" expanded="true" signature="21012:21034" placeholder="..." />
           </folding>
         </state>
       </provider>

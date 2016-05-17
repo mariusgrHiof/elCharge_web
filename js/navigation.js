@@ -13,9 +13,10 @@ var jsonRoute = [];
 
 var myroute = [];
 function navigate(){
-    if(document.getElementById('right-panel').innerHTML != null){
-        document.getElementById('right-panel').innerHTML = ""; //The route description
-    }
+    if(document.getElementById('right-panel').innerHTML != null)
+        $("#right-panel").html("") //The route description
+    if(directionsDisplay != null)
+        directionsDisplay.setMap(null);//The route in the map
 
     //Getting destinations
     startDestination = $('#nav-start-pos').val();
@@ -37,6 +38,10 @@ function navigate(){
 }
 
 function navigateFromUser(from, toel){
+    if(document.getElementById('right-panel').innerHTML != null)
+        $("#right-panel").html("") //The route description
+    if(directionsDisplay != null)
+        directionsDisplay.setMap(null);//The route in the map
     var to = $(toel).attr('value');
     $('#nav-start-pos').val(from);
     $('#nav-end-pos').val(to);

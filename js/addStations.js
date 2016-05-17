@@ -436,7 +436,6 @@ function addWaypoint(id){
         waypoints.push(
             {location: new google.maps.LatLng(disPos[0],disPos[1])}
         );
-        console.log(id);
 
         var content =
             "<div class='route-element station-"+ id +"'>" +
