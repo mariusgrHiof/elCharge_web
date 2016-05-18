@@ -114,7 +114,6 @@ function downloadDumpPG(){
         url: (downloadFrom == "2005-01-01" && isAndroid ? "datadump.json" : url + "&apikey=" + apiKey + "&fromdate=" + downloadFrom + "&format=json"),
         data: {},
         success: function(i){
-            $('.dl-progress-text').html(progText +"<br />Laster inn ladestasjoner");
             var data;
             try{
                 data = JSON.parse(i);
