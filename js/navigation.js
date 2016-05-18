@@ -110,6 +110,8 @@ function computeTotalDistance(result) {
     for (var i = 0; i < myroute.legs.length; i++) {
         total += myroute.legs[i].distance.value;
     }
+    //Getting waypoint adresses
+    getRouteData();
     total = total / 1000;
     $('#total').html('Total reise distanse '+ total + ' km');
     //Showing the path elevation
