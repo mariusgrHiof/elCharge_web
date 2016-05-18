@@ -453,7 +453,6 @@ function updateFavoriteStations(){
     }
 }
 
-
 //Showing and hiding markers
 function showHideMarkers(ele){
     var visible = true;
@@ -479,4 +478,3 @@ function addToFavorites(id){
     });
     return false;
 }
-

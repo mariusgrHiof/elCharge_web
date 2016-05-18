@@ -64,7 +64,6 @@ function updateBGDLTimer(minutes){
         }else{
             console.log("nope..");
         }
-
     }, intervalTimer)
 }
 

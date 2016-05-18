@@ -1,4 +1,6 @@
 var domain = "http://frigg.hiof.no/bo16-g6/webapp/";
+var favoriteRoutes = [];
+
 /*
  * Menu
  */
@@ -46,12 +48,7 @@ function userLoggin(form){
             username: $(form).children(":input[name='username']").val(),
             password: $(form).children(":input[name='password']").val() },
         function( data ){
-            console.log("Logged in feedback = " + data );
-            console.log(JSON.parse(data));
-            console.log(data);
             //Populating the user logged in window.
-
-            //Populating the favorite chargers and routes window
             //Cleaning out the array
             favoriteStations.length = 0;
             $("#favorite-stations").html("");
@@ -185,6 +182,7 @@ $('#select-car').change(
     }
 );
 
+//Updating stations with the prefered minimum charging capacity
 $("#selected-charger-capacity").change(
     function(){
         selectedCapacity = $(this).children(":input[name='kW']:checked").val();
@@ -194,30 +192,22 @@ $("#selected-charger-capacity").change(
     }
 );
 
+//Locing the map to the users position
 function lockMapToUser(ele) {
     //Making it so that the user can toggle if they want the map to follow or not
     lockPos = !lockPos;
     $(ele).html(lockPos ? 'U' : 'L');
 }
 
-var favoriteRoutes = [];
+//Populating the favorite chargers and routes window
 function getFavoriteRoutes(){
     $.post((phonegap ? domain : '') +"includes/getMyRoutes.php",function (data){
-        //Populating the user logged in window.
-        //$('#logged-in').html( data );
-        console.log("Data fra sql: " + data);
-        //Populating the favorite chargers and routes window
         //Cleaning out the array
         favoriteRoutes.length = 0;
         var startPos;
-        //var endPos;
-        //var waypoints = [];
-        console.log("Feeback " + data);
         $("#favorite-routes").html("");
         for(var obj in data){
             startPos = data[obj].start;
-            //endPos = JSON.parse(data)[obj].end;
-            //waypoints = JSON.parse(data)[obj].waypoints[obj];
             favoriteRoutes[startPos] = data[obj];
         }
     });
@@ -235,5 +225,3 @@ function logOut(){
     });
     updateFavoriteStations();
 }
-
-

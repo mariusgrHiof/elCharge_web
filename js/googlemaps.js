@@ -205,11 +205,7 @@ function centerOnUser(camtilt){
     map.setZoom(18);
 }
 
-
-/**
- * Created by jonas on 23.04.2016.
- */
-var phonegap = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1; //true;
+var phonegap = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
 var isMobile = false;
 var isAndroid = false;
 var isIOS = false;
@@ -259,21 +255,15 @@ function deviceTypeCheck() {
     // if iPod / iPhone, display install app prompt
     if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i) ||
         navigator.userAgent.match(/android/i)) {
-        if (navigator.userAgent.match(/android/i)) {
-            //Android spesific logic
+        if (navigator.userAgent.match(/android/i))
             isAndroid = true;
-        }else{
-            //iOS spesific logic
+        else
             isIOS = true;
-        }
     }
     if(phonegap)
         $('head').append('<script type="text/javascript" src="cordova.js"></script>');
-    if(phonegap && isIOS){
-        console.log("Phonegap && isIOS");
+    if(phonegap && isIOS)
         $('head').append('<link rel="stylesheet" type="text/css" href="styles/ios.css">');
-    }else if(isAndroid){
-        console.log("isAndroid");
+    else if(isAndroid)
         $('head').append('<link rel="stylesheet" type="text/css" href="styles/android.css">');
-    }
 }
