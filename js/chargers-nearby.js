@@ -11,7 +11,6 @@ function compareDistance(userPos, stationPos){
     try{
         return google.maps.geometry.spherical.computeDistanceBetween (strToLtLng(userPos[0] + "," + userPos[1]), strToLtLng(stationPos[0] + "," + stationPos[1]))/1000;
     }catch(e){
-        //console.log("Unable to compare distances: " + e);
         return 999;//Unable to get the location so defaulting to unreachable value
     }
 }
@@ -51,9 +50,7 @@ function getNearbyChargers(){
                         '<strong class="float-left station-title">' + chargers_nearby[station].csmd.name + '</strong><br />'+
                         '<span>' + chargers_nearby[station].distance.toFixed(2)+ 'km </span>'+
                         '<button class="float-left" onclick="navigateFromUser(geopos, this)" value="'+ thisPos +'">Ta meg hit</button>' +
-                        //"<button onclick='readMorev2(this)'>Vis mer</button>"+
                         '<div class="clear-both">' +//read-more
-                           // generateConnectorString(id,jsonData[id].attr.st[21].attrvalid == "1") +
                         '</div>' +
                     '</div>' +
                 '</li>');

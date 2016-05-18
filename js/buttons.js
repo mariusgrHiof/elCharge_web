@@ -1,10 +1,10 @@
-/**
- * Dropdown menus
- * If we want slide in, check this out: http://stackoverflow.com/questions/521291/jquery-slide-left-and-show
+var domain = "http://frigg.hiof.no/bo16-g6/webapp/";
+/*
+ * Menu
  */
+//Dropdown menu
 function dropdown(event, parent){
      if(parent){
-
         var parent = $(event).parent().parent();
         if(!$(parent).hasClass('toggle')){
             $(parent).addClass('toggle');
@@ -20,8 +20,8 @@ function dropdown(event, parent){
         }
     }
 }
-
-function slideIn() {//$(target).css("left") == "-27em"
+//Slidein menu
+function slideIn() {
     try{
         var target = $('.menu');
         if($(target).css("left") == "-700px"){
@@ -33,11 +33,10 @@ function slideIn() {//$(target).css("left") == "-27em"
         }
     }catch(e){console.log(e);}
 }
-
 function userLoggin(form){
     var path = "";
     if(phonegap)
-        path += "http://172.16.0.3:8888/elCharge_web/";
+        path += domain;
     path +="includes/checkloggin.php";
 
     //Logging the user in
@@ -55,39 +54,27 @@ function userLoggin(form){
             //Populating the favorite chargers and routes window
             //Cleaning out the array
             favoriteStations.length = 0;
-            var national_id;
-            var startPos;
-            var username;
             $("#favorite-stations").html("");
 
             if(data != "[{}]"){
-                for(var obj in JSON.parse(data)){
-
+                for(var obj in JSON.parse(data))
                     favoriteStations[ JSON.parse(data)[obj].station_id] = JSON.parse(data)[obj];
 
-
-                }
                 updateFavoriteStations();
-
                 $('#auth').hide();
                 $('#logged-in').html('Velkommen, ' + JSON.parse(data)[0].username);
             }else {
                 $('#logged-in').html('Feil brukernavn eller passord');
             }
-
-
-
-
         }
     );
     return false;
 }
 
-
 function userRegistration(form){
     var path = "";
     if(phonegap)
-        path += "http://172.16.0.3:8888/elCharge_web/";
+        path += domain;
     path +="includes/register.php";
 
     //Logging the user in
@@ -97,12 +84,7 @@ function userRegistration(form){
             username: $(form).children(":input[name='username']").val(),
             password: $(form).children(":input[name='password']").val() },
         function( data ){
-            console.log("Registered user feedback");
-            //Populating the user logged in window.
             $('#logged-in').html(data );
-            //Populating the favorite chargers and routes window
-            /*Some awesome method*/
-
         });
     return false;
 }
@@ -113,7 +95,6 @@ $(function(){
             var child = $(this).next().filter('.sub-item');
             var parent = $(this).parent();
             var grandParent = $(this).parent().parent();
-
 
             if(!$(child).hasClass('toggle')){
                 $(child).addClass('toggle');
@@ -126,8 +107,6 @@ $(function(){
                 $(parent).removeClass('parent');
                 selectMenuHandeler(grandParent, false);
             }
-            //Looping through list to disable all but clicked menu item
-
         }
     );
 });
@@ -188,7 +167,6 @@ $('input[type=checkbox].onoffswitch-checkbox').change(
             weatherOverlay();
         if($(this).attr('id') == 'cloud-layer')
             cloudOverlay();
-
     });
 
 //Changing the autoupdate interval or deactivate autoupdate
@@ -224,7 +202,7 @@ function lockMapToUser(ele) {
 
 var favoriteRoutes = [];
 function getFavoriteRoutes(){
-    $.post("includes/getMyRoutes.php",function (data){
+    $.post((phonegap ? domain : '') +"includes/getMyRoutes.php",function (data){
         //Populating the user logged in window.
         //$('#logged-in').html( data );
         console.log("Data fra sql: " + data);
@@ -242,24 +220,20 @@ function getFavoriteRoutes(){
             //waypoints = JSON.parse(data)[obj].waypoints[obj];
             favoriteRoutes[startPos] = data[obj];
         }
-
-    } )
-
+    });
 }
 
 function logOut(){
     var path = "";
     if(phonegap)
-        path += "http://172.16.0.3:8888/elCharge_web/";
+        path += domain;
     path +="includes/logOut.php";
 
     $.post(path, function data(){
        $('#logged-in').html("logget ut");
 
     });
-
     updateFavoriteStations();
-
 }
 
 

@@ -23,17 +23,6 @@ function trafficOverlay(){
 var weatherIsActive = false;
 var weatherLayer;
 function weatherOverlay(){
-    /*
-    if(weatherLayer == null){
-        weatherLayer = new google.maps.weather.WeatherLayer({
-            temperatureUnits: google.maps.weather.TemperatureUnit.CELSIUS
-        });
-        if(weatherIsActive){
-            weatherLayer.setMap(null);
-        }else{
-            weatherLayer.setMap(map);
-        }
-    }*/
     $("input[type=checkbox].onoffswitch-checkbox#weather-layer").attr("checked", weatherIsActive);
 }
 
@@ -43,14 +32,5 @@ function weatherOverlay(){
 var cloudsIsActive = false;
 var cloudLayer;
 function cloudOverlay(){
-    /*
-    if(cloudLayer == null){
-        cloudLayer = new google.maps.weather.CloudLayer();
-    }
-    if(cloudsIsActive){
-        cloudLayer.setMap(null);
-    }else{
-        cloudLayer.setMap(map);
-    }*/
     $("input[type=checkbox].onoffswitch-checkbox#cloud-layer").attr("checked", cloudsIsActive);
 }

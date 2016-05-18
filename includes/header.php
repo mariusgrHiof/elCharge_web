@@ -20,5 +20,4 @@
 </header>
 <?php
 include 'menu.php';
-//include 'includes/footer.php';
 ?>

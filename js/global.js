@@ -8,7 +8,6 @@ var hasDownloaded = false;
 var initDownloaded = false;
 var initiatedMap = false;
 var downloadFrom = "2005-01-01";
-
 var url = "https://nobil.no/api/server/datadump.php?";
 var apiKey = "274b68192b056e268f128ff63bfcd4a4";
 
@@ -42,19 +41,14 @@ $(document).ready(
     function(){
         if(!initiatedMap)
             initMap();
-        if(!phonegap){
+        if(!phonegap)
             downloadDump();
-            console.log("Date is: " + updateTime());
-        }else{
-            console.log("Is phonegap");
-        }
         //Background updates once per x minutes
         stopBGDLTimer(5);
     }
 );
-/*
- * Autodownload interval
- */
+
+//Autodownload interval
 function updateBGDLTimer(minutes){
     console.log("Timer is now: " + minutes);
     intervalTimer = minutes * 60000;
@@ -73,18 +67,19 @@ function updateBGDLTimer(minutes){
 
     }, intervalTimer)
 }
+
+//Function for stopping the BG download timer
 function stopBGDLTimer(){
-    console.log("Stopped interval");
     clearInterval(backgroundDL);
 }
-
 
 function updateTime() {
     var date = new Date();
     return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
 }
+
+//Download file for phonegap
 function downloadDumpPG(){
-    console.log("File downloadPG initiated");
     $.ajax({
         xhr: function()
         {
@@ -117,29 +112,25 @@ function downloadDumpPG(){
         type: 'POST',
         datatype:'json',
         contentType: 'application/json; charset=utf-8',
-        url: url + "&apikey=" + apiKey + "&fromdate=" + downloadFrom + "&format=json",//(downloadFrom == "2005-01-01" && isAndroid ? "datadump.json" : url + "&apikey=" + apiKey + "&fromdate=" + downloadFrom + "&format=json"),
+        url: (downloadFrom == "2005-01-01" && isAndroid ? "datadump.json" : url + "&apikey=" + apiKey + "&fromdate=" + downloadFrom + "&format=json"),
         data: {},
         success: function(i){
-            console.log("File download completed");
-            $('.dl-progress-text').html(progText +"<br />Laster inn ladestasjoner");//
+            $('.dl-progress-text').html(progText +"<br />Laster inn ladestasjoner");
             var data;
             try{
                 data = JSON.parse(i);
             }catch(e){
                 data = i;
-                console.log(e);
             }
             processDL(data);
             event.preventDefault();
         },
         error: function(err){
             console.log("Unable to download file: ");
-            console.log("URL: "+url);
             console.log(JSON.stringify(err));
             $('#download-progression').hide();
             hasDownloaded = true;
         }
-
     });
 }
 
@@ -151,7 +142,6 @@ function dl(){
             'apiversion': '3',
             'action': "datadump",
             'fromdate': downloadFrom,
-
         },
         success: function(data){console.log(data)},
         dataType: 'jsonp'
@@ -159,8 +149,7 @@ function dl(){
 }
 
 function downloadDump(){
-    console.log("File download initiated");
-    $('#download-progression').show();//TODO: Fjern?
+    $('#download-progression').show();
     try{
         $('.dl-progress-text').text("Laster ned stasjoner");
         $.ajax({
@@ -191,9 +180,6 @@ function downloadDump(){
                 }, false);
                 return xhr;
             },
-
-            //TODO: Check out this URL for persistent storage with phonegap - http://docs.phonegap.com/en/2.5.0/cordova_file_file.md.html
-            //TODO: "datadump.json",
             dataType: 'jsonp',
             url: 'https://nobil.no/api/server/datadump.php',
             data: {
@@ -220,11 +206,9 @@ function downloadDump(){
 }
 
 function processDL(data){
-    console.log("File download completed");
     if(downloadFrom == "2005-01-01")
         jsonData = []; // We only need to create a empty array if we haven't already downloaded.
 
-    var numOfPorts = 0;
     var id;
     for(var i = 0; i < data.chargerstations.length; i++){
         id = data.chargerstations[i].csmd.International_id;
@@ -252,6 +236,7 @@ function processDL(data){
 
 //Strive to be lazy
 function inArray(key, array) {return $.inArray(key, array)>0;}
+
 function inArrayVal(value, array){
     for(var i in array){
         if(array[i] == value ){
@@ -260,6 +245,7 @@ function inArrayVal(value, array){
     }
     return false;
 }
+
 function getStationImage(station){
     try{
         return (/kommer/i.test(jsonData[station].csmd.Image.toLowerCase()) || /no.image.svg/i.test(jsonData[station].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ jsonData[station].csmd.Image);
@@ -267,6 +253,7 @@ function getStationImage(station){
         console.log("Failed for: " + station + " MSG: " + e)
     }
 }
+
 function connCapacityString (station, connectorID){
     var capacity = chargingCapacity[jsonData[station].attr.conn[connectorID][5].attrvalid].kW;
     return capacity >= fastCharge ? capacity + "kW " + 'hurtiglader' : (capacity >= semiFastCharge ? capacity + "kW " +"semihurtig": capacity + "kW "+ "vanlig");

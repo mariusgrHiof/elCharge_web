@@ -49,7 +49,6 @@ function initMap() {
         panControlOptions: {
             position: google.maps.ControlPosition.RIGHT_BOTTOM
         }
-
     });
 
     //Street view controls
@@ -60,22 +59,12 @@ function initMap() {
     };
     var sw = map.getStreetView().setOptions(panoramaOptions);
 
-
-    //sw.setAddressControlOptions({position: google.maps.ControlPosition.BOTTOM_CENTER});
     deviceTypeCheck();
     //Setting default map layer type to terrain
     map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
     elevationService = new google.maps.ElevationService;
-
-
-
-
-
     try{
-        /*
-         ** Search box header
-         */
-
+        //Search box header
         // Create the search box and link it to the UI element.
         var input = document.getElementById('search-box');
         var searchBox = new google.maps.places.SearchBox(input);
@@ -86,9 +75,8 @@ function initMap() {
         searchBox.addListener('places_changed', function() {
             var places = searchBox.getPlaces();
 
-            if (places.length == 0) {
+            if (places.length == 0)
                 return;
-            }
 
             // For each place, get the icon, name and location.
             var bounds = new google.maps.LatLngBounds();
@@ -104,7 +92,6 @@ function initMap() {
             map.fitBounds(bounds);
         });
     }catch(e){console.log(e);}
-
 
     //Users current position marker
     var scaleSize = isIOS ? 120 : 15;
@@ -124,24 +111,15 @@ function initMap() {
     });
 
     try{
-        /*
-         * Search box startPos
-         */
-
+        //Search box startPos
         var inputStartPos = document.getElementById('nav-start-pos');
         var searchBoxStartPos = new google.maps.places.SearchBox(inputStartPos);
-
         searchBoxStartPos.setBounds(map.getBounds());
-
-        /*
-         ** Search box endPos
-         */
-
+        //Search box endPos
         var inputEndPos = document.getElementById('nav-end-pos');
         var searchBoxEndPos = new google.maps.places.SearchBox(inputEndPos);
-
         searchBoxEndPos.setBounds(map.getBounds());
-    }catch(e){console.log(e);}
+    }catch(e){}
 
     updateCarList();
     //Turning on layers
@@ -173,7 +151,7 @@ function initMap() {
         setTimeout(document.addEventListener("deviceready", onDeviceReady, false), 2000);
     if(isMobile)
         setInterval(function () {
-            //Updating the "nearby chargers" list
+            //Updating the "nearby chargers" list for all mobile devices (web and app)
             updateNearbyChargers();
             updateFavoriteStations();
         }, 1000);
@@ -203,7 +181,7 @@ function onDeviceReady(){
 // Sets the map on all markers in the array.
 function setMapOnAll(map) {
     for (var i in markers) {
-        markers[i].setMap(null);
+        markers[i].setMap(map);
     }
 }
 //Deleting all the markers
@@ -239,9 +217,7 @@ var accuracyRadius;
 var lockPos = false;
 
 var onSuccess = function(position) {
-
     geopos = [position.coords.latitude, position.coords.longitude];
-
     try{
         pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         myloc.setPosition(pos);
@@ -261,9 +237,7 @@ var onSuccess = function(position) {
         }
         if(lockPos)
             centerOnUser(45);
-    }catch(e){
-        //console.log("Not able to get your current position.");
-    }
+    }catch(e){}
 }
 function onError(error) {
     if (window.location.protocol != "https:" && !phonegap)
@@ -276,9 +250,7 @@ function onError(error) {
  * Checking if device type is mobile
  */
 function deviceTypeCheck() {
-    //url: http://stackoverflow.com/questions/3469908/make-a-link-in-the-android-browser-start-up-my-app
     var mobile = window.matchMedia("only screen and (max-width: 600px)");
-
     if (mobile.matches) {
         //Allowing us to have a absolute position on the map rather than relative (default)
         isMobile = true;

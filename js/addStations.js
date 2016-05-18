@@ -2,7 +2,6 @@
  * Created by jonas on 03.03.16.
  */
 
-
 var contentString;
 var connectorsString;
 var infoWindows = [];
@@ -30,6 +29,7 @@ typeIDs['43'] = "CHAdeMO + Combo + AC-Type2";
 typeIDs['50'] = "Type 2 + Schuko";
 typeIDs['52'] = "Type 2 + Danish (Section 107-2-D1)";
 
+//List of individual connector types
 var schuko = ['14', '50'];
 var type1 = ['31', '60'];
 var type2 = ['32', '60', '42', '50', '52'];
@@ -42,7 +42,7 @@ var ind5pin = ['36'];
 var teslaModelS = ['40'];
 var teslaRoadster = ['29'];
 
-//http://ladestasjoner.no/ladehjelpen/praktisk/51-hvilke-elbiler-kan-lade-med-hva
+//Source: http://ladestasjoner.no/ladehjelpen/praktisk/51-hvilke-elbiler-kan-lade-med-hva
 var carModels = new Array();
 carModels['Nissan Leaf'] = schuko.concat(schuko, type1, type2, chademo);
 carModels['BMW i3'] = schuko.concat(schuko, type2, combo);
@@ -92,23 +92,13 @@ chargingCapacity[20] = {'id':20, 'name':'Less then 100 kW + 43 kW - 500VDC max 2
 chargingCapacity[21] = {'id':21, 'name':'Less then 100 kW + 22 kW - 500VDC max 50A + 400V 3-phase max 32A','current':'DC', 'kW':22, 'volt':400, 'ampere':32};
 chargingCapacity[22] = {'id':22, 'name':'135 kW - 480VDC max 270A','current':'DC', 'kW':135, 'volt':480, 'ampere':270};
 
-
 var connectors = new Array();
-
 
 /**
  *
  * @param callback
  */
 
-
-/* usage
- readTextFile(function(text){
- var data = JSON.parse(text);
- console.log(data);
- });
- */
-//Filter for gratis, hurtigladere og offentlige ladere
 function updateCarList(){
     //Adding elements to the car list dropdown
     for(car in carModels){
@@ -117,8 +107,6 @@ function updateCarList(){
 }
 var totalSize = 0;
 var loadedStations = 0;
-var progText;
-
 var hasFastCharge = false; // For the marker icons
 
 var faultyConns = 0;
@@ -126,7 +114,6 @@ function generateMarkers(){
     $('#download-progression').show();
     loadedStations = 0;
     totalSize = Object.keys(jsonData).length;
-    //TODO: Mer permanent fiks -> La brukeren velge selv
     var isPublic = false;
     try{
         if(document.getElementById("select-car").value !=0)
@@ -145,14 +132,8 @@ function generateMarkers(){
                 }
                 if(inArray(id, favoriteStations))
                     updateFavoriteStations(id);
-                loadedStations++;
-                progText = loadedStations + ' av ' + totalSize + ' stasjoner er lastet inn.';
-                //console.log(progText); //TODO -> printing out loading progression
-            }catch(err){
-                console.log(err);
-            }
+            }catch(err){}
         }
-        //Telling the app, that it is now allowed to done importing objects, so it can now download stuff if needed.
         $('#download-progression').hide();
         hasDownloaded = true;
     }catch(e){
@@ -190,9 +171,7 @@ function getCarMatch(id){
             if(!hasFastCharge_temp && (fastCharge <= chargingCapacity[jsonData[id].attr.conn[c][5].attrvalid].kW))
                 hasFastCharge = true;
             connectors.push(object.attr.conn[c]);
-        }catch(e){
-            //console.log(e);
-        }
+        }catch(e){}
     }
     return match;
 }
@@ -201,7 +180,7 @@ function addMarker(numOfPorts, id){
     //Adding markers
     var pos = jsonData[id].csmd.Position.replace(/[()]/g,"").split(",");
     var isLive = jsonData[id].attr.st[21].attrvalid == "1";
-
+    var marker;
     var markerIcon = {
         url: 'icons/'+(
             isLive ? (hasFastCharge ?
@@ -214,7 +193,7 @@ function addMarker(numOfPorts, id){
         size: new google.maps.Size(64, 64)
     };
 
-    var marker;
+
     if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1)
         marker = new google.maps.Marker({
             position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
@@ -229,9 +208,6 @@ function addMarker(numOfPorts, id){
             title: jsonData[id].csmd.name
         });
 
-
-
-    //TODO: Sjekk ut http://en.marnoto.com/2014/09/5-formas-de-personalizar-infowindow.html
     var maxWidth = (isMobile?500:500);
     var maxHeight = (isMobile?300:500);
 
@@ -241,18 +217,9 @@ function addMarker(numOfPorts, id){
         maxHeight: maxHeight
     });
 
-
     infoWindows.push(infowindow);
     markerListeners.push(google.maps.event.addListener(infowindow, 'domready', function() {
-
-        // Reference to the DIV which receives the contents of the infowindow using jQuery
         var iwOuter = $('.gm-style-iw');
-        //var iwParent = $(iwOuter).parent().css({'height':'100% !important'});
-
-        /* The DIV we want to change is above the .gm-style-iw DIV.
-         * So, we use jQuery and create a iwBackground variable,
-         * and took advantage of the existing reference to .gm-style-iw for the previous DIV with .prev().
-         */
         var iwBackground = iwOuter.prev();
 
         // Remove the background shadow DIV
@@ -276,10 +243,7 @@ function addMarker(numOfPorts, id){
 
     }));
 
-
-    /*
-     * Making it so that the popups disappear upon click outside box
-     */
+     //Making it so that the popups disappear upon click outside box
     markerListeners.push(google.maps.event.addListener(map, 'click', function() {
         if (infowindow) {
             infowindow.close();
@@ -312,10 +276,6 @@ function isStationOccupiedStatus(id){
 
 //A method for generating the content of a infowindow
 function createIWContent(id, isLive) {
-
-
-    var match = false;
-    var connType;
     if(document.getElementById("select-car").value !=0)
         usersCarConns = carModels[document.getElementById("select-car").value];
 
@@ -367,7 +327,7 @@ function generateConnectorString(station, isLive){
 
     var result = '<div style="margin:0.1em 0 0.1em 0;">';
     for(var c = 1; c <= jsonData[station].csmd.Number_charging_points; c++){
-        try{//Could be one single string.. I know..and now it is, WOW
+        try{
             if(isLive){
                 try {
                     isInService = jsonData[station].attr.conn[c][9].attrvalid == "0";
@@ -377,13 +337,10 @@ function generateConnectorString(station, isLive){
                     }
                 } catch(e) {}
             }
-
-
             result +=
                 "<div class='cpelements'>"+
                     "<span style=\'color:black; width:90%; float:left;\'>"+
                         jsonData[station].attr.conn[c][4].trans + "(" + connCapacityString(station, c) + ")" +
-                        //"<br />" + chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].kW + "kW " + chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].volt + "V " +chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].current + " " + chargingCapacity[jsonData[station].attr.conn[c][5].attrvalid].ampere + "A" +
                         connectorImg(jsonData[station].attr.conn[c][4].attrvalid) +
                     "</span>"+
                     "<div class='chargePointColor' style='background-color:" + (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'>"+
@@ -426,9 +383,8 @@ function strToLtLng(pos){
     var arr = pos.replace(/[()]/g,"").split(",");
     return new google.maps.LatLng(arr[0],arr[1]);
 }
-/*
- * A method for adding a selected station to the waypoints
- */
+
+//A method for adding a selected station to the waypoints
 function addWaypoint(id){
     try{
         var disPos = jsonData[id].csmd.Position.replace(/[()]/g,"").split(",");
@@ -481,7 +437,6 @@ var favoriteStations = [];
 function updateFavoriteStations(){
     $("#favorite-stations").html("");
     for(var id in favoriteStations){
-        console.log(favoriteStations[id].distance);
         $('#favorite-stations').append(
             '<li class="border" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
                 '<img class="cover-third float-left img-height-4em" src=\"' + getStationImage(id) + '\"/>' +
@@ -491,14 +446,11 @@ function updateFavoriteStations(){
                     '<strong class="float-left">' + jsonData[id].csmd.name + '</strong><br />'+
                     '<span>' + compareDistance(geopos, jsonData[id].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>'+
                     '<button class="float-left" onclick="navigateFromUser(geopos, this)" value="'+ jsonData[id].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
-                    //"<button onclick='readMorev2(this)'>Vis mer</button>"+
                 '<div class="clear-both">' +//read-more
-                // generateConnectorString(id,jsonData[id].attr.st[21].attrvalid == "1") +
                 '</div>' +
                 '</div>' +
             '</li>');
     }
-
 }
 
 
@@ -506,10 +458,9 @@ function updateFavoriteStations(){
 function showHideMarkers(ele){
     var visible = true;
 
-    for(var marker in markers){
-        visible = markers[marker].getVisible();
-        markers[marker].setVisible(!visible);
-    }
+    for(var marker in markers)
+        markers[marker].setVisible(!markers[marker].getVisible());
+
     $(ele).html(!visible ? 'Skjul stasjonsmarkører' : 'Vis stasjonsmarkører');
 }
 //Add station to favorite list
@@ -517,20 +468,14 @@ function addToFavorites(id){
     var path ="";
     if(phonegap)
         path += "http://frigg.hiof.no/bo16-g6/webapp/";
-
     path +="includes/addToFavorite.php";
+
     favoriteStations[id] = "";
     $.post( path,{
         stationId: id
-    }, function( data ) {
-        console.log("Response: " + data);
+    }, function(){
         if(!phonegap)
             updateFavoriteStations();
-        /*$( "#favorite-stations" ).append(
-            '<div>' +
-                'data: ' + data +
-            '</div>'
-        );*/
     });
     return false;
 }

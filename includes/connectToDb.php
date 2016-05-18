@@ -16,15 +16,3 @@ $conn = new mysqli($servername, $username, $password, $username);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
-// Create connection
-
-
-
-
-    $conn = new mysqli($servername, $username, $password, $username);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
