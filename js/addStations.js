@@ -2,6 +2,10 @@
  * Created by jonas on 03.03.16.
  */
 
+var station = {
+    markers : []
+};
+
 var contentString;
 var connectorsString;
 var infoWindows = [];
@@ -101,6 +105,7 @@ var connectors = new Array();
 
 function updateCarList(){
     //Adding elements to the car list dropdown
+    document.getElementById('select-car').innerHTML = '';
     for(car in carModels){
         document.getElementById('select-car').innerHTML += '<option value="'+car+'">' + car + '</option>';
     }
