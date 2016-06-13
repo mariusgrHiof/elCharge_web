@@ -122,14 +122,8 @@ function generateMarkers(){
         for(var id in jsonData){
             try{
                 connectors.length = 0;
-                isPublic = jsonData[id].attr.st[2].attrvalid == "1";
-                if(isPublic){
-                    //Checking filter
-                    var isMatch = getCarMatch(id);
-
-                    if(isMatch)
-                        addMarker(jsonData[id].csmd.Number_charging_points, id);
-                }
+                if(getCarMatch(id))
+                    addMarker(jsonData[id].csmd.Number_charging_points, id);
                 if(inArray(id, favoriteStations))
                     updateFavoriteStations(id);
             }catch(err){}
@@ -281,7 +275,7 @@ function createIWContent(id, isLive) {
 
     //Showing a info windows when you click on the marker
     connectorsString = generateConnectorString(id, isLive);
-
+    console.log(jsonData[id].csmd.Contact_info);
     contentString =
         "<div id=\"station-tooltip\">"+
             "<div id=\"topBox\">"+
@@ -290,18 +284,18 @@ function createIWContent(id, isLive) {
                 "<img class='img-to-load' src=\""+ getStationImage(id) + "\"/>" +
                 "<div id='placeNameIcons' style='color:blue;'>"+
                     "<h3>"+ jsonData[id].csmd.name + "(ID:" + id + ")</h3>" +
+                    "<p><strong>Tilgjengelighet</strong> "+ jsonData[id].attr.st[2].trans.replace('\r\n','<br />')+"</p>" +
                 "</div>"+
                 "<div class='markerColor' style='background-color:"+ (faultyConns / jsonData[id].csmd.Number_charging_points == 1 ? "red" : (isLive ? (isStationOccupiedStatus(id) < occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>"+
                 "</div>"+
             "</div>"+
             "<div id='secondContainer'>"+
                 "<div id='infoLeft'>"+
-                    "<p><strong>Kontakt info:</strong> "+ jsonData[id].csmd.Contact_info.replace('\r\n','<br />')+"</p>" +
-                    "<p><strong>Adresse:</strong> "+ jsonData[id].csmd.Street.replace('\r\n','<br />') +" " + jsonData[id].csmd.House_number.replace('\r\n','<br />') +"</p>"+
-                    "<p><strong>Beskrivelse:</strong> "+ jsonData[id].csmd.description +"</p>" + // .replace('\r\n','<br />') her også?
+                    "<p><strong>Adresse:</strong> "+ jsonData[id].csmd.Street.replace('\r\n','<br />') +" " + jsonData[id].csmd.House_number.replace('\r\n','<br />') + ", " + jsonData[id].csmd.Zipcode.replace('\r\n','<br />') + " " + jsonData[id].csmd.City.replace('\r\n','<br />') +"</p>"+
                     "<p><strong>Lokasjonsbeskrivelse:</strong> "+ jsonData[id].csmd.Description_of_location +"</p>" +
                     "<p><strong>Eier:</strong> " + jsonData[id].csmd.Owned_by.replace('\r\n','<br />') +"</p>" +
                     "<p><strong>Kommentarer:</strong> "+ jsonData[id].csmd.User_comment.replace('\r\n','<br />')+"</p>" +
+                    (jsonData[id].csmd.Contact_info != null ? "<p><strong>Kontakt info:</strong> "+ jsonData[id].csmd.Contact_info.replace('\r\n','<br />')+"</p>" : "") +
                 "</div>"+
                 "<div id='chargingPoints'>"+
                     "<p style='border-bottom:1px solid gray;margin-bottom:0;'><strong>Ladepunkter:</strong> "+ jsonData[id].csmd.Number_charging_points + " </p>" +
