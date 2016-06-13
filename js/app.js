@@ -1,6 +1,13 @@
 /**
  * Created by jonas on 13.06.16.
  */
+
+/*
+ * Dependencies:
+ *  - jQuery
+ *  - app.js
+ *  - station.js
+ */
 var app = {
     user : {
         centerOn : function (camtilt){
@@ -224,7 +231,7 @@ var app = {
             searchBoxEndPos.setBounds(app.map.getBounds());
         }catch(e){}
 
-        updateCarList();
+        station.updateCarList();
         //Turning on layers
         try{
             trafficOverlay();

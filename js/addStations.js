@@ -2,10 +2,6 @@
  * Created by jonas on 03.03.16.
  */
 
-var station = {
-    markers : []
-};
-
 var contentString;
 var connectorsString;
 var infoWindows = [];
