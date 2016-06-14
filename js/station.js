@@ -4,7 +4,7 @@
 var station = {
     /*
      * List of stations
-     * TODO: jsonData
+     * TODO: station.list
      */
     list : [],
     user : {
@@ -86,13 +86,13 @@ var station = {
             faultyConns = 0;
 
             var result = '<div style="margin:0.1em 0 0.1em 0;">';
-            for(var c = 1; c <= jsonData[station].csmd.Number_charging_points; c++){
+            for(var c = 1; c <= station.list[station].csmd.Number_charging_points; c++){
                 try{
                     if(isLive){
                         try {
-                            isInService = jsonData[station].attr.conn[c][9].attrvalid == "0";
-                            connStatus = jsonData[station].attr.conn[c][8].attrvalid;
-                            if(jsonData[station].attr.conn[c][9].attrvalid == 1){//Is a faulty connector
+                            isInService = station.list[station].attr.conn[c][9].attrvalid == "0";
+                            connStatus = station.list[station].attr.conn[c][8].attrvalid;
+                            if(station.list[station].attr.conn[c][9].attrvalid == 1){//Is a faulty connector
                                 faultyConns++;
                             }
                         } catch(e) {}
@@ -100,14 +100,14 @@ var station = {
                     result +=
                         "<div class='cpelements'>"+
                             "<span style=\'color:black; width:90%; float:left;\'>"+
-                            jsonData[station].attr.conn[c][4].trans + "(" + connCapacityString(station, c) + ")" +
-                            connectorImg(jsonData[station].attr.conn[c][4].attrvalid) +
+                            station.list[station].attr.conn[c][4].trans + "(" + connCapacityString(station, c) + ")" +
+                            connectorImg(station.list[station].attr.conn[c][4].attrvalid) +
                             "</span>"+
                             "<div class='chargePointColor' style='background-color:" + (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'>"+
                             "</div>"+
                         "</div>";
                 }catch(e){
-                    console.log('Failed to build connectorsString for ' + jsonData[station].csmd.name + " Error: " + e);
+                    console.log('Failed to build connectorsString for ' + station.list[station].csmd.name + " Error: " + e);
                 }
             }
             return result += "</div>";
@@ -213,8 +213,8 @@ var station = {
     },
     addMarker : function (numOfPorts, id){
         //Adding markers
-        var pos = jsonData[id].csmd.Position.replace(/[()]/g,"").split(",");
-        var isLive = jsonData[id].attr.st[21].attrvalid == "1";
+        var pos = station.list[id].csmd.Position.replace(/[()]/g,"").split(",");
+        var isLive = station.list[id].attr.st[21].attrvalid == "1";
         var marker;
         var markerIcon = {
             url: 'icons/'+(
@@ -233,14 +233,14 @@ var station = {
             marker = new google.maps.Marker({
                 position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
                 map: map,
-                title: jsonData[id].csmd.name
+                title: station.list[id].csmd.name
             });
         else
             marker = new google.maps.Marker({
                 position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
                 icon: markerIcon,
                 map: map,
-                title: jsonData[id].csmd.name
+                title: station.list[id].csmd.name
             });
 
         var maxWidth = (isMobile?500:500);
@@ -298,14 +298,14 @@ var station = {
         //Building closest charging stations list
         try{
             if(compareDistance(geopos, pos) <= 10){
-                chargers_nearby[jsonData[id].csmd.id] = jsonData[id];
-                chargers_nearby[jsonData[id].csmd.id]["distance"] = compareDistance(geopos, pos);
+                chargers_nearby[station.list[id].csmd.id] = station.list[id];
+                chargers_nearby[station.list[id].csmd.id]["distance"] = compareDistance(geopos, pos);
             }
         }catch(e){console.log(e);}
     },
     //TODO: isStationOccupiedStatus
     occupiedStatus : function (id){
-        return parseFloat(jsonData[id].csmd.Available_charging_points) / parseFloat(jsonData[id].csmd.Number_charging_points);
+        return parseFloat(station.list[id].csmd.Available_charging_points) / parseFloat(station.list[id].csmd.Number_charging_points);
     },
     /*
      * A method for generating the content of a infowindow
@@ -317,7 +317,7 @@ var station = {
 
         //Showing a info windows when you click on the marker
         connectorsString = generateConnectorString(id, isLive);
-        console.log(jsonData[id].csmd.Contact_info);
+        console.log(station.list[id].csmd.Contact_info);
         contentString =
             "<div id=\"station-tooltip\">"+
                 "<div id=\"topBox\">"+
@@ -325,22 +325,22 @@ var station = {
                 "<div id=\"secondRow\">" +
                     "<img class='img-to-load' src=\""+ getStationImage(id) + "\"/>" +
                     "<div id='placeNameIcons' style='color:blue;'>"+
-                        "<h3>"+ jsonData[id].csmd.name + "(ID:" + id + ")</h3>" +
-                        "<p><strong>Tilgjengelighet</strong> "+ jsonData[id].attr.st[2].trans.replace('\r\n','<br />')+"</p>" +
+                        "<h3>"+ station.list[id].csmd.name + "(ID:" + id + ")</h3>" +
+                        "<p><strong>Tilgjengelighet</strong> "+ station.list[id].attr.st[2].trans.replace('\r\n','<br />')+"</p>" +
                     "</div>"+
-                    "<div class='markerColor' style='background-color:"+ (faultyConns / jsonData[id].csmd.Number_charging_points == 1 ? "red" : (isLive ? (isStationOccupiedStatus(id) < occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>"+
+                    "<div class='markerColor' style='background-color:"+ (faultyConns / station.list[id].csmd.Number_charging_points == 1 ? "red" : (isLive ? (isStationOccupiedStatus(id) < occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>"+
                     "</div>"+
                 "</div>"+
                 "<div id='secondContainer'>"+
                     "<div id='infoLeft'>"+
-                        "<p><strong>Adresse:</strong> "+ jsonData[id].csmd.Street.replace('\r\n','<br />') +" " + jsonData[id].csmd.House_number.replace('\r\n','<br />') + ", " + jsonData[id].csmd.Zipcode.replace('\r\n','<br />') + " " + jsonData[id].csmd.City.replace('\r\n','<br />') +"</p>"+
-                        "<p><strong>Lokasjonsbeskrivelse:</strong> "+ jsonData[id].csmd.Description_of_location +"</p>" +
-                        "<p><strong>Eier:</strong> " + jsonData[id].csmd.Owned_by.replace('\r\n','<br />') +"</p>" +
-                        "<p><strong>Kommentarer:</strong> "+ jsonData[id].csmd.User_comment.replace('\r\n','<br />')+"</p>" +
-                        (jsonData[id].csmd.Contact_info != null ? "<p><strong>Kontakt info:</strong> "+ jsonData[id].csmd.Contact_info.replace('\r\n','<br />')+"</p>" : "") +
+                        "<p><strong>Adresse:</strong> "+ station.list[id].csmd.Street.replace('\r\n','<br />') +" " + station.list[id].csmd.House_number.replace('\r\n','<br />') + ", " + station.list[id].csmd.Zipcode.replace('\r\n','<br />') + " " + station.list[id].csmd.City.replace('\r\n','<br />') +"</p>"+
+                        "<p><strong>Lokasjonsbeskrivelse:</strong> "+ station.list[id].csmd.Description_of_location +"</p>" +
+                        "<p><strong>Eier:</strong> " + station.list[id].csmd.Owned_by.replace('\r\n','<br />') +"</p>" +
+                        "<p><strong>Kommentarer:</strong> "+ station.list[id].csmd.User_comment.replace('\r\n','<br />')+"</p>" +
+                        (station.list[id].csmd.Contact_info != null ? "<p><strong>Kontakt info:</strong> "+ station.list[id].csmd.Contact_info.replace('\r\n','<br />')+"</p>" : "") +
                     "</div>"+
                     "<div id='chargingPoints'>"+
-                        "<p style='border-bottom:1px solid gray;margin-bottom:0;'><strong>Ladepunkter:</strong> "+ jsonData[id].csmd.Number_charging_points + " </p>" +
+                        "<p style='border-bottom:1px solid gray;margin-bottom:0;'><strong>Ladepunkter:</strong> "+ station.list[id].csmd.Number_charging_points + " </p>" +
                         "<div> "+
                             connectorsString +
                         "</div>" +
@@ -349,7 +349,7 @@ var station = {
 
                 "<div id='lowerContainer'>"+
                     '<button onclick="addWaypoint(\'' + id + '\')" >Legg til i rute</button>' +
-                    '<button onclick="navigateFromUser(geopos, this)" value="'+ jsonData[id].csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
+                    '<button onclick="navigateFromUser(geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
                     '<button onclick="addToFavorites(\'' + id + '\')" >Legg til favoritt</button>' +
                 "</div>"+
             "</div>";
