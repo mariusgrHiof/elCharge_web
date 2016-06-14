@@ -9,19 +9,13 @@
  *  - station.js
  */
 var app = {
-    user : {
-        centerOn : function (camtilt){
-            //Refreshing user pos
-            if(!isMobile)//Only for desktop
-                navigator.geolocation.getCurrentPosition(onSuccess, onError);
-            //Applying wanted cam tilt
-            if (app.map.getTilt()) {
-                app.map.setTilt(camtilt);
-            }
-            app.map.setCenter(pos);
-            app.map.setZoom(18);
-        },
-
+    api : {
+        hasDownloaded : false,
+        initDownloaded : false,
+        initiatedMap : false,
+        lastDownloaded : '2005-01-01',
+        url : 'https://nobil.no/api/server/datadump.php?',
+        key : '274b68192b056e268f128ff63bfcd4a4'
     },
     map : {},
     cluster : {
@@ -71,7 +65,7 @@ var app = {
             geopos = [position.coords.latitude, position.coords.longitude];
             try{
                 app.gps.pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                app.vars.myloc.setPosition(app.gps.pos);
+                app.gps.myLocationIndicator.setPosition(app.gps.pos);
                 if(app.device.isMobile){
                     if(app.gps.accuracyRadius != null)
                         app.gps.accuracyRadius.setMap(null);
@@ -87,7 +81,7 @@ var app = {
                     });
                 }
                 if(app.gps.lockPos)
-                    app.user.centerOn(45);
+                    app.gps.centerOnUser(45);
             }catch(e){}
         },
         onError : function (error) {
@@ -101,6 +95,22 @@ var app = {
             infoWindow.setContent(browserHasGeolocation ?
                 'Error: The Geolocation service failed.' :
                 'Error: Your browser doesn\'t support geolocation.');
+        },
+        centerOnUser : function (camtilt){
+            //Refreshing user pos
+            if(!isMobile)//Only for desktop
+                navigator.geolocation.getCurrentPosition(onSuccess, onError);
+            //Applying wanted cam tilt
+            if (app.map.getTilt()) {
+                app.map.setTilt(camtilt);
+            }
+            app.map.setCenter(pos);
+            app.map.setZoom(18);
+        },
+        //TODO: Rename all reffs
+        strToLtLng : function (pos){
+            var arr = pos.replace(/[()]/g,"").split(",");
+            return new google.maps.LatLng(arr[0],arr[1]);
         }
     },
     /*
@@ -147,6 +157,17 @@ var app = {
         },
         onResume :function () {
         }
+    },
+    inArray : function(key, array) {
+        return $.inArray(key, array)>0;
+    },
+    inArrayVal : function (value, array){
+        for(var i in array){
+            if(array[i] == value ){
+                return true;
+            }
+        }
+        return false;
     },
     /*
      * A function for initiating the app
@@ -275,6 +296,6 @@ var app = {
         window.addEventListener("resize",function(){
             google.maps.event.trigger(app.map, 'resize');
         }, false);
-    },
+    }
 };
 
