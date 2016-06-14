@@ -95,6 +95,12 @@ var app = {
                 window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
             console.log('code: '    + error.code    + '\n' +
                 'message: ' + error.message + '\n');
+        },
+        handleLocationError : function (browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
         }
     },
     /*
@@ -145,7 +151,7 @@ var app = {
     /*
      * A function for initiating the app
     */
-    initiate : function(){
+    init : function(){
         app.map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 59.91673, lng: 10.74782},
             zoom: 13,
@@ -248,11 +254,11 @@ var app = {
                 app.gps.geopos = [position.coords.latitude, position.coords.longitude];
                 app.map.setCenter(app.gps.pos);
             }, function() {
-                handleLocationError(true, infoWindow, app.map.getCenter());
+                app.gps.handleLocationError(true, infoWindow, app.map.getCenter());
             });
         } else {
             // If the browser doesn't support Geolocation
-            handleLocationError(false, infoWindow, app.map.getCenter());
+            app.gps.handleLocationError(false, infoWindow, app.map.getCenter());
             app.gps.geopos = [59.91673,10.74782]; // Defaulting to oslo incase geopos isn't possible
         }
         //Downloading station data
@@ -269,5 +275,6 @@ var app = {
         window.addEventListener("resize",function(){
             google.maps.event.trigger(app.map, 'resize');
         }, false);
-    }
+    },
 };
+

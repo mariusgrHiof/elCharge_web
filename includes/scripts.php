@@ -3,7 +3,7 @@ addJS('js/addStations.js', false, false);
 addJS('js/station.js', false, false);
 addJS('js/app.js', false, false);
 addJS('js/global.js', false, false);
-addJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8&sensors=true&libraries=places,visualization,geometry&callback=app.initiate', true, true);
+addJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8&sensors=true&libraries=places,visualization,geometry&callback=app.init', true, true);
 addJS('js/googlemaps.js', false, false);
 addJS('js/login.js', false, false);
 addJS('js/chargers-nearby.js', false, false);

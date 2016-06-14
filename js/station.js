@@ -2,13 +2,7 @@
  * Created by jonas on 13.06.16.
  */
 var station = {
-    /*
-     * Array Holding all our markers
-     */
     markers : [],
-    /*
-     * Array holding all our information windows
-     */
     infoWindows : [],
     markerListeners : [],
     contentString : '',
@@ -52,11 +46,6 @@ var station = {
             teslaModelS : ['40'],
             teslaRoadster : ['29']
         },
-        /*
-         * Charging capacity object
-         * name, current, kw, v, max a
-         * http://nobil.no/admin/attributes.php
-         */
         capacity : {
             0 : {'id':0,'name':'Unspecified','current':'ukjent', 'kW':0, 'volt':0, 'ampere':0},
             1 : {'id':1,'name':'Battery exchange','current':'ukjent', 'kW':0, 'volt':0, 'ampere':0},
@@ -77,34 +66,38 @@ var station = {
         }
     },
     carModels : {
-        'Nissan Leaf' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-        'BMW i3' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type2, station.conns.types.combo),
-        'Buddy' : station.conns.types.schuko,
-        'Citroën Berlingo' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-        'Citroën C-ZERO' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-        'Ford Focus Electric' : station.conns.types.schuko.concat(station.conns.types.schuko,station.conns.types.type1, station.conns.types.type2),
-        'Kia Soul Electric' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-        'Mercedes B-klasse ED' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type2),
-        'Mitsubishi i-MIEV' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-        'Nissan e-NV200/Evalia' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-        'Peugeot iOn' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-        'Peugeot Partner' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-        'Renault Kangoo ZE' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2),
-        'Renault Twizy' : station.conns.types.schuko,
-        'Renault Zoe' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type2),
-        'Reva' : station.conns.types.schuko,
-        'Tesla Model S' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type2, station.conns.types.ind3pin, station.conns.types.ind5pin, station.conns.types.teslaModelS),
-        'Tesla Roadster' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.teslaRoadster),
-        'Think' : station.conns.types.schuko,
-        'VW e-Golf' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type2, station.conns.types.combo),
-        'VW e-up!' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2),
     },
     updateCarList : function(){
         //Adding elements to the car list dropdown
-        var txt;
+        var txt = '';
         for(var car in carModels){
             txt += '<option value="'+car+'">' + car + '</option>';
         }
         $('#select-car').html(txt);
+    },
+    init : function() {
+        station.carModels = {
+            'Nissan Leaf' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2, conns.types.chademo),
+            'BMW i3' : conns.types.schuko.concat(conns.types.schuko, conns.types.type2, conns.types.combo),
+            'Buddy' : conns.types.schuko,
+            'Citroën Berlingo' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2, conns.types.chademo),
+            'Citroën C-ZERO' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2, conns.types.chademo),
+            'Ford Focus Electric' : conns.types.schuko.concat(conns.types.schuko,conns.types.type1, conns.types.type2),
+            'Kia Soul Electric' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2, conns.types.chademo),
+            'Mercedes B-klasse ED' : conns.types.schuko.concat(conns.types.schuko, conns.types.type2),
+            'Mitsubishi i-MIEV' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2, conns.types.chademo),
+            'Nissan e-NV200/Evalia' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2, conns.types.chademo),
+            'Peugeot iOn' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2, conns.types.chademo),
+            'Peugeot Partner' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2, conns.types.chademo),
+            'Renault Kangoo ZE' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2),
+            'Renault Twizy' : conns.types.schuko,
+            'Renault Zoe' : conns.types.schuko.concat(conns.types.schuko, conns.types.type2),
+            'Reva' : conns.types.schuko,
+            'Tesla Model S' : conns.types.schuko.concat(conns.types.schuko, conns.types.type2, conns.types.ind3pin, conns.types.ind5pin, conns.types.teslaModelS),
+            'Tesla Roadster' : conns.types.schuko.concat(conns.types.schuko, conns.types.teslaRoadster),
+            'Think' : conns.types.schuko,
+            'VW e-Golf' : conns.types.schuko.concat(conns.types.schuko, conns.types.type2, conns.types.combo),
+            'VW e-up!' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2),
+        }
     }
-}
+};
