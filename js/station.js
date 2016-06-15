@@ -8,9 +8,9 @@ var station = {
      */
     list : [],
     user : {
-
     },
     hasFastcharge : false,
+    hasDownloaded : false,
     markers : [],
     infoWindows : [],
     markerListeners : [],
@@ -140,10 +140,47 @@ var station = {
         }
     },
     carModels : {},
+    favorite : {
+        stationList : [],
+        routeList : [],
+        addStation : function (id){
+            var path ="";
+            if(app.device.phonegap)
+                path += app.path;
+            path +="includes/addToFavorite.php";
+
+            station.favorite.stationList[id] = "";
+            $.post( path,{
+                stationId: id
+            }, function(){
+                if(!app.device.phonegap)
+                    station.favorite.updateStations();
+            });
+            return false;
+        },
+        updateStations : function (){
+            $("#favorite-stations").html("");
+            for(var id in favoriteStations){
+                $('#favorite-stations').append(
+                    '<li class="border" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
+                        '<img class="cover-third float-left img-height-4em" src=\"' + getStationImage(id) + '\"/>' +
+                        '<div class="chargePointColor" style="height:4em;background-color:' +
+                            (station.list[id].attr.st[21].attrvalid == "1" ? (isStationOccupiedStatus(id) < occupiedLimit ? 'lightgreen' : 'yellow') : 'blue') + ';"></div>'+
+                        '<div class="cover-twothird float-right" style="width:calc(66% - 1em);">'+
+                            '<strong class="float-left">' + station.list[id].csmd.name + '</strong><br />'+
+                            '<span>' + compareDistance(geopos, station.list[id].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>'+
+                            '<button class="float-left" onclick="navigateFromUser(geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
+                            '<div class="clear-both">' +//read-more
+                            '</div>' +
+                        '</div>' +
+                    '</li>');
+            }
+        },
+    },
     updateCarList : function(){
         //Adding elements to the car list dropdown
         var txt = '';
-        for(var car in carModels){
+        for(var car in station.carModels){
             txt += '<option value="'+car+'">' + car + '</option>';
         }
         $('#select-car').html(txt);
@@ -159,12 +196,12 @@ var station = {
                     connectors.length = 0;
                     if(getCarMatch(id))
                         addMarker(station.list[id].csmd.Number_charging_points, id);
-                    if(inArray(id, favoriteStations))
-                        updateFavoriteStations(id);
+                    if(inArray(id, station.favorite.stationList))
+                        station.favorite.updateStations(id);
                 }catch(err){}
             }
             $('#download-progression').hide();
-            hasDownloaded = true;
+            station.hasDownloaded = true;
         }catch(e){
             $('.dl-progress-text').text("Innlasting har feilet med følgende feilmeling: " + e);
         }
@@ -303,6 +340,55 @@ var station = {
             }
         }catch(e){console.log(e);}
     },
+    /*
+     * Waypoints along a given route
+     */
+    addWaypoint : function (id){
+        try{
+            var disPos = station.list[id].csmd.Position.replace(/[()]/g,"").split(",");
+            var isLive = station.list[id].attr.st[21].attrvalid == "1";
+            waypoints.push(
+                {location: new google.maps.LatLng(disPos[0],disPos[1])}
+            );
+
+            var content =
+                "<div class='route-element station-"+ id +"'>" +
+                    "<img class='cover-third float-left' src=\"" + getStationImage(id) + "\"/>" +
+                    "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
+                        "<Strong>" + station.list[id].csmd.name +"</Strong>"+
+                    "</div>"+
+                    "<div class='markerColor' style='background-color:"+ (faultyConns / station.list[id].csmd.Number_charging_points == 1 ? "red" : (isLive ? (isStationOccupiedStatus(id) < occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>" +
+                        "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"removeWaypoint(this)\">X</button>" +
+                    "</div>"+
+                    "<button onclick='readMorev2(this)'>Vis mer</button>"+
+                    "<div class='read-more clear-both'>" +
+                        generateConnectorString(id,station.list[id].attr.st[21].attrvalid == "1") +
+                    "</div>" +
+                "</div>";
+            document.getElementById('waypoint-list').innerHTML += content;
+
+            //Refreshing the route if it's active
+            if($('#nav-start-pos').val() != "" && $('#nav-end-pos').val() != ""){
+                navigate();
+            }
+        }catch(e){console.log(e);}
+    },
+    removeWaypoint : function (element){
+        var parent = $(element).parent().parent();
+        var index = $(parent).index();
+
+        //Removing the waypoint from the html
+        $(parent).remove();
+        //Removing elements from waypoints and moving the other elements down in the array.
+        if(index > -1){
+            waypoints.splice(index, 1);
+        }
+
+        //Refreshing the route if it's active
+        if($('#nav-start-pos').val() != "" && $('#nav-end-pos').val() != ""){
+            navigate();
+        }
+    },
     //TODO: isStationOccupiedStatus
     occupiedStatus : function (id){
         return parseFloat(station.list[id].csmd.Available_charging_points) / parseFloat(station.list[id].csmd.Number_charging_points);
@@ -354,6 +440,14 @@ var station = {
                 "</div>"+
             "</div>";
         return contentString;
+    },
+    showHideMarkers : function (ele){
+        var visible = true;
+
+        for(var marker in markers)
+            markers[marker].setVisible(!markers[marker].getVisible());
+
+        $(ele).html(!visible ? 'Skjul stasjonsmarkører' : 'Vis stasjonsmarkører');
     },
     init : function() {
         station.carModels = {

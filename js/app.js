@@ -9,6 +9,7 @@
  *  - station.js
  */
 var app = {
+    path : 'http://frigg.hiof.no/bo16-g6/webapp/',
     api : {
         hasDownloaded : false,
         initDownloaded : false,
