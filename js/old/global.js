@@ -40,7 +40,8 @@ var intervalTimer;
 $(document).ready(
     function(){
         if(!initiatedMap)
-            initMap();
+            //initMap();
+            console.log('Depricated');
         if(!phonegap)
             downloadDump();
         //Background updates once per x minutes

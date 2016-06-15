@@ -9,16 +9,205 @@
  *  - station.js
  */
 var app = {
+    initiatedMap : false,
     path : 'http://frigg.hiof.no/bo16-g6/webapp/',
     api : {
-        hasDownloaded : false,
-        initDownloaded : false,
-        initiatedMap : false,
-        lastDownloaded : '2005-01-01',
         url : 'https://nobil.no/api/server/datadump.php?',
         key : '274b68192b056e268f128ff63bfcd4a4'
     },
+    download : {
+        lastDownloaded : '2005-01-01',
+        hasDownloaded : false,
+        initDownloaded : false,
+        animation : null,
+        animationFaded : false,
+        doInBackground : null,
+        intervalTime : 0,
+        updateBackgroundTimer : function (minutes){
+            console.log("Timer is now: " + minutes);
+            app.download.intervalTime = minutes * 60000;
+            clearInterval(app.download.doInBackground);
+            app.download.doInBackground = setInterval(function() {
+                console.log("The time has come!");
+                if(app.download.hasDownloaded){
+                    app.download.hasDownloaded = false;
+                    if(app.device.phonegap)
+                        app.download.getDumpPhoneGap();
+                    else
+                        app.download.getDump();
+                }else{
+                    console.log("nope..");
+                }
+            }, app.download.intervalTime)
+        },
+        stopBackgroundTimer : function (){
+            clearInterval(app.download.doInBackground);
+        },
+        updateTime : function (){
+            //Updating the time for when the last update was performed
+            var date = new Date();
+            app.download.lastDownloaded = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+        },
+        getDumpPhoneGap : function(){
+            $.ajax({
+                xhr: function()
+                {
+                    $('#download-progression').show();
+                    var xhr = new window.XMLHttpRequest();
+                    //Upload progress
+                    xhr.upload.addEventListener("progress", function(evt){
+                        if (evt.lengthComputable) {
+                            var percentComplete = evt.loaded / evt.total;
+                            //Do something with upload progress
+                            console.log(percentComplete);
+                        }
+                    }, false);
+                    //Download progress
+                    xhr.addEventListener("progress", function(evt){
+                        if (evt.lengthComputable) {
+                            var percentComplete = evt.loaded / evt.total;
+                            var downloaded = (evt.loaded/1000000).toFixed(2);
+                            var totalSize = (evt.total/1000000).toFixed(2);
+                            //Do something with download progress
+                            $('.dl-progress').text(Math.round(percentComplete * 100) + '%');
+                            $('.dl-progressbar').css('width', function (){ return Math.round(percentComplete * 100) + '%'});
+                            $('.dl-progress-text').text(downloaded + '/' + totalSize + 'MB');
+                            console.log(Math.round(percentComplete * 100) + '%');
+                        }
+                    }, false);
+                    return xhr;
+                },
+                crossDomain: true,
+                type: 'POST',
+                datatype:'json',
+                contentType: 'application/json; charset=utf-8',
+                url: (app.download.lastDownloaded == "2005-01-01" && app.device.isAndroid ? "datadump.json" : app.api.url + "&apikey=" + app.api.key + "&fromdate=" + app.download.lastDownloaded + "&format=json"),
+                data: {},
+                success: function(i){
+                    var data;
+                    try{
+                        data = JSON.parse(i);
+                    }catch(e){
+                        data = i;
+                    }
+                    app.download.finalize(data);
+                    event.preventDefault();
+                },
+                error: function(err){
+                    console.log("Unable to download file: ");
+                    console.log(JSON.stringify(err));
+                    $('#download-progression').hide();
+                    app.download.hasDownloaded = true;
+                }
+            });
+        },
+        getDump : function(){
+            $('#download-progression').show();
+            try{
+                $('.dl-progress-text').text("Laster ned stasjoner");
+                $.ajax({
+                    xhr: function()
+                    {
+                        $('#download-progression').show();
+                        var xhr = new window.XMLHttpRequest();
+                        //Upload progress
+                        xhr.upload.addEventListener("progress", function(evt){
+                            if (evt.lengthComputable) {
+                                var percentComplete = evt.loaded / evt.total;
+                                //Do something with upload progress
+                                console.log(percentComplete);
+                            }
+                        }, false);
+                        //Download progress
+                        xhr.addEventListener("progress", function(evt){
+                            if (evt.lengthComputable) {
+                                var percentComplete = evt.loaded / evt.total;
+                                var downloaded = (evt.loaded/1000000).toFixed(2);
+                                var totalSize = (evt.total/1000000).toFixed(2);
+                                //Do something with download progress
+                                $('.dl-progress').text(Math.round(percentComplete * 100) + '%');
+                                $('.dl-progressbar').css('width', function (){ return Math.round(percentComplete * 100) + '%'});
+                                $('.dl-progress-text').text(downloaded + '/' + totalSize + 'MB');
+                                console.log(Math.round(percentComplete * 100) + '%');
+                            }
+                        }, false);
+                        return xhr;
+                    },
+                    dataType: 'jsonp',
+                    url: app.api.url,
+                    data: {
+                        'apikey': app.api.key,
+                        'apiversion': '3',
+                        'action': "datadump",
+                        'fromdate': app.download.lastDownloaded
+                    },
+                    success: function(data){
+                        app.download.finalize(data);
+                    },
+                    error: function(err){
+                        console.log("Unable to download file: ");
+                        console.log("URL: "+ app.api.url);
+                        console.log(JSON.stringify(err));
+                        $('#download-progression').hide();
+                        app.download.hasDownloaded = true;
+                    }
+                });
+            }catch(err){
+                console.log("Failed: " + err);
+                $('.dl-progress-text').text("Nedlasingen har feilet med følgende feilmelding: " + err);
+            }
+        },
+        finalize : function (data){
+            if(app.download.lastDownloaded == "2005-01-01")
+                station.list = []; // We only need to create a empty array if we haven't already downloaded.
+
+            var id;
+            for(var i = 0; i < data.chargerstations.length; i++){
+                id = data.chargerstations[i].csmd.International_id;
+                station.list[id] = data.chargerstations[i];
+            }
+            //Adding markers
+            if(!app.download.initDownloaded){
+                setTimeout(station.generateMarkers(),0.001);
+                app.download.initDownloaded = true;
+            }else{
+                //TODO:Remove when the K,V markerlist works propperly again
+                setTimeout(station.generateMarkers(),0.001);
+                app.download.hasDownloaded = true;
+            }
+            try{
+                //Starting automatic location update for mobile app and mobile browsers
+                if(app.device.isMobile || app.device.phonegap)
+                    navigator.geolocation.watchPosition(app.gps.onSuccess(), app.gps.onError(), {enableHighAccuracy: true, timeout: 100, maximumAge: 1000 });
+            }catch(e){
+                console.log("Failed: " + e);
+                $('.dl-progress-text').text("Innlasting har feilet med følgende feilmeling: " + e);
+            }
+            app.download.updateTime();
+        },
+        init : function(){
+            dlAnimation = setInterval(
+                function () {
+                    if(app.download.animationFaded){
+                        $( '.spinning' ).fadeTo( "slow", 1 );
+                        app.download.animationFaded = false;
+                    }
+                    else{
+                        $( '.spinning' ).fadeTo( "slow", 0.1 );
+                        app.download.animationFaded = true;
+                    }
+                },
+                3
+            );
+
+        }
+    },
     map : {},
+    setMapOnAll : function (map){
+        for (var i in station.markers) {
+            markers[i].setMap(map);
+        }
+    },
     cluster : {
         styles : [
             {
@@ -147,9 +336,9 @@ var app = {
         },
         onReady : function (){
             if(app.device.isIOS)
-                downloadDump();
+                app.download.getDump();
             else
-                downloadDumpPG();
+                app.download.getDumpPhoneGap();
             document.addEventListener("backbutton", slideIn, false);
 
             document.addEventListener("pause", app.device.onPause, false);
@@ -175,6 +364,8 @@ var app = {
      * A function for initiating the app
     */
     init : function(){
+        app.download.init();
+        station.init();
         app.map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 59.91673, lng: 10.74782},
             zoom: 13,
@@ -193,6 +384,7 @@ var app = {
                 position: google.maps.ControlPosition.RIGHT_BOTTOM
             }
         });
+        app.options.markerCluster = {gridSize: 50, maxZoom: 15, styles: app.cluster.styles};
         app.options.panorama = {
             addressControlOptions:{
                 position: google.maps.ControlPosition.BOTTOM_CENTER
@@ -277,10 +469,20 @@ var app = {
                 app.gps.geopos = [position.coords.latitude, position.coords.longitude];
                 app.map.setCenter(app.gps.pos);
             }, function() {
+                var infoWindow = new google.maps.InfoWindow({
+                    content: '',
+                    maxWidth: 500,
+                    maxHeight: 500
+                });
                 app.gps.handleLocationError(true, infoWindow, app.map.getCenter());
             });
         } else {
             // If the browser doesn't support Geolocation
+            var infoWindow = new google.maps.InfoWindow({
+                content: '',
+                maxWidth: 500,
+                maxHeight: 500
+            });
             app.gps.handleLocationError(false, infoWindow, app.map.getCenter());
             app.gps.geopos = [59.91673,10.74782]; // Defaulting to oslo incase geopos isn't possible
         }
@@ -288,11 +490,13 @@ var app = {
         if(app.device.phonegap)
         //Safeguarding against timeout for the cordovaWebView
             setTimeout(document.addEventListener("deviceready", app.device.onReady, false), 2000);
+        else
+            app.download.getDump();
         if(app.device.isMobile)
             setInterval(function () {
                 //Updating the "nearby chargers" list for all mobile devices (web and app)
                 updateNearbyChargers();
-                updateFavoriteStations();
+                station.favorite.updateStations();
             }, 1000);
 
         window.addEventListener("resize",function(){

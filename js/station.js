@@ -21,13 +21,14 @@ var station = {
     occupiedLimit : 0.4,
     semiFastCharge : 12,
     fastCharge : 43,
-    mc : [],
+    markerClusterer : null,
     /*
      * Connectors
      */
     conns : {
         list : [],
         numFaulty : 0,//Overwritten
+        carModels : {},
         typesIDs : {
             '0' : 'Unspecified',
             '14' : 'Schuko',
@@ -143,7 +144,6 @@ var station = {
             return '<img class="float-right" src="icons/conn/'+ img +'" style="max-height:2em; max-width:2em;"/>';
         }
     },
-    carModels : {},
     favorite : {
         stationList : [],
         routeList : [],
@@ -181,10 +181,13 @@ var station = {
             }
         },
     },
+    route : {
+      waypoints : []
+    },
     updateCarList : function(){
         //Adding elements to the car list dropdown
         var txt = '';
-        for(var car in station.carModels){
+        for(var car in station.conns.carModels){
             txt += '<option value="'+car+'">' + car + '</option>';
         }
         $('#select-car').html(txt);
@@ -193,30 +196,39 @@ var station = {
         $('#download-progression').show();
         try{
             if(document.getElementById("select-car").value !=0)
-                station.user.carConns = station.carModels[document.getElementById("select-car").value];
-            deleteMarkers();
+                station.user.carConns = station.conns.carModels[document.getElementById("select-car").value];
+            station.deleteMarkers();
             for(var id in station.list){
+                //console.log(id);
                 try{
-                    station.conns.list.connectors.length = 0;
+                    station.conns.list.length = 0;
                     if(station.getCarMatch(id))
-                        addMarker(station.list[id].csmd.Number_charging_points, id);
-                    if(inArray(id, station.favorite.stationList))
+                        station.addMarker(station.list[id].csmd.Number_charging_points, id);
+                    if($.inArray(id, station.favorite.stationList))
                         station.favorite.updateStations(id);
-                }catch(err){}
+                }catch(err){console.log(err);}
             }
             $('#download-progression').hide();
             station.hasDownloaded = true;
         }catch(e){
             $('.dl-progress-text').text("Innlasting har feilet med følgende feilmeling: " + e);
         }
-        if(mc == null)
-            mc = new MarkerClusterer(map, station.markers, app.options.markerCluster);
+        if(station.markerClusterer == null)
+            station.markerClusterer = new MarkerClusterer(app.map, station.markers, app.options.markerCluster);
         else{
-            mc.clearMarkers();
-            mc.addMarkers(station.markers);
+            station.markerClusterer.clearMarkers();
+            station.markerClusterer.addMarkers(station.markers);
         }
         $('#download-progression').hide();
         hasDownloaded = true;
+    },
+    deleteMarkers : function(){
+        //Memory managenent
+        app.setMapOnAll(null);
+        station.markerListeners.length = 0;
+        station.infoWindows.length = 0;
+        chargers_nearby.length = 0;
+        station.markers.length = 0;
     },
     getCarMatch : function (id){
         var match = false;
@@ -225,21 +237,20 @@ var station = {
         var isFaulty = false;
         station.conns.hasFastCharge = false;
         station.conns.numFaulty = 0;
-        for(var c = 1; c <= station.list[id].csmd.Number_charging_points; c++){
+        for(var c in station.list[id].attr.conn){
             //Checking if any connection ports match the user prefs
             try{
-                connType = station.list[id].attr.conn[c][4].attrvalid; //id
-                if(document.getElementById("select-car").value != 0 && !match && inArray(connType, station.user.carConns) && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW))
+                if(document.getElementById("select-car").value != 0 && !match && $.inArray(4, station.list[id].attr.conn[c]) && $.inArray(station.list[id].attr.conn[c][4].attrvalid, station.user.carConns) && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW))
                     match = true;
                 else if(document.getElementById("select-car").value == 0 && !match && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW))
                 //If no car or type is selected
                     match = true;
-                if(station.list[id].attr.conn[c][9].attrvalid == 1)//Is a faulty connector
+                if(station.list[id].attr.conn[c][9] != undefined && station.list[id].attr.conn[c][9].attrvalid == 1)//Is a faulty connector
                     station.conns.numFaulty++;
                 //For the markers, to indicate if a id has a fast charger or not!
                 if(!hasFastCharge_temp && (station.fastCharge <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW))
                     station.conns.hasFastCharge = true;
-                station.conns.list.push(object.attr.conn[c]);
+                station.conns.list.push(station.list[id].attr.conn[c]);
             }catch(e){}
         }
         return match;
@@ -284,8 +295,8 @@ var station = {
                 title: station.list[id].csmd.name
             });
 
-        var maxWidth = (isMobile?500:500);
-        var maxHeight = (isMobile?300:500);
+        var maxWidth = (app.device.isMobile?500:500);
+        var maxHeight = (app.device.isMobile?300:500);
 
         var infowindow = new google.maps.InfoWindow({
             content: station.contentString,
@@ -332,7 +343,7 @@ var station = {
             }
             infowindow.open(map, marker);
 
-            infowindow.setContent(createIWContent(id, isLive));
+            infowindow.setContent(station.getInfoWindowContent(id, isLive));
         }));
         station.markers.push(marker);
 
@@ -351,7 +362,7 @@ var station = {
         try{
             var disPos = station.list[id].csmd.Position.replace(/[()]/g,"").split(",");
             var isLive = station.list[id].attr.st[21].attrvalid == "1";
-            waypoints.push(
+            station.route.waypoints.push(
                 {location: new google.maps.LatLng(disPos[0],disPos[1])}
             );
 
@@ -385,7 +396,7 @@ var station = {
         $(parent).remove();
         //Removing elements from waypoints and moving the other elements down in the array.
         if(index > -1){
-            waypoints.splice(index, 1);
+            station.route.waypoints.splice(index, 1);
         }
 
         //Refreshing the route if it's active
@@ -393,17 +404,15 @@ var station = {
             navigate();
         }
     },
-    //TODO: station.occupiedStatus
     occupiedStatus : function (id){
         return parseFloat(station.list[id].csmd.Available_charging_points) / parseFloat(station.list[id].csmd.Number_charging_points);
     },
     /*
      * A method for generating the content of a infowindow
-     * TODO: createIWContent
      */
     getInfoWindowContent : function (id, isLive) {
         if(document.getElementById("select-car").value !=0)
-            station.user.carConns = station.carModels[document.getElementById("select-car").value];
+            station.user.carConns = station.conns.carModels[document.getElementById("select-car").value];
 
         //Showing a info windows when you click on the marker
         station.connectorsString = station.conns.getString(id, isLive);
@@ -454,28 +463,28 @@ var station = {
         $(ele).html(!visible ? 'Skjul stasjonsmarkører' : 'Vis stasjonsmarkører');
     },
     init : function() {
-        station.station.carModels = {
-            'Nissan Leaf' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2, conns.types.chademo),
-            'BMW i3' : conns.types.schuko.concat(conns.types.schuko, conns.types.type2, conns.types.combo),
-            'Buddy' : conns.types.schuko,
-            'Citroën Berlingo' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2, conns.types.chademo),
-            'Citroën C-ZERO' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2, conns.types.chademo),
-            'Ford Focus Electric' : conns.types.schuko.concat(conns.types.schuko,conns.types.type1, conns.types.type2),
-            'Kia Soul Electric' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2, conns.types.chademo),
-            'Mercedes B-klasse ED' : conns.types.schuko.concat(conns.types.schuko, conns.types.type2),
-            'Mitsubishi i-MIEV' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2, conns.types.chademo),
-            'Nissan e-NV200/Evalia' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2, conns.types.chademo),
-            'Peugeot iOn' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2, conns.types.chademo),
-            'Peugeot Partner' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2, conns.types.chademo),
-            'Renault Kangoo ZE' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2),
-            'Renault Twizy' : conns.types.schuko,
-            'Renault Zoe' : conns.types.schuko.concat(conns.types.schuko, conns.types.type2),
-            'Reva' : conns.types.schuko,
-            'Tesla Model S' : conns.types.schuko.concat(conns.types.schuko, conns.types.type2, conns.types.ind3pin, conns.types.ind5pin, conns.types.teslaModelS),
-            'Tesla Roadster' : conns.types.schuko.concat(conns.types.schuko, conns.types.teslaRoadster),
-            'Think' : conns.types.schuko,
-            'VW e-Golf' : conns.types.schuko.concat(conns.types.schuko, conns.types.type2, conns.types.combo),
-            'VW e-up!' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2),
+        station.conns.carModels = {
+            'Nissan Leaf' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
+            'BMW i3' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type2, station.conns.types.combo),
+            'Buddy' : station.conns.types.schuko,
+            'Citroën Berlingo' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
+            'Citroën C-ZERO' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
+            'Ford Focus Electric' : station.conns.types.schuko.concat(station.conns.types.schuko,station.conns.types.type1, station.conns.types.type2),
+            'Kia Soul Electric' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
+            'Mercedes B-klasse ED' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type2),
+            'Mitsubishi i-MIEV' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
+            'Nissan e-NV200/Evalia' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
+            'Peugeot iOn' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
+            'Peugeot Partner' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
+            'Renault Kangoo ZE' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2),
+            'Renault Twizy' : station.conns.types.schuko,
+            'Renault Zoe' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type2),
+            'Reva' : station.conns.types.schuko,
+            'Tesla Model S' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type2, station.conns.types.ind3pin, station.conns.types.ind5pin, station.conns.types.teslaModelS),
+            'Tesla Roadster' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.teslaRoadster),
+            'Think' : station.conns.types.schuko,
+            'VW e-Golf' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type2, station.conns.types.combo),
+            'VW e-up!' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2),
         }
     }
 };
