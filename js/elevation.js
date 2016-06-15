@@ -5,30 +5,29 @@
 google.load('visualization', '1', {packages: ['columnchart']});
 
 var elevation = {
-    service: null,
     path: [],
-    displayElevation: function (path, elevator) {
-        elevationPath.length = 0;
+    displayForPath: function (path, elevator) {
+        elevation.path.length = 0;
         for (var i = 0; i < path.legs.length; i++) {
             //The start position
             if (i == 0)
-                elevationPath.push(path.legs[i].start_location);
+                elevation.path.push(path.legs[i].start_location);
 
             //Looping through points
             for (var s in path.legs[i].steps) {
                 //Grabbing the first element, so that we don't overload the elevtion API with points
-                elevationPath.push(path.legs[i].steps[s].lat_lngs[0]);
+                elevation.path.push(path.legs[i].steps[s].lat_lngs[0]);
             }
             //The final destination
             if (i == path.legs.length - 1)
-                elevationPath.push(path.legs[i].end_location);
+                elevation.path.push(path.legs[i].end_location);
         }
         elevator.getElevationAlongPath({
-            'path': elevationPath,
+            'path': elevation.path,
             'samples': 256
-        }, plotElevation);
+        }, elevation.plot);
     },
-    plotElevation: function (elevations, status) {
+    plot: function (elevations, status) {
         var chartDiv = document.getElementById('elevation-chart');
         if (status !== google.maps.ElevationStatus.OK) {
             chartDiv.innerHTML = "Request failed because" + status;

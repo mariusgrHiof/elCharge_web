@@ -52,9 +52,9 @@
             <input id="nav-end-pos" type="text"/>
         </div>
     </div>
-    <button class="float-left cover-third" onclick="clearRoute()">Fjern rute</button>
-    <button class="cover-third" onclick="showHideMarkers(this)">Skjul stasjonsmarkører</button>
-    <button class="float-right cover-third" onclick="navigate()">Bygg rute</button>
+    <button class="float-left cover-third" onclick="navigation.clearRoute()">Fjern rute</button>
+    <button class="cover-third" onclick="station.showHideMarkers(this)">Skjul stasjonsmarkører</button>
+    <button class="float-right cover-third" onclick="navigation.build()">Bygg rute</button>
     <!-- <button onclick="saveRouteData()">Legg ruten til favoritt</button> -->
     <div id="total"></div>
     <div id="right-panel" class="clear-both">

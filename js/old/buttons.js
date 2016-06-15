@@ -178,7 +178,7 @@ $('input[type=number]#bg-update-timer').change(
 //Changing the selected car and updating station markers accordingly
 $('#select-car').change(
     function(){
-        generateMarkers();
+        station.generateMarkers();
     }
 );
 
@@ -188,7 +188,7 @@ $("#selected-charger-capacity").change(
         selectedCapacity = $(this).children(":input[name='kW']:checked").val();
         console.log("Selected: " + selectedCapacity);
         //Updating the map with markers
-        generateMarkers();
+        station.generateMarkers();
     }
 );
 

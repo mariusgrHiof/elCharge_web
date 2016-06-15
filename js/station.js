@@ -173,7 +173,7 @@ var station = {
                         '<div class="cover-twothird float-right" style="width:calc(66% - 1em);">'+
                             '<strong class="float-left">' + station.list[id].csmd.name + '</strong><br />'+
                             '<span>' + compareDistance(app.gps.geopos, station.list[id].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>'+
-                            '<button class="float-left" onclick="navigateFromUser(app.gps.geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
+                            '<button class="float-left" onclick="navigation.fromUser(app.gps.geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
                             '<div class="clear-both">' +//read-more
                             '</div>' +
                         '</div>' +
@@ -186,7 +186,7 @@ var station = {
     },
     updateCarList : function(){
         //Adding elements to the car list dropdown
-        var txt = '';
+        var txt = '<option value="0">Vis alle ladere</option>';
         for(var car in station.conns.carModels){
             txt += '<option value="'+car+'">' + car + '</option>';
         }
@@ -195,8 +195,8 @@ var station = {
     generateMarkers : function(){
         $('#download-progression').show();
         try{
-            if(document.getElementById("select-car").value !=0)
-                station.user.carConns = station.conns.carModels[document.getElementById("select-car").value];
+            if($('#select-car').val() !=0)
+                station.user.carConns = station.conns.carModels[$('#select-car').val()];
             station.deleteMarkers();
             for(var id in station.list){
                 //console.log(id);
@@ -240,9 +240,9 @@ var station = {
         for(var c in station.list[id].attr.conn){
             //Checking if any connection ports match the user prefs
             try{
-                if(document.getElementById("select-car").value != 0 && !match && $.inArray(4, station.list[id].attr.conn[c]) && $.inArray(station.list[id].attr.conn[c][4].attrvalid, station.user.carConns) && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW))
+                if($('#select-car').val() != 0 && !match && $.inArray(4, station.list[id].attr.conn[c]) && $.inArray(station.list[id].attr.conn[c][4].attrvalid, station.user.carConns) && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW))
                     match = true;
-                else if(document.getElementById("select-car").value == 0 && !match && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW))
+                else if($('#select-car').val() == 0 && !match && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW))
                 //If no car or type is selected
                     match = true;
                 if(station.list[id].attr.conn[c][9] != undefined && station.list[id].attr.conn[c][9].attrvalid == 1)//Is a faulty connector
@@ -411,8 +411,8 @@ var station = {
      * A method for generating the content of a infowindow
      */
     getInfoWindowContent : function (id, isLive) {
-        if(document.getElementById("select-car").value !=0)
-            station.user.carConns = station.conns.carModels[document.getElementById("select-car").value];
+        if($('#select-car').val() !=0)
+            station.user.carConns = station.conns.carModels[$('#select-car').val()];
 
         //Showing a info windows when you click on the marker
         station.connectorsString = station.conns.getString(id, isLive);
@@ -446,9 +446,9 @@ var station = {
                 "</div>"+
 
                 "<div id='lowerContainer'>"+
-                    '<button onclick="addWaypoint(\'' + id + '\')" >Legg til i rute</button>' +
-                    '<button onclick="navigateFromUser(app.gps.geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
-                    '<button onclick="addToFavorites(\'' + id + '\')" >Legg til favoritt</button>' +
+                    '<button onclick="station.addWaypoint(\'' + id + '\')" >Legg til i rute</button>' +
+                    '<button onclick="navigation.fromUser(app.gps.geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
+                    '<button onclick="station.favorite.addStation(\'' + id + '\')" >Legg til favoritt</button>' +
                 "</div>"+
             "</div>";
         return station.contentString;
@@ -459,7 +459,7 @@ var station = {
         for(var marker in station.markers)
             station.markers[marker].setVisible(!station.markers[marker].getVisible());
 
-        $(ele).html(!visible ? 'Skjul stasjonsmarkører' : 'Vis stasjonsmarkører');
+        $(ele).html(!visible ? 'Skjul markører' : 'Vis markører');
     },
     init : function() {
         station.conns.carModels = {
