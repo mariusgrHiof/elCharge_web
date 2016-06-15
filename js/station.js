@@ -105,8 +105,8 @@ var station = {
                     result +=
                         "<div class='cpelements'>"+
                             "<span style=\'color:black; width:90%; float:left;\'>"+
-                            station.list[id].attr.conn[c][4].trans + "(" + connCapacityString(station, c) + ")" +
-                            connectorImg(station.list[id].attr.conn[c][4].attrvalid) +
+                            station.list[id].attr.conn[c][4].trans + "(" + station.conns.connCapacityString(station, c) + ")" +
+                            station.conns.getImg(station.list[id].attr.conn[c][4].attrvalid) +
                             "</span>"+
                             "<div class='chargePointColor' style='background-color:" + (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'>"+
                             "</div>"+
@@ -416,7 +416,6 @@ var station = {
 
         //Showing a info windows when you click on the marker
         station.connectorsString = station.conns.getString(id, isLive);
-        console.log(station.list[id].csmd.Contact_info);
         station.contentString =
             "<div id=\"station-tooltip\">"+
                 "<div id=\"topBox\">"+

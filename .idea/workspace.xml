@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="cleanup in station.js">
+    <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/scripts.php" afterPath="$PROJECT_DIR$/includes/scripts.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/old/global.js" afterPath="$PROJECT_DIR$/js/old/global.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/station.js" afterPath="$PROJECT_DIR$/js/station.js" />
     </list>
     <ignored path="elCharge_web.iws" />
@@ -95,27 +92,27 @@
           <file leaf-file-name="station.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/station.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2935">
-                  <caret line="255" column="22" selection-start-line="255" selection-start-column="22" selection-end-line="255" selection-end-column="22" />
+                <state relative-caret-position="370">
+                  <caret line="107" column="95" selection-start-line="107" selection-start-column="95" selection-end-line="107" selection-end-column="95" />
                   <folding>
-                    <marker date="1466007422000" expanded="false" signature="0:40" placeholder="/** Created by jonas on 13.06.16. ...*/" />
-                    <marker date="1466007422000" expanded="true" signature="4236:4259" placeholder="..." />
-                    <marker date="1466007422000" expanded="true" signature="4987:5022" placeholder="..." />
-                    <marker date="1466007422000" expanded="true" signature="5334:5479" placeholder="..." />
-                    <marker date="1466007422000" expanded="true" signature="7098:7128" placeholder="..." />
-                    <marker date="1466007422000" expanded="true" signature="7920:7969" placeholder="..." />
-                    <marker date="1466007422000" expanded="true" signature="7970:9106" placeholder="..." />
-                    <marker date="1466007422000" expanded="true" signature="8155:8357" placeholder="..." />
-                    <marker date="1466007422000" expanded="true" signature="8440:8462" placeholder="..." />
-                    <marker date="1466007422000" expanded="true" signature="8463:9076" placeholder="..." />
-                    <marker date="1466007422000" expanded="true" signature="8991:9041" placeholder="..." />
-                    <marker date="1466007422000" expanded="true" signature="17692:17718" placeholder="..." />
-                    <marker date="1466007422000" expanded="true" signature="17884:18093" placeholder="..." />
-                    <marker date="1466007422000" expanded="true" signature="18139:18204" placeholder="..." />
-                    <marker date="1466007422000" expanded="true" signature="20159:22841" placeholder="..." />
-                    <marker date="1466007422000" expanded="true" signature="20411:20422" placeholder="..." />
-                    <marker date="1466007422000" expanded="true" signature="20728:20937" placeholder="..." />
-                    <marker date="1466007422000" expanded="true" signature="22072:22117" placeholder="..." />
+                    <marker date="1466007768000" expanded="false" signature="0:40" placeholder="/** Created by jonas on 13.06.16. ...*/" />
+                    <marker date="1466007768000" expanded="true" signature="4236:4259" placeholder="..." />
+                    <marker date="1466007768000" expanded="true" signature="4987:5022" placeholder="..." />
+                    <marker date="1466007768000" expanded="true" signature="5356:5501" placeholder="..." />
+                    <marker date="1466007768000" expanded="true" signature="7120:7150" placeholder="..." />
+                    <marker date="1466007768000" expanded="true" signature="7942:7991" placeholder="..." />
+                    <marker date="1466007768000" expanded="true" signature="7992:9128" placeholder="..." />
+                    <marker date="1466007768000" expanded="true" signature="8177:8379" placeholder="..." />
+                    <marker date="1466007768000" expanded="true" signature="8462:8484" placeholder="..." />
+                    <marker date="1466007768000" expanded="true" signature="8485:9098" placeholder="..." />
+                    <marker date="1466007768000" expanded="true" signature="9013:9063" placeholder="..." />
+                    <marker date="1466007768000" expanded="true" signature="17638:17664" placeholder="..." />
+                    <marker date="1466007768000" expanded="true" signature="17830:18039" placeholder="..." />
+                    <marker date="1466007768000" expanded="true" signature="18085:18150" placeholder="..." />
+                    <marker date="1466007768000" expanded="true" signature="20048:22730" placeholder="..." />
+                    <marker date="1466007768000" expanded="true" signature="20300:20311" placeholder="..." />
+                    <marker date="1466007768000" expanded="true" signature="20617:20826" placeholder="..." />
+                    <marker date="1466007768000" expanded="true" signature="21961:22006" placeholder="..." />
                   </folding>
                 </state>
               </provider>
@@ -534,14 +531,7 @@
       <workItem from="1465899044591" duration="1791000" />
       <workItem from="1465911557933" duration="210000" />
       <workItem from="1465938218380" duration="3266000" />
-      <workItem from="1465980797132" duration="14797000" />
-    </task>
-    <task id="LOCAL-00177" summary="Automatisk oppdatering av ladere i nærheten hvert 10 sec samt kontakt info er nå tilgjengelig i ladere i nærheten. dog litt stygg foreløpig.">
-      <created>1462661200118</created>
-      <option name="number" value="00177" />
-      <option name="presentableId" value="LOCAL-00177" />
-      <option name="project" value="LOCAL" />
-      <updated>1462661200119</updated>
+      <workItem from="1465980797132" duration="15125000" />
     </task>
     <task id="LOCAL-00178" summary="Path elevation er fikset langs den valgte ruten">
       <created>1462702623045</created>
@@ -879,11 +869,18 @@
       <option name="project" value="LOCAL" />
       <updated>1465987684173</updated>
     </task>
-    <option name="localTasksCounter" value="226" />
+    <task id="LOCAL-00226" summary="finalized app &amp; station.js">
+      <created>1466007486532</created>
+      <option name="number" value="00226" />
+      <option name="presentableId" value="LOCAL-00226" />
+      <option name="project" value="LOCAL" />
+      <updated>1466007486532</updated>
+    </task>
+    <option name="localTasksCounter" value="227" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="376882000" />
+    <option name="totallyTimeSpent" value="377210000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -931,7 +928,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="litt fix" />
     <MESSAGE value="Røde markører på kartet om ladestasjoner er defekte" />
     <MESSAGE value="comment" />
     <MESSAGE value="Bug fix" />
@@ -956,7 +952,8 @@
     <MESSAGE value="code cleanup" />
     <MESSAGE value="addStations moved to station.js" />
     <MESSAGE value="cleanup in station.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleanup in station.js" />
+    <MESSAGE value="finalized app &amp; station.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="finalized app &amp; station.js" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1363,27 +1360,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/station.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2935">
-          <caret line="255" column="22" selection-start-line="255" selection-start-column="22" selection-end-line="255" selection-end-column="22" />
+        <state relative-caret-position="370">
+          <caret line="107" column="95" selection-start-line="107" selection-start-column="95" selection-end-line="107" selection-end-column="95" />
           <folding>
-            <marker date="1466007422000" expanded="false" signature="0:40" placeholder="/** Created by jonas on 13.06.16. ...*/" />
-            <marker date="1466007422000" expanded="true" signature="4236:4259" placeholder="..." />
-            <marker date="1466007422000" expanded="true" signature="4987:5022" placeholder="..." />
-            <marker date="1466007422000" expanded="true" signature="5334:5479" placeholder="..." />
-            <marker date="1466007422000" expanded="true" signature="7098:7128" placeholder="..." />
-            <marker date="1466007422000" expanded="true" signature="7920:7969" placeholder="..." />
-            <marker date="1466007422000" expanded="true" signature="7970:9106" placeholder="..." />
-            <marker date="1466007422000" expanded="true" signature="8155:8357" placeholder="..." />
-            <marker date="1466007422000" expanded="true" signature="8440:8462" placeholder="..." />
-            <marker date="1466007422000" expanded="true" signature="8463:9076" placeholder="..." />
-            <marker date="1466007422000" expanded="true" signature="8991:9041" placeholder="..." />
-            <marker date="1466007422000" expanded="true" signature="17692:17718" placeholder="..." />
-            <marker date="1466007422000" expanded="true" signature="17884:18093" placeholder="..." />
-            <marker date="1466007422000" expanded="true" signature="18139:18204" placeholder="..." />
-            <marker date="1466007422000" expanded="true" signature="20159:22841" placeholder="..." />
-            <marker date="1466007422000" expanded="true" signature="20411:20422" placeholder="..." />
-            <marker date="1466007422000" expanded="true" signature="20728:20937" placeholder="..." />
-            <marker date="1466007422000" expanded="true" signature="22072:22117" placeholder="..." />
+            <marker date="1466007768000" expanded="false" signature="0:40" placeholder="/** Created by jonas on 13.06.16. ...*/" />
+            <marker date="1466007768000" expanded="true" signature="4236:4259" placeholder="..." />
+            <marker date="1466007768000" expanded="true" signature="4987:5022" placeholder="..." />
+            <marker date="1466007768000" expanded="true" signature="5356:5501" placeholder="..." />
+            <marker date="1466007768000" expanded="true" signature="7120:7150" placeholder="..." />
+            <marker date="1466007768000" expanded="true" signature="7942:7991" placeholder="..." />
+            <marker date="1466007768000" expanded="true" signature="7992:9128" placeholder="..." />
+            <marker date="1466007768000" expanded="true" signature="8177:8379" placeholder="..." />
+            <marker date="1466007768000" expanded="true" signature="8462:8484" placeholder="..." />
+            <marker date="1466007768000" expanded="true" signature="8485:9098" placeholder="..." />
+            <marker date="1466007768000" expanded="true" signature="9013:9063" placeholder="..." />
+            <marker date="1466007768000" expanded="true" signature="17638:17664" placeholder="..." />
+            <marker date="1466007768000" expanded="true" signature="17830:18039" placeholder="..." />
+            <marker date="1466007768000" expanded="true" signature="18085:18150" placeholder="..." />
+            <marker date="1466007768000" expanded="true" signature="20048:22730" placeholder="..." />
+            <marker date="1466007768000" expanded="true" signature="20300:20311" placeholder="..." />
+            <marker date="1466007768000" expanded="true" signature="20617:20826" placeholder="..." />
+            <marker date="1466007768000" expanded="true" signature="21961:22006" placeholder="..." />
           </folding>
         </state>
       </provider>
