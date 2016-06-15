@@ -91,7 +91,7 @@ var station = {
             station.conns.numFaulty = 0;
 
             var result = '<div style="margin:0.1em 0 0.1em 0;">';
-            for(var c = 1; c <= station.list[id].csmd.Number_charging_points; c++){
+            for(var c in station.list[id].attr.conn){
                 try{
                     if(isLive){
                         try {
@@ -100,12 +100,12 @@ var station = {
                             if(station.list[id].attr.conn[c][9].attrvalid == 1){//Is a faulty connector
                                 station.conns.numFaulty++;
                             }
-                        } catch(e) {}
+                        } catch(e) {console.log(e);}
                     }
                     result +=
                         "<div class='cpelements'>"+
                             "<span style=\'color:black; width:90%; float:left;\'>"+
-                            station.list[id].attr.conn[c][4].trans + "(" + station.conns.connCapacityString(station, c) + ")" +
+                            station.list[id].attr.conn[c][4].trans + "(" + station.conns.connCapacityString(id, c) + ")" +
                             station.conns.getImg(station.list[id].attr.conn[c][4].attrvalid) +
                             "</span>"+
                             "<div class='chargePointColor' style='background-color:" + (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'>"+
