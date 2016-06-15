@@ -1,10 +1,10 @@
 <?php
-addJS('js/old/addStations.js', false, false);
+//addJS('js/old/addStations.js', false, false);
 addJS('js/station.js', false, false);
 addJS('js/app.js', false, false);
 addJS('js/old/global.js', false, false);
 addJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8&sensors=true&libraries=places,visualization,geometry&callback=app.init', true, true);
-addJS('js/old/googlemaps.js', false, false);
+//addJS('js/old/googlemaps.js', false, false);
 addJS('js/old/login.js', false, false);
 addJS('js/old/chargers-nearby.js', false, false);
 addJS('js/MarkerClusterer.js', false, false);

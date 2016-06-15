@@ -8,8 +8,9 @@ var station = {
      */
     list : [],
     user : {
+      carConns : []
     },
-    hasFastcharge : false,
+    hasFastCharge : false,
     hasDownloaded : false,
     markers : [],
     infoWindows : [],
@@ -17,6 +18,10 @@ var station = {
     contentString : '',
     connectorsString : '',
     selectedCapacity : '',
+    occupiedLimit : 0.4,
+    semiFastCharge : 12,
+    fastCharge : 43,
+    mc : [],
     /*
      * Connectors
      */
@@ -75,39 +80,38 @@ var station = {
             21 : {'id':21, 'name':'Less then 100 kW + 22 kW - 500VDC max 50A + 400V 3-phase max 32A','current':'DC', 'kW':22, 'volt':400, 'ampere':32},
             22 : {'id':22, 'name':'135 kW - 480VDC max 270A','current':'DC', 'kW':135, 'volt':480, 'ampere':270}
         },
-        connCapacityString : function (station, connectorID){
-            var capacity = station.conns.capacity[station.list[station].attr.conn[connectorID][5].attrvalid].kW;
-            return capacity >= fastCharge ? capacity + "kW " + 'hurtiglader' : (capacity >= semiFastCharge ? capacity + "kW " +"semihurtig": capacity + "kW "+ "vanlig");
+        connCapacityString : function (id, connectorID){
+            var capacity = station.conns.capacity[station.list[id].attr.conn[connectorID][5].attrvalid].kW;
+            return capacity >= station.fastCharge ? capacity + "kW " + 'hurtiglader' : (capacity >= station.semiFastCharge ? capacity + "kW " +"semihurtig": capacity + "kW "+ "vanlig");
         },
-        // TODO: generateConnectorString
-        getString : function (station, isLive){
+        getString : function (id, isLive){
             var isInService = true;
             var connStatus = "9";
-            faultyConns = 0;
+            station.conns.numFaulty = 0;
 
             var result = '<div style="margin:0.1em 0 0.1em 0;">';
-            for(var c = 1; c <= station.list[station].csmd.Number_charging_points; c++){
+            for(var c = 1; c <= station.list[id].csmd.Number_charging_points; c++){
                 try{
                     if(isLive){
                         try {
-                            isInService = station.list[station].attr.conn[c][9].attrvalid == "0";
-                            connStatus = station.list[station].attr.conn[c][8].attrvalid;
-                            if(station.list[station].attr.conn[c][9].attrvalid == 1){//Is a faulty connector
-                                faultyConns++;
+                            isInService = station.list[id].attr.conn[c][9].attrvalid == "0";
+                            connStatus = station.list[id].attr.conn[c][8].attrvalid;
+                            if(station.list[id].attr.conn[c][9].attrvalid == 1){//Is a faulty connector
+                                station.conns.numFaulty++;
                             }
                         } catch(e) {}
                     }
                     result +=
                         "<div class='cpelements'>"+
                             "<span style=\'color:black; width:90%; float:left;\'>"+
-                            station.list[station].attr.conn[c][4].trans + "(" + connCapacityString(station, c) + ")" +
-                            connectorImg(station.list[station].attr.conn[c][4].attrvalid) +
+                            station.list[id].attr.conn[c][4].trans + "(" + connCapacityString(station, c) + ")" +
+                            connectorImg(station.list[id].attr.conn[c][4].attrvalid) +
                             "</span>"+
                             "<div class='chargePointColor' style='background-color:" + (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'>"+
                             "</div>"+
                         "</div>";
                 }catch(e){
-                    console.log('Failed to build connectorsString for ' + station.list[station].csmd.name + " Error: " + e);
+                    console.log('Failed to build connectorsString for ' + station.list[id].csmd.name + " Error: " + e);
                 }
             }
             return result += "</div>";
@@ -160,16 +164,16 @@ var station = {
         },
         updateStations : function (){
             $("#favorite-stations").html("");
-            for(var id in favoriteStations){
+            for(var id in station.favorite.stationList){
                 $('#favorite-stations').append(
                     '<li class="border" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
-                        '<img class="cover-third float-left img-height-4em" src=\"' + getStationImage(id) + '\"/>' +
+                        '<img class="cover-third float-left img-height-4em" src=\"' + station.getImage(id) + '\"/>' +
                         '<div class="chargePointColor" style="height:4em;background-color:' +
-                            (station.list[id].attr.st[21].attrvalid == "1" ? (isStationOccupiedStatus(id) < occupiedLimit ? 'lightgreen' : 'yellow') : 'blue') + ';"></div>'+
+                            (station.list[id].attr.st[21].attrvalid == "1" ? (station.occupiedStatus(id) < station.occupiedLimit ? 'lightgreen' : 'yellow') : 'blue') + ';"></div>'+
                         '<div class="cover-twothird float-right" style="width:calc(66% - 1em);">'+
                             '<strong class="float-left">' + station.list[id].csmd.name + '</strong><br />'+
-                            '<span>' + compareDistance(geopos, station.list[id].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>'+
-                            '<button class="float-left" onclick="navigateFromUser(geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
+                            '<span>' + compareDistance(app.gps.geopos, station.list[id].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>'+
+                            '<button class="float-left" onclick="navigateFromUser(app.gps.geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
                             '<div class="clear-both">' +//read-more
                             '</div>' +
                         '</div>' +
@@ -189,12 +193,12 @@ var station = {
         $('#download-progression').show();
         try{
             if(document.getElementById("select-car").value !=0)
-                usersCarConns = carModels[document.getElementById("select-car").value];
+                station.user.carConns = station.carModels[document.getElementById("select-car").value];
             deleteMarkers();
             for(var id in station.list){
                 try{
-                    connectors.length = 0;
-                    if(getCarMatch(id))
+                    station.conns.list.connectors.length = 0;
+                    if(station.getCarMatch(id))
                         addMarker(station.list[id].csmd.Number_charging_points, id);
                     if(inArray(id, station.favorite.stationList))
                         station.favorite.updateStations(id);
@@ -206,10 +210,10 @@ var station = {
             $('.dl-progress-text').text("Innlasting har feilet med følgende feilmeling: " + e);
         }
         if(mc == null)
-            mc = new MarkerClusterer(map, markers, mcOptions);
+            mc = new MarkerClusterer(map, station.markers, app.options.markerCluster);
         else{
             mc.clearMarkers();
-            mc.addMarkers(markers);
+            mc.addMarkers(station.markers);
         }
         $('#download-progression').hide();
         hasDownloaded = true;
@@ -219,33 +223,33 @@ var station = {
         var connType;
         var hasFastCharge_temp = false;
         var isFaulty = false;
-        station.conns.hasFastcharge = false;
-        faultyConns = 0;
+        station.conns.hasFastCharge = false;
+        station.conns.numFaulty = 0;
         for(var c = 1; c <= station.list[id].csmd.Number_charging_points; c++){
             //Checking if any connection ports match the user prefs
             try{
                 connType = station.list[id].attr.conn[c][4].attrvalid; //id
-                if(document.getElementById("select-car").value != 0 && !match && inArray(connType, usersCarConns) && (selectedCapacity <= chargingCapacity[station.list[id].attr.conn[c][5].attrvalid].kW))
+                if(document.getElementById("select-car").value != 0 && !match && inArray(connType, station.user.carConns) && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW))
                     match = true;
-                else if(document.getElementById("select-car").value == 0 && !match && (selectedCapacity <= chargingCapacity[station.list[id].attr.conn[c][5].attrvalid].kW))
+                else if(document.getElementById("select-car").value == 0 && !match && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW))
                 //If no car or type is selected
                     match = true;
                 if(station.list[id].attr.conn[c][9].attrvalid == 1)//Is a faulty connector
-                    faultyConns++;
+                    station.conns.numFaulty++;
                 //For the markers, to indicate if a id has a fast charger or not!
-                if(!hasFastCharge_temp && (fastCharge <= chargingCapacity[station.list[id].attr.conn[c][5].attrvalid].kW))
-                    station.conns.hasFastcharge = true;
+                if(!hasFastCharge_temp && (station.fastCharge <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW))
+                    station.conns.hasFastCharge = true;
                 station.conns.list.push(object.attr.conn[c]);
             }catch(e){}
         }
         return match;
     },
-    //TODO: getStationImage
-    getImage : function (station){
+    //TODO: station.getImage
+    getImage : function (id){
         try{
-            return (/kommer/i.test(station.list[station].csmd.Image.toLowerCase()) || /no.image.svg/i.test(station.list[station].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ station.list[station].csmd.Image);
+            return (/kommer/i.test(station.list[id].csmd.Image.toLowerCase()) || /no.image.svg/i.test(station.list[id].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ station.list[id].csmd.Image);
         }catch(e){
-            console.log("Failed for: " + station + " MSG: " + e)
+            console.log("Failed for: " + id + " MSG: " + e)
         }
     },
     addMarker : function (numOfPorts, id){
@@ -255,10 +259,10 @@ var station = {
         var marker;
         var markerIcon = {
             url: 'icons/'+(
-                isLive ? (hasFastCharge ?
-                    (faultyConns/numOfPorts == 1 ? 'marker_red_v2' :( isStationOccupiedStatus(id) > occupiedLimit ? 'marker_green_v2' : 'marker_yellow_v2')):
-                    (faultyConns/numOfPorts == 1 ? 'marker_red_v3' :( isStationOccupiedStatus(id) > occupiedLimit ? 'marker_green_v3' : 'marker_yellow_v3')))
-                    :(hasFastCharge ? (faultyConns/numOfPorts == 1 ? 'marker_red_v2' :'marker_blue_v2'):(faultyConns/numOfPorts == 1 ? 'marker_red_v3' :'marker_blue_v3')))+'.svg', //Changing the color of the marker based on if it has live status or not.
+                isLive ? (station.hasFastCharge ?
+                    (station.conns.numFaulty/numOfPorts == 1 ? 'marker_red_v2' :( station.occupiedStatus(id) > station.occupiedLimit ? 'marker_green_v2' : 'marker_yellow_v2')):
+                    (station.conns.numFaulty/numOfPorts == 1 ? 'marker_red_v3' :( station.occupiedStatus(id) > station.occupiedLimit ? 'marker_green_v3' : 'marker_yellow_v3')))
+                    :(station.hasFastCharge ? (station.conns.numFaulty/numOfPorts == 1 ? 'marker_red_v2' :'marker_blue_v2'):(station.conns.numFaulty/numOfPorts == 1 ? 'marker_red_v3' :'marker_blue_v3')))+'.svg', //Changing the color of the marker based on if it has live status or not.
             anchor: new google.maps.Point(0, 32),
             origin: new google.maps.Point(0, 0),
             scaledSize: new google.maps.Size(32, 51),
@@ -269,14 +273,14 @@ var station = {
         if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1)
             marker = new google.maps.Marker({
                 position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
-                map: map,
+                map: app.map,
                 title: station.list[id].csmd.name
             });
         else
             marker = new google.maps.Marker({
                 position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
                 icon: markerIcon,
-                map: map,
+                map: app.map,
                 title: station.list[id].csmd.name
             });
 
@@ -284,13 +288,13 @@ var station = {
         var maxHeight = (isMobile?300:500);
 
         var infowindow = new google.maps.InfoWindow({
-            content: contentString,
+            content: station.contentString,
             maxWidth: maxWidth,
             maxHeight: maxHeight
         });
 
-        infoWindows.push(infowindow);
-        markerListeners.push(google.maps.event.addListener(infowindow, 'domready', function() {
+        station.infoWindows.push(infowindow);
+        station.markerListeners.push(google.maps.event.addListener(infowindow, 'domready', function() {
             var iwOuter = $('.gm-style-iw');
             var iwBackground = iwOuter.prev();
 
@@ -316,32 +320,32 @@ var station = {
         }));
 
         //Making it so that the popups disappear upon click outside box
-        markerListeners.push(google.maps.event.addListener(map, 'click', function() {
+        station.markerListeners.push(google.maps.event.addListener(map, 'click', function() {
             if (infowindow) {
                 infowindow.close();
             }
         }));
-        markerListeners.push(marker.addListener('click', function() {
-            for(iw in infoWindows){
-                infoWindows[iw].setContent(null);
-                infoWindows[iw].close();
+        station.markerListeners.push(marker.addListener('click', function() {
+            for(iw in station.infoWindows){
+                station.infoWindows[iw].setContent(null);
+                station.infoWindows[iw].close();
             }
             infowindow.open(map, marker);
 
             infowindow.setContent(createIWContent(id, isLive));
         }));
-        markers.push(marker);
+        station.markers.push(marker);
 
         //Building closest charging stations list
         try{
-            if(compareDistance(geopos, pos) <= 10){
+            if(compareDistance(app.gps.geopos, pos) <= 10){
                 chargers_nearby[station.list[id].csmd.id] = station.list[id];
-                chargers_nearby[station.list[id].csmd.id]["distance"] = compareDistance(geopos, pos);
+                chargers_nearby[station.list[id].csmd.id]["distance"] = compareDistance(app.gps.geopos, pos);
             }
         }catch(e){console.log(e);}
     },
     /*
-     * Waypoints along a given route
+     *  along a given route
      */
     addWaypoint : function (id){
         try{
@@ -353,16 +357,16 @@ var station = {
 
             var content =
                 "<div class='route-element station-"+ id +"'>" +
-                    "<img class='cover-third float-left' src=\"" + getStationImage(id) + "\"/>" +
+                    "<img class='cover-third float-left' src=\"" + station.getImage(id) + "\"/>" +
                     "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
                         "<Strong>" + station.list[id].csmd.name +"</Strong>"+
                     "</div>"+
-                    "<div class='markerColor' style='background-color:"+ (faultyConns / station.list[id].csmd.Number_charging_points == 1 ? "red" : (isLive ? (isStationOccupiedStatus(id) < occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>" +
-                        "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"removeWaypoint(this)\">X</button>" +
+                    "<div class='markerColor' style='background-color:"+ (station.conns.numFaulty / station.list[id].csmd.Number_charging_points == 1 ? "red" : (isLive ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>" +
+                        "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"station.removeWaypoint(this)\">X</button>" +
                     "</div>"+
                     "<button onclick='readMorev2(this)'>Vis mer</button>"+
                     "<div class='read-more clear-both'>" +
-                        generateConnectorString(id,station.list[id].attr.st[21].attrvalid == "1") +
+                        station.conns.getString(id,station.list[id].attr.st[21].attrvalid == "1") +
                     "</div>" +
                 "</div>";
             document.getElementById('waypoint-list').innerHTML += content;
@@ -389,7 +393,7 @@ var station = {
             navigate();
         }
     },
-    //TODO: isStationOccupiedStatus
+    //TODO: station.occupiedStatus
     occupiedStatus : function (id){
         return parseFloat(station.list[id].csmd.Available_charging_points) / parseFloat(station.list[id].csmd.Number_charging_points);
     },
@@ -399,22 +403,22 @@ var station = {
      */
     getInfoWindowContent : function (id, isLive) {
         if(document.getElementById("select-car").value !=0)
-            usersCarConns = carModels[document.getElementById("select-car").value];
+            station.user.carConns = station.carModels[document.getElementById("select-car").value];
 
         //Showing a info windows when you click on the marker
-        connectorsString = generateConnectorString(id, isLive);
+        station.connectorsString = station.conns.getString(id, isLive);
         console.log(station.list[id].csmd.Contact_info);
-        contentString =
+        station.contentString =
             "<div id=\"station-tooltip\">"+
                 "<div id=\"topBox\">"+
                 "</div>"+
                 "<div id=\"secondRow\">" +
-                    "<img class='img-to-load' src=\""+ getStationImage(id) + "\"/>" +
+                    "<img class='img-to-load' src=\""+ station.getImage(id) + "\"/>" +
                     "<div id='placeNameIcons' style='color:blue;'>"+
                         "<h3>"+ station.list[id].csmd.name + "(ID:" + id + ")</h3>" +
                         "<p><strong>Tilgjengelighet</strong> "+ station.list[id].attr.st[2].trans.replace('\r\n','<br />')+"</p>" +
                     "</div>"+
-                    "<div class='markerColor' style='background-color:"+ (faultyConns / station.list[id].csmd.Number_charging_points == 1 ? "red" : (isLive ? (isStationOccupiedStatus(id) < occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>"+
+                    "<div class='markerColor' style='background-color:"+ (station.conns.numFaulty / station.list[id].csmd.Number_charging_points == 1 ? "red" : (isLive ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>"+
                     "</div>"+
                 "</div>"+
                 "<div id='secondContainer'>"+
@@ -428,29 +432,29 @@ var station = {
                     "<div id='chargingPoints'>"+
                         "<p style='border-bottom:1px solid gray;margin-bottom:0;'><strong>Ladepunkter:</strong> "+ station.list[id].csmd.Number_charging_points + " </p>" +
                         "<div> "+
-                            connectorsString +
+                            station.connectorsString +
                         "</div>" +
                     "</div>"+
                 "</div>"+
 
                 "<div id='lowerContainer'>"+
                     '<button onclick="addWaypoint(\'' + id + '\')" >Legg til i rute</button>' +
-                    '<button onclick="navigateFromUser(geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
+                    '<button onclick="navigateFromUser(app.gps.geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
                     '<button onclick="addToFavorites(\'' + id + '\')" >Legg til favoritt</button>' +
                 "</div>"+
             "</div>";
-        return contentString;
+        return station.contentString;
     },
     showHideMarkers : function (ele){
         var visible = true;
 
-        for(var marker in markers)
-            markers[marker].setVisible(!markers[marker].getVisible());
+        for(var marker in station.markers)
+            station.markers[marker].setVisible(!station.markers[marker].getVisible());
 
         $(ele).html(!visible ? 'Skjul stasjonsmarkører' : 'Vis stasjonsmarkører');
     },
     init : function() {
-        station.carModels = {
+        station.station.carModels = {
             'Nissan Leaf' : conns.types.schuko.concat(conns.types.schuko, conns.types.type1, conns.types.type2, conns.types.chademo),
             'BMW i3' : conns.types.schuko.concat(conns.types.schuko, conns.types.type2, conns.types.combo),
             'Buddy' : conns.types.schuko,

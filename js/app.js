@@ -45,7 +45,8 @@ var app = {
      * All the apps options
      */
     options : {
-        panorama : {}
+        panorama : {},
+        markerCluster : {}
     },
     /*
      * An object to hold all of the apps services
@@ -232,10 +233,10 @@ var app = {
         }catch(e){console.log(e);}
 
         //Users current position marker
-        var scaleSize = isIOS ? 120 : 15;
+        var scaleSize = app.device.isIOS ? 120 : 15;
         var mi = {
             url: 'icons/my_pos_marker.svg',
-            anchor: new google.maps.Point( (phonegap && !isIOS ? scaleSize/2 : scaleSize/20), (phonegap && !isIOS ? scaleSize/2 : scaleSize/20) ),
+            anchor: new google.maps.Point( (app.device.phonegap && !app.device.isIOS ? scaleSize/2 : scaleSize/20), (app.device.phonegap && !app.device.isIOS ? scaleSize/2 : scaleSize/20) ),
             origin: new google.maps.Point(0, 0),
             scaledSize: new google.maps.Size(scaleSize, scaleSize),
             size: new google.maps.Size(64, 64)
@@ -262,7 +263,7 @@ var app = {
         station.updateCarList();
         //Turning on layers
         try{
-            trafficOverlay();
+            //TODO: trafficOverlay();
         }catch(e){}
 
         //Finding user location with geolocation
@@ -299,4 +300,3 @@ var app = {
         }, false);
     }
 };
-
