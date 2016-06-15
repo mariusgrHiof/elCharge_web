@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0ce3037-b609-4f67-a933-d11cb2d632d3" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/elevation.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/old/elevation.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/scripts.php" afterPath="$PROJECT_DIR$/includes/scripts.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index_.html" afterPath="$PROJECT_DIR$/index_.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/station.js" afterPath="$PROJECT_DIR$/js/station.js" />
     </list>
     <ignored path="elCharge_web.iws" />
@@ -27,35 +31,21 @@
     <splitter split-orientation="horizontal" split-proportion="0.42364532">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="global.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/old/global.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="382">
-                  <caret line="209" column="0" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
-                  <folding>
-                    <element signature="n#!!block;n#inArrayVal#0" expanded="false" />
-                    <element signature="n#!!block;n#getStationImage#0" expanded="false" />
-                    <element signature="n#!!block;n#connCapacityString#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="scripts.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="scripts.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/includes/scripts.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
-                  <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+                <state relative-caret-position="15">
+                  <caret line="1" column="47" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="googlemaps.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/js/old/googlemaps.js">
+          <file leaf-file-name="elevation.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/elevation.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="253">
-                  <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="66" />
+                <state relative-caret-position="360">
+                  <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
                   <folding />
                 </state>
               </provider>
@@ -93,26 +83,26 @@
             <entry file="file://$PROJECT_DIR$/js/station.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="445">
-                  <caret line="107" column="81" selection-start-line="107" selection-start-column="81" selection-end-line="107" selection-end-column="81" />
+                  <caret line="109" column="38" selection-start-line="109" selection-start-column="38" selection-end-line="109" selection-end-column="38" />
                   <folding>
-                    <marker date="1466015007000" expanded="false" signature="0:40" placeholder="/** Created by jonas on 13.06.16. ...*/" />
-                    <marker date="1466015007000" expanded="true" signature="4236:4259" placeholder="..." />
-                    <marker date="1466015007000" expanded="true" signature="4972:5007" placeholder="..." />
-                    <marker date="1466015007000" expanded="true" signature="5336:5481" placeholder="..." />
-                    <marker date="1466015007000" expanded="true" signature="7100:7130" placeholder="..." />
-                    <marker date="1466015007000" expanded="true" signature="7922:7971" placeholder="..." />
-                    <marker date="1466015007000" expanded="true" signature="7972:9108" placeholder="..." />
-                    <marker date="1466015007000" expanded="true" signature="8157:8359" placeholder="..." />
-                    <marker date="1466015007000" expanded="true" signature="8442:8464" placeholder="..." />
-                    <marker date="1466015007000" expanded="true" signature="8465:9078" placeholder="..." />
-                    <marker date="1466015007000" expanded="true" signature="8993:9043" placeholder="..." />
-                    <marker date="1466015007000" expanded="true" signature="17618:17644" placeholder="..." />
-                    <marker date="1466015007000" expanded="true" signature="17810:18019" placeholder="..." />
-                    <marker date="1466015007000" expanded="true" signature="18065:18130" placeholder="..." />
-                    <marker date="1466015007000" expanded="true" signature="20028:22710" placeholder="..." />
-                    <marker date="1466015007000" expanded="true" signature="20280:20291" placeholder="..." />
-                    <marker date="1466015007000" expanded="true" signature="20597:20806" placeholder="..." />
-                    <marker date="1466015007000" expanded="true" signature="21941:21986" placeholder="..." />
+                    <marker date="1466017538000" expanded="false" signature="0:40" placeholder="/** Created by jonas on 13.06.16. ...*/" />
+                    <marker date="1466017538000" expanded="true" signature="4236:4259" placeholder="..." />
+                    <marker date="1466017538000" expanded="true" signature="4972:5007" placeholder="..." />
+                    <marker date="1466017538000" expanded="true" signature="5336:5481" placeholder="..." />
+                    <marker date="1466017538000" expanded="true" signature="7100:7130" placeholder="..." />
+                    <marker date="1466017538000" expanded="true" signature="7922:7971" placeholder="..." />
+                    <marker date="1466017538000" expanded="true" signature="7972:9108" placeholder="..." />
+                    <marker date="1466017538000" expanded="true" signature="8157:8359" placeholder="..." />
+                    <marker date="1466017538000" expanded="true" signature="8442:8464" placeholder="..." />
+                    <marker date="1466017538000" expanded="true" signature="8465:9078" placeholder="..." />
+                    <marker date="1466017538000" expanded="true" signature="8993:9043" placeholder="..." />
+                    <marker date="1466017538000" expanded="true" signature="17656:17682" placeholder="..." />
+                    <marker date="1466017538000" expanded="true" signature="17848:18057" placeholder="..." />
+                    <marker date="1466017538000" expanded="true" signature="18103:18168" placeholder="..." />
+                    <marker date="1466017538000" expanded="true" signature="20066:22748" placeholder="..." />
+                    <marker date="1466017538000" expanded="true" signature="20318:20329" placeholder="..." />
+                    <marker date="1466017538000" expanded="true" signature="20635:20844" placeholder="..." />
+                    <marker date="1466017538000" expanded="true" signature="21979:22024" placeholder="..." />
                   </folding>
                 </state>
               </provider>
@@ -143,7 +133,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/includes/header-full.html" />
         <option value="$PROJECT_DIR$/includes/header.html" />
         <option value="/private/var/folders/xn/vgc7mccj4nd6xy21gb3fng2r0000gn/T/fz3temp-1/index.php" />
         <option value="$PROJECT_DIR$/.htaccess" />
@@ -191,9 +180,10 @@
         <option value="$PROJECT_DIR$/data/exampleObject.json.js" />
         <option value="$PROJECT_DIR$/js/addStations.js" />
         <option value="$PROJECT_DIR$/js/old/global.js" />
-        <option value="$PROJECT_DIR$/includes/scripts.php" />
         <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/js/station.js" />
+        <option value="$PROJECT_DIR$/js/old/elevation.js" />
+        <option value="$PROJECT_DIR$/includes/scripts.php" />
       </list>
     </option>
   </component>
@@ -347,19 +337,19 @@
     <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/js" />
+      <recent name="$PROJECT_DIR$/js/old" />
+      <recent name="$PROJECT_DIR$/icons" />
+      <recent name="C:\Users\Marius\Documents\GitHub\elCharge_web\includes" />
+      <recent name="$PROJECT_DIR$/styles" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/icons/conn" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/icons" />
       <recent name="C:\MAMP\htdocs\elCharge_web\icons" />
       <recent name="$PROJECT_DIR$/js" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/js/old" />
-      <recent name="$PROJECT_DIR$/icons" />
-      <recent name="C:\Users\Marius\Documents\GitHub\elCharge_web\includes" />
-      <recent name="$PROJECT_DIR$/js" />
-      <recent name="$PROJECT_DIR$/styles" />
     </key>
   </component>
   <component name="RunManager">
@@ -531,14 +521,7 @@
       <workItem from="1465899044591" duration="1791000" />
       <workItem from="1465911557933" duration="210000" />
       <workItem from="1465938218380" duration="3266000" />
-      <workItem from="1465980797132" duration="15992000" />
-    </task>
-    <task id="LOCAL-00179" summary="Ruter går ikke blindt etter når punkter var lagt til, men heller hvilke rekkefølge det ville vært naturlig å følge de i(optimalisert for tid/distanse).">
-      <created>1462704806039</created>
-      <option name="number" value="00179" />
-      <option name="presentableId" value="LOCAL-00179" />
-      <option name="project" value="LOCAL" />
-      <updated>1462704806039</updated>
+      <workItem from="1465980797132" duration="17074000" />
     </task>
     <task id="LOCAL-00180" summary="vis og skjul knapp for markører i rute er nå lagt til">
       <created>1462705933497</created>
@@ -876,11 +859,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466007813611</updated>
     </task>
-    <option name="localTasksCounter" value="228" />
+    <task id="LOCAL-00228" summary="Fixed non working &quot;connection points&quot; in the info window">
+      <created>1466015042933</created>
+      <option name="number" value="00228" />
+      <option name="presentableId" value="LOCAL-00228" />
+      <option name="project" value="LOCAL" />
+      <updated>1466015042933</updated>
+    </task>
+    <option name="localTasksCounter" value="229" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="378077000" />
+    <option name="totallyTimeSpent" value="379159000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -928,7 +918,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="comment" />
     <MESSAGE value="Bug fix" />
     <MESSAGE value="flyttet include.js sitt innhold over til googlemaps.js" />
     <MESSAGE value="Bug fix for at ladestasjoner ikke ble lastet ned for mobil" />
@@ -953,7 +942,8 @@
     <MESSAGE value="cleanup in station.js" />
     <MESSAGE value="finalized app &amp; station.js" />
     <MESSAGE value="minor fix for getString for conns" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor fix for getString for conns" />
+    <MESSAGE value="Fixed non working &quot;connection points&quot; in the info window" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed non working &quot;connection points&quot; in the info window" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -962,13 +952,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/includes/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/map.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1245,14 +1228,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/old/elevation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/exampleObject.json.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="952">
@@ -1308,14 +1283,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/scripts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/old/global.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="382">
@@ -1325,14 +1292,6 @@
             <element signature="n#!!block;n#getStationImage#0" expanded="false" />
             <element signature="n#!!block;n#connCapacityString#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/old/googlemaps.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1361,27 +1320,59 @@
     <entry file="file://$PROJECT_DIR$/js/station.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="445">
-          <caret line="107" column="81" selection-start-line="107" selection-start-column="81" selection-end-line="107" selection-end-column="81" />
+          <caret line="109" column="38" selection-start-line="109" selection-start-column="38" selection-end-line="109" selection-end-column="38" />
           <folding>
-            <marker date="1466015007000" expanded="false" signature="0:40" placeholder="/** Created by jonas on 13.06.16. ...*/" />
-            <marker date="1466015007000" expanded="true" signature="4236:4259" placeholder="..." />
-            <marker date="1466015007000" expanded="true" signature="4972:5007" placeholder="..." />
-            <marker date="1466015007000" expanded="true" signature="5336:5481" placeholder="..." />
-            <marker date="1466015007000" expanded="true" signature="7100:7130" placeholder="..." />
-            <marker date="1466015007000" expanded="true" signature="7922:7971" placeholder="..." />
-            <marker date="1466015007000" expanded="true" signature="7972:9108" placeholder="..." />
-            <marker date="1466015007000" expanded="true" signature="8157:8359" placeholder="..." />
-            <marker date="1466015007000" expanded="true" signature="8442:8464" placeholder="..." />
-            <marker date="1466015007000" expanded="true" signature="8465:9078" placeholder="..." />
-            <marker date="1466015007000" expanded="true" signature="8993:9043" placeholder="..." />
-            <marker date="1466015007000" expanded="true" signature="17618:17644" placeholder="..." />
-            <marker date="1466015007000" expanded="true" signature="17810:18019" placeholder="..." />
-            <marker date="1466015007000" expanded="true" signature="18065:18130" placeholder="..." />
-            <marker date="1466015007000" expanded="true" signature="20028:22710" placeholder="..." />
-            <marker date="1466015007000" expanded="true" signature="20280:20291" placeholder="..." />
-            <marker date="1466015007000" expanded="true" signature="20597:20806" placeholder="..." />
-            <marker date="1466015007000" expanded="true" signature="21941:21986" placeholder="..." />
+            <marker date="1466017538000" expanded="false" signature="0:40" placeholder="/** Created by jonas on 13.06.16. ...*/" />
+            <marker date="1466017538000" expanded="true" signature="4236:4259" placeholder="..." />
+            <marker date="1466017538000" expanded="true" signature="4972:5007" placeholder="..." />
+            <marker date="1466017538000" expanded="true" signature="5336:5481" placeholder="..." />
+            <marker date="1466017538000" expanded="true" signature="7100:7130" placeholder="..." />
+            <marker date="1466017538000" expanded="true" signature="7922:7971" placeholder="..." />
+            <marker date="1466017538000" expanded="true" signature="7972:9108" placeholder="..." />
+            <marker date="1466017538000" expanded="true" signature="8157:8359" placeholder="..." />
+            <marker date="1466017538000" expanded="true" signature="8442:8464" placeholder="..." />
+            <marker date="1466017538000" expanded="true" signature="8465:9078" placeholder="..." />
+            <marker date="1466017538000" expanded="true" signature="8993:9043" placeholder="..." />
+            <marker date="1466017538000" expanded="true" signature="17656:17682" placeholder="..." />
+            <marker date="1466017538000" expanded="true" signature="17848:18057" placeholder="..." />
+            <marker date="1466017538000" expanded="true" signature="18103:18168" placeholder="..." />
+            <marker date="1466017538000" expanded="true" signature="20066:22748" placeholder="..." />
+            <marker date="1466017538000" expanded="true" signature="20318:20329" placeholder="..." />
+            <marker date="1466017538000" expanded="true" signature="20635:20844" placeholder="..." />
+            <marker date="1466017538000" expanded="true" signature="21979:22024" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/old/googlemaps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/elevation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/elevation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/scripts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="47" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
     </entry>

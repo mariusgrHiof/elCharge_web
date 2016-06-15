@@ -280,7 +280,6 @@ var station = {
             size: new google.maps.Size(64, 64)
         };
 
-
         if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1)
             marker = new google.maps.Marker({
                 position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
@@ -291,6 +290,7 @@ var station = {
             marker = new google.maps.Marker({
                 position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
                 icon: markerIcon,
+                optimized : false,
                 map: app.map,
                 title: station.list[id].csmd.name
             });
@@ -331,7 +331,7 @@ var station = {
         }));
 
         //Making it so that the popups disappear upon click outside box
-        station.markerListeners.push(google.maps.event.addListener(map, 'click', function() {
+        station.markerListeners.push(google.maps.event.addListener(app.map, 'click', function() {
             if (infowindow) {
                 infowindow.close();
             }
