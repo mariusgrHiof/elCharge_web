@@ -17,7 +17,7 @@ var station = {
   markerListeners : [],
   contentString : '',
   connectorsString : '',
-  selectedCapacity : '',
+  selectedCapacity : 0,
   occupiedLimit : 0.4,
   semiFastCharge : 12,
   fastCharge : 43,
@@ -105,7 +105,8 @@ var station = {
           result +=
             "<div class='cpelements'>"+
               "<span style=\'color:black; width:90%; float:left;\'>"+
-              station.list[id].attr.conn[c][4].trans + "(" + station.conns.connCapacityString(id, c) + ")" +
+              station.list[id].attr.conn[c][4].trans +
+              "</br>" + station.conns.connCapacityString(id, c) +
               station.conns.getImg(station.list[id].attr.conn[c][4].attrvalid) +
               "</span>"+
               "<div class='chargePointColor' style='background-color:" + (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'>"+

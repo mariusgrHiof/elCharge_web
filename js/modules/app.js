@@ -214,8 +214,7 @@ var app = {
       //Updating stations with the prefered minimum charging capacity
       $("#selected-charger-capacity").change(
         function(){
-          selectedCapacity = $(this).children(":input[name='kW']:checked").val();
-          console.log("Selected: " + selectedCapacity);
+          station.selectedCapacity = $(this).children(":input[name='kW']:checked").val();
           //Updating the map with markers
           station.generateMarkers();
         }
