@@ -234,7 +234,7 @@ var station = {
     for(var c in station.list[id].attr.conn){
       //Checking if any connection ports match the user prefs
       try{
-        if($('#select-car').val() != 0 && !match && $.inArray(4, station.list[id].attr.conn[c]) && $.inArray(station.list[id].attr.conn[c][4].attrvalid, station.user.carConns) && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW))
+        if($('#select-car').val() != 0 && !match && app.inArray(station.list[id].attr.conn[c][4].attrvalid, station.user.carConns) && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW))
           match = true;
         else if($('#select-car').val() == 0 && !match && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW))
         //If no car or type is selected
