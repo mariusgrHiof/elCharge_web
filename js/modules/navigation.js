@@ -21,7 +21,7 @@ var navigation = {
     navigation.display = new google.maps.DirectionsRenderer({
       draggable: true,
       map: app.map,
-      panel: $('right-panel')[0]
+      panel: $('#right-panel')[0]
     });
 
     //Allows us to do stuff when the route is dragged and/or changed.

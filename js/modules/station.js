@@ -179,9 +179,6 @@ var station = {
       }
     },
   },
-  route : {
-    waypoints : []
-  },
   updateCarList : function(){
     //Adding elements to the car list dropdown
     var txt = '<option value="0">Vis alle ladere</option>';
@@ -350,7 +347,7 @@ var station = {
     try{
       var disPos = station.list[id].csmd.Position.replace(/[()]/g,"").split(",");
       var isLive = station.list[id].attr.st[21].attrvalid == "1";
-      station.route.waypoints.push(
+      navigation.waypoints.push(
         {location: new google.maps.LatLng(disPos[0],disPos[1])}
       );
 
@@ -384,7 +381,7 @@ var station = {
     $(parent).remove();
     //Removing elements from waypoints and moving the other elements down in the array.
     if(index > -1){
-      station.route.waypoints.splice(index, 1);
+      navigation.waypoints.splice(index, 1);
     }
 
     //Refreshing the route if it's active

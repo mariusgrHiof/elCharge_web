@@ -303,6 +303,14 @@ ul{
     max-width: 95%;
 }
 
+/*Route*/
+.route-element{/*
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;*/
+}
+.route-element > img {
+  max-height:5em;
+}
 /*
 button{
     background-color: lightgreen;

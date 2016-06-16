@@ -1,70 +1,69 @@
 /*Mobile layout*/
 @media screen and (max-width:600px){
-    html{
-        background:black;
-    }
-    header{
-        width:100%;
-        min-width:100%;
-        max-width:100%;
-        position:relative;
-    }
-    #map{
-        top: -0.3em;
-        height: calc(100% - 5em);
-        position:relative !important;
-    }
+  html{
+    background:black;
+  }
+  header{
+    width:100%;
+    min-width:100%;
+    max-width:100%;
+    position:relative;
+  }
+  #map{
+    top: -0.3em;
+    height: calc(100% - 5em);
+    position:relative !important;
+  }
 
-    nav{
-        width: 100%;
-    }
+  nav{
+    width: 100%;
+  }
 
-    footer{
-        width:100%;
-        left:0;
-        bottom:0;
-    }
+  footer{
+    width:100%;
+    left:0;
+    bottom:0;
+  }
 
-    #download-progression{
-        /*width: calc(100% - 1.6em) !important;*/
-        left:0 !important;
-    }
+  #download-progression{
+    /*width: calc(100% - 1.6em) !important;*/
+    left:0 !important;
+  }
 
-    /*Charger menu*/
-    #chargers-nearby {
-        height: 70vh;
-        overflow-y: auto;
-    }
+  /*Charger menu*/
+  #chargers-nearby {
+    height: 70vh;
+    overflow-y: auto;
+  }
 
 
-    .gm-style-iw{
-        width:200% !important;
-        min-width: 130% !important;
-        max-width:130% !important;
-    }
-    .gm-style-iw > div{
-        width: 100% !important;
-    }
-    .gm-style .gm-style-iw{
-        width:100% !important;
-        height:30em !important;
-    }
-    #infoLeft{
-        width:100% !important;
-        height:50% !important;
-    }
-    #chargingPoints {
-        width:100% !important;
-        max-height: 12em !important;
-        float:right;
-    }
-    #chargingPoints > div{
-        overflow-y: scroll;
-        height: 10em;
-    }
+  .gm-style-iw{
+    width:200% !important;
+    min-width: 130% !important;
+    max-width:130% !important;
+  }
+  .gm-style-iw > div{
+    width: 100% !important;
+  }
+  .gm-style .gm-style-iw{
+    width:100% !important;
+    height:30em !important;
+  }
+  #infoLeft{
+    width:100% !important;
+    height:50% !important;
+  }
+  #chargingPoints {
+    width:100% !important;
+    max-height: 12em !important;
+    float:right;
+  }
+  #chargingPoints > div{
+    overflow-y: scroll;
+    height: 10em;
+  }
 
-    .iw-close-btn{
-        display:none;
-    }
-
+  .iw-close-btn{
+    display:none;
+  }
 }

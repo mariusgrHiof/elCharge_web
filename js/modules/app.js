@@ -483,13 +483,12 @@ var app = {
    * An object to hold everything related to GPS
    */
   gps : {
-    accuracyRadius : 999,
+    accuracyRadius : null,
     lockPos : false,
     myLocationIndicator : {},
     pos : {},
     geopos : {},
     onSuccess : function(position) {
-      console.log(position);
       app.gps.geopos = [position.coords.latitude, position.coords.longitude];
       try{
         app.gps.pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -507,10 +506,12 @@ var app = {
             center: app.gps.pos,
             radius: position.coords.accuracy
           });
+          if(app.gps.lockPos)
+            app.gps.centerOnUser(45);
         }
-        if(app.gps.lockPos)
-          app.gps.centerOnUser(45);
-      }catch(e){}
+      }catch(e){
+        console.log(e);
+      }
     },
     onError : function (error) {
       if (window.location.protocol != "https:" && !app.device.phonegap)
@@ -549,13 +550,16 @@ var app = {
     isMobile : false,
     isAndroid : false,
     isIOS : false,
+    isWindows : false,
     typeCheck : function(){
       var mobile = window.matchMedia("only screen and (max-width: 600px)");
       if (mobile.matches) {
         //Allowing us to have a absolute position on the map rather than relative (default)
         app.device.isMobile = true;
         $('#map').css("position","absolute");
-      }
+      }else
+        //Removing the lock user pos button if this is desktop
+        $('button#lock-to-my-pos-btn').remove();
       // if iPod / iPhone, display install app prompt
       if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i) ||
         navigator.userAgent.match(/android/i)) {
