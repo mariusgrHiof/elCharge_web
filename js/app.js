@@ -15,6 +15,235 @@ var app = {
     url : 'https://nobil.no/api/server/datadump.php?',
     key : '274b68192b056e268f128ff63bfcd4a4'
   },
+  login : {
+    showPopup : function(){
+      $('#register-popup').hide();
+      $('#login-popup').show();
+    },
+    hidePopup : function(){
+      $('#login-popup').hide();
+    },
+    closeForm : function(){
+      app.login.hidePopup();
+      app.register.hidePopup();
+    }
+  },
+  register : {
+    showPopup : function(){
+      $('#register-popup').show();
+    },
+    hidePopup : function(){
+      $('#register-popup').hide();
+    }
+  },
+  buttons : {
+    slideInMenu : function(){
+      try{
+        var target = $('.menu');
+        if($(target).css("left") == "-700px"){
+          $('#menu-toggle').addClass('toggle');
+          $(target).animate({left:'0px'}, {queue: false, duration: 300});
+        }else{
+          $('#menu-toggle').removeClass('toggle');
+          $(target).animate({left:'-700px'}, {queue: false, duration: 300});
+        }
+      }catch(e){console.log(e);}
+    },
+    login : function(form){
+      var path = "";
+      if(app.device.phonegap)
+        path += app.url;
+      path +="includes/checkloggin.php";
+
+      //Logging the user in
+      $.post(path,{
+          //Posting username and password
+          username: $(form).children(":input[name='username']").val(),
+          password: $(form).children(":input[name='password']").val() },
+        function( data ){
+          //Populating the user logged in window.
+          //Cleaning out the array
+          favoriteStations.length = 0;
+          $("#favorite-stations").html("");
+
+          if(data != "[{}]"){
+            for(var obj in JSON.parse(data))
+                station.favorite.stationList[ JSON.parse(data)[obj].station_id] = JSON.parse(data)[obj];
+            station.favorite.updateStations();
+            $('#auth').hide();
+            $('#logged-in').html('Velkommen, ' + JSON.parse(data)[0].username);
+              /*
+              * Getting saved routes
+              */
+              $.post((app.device.phonegap ? app.url : '') + "includes/getMyRoutes.php",function (data){
+                //Cleaning out the array
+                app.favorite.routeList.length = 0;
+                var startPos;
+                $("#favorite-routes").html("");
+                for(var obj in data){
+                  //TODO: Use a unique key instead of location name!
+                  startPos = data[obj].start;
+                  app.favorite.routeList[startPos] = data[obj];
+                }
+              });
+          }else {
+            $('#logged-in').html('Feil brukernavn eller passord');
+          }
+        }
+      );
+      return false;
+    },
+    logout : function(){
+      var path = "";
+      if(app.device.phonegap)
+          path += app.url;
+      path +="includes/logOut.php";
+
+      $.post(path, function data(){
+       $('#logged-in').html("logget ut");
+      });
+      station.favorite.updateStations();
+    },
+    register : function(form){
+      var path = "";
+      if(app.device.phonegap)
+        path += app.url;
+      path +="includes/register.php";
+
+      //Logging the user in
+      $.post(path,
+        {
+          //Posting username and password
+          username: $(form).children(":input[name='username']").val(),
+          password: $(form).children(":input[name='password']").val() },
+        function( data ){
+          $('#logged-in').html(data );
+        });
+      return false;
+    },
+    lockMapToUser : function(ele){
+      //Making it so that the user can toggle if they want the map to follow or not
+      app.gps.lockPos = !app.gps.lockPos;
+      $(ele).html(app.gps.lockPos ? 'U' : 'L');
+    }
+  },
+  eventListeners : {
+    loginRegister : function(){
+      /*
+       * Login & Register
+      */
+      //Show login popup
+      $('#show-login').click(function(){
+          app.login.showPopup();
+      });
+
+      //Show register popup
+      $('.show-register').click(function(){
+          app.register.showPopup();
+          app.login.hidePopup();
+      });
+
+      //show login from the registrer form
+      $('.show-login').click(function(){
+          app.login.showPopup();
+      });
+
+      //Close login and register popup
+      $('.close-form').click(function(){
+          app.login.closeForm();
+      });
+
+    },
+    textButtons : function (){
+      /*
+       * Text as buttons
+      */
+      $('.menu-item').click(
+        function(){
+          var child = $(this).next().filter('.sub-item');
+          var parent = $(this).parent();
+          var grandParent = $(this).parent().parent();
+
+          if(!$(child).hasClass('toggle')){
+            $(child).addClass('toggle');
+            $(this).addClass('title-box');
+            $(parent).addClass('parent');
+            app.menu.selectHandeler(grandParent,true);
+          }else{
+            $(child).removeClass('toggle');
+            $(this).removeClass('title-box');
+            $(parent).removeClass('parent');
+            app.menu.selectHandeler(grandParent, false);
+          }
+        }
+      );
+    },
+    input : function(){
+      /**
+       * Input listeners
+       */
+      //Turning layers on or off
+      $('input[type=checkbox].onoffswitch-checkbox').change(
+        function(){
+          if($(this).attr('id') == 'traffic-layer')
+            trafficOverlay();
+          if($(this).attr('id') == 'weather-layer')
+            weatherOverlay();
+          if($(this).attr('id') == 'cloud-layer')
+            cloudOverlay();
+        }
+      );
+      //Changing the autoupdate interval or deactivate autoupdate
+      $('input[type=number]#bg-update-timer').change(
+        function(){
+          if($(this).val() <= 0)
+            app.download.stopBackgroundTimer();
+          else
+            app.download.updateBackgroundTimer($(this).val());
+        }
+      );
+      //Changing the selected car and updating station markers accordingly
+      $('#select-car').change(
+        function(){
+          station.generateMarkers();
+        }
+      );
+      //Updating stations with the prefered minimum charging capacity
+      $("#selected-charger-capacity").change(
+        function(){
+          selectedCapacity = $(this).children(":input[name='kW']:checked").val();
+          console.log("Selected: " + selectedCapacity);
+          //Updating the map with markers
+          station.generateMarkers();
+        }
+      );
+    },
+    init : function(){
+      app.eventListeners.loginRegister();
+      app.eventListeners.textButtons();
+      app.eventListeners.input();
+    }
+  },
+  menu : {
+    selectHandeler : function (parent, remove){
+      $(parent).children('li').each(
+        function(){
+          if(!$(this).children('h2').next().hasClass('toggle')){
+            $(this).css('display',remove ? 'none' : 'block');
+          }else{
+            $(this).css('display','block');
+          }
+        }
+      );
+    },
+    readMore : function(ele){
+      if(!$(ele).hasClass('toggle')){
+        $(ele).addClass('toggle');
+      }else{
+        $(ele).removeClass('toggle');
+      }
+    }
+  },
   download : {
     lastDownloaded : '2005-01-01',
     hasDownloaded : false,
@@ -287,13 +516,13 @@ var app = {
     },
     centerOnUser : function (camtilt){
       //Refreshing user pos
-      if(!isMobile)//Only for desktop
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+      if(!app.device.isMobile)//Only for desktop
+        navigator.geolocation.getCurrentPosition(app.gps.onSuccess, app.gps.onError);
       //Applying wanted cam tilt
       if (app.map.getTilt()) {
         app.map.setTilt(camtilt);
       }
-      app.map.setCenter(pos);
+      app.map.setCenter(app.gps.pos);
       app.map.setZoom(18);
     },
     //TODO: Rename all reffs
@@ -362,6 +591,7 @@ var app = {
    * A function for initiating the app
   */
   init : function(){
+    app.eventListeners.init();
     app.download.init();
     station.init();
     app.map = new google.maps.Map($('#map')[0], {
@@ -425,6 +655,7 @@ var app = {
     var scaleSize = app.device.isIOS ? 120 : 15;
     var mi = {
         url: 'icons/my_pos_marker.svg',
+        optimize : false,
         anchor: new google.maps.Point( (app.device.phonegap && !app.device.isIOS ? scaleSize/2 : scaleSize/20), (app.device.phonegap && !app.device.isIOS ? scaleSize/2 : scaleSize/20) ),
         origin: new google.maps.Point(0, 0),
         scaledSize: new google.maps.Size(scaleSize, scaleSize),

@@ -363,7 +363,7 @@ var station = {
           "<div class='markerColor' style='background-color:"+ (station.conns.numFaulty / station.list[id].csmd.Number_charging_points == 1 ? "red" : (isLive ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>" +
             "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"station.removeWaypoint(this)\">X</button>" +
           "</div>"+
-          "<button onclick='readMorev2(this)'>Vis mer</button>"+
+          "<button onclick='app.menu.readMore(this)'>Vis mer</button>"+
           "<div class='read-more clear-both'>" +
             station.conns.getString(id,station.list[id].attr.st[21].attrvalid == "1") +
           "</div>" +
