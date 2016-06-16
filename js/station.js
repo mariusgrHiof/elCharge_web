@@ -170,7 +170,7 @@ var station = {
               (station.list[id].attr.st[21].attrvalid == "1" ? (station.occupiedStatus(id) < station.occupiedLimit ? 'lightgreen' : 'yellow') : 'blue') + ';"></div>'+
             '<div class="cover-twothird float-right" style="width:calc(66% - 1em);">'+
               '<strong class="float-left">' + station.list[id].csmd.name + '</strong><br />'+
-              '<span>' + compareDistance(app.gps.geopos, station.list[id].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>'+
+              '<span>' + nearby.compareDistance(app.gps.geopos, station.list[id].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>'+
               '<button class="float-left" onclick="navigation.fromUser(app.gps.geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
               '<div class="clear-both">' +//read-more
               '</div>' +
@@ -192,25 +192,21 @@ var station = {
   },
   generateMarkers : function(){
     $('#download-progression').show();
-    try{
-      if($('#select-car').val() !=0)
-        station.user.carConns = station.conns.carModels[$('#select-car').val()];
-      station.deleteMarkers();
-      for(var id in station.list){
-        //console.log(id);
-        try{
-          station.conns.list.length = 0;
-          if(station.getCarMatch(id))
-            station.addMarker(station.list[id].csmd.Number_charging_points, id);
-          if($.inArray(id, station.favorite.stationList))
-            station.favorite.updateStations(id);
-        }catch(err){console.log(err);}
-      }
-      $('#download-progression').hide();
-      station.hasDownloaded = true;
-    }catch(e){
-      $('.dl-progress-text').text("Innlasting har feilet med følgende feilmeling: " + e);
+    if($('#select-car').val() !=0)
+      station.user.carConns = station.conns.carModels[$('#select-car').val()];
+    station.deleteMarkers();
+    for(var id in station.list){
+      try{
+        station.conns.list.length = 0;
+        if(station.getCarMatch(id))
+          station.addMarker(station.list[id].csmd.Number_charging_points, id);
+        if($.inArray(id, station.favorite.stationList))
+          station.favorite.updateStations(id);
+      }catch(err){console.log(err);}
     }
+    $('#download-progression').hide();
+    station.hasDownloaded = true;
+
     if(station.markerClusterer == null)
       station.markerClusterer = new MarkerClusterer(app.map, station.markers, app.options.markerCluster);
     else{
@@ -225,7 +221,7 @@ var station = {
     app.setMapOnAll(null);
     station.markerListeners.length = 0;
     station.infoWindows.length = 0;
-    chargers_nearby.length = 0;
+    nearby.chargers.length = 0;
     station.markers.length = 0;
   },
   getCarMatch : function (id){
@@ -341,9 +337,9 @@ var station = {
 
     //Building closest charging stations list
     try{
-      if(compareDistance(app.gps.geopos, pos) <= 10){
-        chargers_nearby[station.list[id].csmd.id] = station.list[id];
-        chargers_nearby[station.list[id].csmd.id]["distance"] = compareDistance(app.gps.geopos, pos);
+      if(nearby.compareDistance(app.gps.geopos, pos) <= 10){
+        nearby.chargers[station.list[id].csmd.id] = station.list[id];
+        nearby.chargers[station.list[id].csmd.id]["distance"] = nearby.compareDistance(app.gps.geopos, pos);
       }
     }catch(e){console.log(e);}
   },

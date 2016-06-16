@@ -203,7 +203,7 @@ var app = {
   map : {},
   setMapOnAll : function (map){
     for (var i in station.markers) {
-      markers[i].setMap(map);
+      station.markers[i].setMap(map);
     }
   },
   cluster : {
@@ -364,7 +364,7 @@ var app = {
   init : function(){
     app.download.init();
     station.init();
-    app.map = new google.maps.Map(document.getElementById('map'), {
+    app.map = new google.maps.Map($('#map')[0], {
       center: {lat: 59.91673, lng: 10.74782},
       zoom: 13,
       mapTypeControl: true,
@@ -397,7 +397,7 @@ var app = {
     try{
       //Search box header
       // Create the search box and link it to the UI element.
-      var input = document.getElementById('search-box');
+      var input = $('#search-box')[0];
       var searchBox = new google.maps.places.SearchBox(input);
 
       searchBox.setBounds(app.map.getBounds());
@@ -440,11 +440,11 @@ var app = {
 
     try{
       //Search box startPos
-      var inputStartPos = document.getElementById('nav-start-pos');
+      var inputStartPos = $('#nav-start-pos')[0];
       var searchBoxStartPos = new google.maps.places.SearchBox(inputStartPos);
       searchBoxStartPos.setBounds(app.map.getBounds());
       //Search box endPos
-      var inputEndPos = document.getElementById('nav-end-pos');
+      var inputEndPos = $('#nav-end-pos')[0];
       var searchBoxEndPos = new google.maps.places.SearchBox(inputEndPos);
       searchBoxEndPos.setBounds(app.map.getBounds());
     }catch(e){}
@@ -492,7 +492,7 @@ var app = {
     if(app.device.isMobile)
       setInterval(function () {
         //Updating the "nearby chargers" list for all mobile devices (web and app)
-        updateNearbyChargers();
+        nearby.update();
         station.favorite.updateStations();
       }, 1000);
 

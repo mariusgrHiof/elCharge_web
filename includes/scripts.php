@@ -2,6 +2,7 @@
 //addJS('js/old/addStations.js', false, false);
 addJS('js/elevation.js', false, false);
 addJS('js/navigation.js', false, false);
+addJS('js/nearby.js', false, false);
 addJS('js/station.js', false, false);
 addJS('js/app.js', false, false);
 //addJS('js/old/global.js', false, false);
@@ -10,7 +11,7 @@ addJS('js/MarkerClusterer.js', false, false);
 //addJS('js/old/googlemaps.js', false, false);
 
 addJS('js/old/login.js', false, false);
-addJS('js/old/chargers-nearby.js', false, false);
+//addJS('js/old/chargers-nearby.js', false, false);
 addJS('js/old/maplayers.js', false, false);
 addJS('js/old/buttons.js', false, false);
 
