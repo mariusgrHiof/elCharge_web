@@ -44,7 +44,7 @@ var nearby = {
               '<div class="cover-twothird float-right" style="width:calc(66% - 1em);">'+
                 '<strong class="float-left station-title">' + nearby.chargers[id].csmd.name + '</strong><br />'+
                 '<span>' + nearby.chargers[id].distance.toFixed(2)+ 'km </span>'+
-                '<button class="float-left" onclick="navigateFromUser(geopos, this)" value="'+ thisPos +'">Ta meg hit</button>' +
+                '<button class="float-left" onclick="navigation.fromUser(geopos, this)" value="'+ thisPos +'">Ta meg hit</button>' +
                 '<div class="clear-both">' +//read-more
                 '</div>' +
               '</div>' +

@@ -465,12 +465,6 @@ var app = {
     markerCluster : {}
   },
   /*
-   * An object to hold all of the apps services
-   */
-  services : {
-    elevation : {}
-  },
-  /*
    * An object to hold everything related to GPS
    */
   gps : {
@@ -594,6 +588,7 @@ var app = {
     app.eventListeners.init();
     app.download.init();
     station.init();
+    elevation.init();
     app.map = new google.maps.Map($('#map')[0], {
       center: {lat: 59.91673, lng: 10.74782},
       zoom: 13,
@@ -618,7 +613,6 @@ var app = {
         position: google.maps.ControlPosition.BOTTOM_CENTER
       }
     };
-    app.services.elevation = new google.maps.ElevationService;
 
     var sw = app.map.getStreetView().setOptions(app.options.panorama);
     app.device.typeCheck();

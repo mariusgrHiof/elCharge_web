@@ -5,6 +5,7 @@
 google.load('visualization', '1', {packages: ['columnchart']});
 
 var elevation = {
+  service : {},
   path: [],
   displayForPath: function (path, elevator) {
     elevation.path.length = 0;
@@ -45,5 +46,8 @@ var elevation = {
       legend: 'none',
       titleY: 'Elevation (m)'
     });
+  },
+  init : function(){
+    elevation.service = new google.maps.ElevationService;
   }
 };

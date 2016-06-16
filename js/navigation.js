@@ -21,7 +21,7 @@ var navigation = {
     navigation.display = new google.maps.DirectionsRenderer({
       draggable: true,
       map: app.map,
-      panel: document.getElementById('right-panel')
+      panel: $('right-panel')[0]
     });
 
     //Allows us to do stuff when the route is dragged and/or changed.
@@ -31,6 +31,7 @@ var navigation = {
     navigation.displayRoute(navigation.startDestination, navigation.endDestination, navigation.service,navigation.display);
   },
   fromUser : function (from, toel){
+    navigation.clearRoute();
     if(document.getElementById('right-panel').innerHTML != null)
       $("#right-panel").html("") //The route description
     if(navigation.display != null)
@@ -58,7 +59,6 @@ var navigation = {
     //Allows us to do stuff when the route is dragged and/or changed.
     navigation.display.addListener('directions_changed', function() {
       navigation.getTotalDistance(navigation.display.getDirections());
-      navigation.display.setDirections();
     });
     navigation.displayRoute(navigation.startDestination, navigation.endDestination, navigation.service, navigation.display);
   },
@@ -101,19 +101,17 @@ var navigation = {
    * And assigning route to array
    */
   getTotalDistance : function (result) {
-    try{
-      var total = 0;
-      navigation.route = result.routes[0];
-      for (var i = 0; i < navigation.route.legs.length; i++) {
-        total += navigation.route.legs[i].distance.value;
-      }
-      //Getting waypoint adresses
-      navigation.getRouteData();
-      total = total / 1000;
-      $('#total').html('Total reise distanse '+ total + ' km');
-      //Showing the path elevation
-      elevation.displayForPath(navigation.route, elevation.service);
-    }catch(e){console.log(e);}
+    var total = 0;
+    navigation.route = result.routes[0];
+    for (var i = 0; i < navigation.route.legs.length; i++) {
+      total += navigation.route.legs[i].distance.value;
+    }
+    //Getting waypoint adresses
+    navigation.getRouteData();
+    total = total / 1000;
+    $('#total').html('Total reise distanse '+ total + ' km');
+    //Showing the path elevation
+    elevation.displayForPath(navigation.route, elevation.service);
   },
   getRouteData : function () {
     for(var i in navigation.route.legs){
