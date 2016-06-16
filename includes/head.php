@@ -21,5 +21,5 @@
     <link rel="stylesheet" type="text/css" href="styles/footer.css"/>
     <!-- Scripts -->
     <script src="https://www.google.com/jsapi"></script>
-    <script src="js/jQuery-min.js"></script>
+    <script src="js/libs/jQuery-min.js"></script>
 </head>

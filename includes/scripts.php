@@ -1,10 +1,10 @@
 <?php
 //addJS('js/old/addStations.js', false, false);
-addJS('js/elevation.js', false, false);
-addJS('js/navigation.js', false, false);
-addJS('js/nearby.js', false, false);
-addJS('js/station.js', false, false);
-addJS('js/app.js', false, false);
+addJS('js/modules/elevation.js', false, false);
+addJS('js/modules/navigation.js', false, false);
+addJS('js/modules/nearby.js', false, false);
+addJS('js/modules/station.js', false, false);
+addJS('js/modules/app.js', false, false);
 //addJS('js/old/global.js', false, false);
 addJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8&sensors=true&libraries=places,visualization,geometry&callback=app.init', true, true);
 addJS('js/MarkerClusterer.js', false, false);

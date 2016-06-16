@@ -1,3 +1,19 @@
+/*Position lock indicator*/
+.unlock-pos{
+  background: url('../icons/lock-unlocked.svg') no-repeat !important;
+  text-indent:-9999px;
+  line-height: 0;
+  width: 1.5em;
+  height: 1.5em;
+}
+.lock-pos{
+  background: url('../icons/lock-locked.svg') no-repeat !important;
+  text-indent:-9999px;
+  line-height: 0;
+  width: 1.5em;
+  height: 1.5em;
+}
+
 header{
     z-index: 1;
     position:absolute;

@@ -124,7 +124,14 @@ var app = {
     lockMapToUser : function(ele){
       //Making it so that the user can toggle if they want the map to follow or not
       app.gps.lockPos = !app.gps.lockPos;
-      $(ele).html(app.gps.lockPos ? 'U' : 'L');
+      if($(ele).hasClass('lock-pos')){
+          $(ele).addClass('unlock-pos');
+          $(ele).removeClass('lock-pos');
+      }else{
+        $(ele).addClass('lock-pos');
+        $(ele).removeClass('unlock-pos');
+      }
+      $(ele).html(app.gps.lockPos ? 'Unlock' : 'Lock');
     }
   },
   eventListeners : {
@@ -186,11 +193,7 @@ var app = {
       $('input[type=checkbox].onoffswitch-checkbox').change(
         function(){
           if($(this).attr('id') == 'traffic-layer')
-            trafficOverlay();
-          if($(this).attr('id') == 'weather-layer')
-            weatherOverlay();
-          if($(this).attr('id') == 'cloud-layer')
-            cloudOverlay();
+            app.layers.traffic();
         }
       );
       //Changing the autoupdate interval or deactivate autoupdate
@@ -403,14 +406,9 @@ var app = {
         setTimeout(station.generateMarkers(),0.001);
         app.download.hasDownloaded = true;
       }
-      try{
-        //Starting automatic location update for mobile app and mobile browsers
-        if(app.device.isMobile || app.device.phonegap)
-          navigator.geolocation.watchPosition(app.gps.onSuccess(), app.gps.onError(), {enableHighAccuracy: true, timeout: 100, maximumAge: 1000 });
-      }catch(e){
-        console.log("Failed: " + e);
-        $('.dl-progress-text').text("Innlasting har feilet med følgende feilmeling: " + e);
-      }
+      //Starting automatic location update for mobile app and mobile browsers
+      if(app.device.isMobile || app.device.phonegap)
+        navigator.geolocation.watchPosition(app.gps.onSuccess, app.gps.onError, {enableHighAccuracy: true, timeout: 100, maximumAge: 1000 });
       app.download.updateTime();
     },
     init : function(){
@@ -430,6 +428,23 @@ var app = {
     }
   },
   map : {},
+  layers : {
+    trafficIsActive : false,
+    trafficLayer : null,
+    traffic : function(){
+        if(app.layers.trafficLayer == null)
+            app.layers.trafficLayer = new google.maps.TrafficLayer();
+
+        if(app.layers.trafficLayerIsActive){
+            app.layers.trafficLayer.setMap(null);
+            !app.layers.trafficLayerIsActive;
+        }else{
+            app.layers.trafficLayer.setMap(app.map);
+            !app.layers.trafficLayerIsActive;
+        }
+        $("input[type=checkbox].onoffswitch-checkbox#traffic-layer").attr("checked", app.layers.trafficLayerIsActive);
+    }
+  },
   setMapOnAll : function (map){
     for (var i in station.markers) {
       station.markers[i].setMap(map);
@@ -474,7 +489,8 @@ var app = {
     pos : {},
     geopos : {},
     onSuccess : function(position) {
-      geopos = [position.coords.latitude, position.coords.longitude];
+      console.log(position);
+      app.gps.geopos = [position.coords.latitude, position.coords.longitude];
       try{
         app.gps.pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         app.gps.myLocationIndicator.setPosition(app.gps.pos);
@@ -497,7 +513,7 @@ var app = {
       }catch(e){}
     },
     onError : function (error) {
-      if (window.location.protocol != "https:" && !phonegap)
+      if (window.location.protocol != "https:" && !app.device.phonegap)
         window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
       console.log('code: '    + error.code    + '\n' +
         'message: ' + error.message + '\n');

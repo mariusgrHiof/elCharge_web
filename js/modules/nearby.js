@@ -18,7 +18,7 @@ var nearby = {
       sPos = station.list[id].csmd.Position.replace(/[()]/g,"").split(",");
       if(nearby.compareDistance(app.gps.geopos, sPos) <= 10){
         nearby.chargers[station.list[id].csmd.id] = station.list[id];
-        nearby.chargers[station.list[id].csmd.id]["distance"] = nearby.compareDistance(geopos, sPos);
+        nearby.chargers[station.list[id].csmd.id]["distance"] = nearby.compareDistance(app.gps.geopos, sPos);
       }
     }
     nearby.updateHTML();
