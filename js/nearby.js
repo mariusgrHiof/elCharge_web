@@ -5,8 +5,9 @@ var nearby = {
   chargers : new Array(),
   compareDistance : function (userPos, stationPos){
     try{
-      return google.maps.geometry.spherical.computeDistanceBetween (app.gps.app.gps.strToLtLng(userPos[0] + "," + userPos[1]), strToLtLng(stationPos[0] + "," + stationPos[1]))/1000;
+      return google.maps.geometry.spherical.computeDistanceBetween (app.gps.strToLtLng(userPos[0] + "," + userPos[1]), app.gps.strToLtLng(stationPos[0] + "," + stationPos[1]))/1000;
     }catch(e){
+      console.log(e);
       return 999;//Unable to get the location so defaulting to unreachable value
     }
   },
