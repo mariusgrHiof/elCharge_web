@@ -227,7 +227,7 @@ var station = {
     var connType;
     var hasFastCharge_temp = false;
     var isFaulty = false;
-    station.conns.hasFastCharge = false;
+    station.hasFastCharge = false;
     station.conns.numFaulty = 0;
     for(var c in station.list[id].attr.conn){
       //Checking if any connection ports match the user prefs
@@ -241,7 +241,7 @@ var station = {
           station.conns.numFaulty++;
         //For the markers, to indicate if a id has a fast charger or not!
         if(!hasFastCharge_temp && (station.fastCharge <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW))
-          station.conns.hasFastCharge = true;
+          station.hasFastCharge = true;
         station.conns.list.push(station.list[id].attr.conn[c]);
       }catch(e){}
     }
