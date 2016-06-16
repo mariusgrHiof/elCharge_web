@@ -31,23 +31,25 @@ var nearby = {
     var thisPos = [];
     var id;
     for(var id in nearby.chargers){
-      id = nearby.chargers[id].csmd.International_id;
+      var nationalID = nearby.chargers[id].csmd.International_id;
       //If it is matching our filters and is available to the public
-      if(station.getCarMatch(id) && nearby.chargers[id].attr.st[2].attrvalid == "1"){
-        thisPos = nearby.chargers[id].csmd.Position.replace(/[()]/g,"").split(",");
-        $('#chargers-nearby').append(
-          '<li class="border" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
-            '<img class="cover-third float-left img-height-4em" src=\"' + station.getImage(id) + '\"/>' +
-            '<div class="chargePointColor" style="height:4em;background-color:' +
-              (station.list[id].attr.st[21].attrvalid == "1" ? (station.occupiedStatus(id) > 0.4 ? 'lightgreen' : 'yellow') : 'blue') + ';"></div>'+
-            '<div class="cover-twothird float-right" style="width:calc(66% - 1em);">'+
-              '<strong class="float-left station-title">' + nearby.chargers[id].csmd.name + '</strong><br />'+
-              '<span>' + nearby.chargers[id].distance.toFixed(2)+ 'km </span>'+
-              '<button class="float-left" onclick="navigateFromUser(geopos, this)" value="'+ thisPos +'">Ta meg hit</button>' +
-              '<div class="clear-both">' +//read-more
+      if(station.getCarMatch(nationalID)){
+        try{
+          thisPos = nearby.chargers[id].csmd.Position.replace(/[()]/g,"").split(",");
+          $('#chargers-nearby').append(
+            '<li class="border" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
+              '<img class="cover-third float-left img-height-4em" src=\"' + station.getImage(nationalID) + '\"/>' +
+              '<div class="chargePointColor" style="height:4em;background-color:' +
+                (station.list[nationalID].attr.st[21].attrvalid == "1" ? (station.occupiedStatus(nationalID) > 0.4 ? 'lightgreen' : 'yellow') : 'blue') + ';"></div>'+
+              '<div class="cover-twothird float-right" style="width:calc(66% - 1em);">'+
+                '<strong class="float-left station-title">' + nearby.chargers[id].csmd.name + '</strong><br />'+
+                '<span>' + nearby.chargers[id].distance.toFixed(2)+ 'km </span>'+
+                '<button class="float-left" onclick="navigateFromUser(geopos, this)" value="'+ thisPos +'">Ta meg hit</button>' +
+                '<div class="clear-both">' +//read-more
+                '</div>' +
               '</div>' +
-            '</div>' +
-          '</li>');
+            '</li>');
+        }catch(e){console.log(e); console.log(nearby.chargers[id]); console.log(id);}
       }
     }
   }
