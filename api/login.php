@@ -38,7 +38,7 @@ try {
     $result_stations = $conn->query($sqlStation);
     if ($result_stations->num_rows > 0) {
       while ($row = $result_stations->fetch_assoc()) {
-        $stations = $row;
+        $stations[] = $row;
       }
     }
     $result['stations'] = $stations;

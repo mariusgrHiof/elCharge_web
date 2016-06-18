@@ -66,11 +66,9 @@ var app = {
           station.favorite.stationList.length = 0;
           station.favorite.routeList.length = 0;
           $("#favorite-stations").html("");
-          window.alert(data);
           if(data != "0"){
             var result = JSON.parse(data);
             if(result.stations.length > 0){
-              //TODO: FIX! Blir ikke lagret
               station.favorite.stationList = result.stations;
 
               station.favorite.updateStations();

@@ -182,7 +182,7 @@ var station = {
       if(app.device.phonegap)
         path += app.path;
       path +="api/addUserStation.php";
-      station.favorite.stationList[id] = "";
+      station.favorite.stationList.push({station_id:id});
       $.post( path,{
         stationId: id
       }, function(){
@@ -193,11 +193,13 @@ var station = {
     },
     updateStations : function (){
       $("#favorite-stations").html("");
-      for(var id in station.favorite.stationList){
+      for(var i in station.favorite.stationList){
+        var id = station.favorite.stationList[i].station_id
         $('#favorite-stations').append(
           '<li class="border" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
             '<img class="cover-third float-left img-height-4em" src=\"' + station.getImage(id) + '\"/>' +
             '<div class="chargePointColor" style="height:4em;background-color:' +
+            //TODO: Num of faulty gjelder kun for den siste som var lagt til av markers!
               (station.conns.numFaulty / station.list[id].csmd.Number_charging_points == 1 ? "red" : (station.list[id].attr.st[21].attrvalid == "1" ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ';"></div>'+
             '<div class="cover-twothird float-right" style="width:calc(66% - 1em);">'+
               '<strong class="float-left">' + station.list[id].csmd.name + '</strong><br />'+
@@ -282,7 +284,7 @@ var station = {
     try{
       return (/kommer/i.test(station.list[id].csmd.Image.toLowerCase()) || /no.image.svg/i.test(station.list[id].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ station.list[id].csmd.Image);
     }catch(e){
-      console.log("Failed for: " + id + " MSG: " + e)
+      console.log("Failed for: " + id + " MSG: " + e);
     }
   },
   addMarker : function (numOfPorts, id){
