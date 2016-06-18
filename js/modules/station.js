@@ -147,11 +147,41 @@ var station = {
   favorite : {
     stationList : [],
     routeList : [],
+    addRoute : function (id){
+      var path ="";
+      if(app.device.phonegap)
+        path += app.path;
+      path +="api/addUserRoute.php";
+
+      //Generating object
+      for(var i in navigation.route.legs){
+        if(i == 0)
+          //Getting starting pos
+          navigation.jsonRoute["start"] = navigation.route.legs[i].start_address;
+
+        if (i == navigation.route.legs.length -1)
+          //Getting end destination
+          navigation.jsonRoute["end"] =  navigation.route.legs[i].end_address;
+      }
+      navigation.jsonRoute['waypoints'] = navigation.waypoints;
+
+      //Posting route
+      $.post( path,{
+        name : navigation.jsonRoute["start"] + ' til ' + navigation.jsonRoute["end"],
+        route : JSON.stringify(navigation.jsonRoute),
+        comment : '__'
+      }, function(data){
+        console.log(data);
+        if(!app.device.phonegap)
+          station.favorite.updateStations();
+      });
+      return false;
+    },
     addStation : function (id){
       var path ="";
       if(app.device.phonegap)
         path += app.path;
-      path +="includes/addToFavorite.php";
+      path +="api/addUserStation.php";
       station.favorite.stationList[id] = "";
       $.post( path,{
         stationId: id
@@ -168,7 +198,7 @@ var station = {
           '<li class="border" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
             '<img class="cover-third float-left img-height-4em" src=\"' + station.getImage(id) + '\"/>' +
             '<div class="chargePointColor" style="height:4em;background-color:' +
-              (station.list[id].attr.st[21].attrvalid == "1" ? (station.occupiedStatus(id) < station.occupiedLimit ? 'lightgreen' : 'yellow') : 'blue') + ';"></div>'+
+              (station.conns.numFaulty / station.list[id].csmd.Number_charging_points == 1 ? "red" : (station.list[id].attr.st[21].attrvalid == "1" ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ';"></div>'+
             '<div class="cover-twothird float-right" style="width:calc(66% - 1em);">'+
               '<strong class="float-left">' + station.list[id].csmd.name + '</strong><br />'+
               '<span>' + nearby.compareDistance(app.gps.geopos, station.list[id].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>'+

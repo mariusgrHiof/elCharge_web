@@ -17,7 +17,7 @@ echo $userIdResult;
 echo $_SESSION['username'];
 if(isset($_SESSION['sessionId'])){
     if(isset($_SESSION['username'])){
-        $sql = "insert into ec_user_has_stations(user_id, station_id) values(" . $userIdResult . ",'" . $stationId ."')";
+        $sql = "INSERT INTO ec_user_has_stations VALUES(" . $userIdResult . ",'" . $stationId ."')";
         echo $sql;
         $conn->query($sql);
     }

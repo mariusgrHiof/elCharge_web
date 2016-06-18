@@ -160,27 +160,5 @@ var navigation = {
     if($('#nav-start-pos').val() != "" && $('#nav-end-pos').val() != ""){
       navigation.build();
     }
-  },
-  saveRoute : function(){
-    for(var i in navigation.route.legs){
-      if(i == 0)
-        //Getting starting pos
-        navigation.jsonRoute["start"] = navigation.route.legs[i].start_address;
-
-      if (i == navigation.route.legs.length -1)
-        //Getting end destination
-        navigation.jsonRoute["end"] =  navigation.route.legs[i].end_address;
-    }
-    navigation.jsonRoute['waypoints'] = navigation.waypoints;
-    //TODO: Remove
-    console.log(JSON.stringify(navigation.jsonRoute));
-
-    $.post("includes/navigation.route.php", {
-      data: JSON.stringify(navigation.jsonRoute)
-    }, function(data){
-      $('#navigation.route-saved').html("Ruten er lagret");
-      console.log("Feedback " + data);
-    });
-    return false;
   }
 };

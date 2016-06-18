@@ -64,18 +64,20 @@ var app = {
           //Populating the user logged in window.
           //Cleaning out the array
           station.favorite.stationList.length = 0;
+          station.favorite.routeList.length = 0;
           $("#favorite-stations").html("");
           window.alert(data);
           if(data != "0"){
             var result = JSON.parse(data);
             if(result.stations.length > 0){
-              for(var id in result.stations)
-                  station.favorite.stationList[ result.stations[id].station_id] = result.stations[id];
+              //TODO: FIX! Blir ikke lagret
+              station.favorite.stationList = result.stations;
+
               station.favorite.updateStations();
             }
             if(result.routes.length > 0){
-              for(var id in result.stations)
-                  station.favorite.routeList[result.routes[id].route_id] = result.routes[id];
+              station.favorite.routeList = result.routes;
+
               //station.favorite.updateStations();
             }
             $('#auth').hide();
