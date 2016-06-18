@@ -9,7 +9,7 @@
 include 'dbConn.php';
 
 //Adding, updating or deleting users
-$sql = "select count(*) from ec_users";
+$sql = "select count(*) from ec_user";
 $result = $conn->query($sql);
 
 if($result->num_rows > 0){
@@ -18,7 +18,7 @@ if($result->num_rows > 0){
     }
 }
 if(!empty(($_POST['username'] && $_POST['password']))){
-    $sql = "INSERT INTO ec_users
+    $sql = "INSERT INTO ec_user
                     VALUES (
                     " . $new_user_id . ",
                     '". $_POST['username']. "',

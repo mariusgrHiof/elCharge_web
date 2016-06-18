@@ -3,11 +3,11 @@
 * A script to hold the DB connection
 */
 $servername = "localhost";
-$username = "bo16g6";
-$password = "bgGGY5DB";
+$username = "root";//"bo16g6";
+$password = "root";//"bgGGY5DB";
 
 // Create connection
-$conn = mysql_connect($servername, $username, $password, $username);
+$conn = new mysqli($servername, $username, $password, "bo16g6");
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

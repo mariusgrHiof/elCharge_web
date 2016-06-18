@@ -63,29 +63,23 @@ var app = {
         function( data ){
           //Populating the user logged in window.
           //Cleaning out the array
-          favoriteStations.length = 0;
+          station.favorite.stationList.length = 0;
           $("#favorite-stations").html("");
-
-          if(data != "[{}]"){
-            for(var obj in JSON.parse(data))
-                station.favorite.stationList[ JSON.parse(data)[obj].station_id] = JSON.parse(data)[obj];
-            station.favorite.updateStations();
+          window.alert(data);
+          if(data != "0"){
+            var result = JSON.parse(data);
+            if(result.stations.length > 0){
+              for(var id in result.stations)
+                  station.favorite.stationList[ result.stations[id].station_id] = result.stations[id];
+              station.favorite.updateStations();
+            }
+            if(result.routes.length > 0){
+              for(var id in result.stations)
+                  station.favorite.routeList[result.routes[id].route_id] = result.routes[id];
+              //station.favorite.updateStations();
+            }
             $('#auth').hide();
-            $('#logged-in').html('Velkommen, ' + JSON.parse(data)[0].username);
-              /*
-              * Getting saved routes
-              */
-              $.post((app.device.phonegap ? app.url : '') + "includes/getMyRoutes.php",function (data){
-                //Cleaning out the array
-                app.favorite.routeList.length = 0;
-                var startPos;
-                $("#favorite-routes").html("");
-                for(var obj in data){
-                  //TODO: Use a unique key instead of location name!
-                  startPos = data[obj].start;
-                  app.favorite.routeList[startPos] = data[obj];
-                }
-              });
+            $('#logged-in').html('Velkommen, ' + result.username);
           }else {
             $('#logged-in').html('Feil brukernavn eller passord');
           }
