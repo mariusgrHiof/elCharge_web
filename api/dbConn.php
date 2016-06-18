@@ -2,14 +2,13 @@
 /*
 * A script to hold the DB connection
 */
-$servername = "frigg.hiof.no";
+$servername = "localhost";
 $username = "bo16g6";
 $password = "bgGGY5DB";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $username);
+$conn = mysql_connect($servername, $username, $password, $username);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-?>

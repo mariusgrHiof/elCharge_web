@@ -3,7 +3,7 @@
     <button class="show-register">Registrer bruker </button>
 
     <div id="login-popup">
-        <form id="loggin-form" action="javascript:;" onsubmit="userLoggin(this)">
+        <form id="loggin-form" action="javascript:;" onsubmit="app.buttons.login(this)">
             <input type="text" name="username" placeholder="Brukernavn">
             <br>
             <input type="password" name="password" placeholder="Passord">
@@ -16,7 +16,7 @@
     </div>
 
     <div id="register-popup">
-        <form id="registration-form" action="javascript:;" onsubmit="userRegistration(this)">
+        <form id="registration-form" action="javascript:;" onsubmit="app.buttons.register(this)">
             <input type="text" name="username" placeholder="Brukernavn">
             <br>
             <input type="password" name="password" placeholder="Passord">
@@ -28,5 +28,3 @@
         </form>
     </div>
 </div>
-
-

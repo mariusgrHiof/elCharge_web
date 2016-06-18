@@ -53,7 +53,7 @@ var app = {
       var path = "";
       if(app.device.phonegap)
         path += app.url;
-      path +="includes/checkloggin.php";
+      path +="api/login.php";
 
       //Logging the user in
       $.post(path,{
@@ -97,7 +97,7 @@ var app = {
       var path = "";
       if(app.device.phonegap)
           path += app.url;
-      path +="includes/logOut.php";
+      path +="api/logout.php";
 
       $.post(path, function data(){
        $('#logged-in').html("logget ut");
@@ -108,7 +108,7 @@ var app = {
       var path = "";
       if(app.device.phonegap)
         path += app.url;
-      path +="includes/register.php";
+      path +="api/register.php";
 
       //Logging the user in
       $.post(path,
@@ -117,6 +117,7 @@ var app = {
           username: $(form).children(":input[name='username']").val(),
           password: $(form).children(":input[name='password']").val() },
         function( data ){
+          window.alert(data);
           $('#logged-in').html(data );
         });
       return false;

@@ -138,169 +138,180 @@ header.toggle{
 /*
     Buttons
 */
+button{
+  border: solid black 1px;
+  padding: 0.3em;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  background: transparent;
+  transition: background 1s;
+}
+button:hover{
+  background: lightblue;
+  transition: background 1s;
+}
 button#menu-toggle{
-    float:left;
-    background: url(../icons/hamburger_v2.svg) no-repeat transparent;
-    border-style:none;
-    width:3em;
-    height:2em;
+  float:left;
+  background: url(../icons/hamburger_v2.svg) no-repeat transparent;
+  border-style:none;
+  width:3em;
+  height:2em;
 }
 button#menu-toggle.toggle{
-    background: url(../icons/colapse_icon.svg) no-repeat transparent;
+  background: url(../icons/colapse_icon.svg) no-repeat transparent;
 }
 button#my-loc-btn{
-    background: transparent;
-    border:none;
-    vertical-align: middle;
-    padding:0;
+  background: transparent;
+  border:none;
+  vertical-align: middle;
+  padding:0;
 }
 button#lock-to-my-pos-btn{
-    background: white;
-    border:none;
-    vertical-align: middle;
-    padding:0;
+  background: white;
+  border:none;
+  vertical-align: middle;
+  padding:0;
 }
 
 /*
     Select input
 */
 select{
-    /*width:100%;*/
+  /*width:100%;*/
 }
 #bg-update-timer{
-    width:3em;
+  width:3em;
 }
 .cover-third{
-    width:33%;
+  width:33%;
 }
 .cover-twothird{
-    padding-left: 0.2em;
-    width:66%;
+  padding-left: 0.2em;
+  width:66%;
 }
 .cover-twothird input.cover-100{
-    width:100%;
+  width:100%;
 }
 
 
 /*source = https://proto.io/freebies/onoff/*/
 .onoffswitch {
-    position: relative; width: 40px;
-    float:right;
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+  position: relative; width: 40px;
+  float:right;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
 .onoffswitch-checkbox {
-    display: none;
+  display: none;
 }
 .onoffswitch-label {
-    display: block; overflow: hidden; cursor: pointer;
-    height: 14px; padding: 0; line-height: 14px;
-    border: 2px solid #FFFFFF; border-radius: 14px;
-    background-color: #9E9E9E;
-    transition: background-color 0.3s ease-in;
-
+  display: block; overflow: hidden; cursor: pointer;
+  height: 14px; padding: 0; line-height: 14px;
+  border: 2px solid #FFFFFF; border-radius: 14px;
+  background-color: #9E9E9E;
+  transition: background-color 0.3s ease-in;
 }
 .onoffswitch-label:before {
-    content: "";
-    display: block; width: 14px; margin: 0px;
-    background: #FFFFFF;
-    position: absolute; top: 0; bottom: 0;
-    right: 24px;
-    border: 2px solid #FFFFFF; border-radius: 14px;
-    transition: all 0.3s ease-in 0s;
+  content: "";
+  display: block; width: 14px; margin: 0px;
+  background: #FFFFFF;
+  position: absolute; top: 0; bottom: 0;
+  right: 24px;
+  border: 2px solid #FFFFFF; border-radius: 14px;
+  transition: all 0.3s ease-in 0s;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label {
-    background-color: #42A5F5;
+  background-color: #42A5F5;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-    border-color: #42A5F5;
+  border-color: #42A5F5;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-    right: 0px;
+  right: 0px;
 }
 
 /*
     Search
 */
 #search{
-    margin: 0.5em 0 0.5em 10%;
-    width:auto;
-    float:left;
+  margin: 0.5em 0 0.5em 10%;
+  width:auto;
+  float:left;
 }
 
 #search-box{
-    background-color: #fff;
-    float:left;
-    margin-left: 0.5em;
-    width:20em;
+  background-color: #fff;
+  float:left;
+  margin-left: 0.5em;
+  width:20em;
 
 }
 
 .searchable{
-    background-color: #fff;
-    float:left;
-    margin: 0.5em 0 0.5em 10%;
-    width:300px;
+  background-color: #fff;
+  float:left;
+  margin: 0.5em 0 0.5em 10%;
+  width:300px;
 }
 
 /*
 * Route options
 */
 .route-options ul li{
-    padding: 0.5em 0 0.5em 0;
+  padding: 0.5em 0 0.5em 0;
 }
 #chargers-nearby{
-    overflow-y:auto;
+  overflow-y:auto;
 }
 
 /*
     General
 */
 .border{
-    border-bottom:1px gray solid;
-
+  border-bottom:1px gray solid;
 }
 
 .clear-both{
-    clear:both;
-    width:100%;
+  clear:both;
+  width:100%;
 }
 #right-panel{
-    background:white;
+  background:white;
 }
 .menu-item{
-    margin-bottom:0;
-    margin-top:0;
-    cursor:pointer;
-    cursor:hand;
-    height: 1.2em;
+  margin-bottom:0;
+  margin-top:0;
+  cursor:pointer;
+  cursor:hand;
+  height: 1.2em;
 }
 ul{
-    margin-left:0;
+  margin-left:0;
 }
 .no-padding{
-    padding:0 0 0 1em;
+  padding:0 0 0 1em;
 }
 .float-left{
-    float:left;
+  float:left;
 }
 .float-right{
-    float:right;
+  float:right;
 }
 /*
 * Icons
 */
 
 .img-height-4em{
-    height: 4em;
-    width: auto;
-    max-width:30%;
+  height: 4em;
+  width: auto;
+  max-width:30%;
 }
 
 .cover-twothird .station-title{
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 95%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 95%;
 }
 
 /*Route*/
@@ -313,11 +324,11 @@ ul{
 }
 /*
 button{
-    background-color: lightgreen;
-    border: 1px black solid;
-    padding: 1px 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 5px;
+  background-color: lightgreen;
+  border: 1px black solid;
+  padding: 1px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
 }*/
