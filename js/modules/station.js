@@ -431,7 +431,6 @@ var station = {
   getInfoWindowContent : function (id, isLive) {
     if($('#select-car').val() !=0)
       station.user.carConns = station.conns.carModels[$('#select-car').val()];
-
     //Showing a info windows when you click on the marker
     station.connectorsString = station.conns.getString(id, isLive);
     station.contentString =
@@ -467,7 +466,7 @@ var station = {
         "<div id='lowerContainer'>"+
           '<button onclick="station.addWaypoint(\'' + id + '\')" >Legg til i rute</button>' +
           '<button onclick="navigation.fromUser(app.gps.geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
-          '<button class="favorite" onclick="station.favorite.addStation(\'' + id + '\')" >Legg til favoritt</button>' +
+          (app.loggedIn ? '<button onclick="station.favorite.addStation(\'' + id + '\')" >Legg til favoritt</button>' : '') +
         "</div>"+
       "</div>";
     return station.contentString;
