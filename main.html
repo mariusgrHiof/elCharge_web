@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>elCharge - ladekart for elbiler</title>
+    <!-- Meta -->
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />-->
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'self' 'unsafe-inline' 'unsafe-eval'; script-src * 'self' 'unsafe-inline' 'unsafe-eval'; media-src *"/>
+
+    <meta charset="utf-8">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="styles/maps.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/menu.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/tooltips.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/text.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/tablet.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/mobile.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/login.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/colors.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/download.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/footer.css"/>
+    <!-- Scripts -->
+    <script src="https://www.google.com/jsapi"></script>
+    <script src="js/jQuery-min.js"></script>
+</head><body>
+<div id="download-progression">
+    <img class="spinning float-left" src="icons/logo.svg"/> <p class="float-left">Laster inn ladestasjoner</p>
+</div>
+<header>
+    <div id="title" class="clear-both">
+        <h1>elCharge</h1>
+    </div>
+    <div id="search">
+        <button onclick="slideIn()" id="menu-toggle"></button>
+        <input id="search-box" type="text"/>
+        <button id="my-loc-btn" onclick="centerOnUser(0)"><img src="icons/my_pos_marker.svg" style="width:1.5em; height:1.5em;"/></button>
+        <button id="lock-to-my-pos-btn" onclick="lockMapToUser(this)">L</button>
+    </div>
+
+</header>
+<nav class="menu" style="left:-700px;">
+    <div id="auth">
+    <button class="show-login"> Logg inn </button>
+    <button class="show-register">Registrer bruker </button>
+
+    <div id="login-popup">
+        <form id="loggin-form" action="javascript:;" onsubmit="userLoggin(this)">
+            <input type="text" name="username" placeholder="Brukernavn">
+            <br>
+            <input type="password" name="password" placeholder="Passord">
+            <br>
+            <br>
+            <input type="submit" value="Logg inn" class="submit_button">
+            <a href="#" class="close-form">Lukk </a>
+
+        </form>
+    </div>
+
+    <div id="register-popup">
+        <form id="registration-form" action="javascript:;" onsubmit="userRegistration(this)">
+            <input type="text" name="username" placeholder="Brukernavn">
+            <br>
+            <input type="password" name="password" placeholder="Passord">
+            <br>
+            <br>
+            <input type="submit" value="Registrer" class="submit_button">
+            <a href="#" class="close-form">Lukk </a>
+
+        </form>
+    </div>
+</div>
+
+
+<div id="logged-in"></div>
+    <ul id="menu-list">
+        <li>
+            Velg bilmodell
+            <select id="select-car" name="car-model">
+                <option value="0">Vis alle ladere</option>
+            </select>
+        </li>
+        <li class="border">
+            <h2 class="menu-item caret">Ladere i nærheten</h2>
+<div class="sub-item">
+    <button onclick="updateNearbyChargers()">Oppdater listen</button>
+    <ul id="chargers-nearby">
+
+    </ul>
+</div>        </li>
+        <li class="border">
+            <h2 class="menu-item caret clear-both" style="max-width: 86%;">Favoritter</h2>
+<div class="sub-item">
+    <em>Dine favoritt ladestasjoner. Kun synlig for innloggede brukere.</em>
+    <h1> Favoritt ladestasjoner </h1>
+    <ul id="favorite-stations"></ul>
+    <h1>Favoritt reiseruter </h1>
+    <ul id ="favorite-routes"> </ul>
+</div>        </li>
+        <li class="border">
+            <h2 class="menu-item caret">Planlegg rute</h2>
+<div class="sub-item">
+    <p><em>For å legge inn ladestasjoner du ønsker å kjøre innom på veien, velg ladestasjonens markør og velg "legg til i rute".</em></p>
+    <div class="clear-both">
+        <div class="route-options">
+            <ul>
+                <li>
+                    Tillat bomstasjoner
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="route-option-tolls" checked>
+                        <label class="onoffswitch-label" for="route-option-tolls"></label>
+                    </div>
+                </li>
+                <li>
+                    Tillat motorveier
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="route-option-highways" checked>
+                        <label class="onoffswitch-label" for="route-option-highways"></label>
+                    </div>
+                </li>
+                <li>
+                    Tilby rute alternativer
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="route-option-alternative-routes" checked>
+                        <label class="onoffswitch-label" for="route-option-alternative-routes"></label>
+                    </div>
+                </li>
+            </ul>
+
+
+        </div>
+        <div class="float-left cover-third">
+            Start lokasjon</br>
+        </div>
+        <div class="float-left cover-twothird">
+            <input id="nav-start-pos" type="text"/>
+        </div>
+    </div>
+    <div class="clear-both">
+        <div class="float-left cover-third">
+            Rutepunkter
+        </div>
+        <div class="float-left cover-twothird">
+            <span id="waypoint-list"></span>
+        </div>
+    </div>
+    <div class="clear-both">
+        <div class="float-left cover-third">
+            Destinasjon
+        </div>
+        <div class="float-left cover-twothird">
+            <input id="nav-end-pos" type="text"/>
+        </div>
+    </div>
+    <button class="float-left cover-third" onclick="clearRoute()">Fjern rute</button>
+    <button class="cover-third" onclick="showHideMarkers(this)">Skjul stasjonsmarkører</button>
+    <button class="float-right cover-third" onclick="navigate()">Bygg rute</button>
+    <!-- <button onclick="saveRouteData()">Legg ruten til favoritt</button> -->
+    <div id="total"></div>
+    <div id="right-panel" class="clear-both">
+    </div>
+    <!--<button class="build-elevation" onclick="displayPathElevation(myroute, elevationService)">Bygg høydegraf</button>-->
+    <div id="elevation-chart" class="clear-both">
+    </div>
+</div>        </li>
+        <li class="border">
+            <h2 class="menu-item caret">Innstillinger</h2>
+<div class="sub-item">
+    <div class="clear-both">
+        <div class="marg-bot-1em float-left cover-third">
+            Velg lade kapasitet:
+        </div>
+        <div class="marg-bot-1em float-right ">
+            <form id="selected-charger-capacity" action="">
+                <input type="radio" name="kW" value="0" checked> Alle kapasiteter<br>
+                <input type="radio" name="kW" value="12"> Semihurtig og hurtig<br>
+                <input type="radio" name="kW" value="43"> Kun hurtigladere
+            </form>
+        </div>
+    </div>
+    <div class="clear-both">
+        <div class="marg-bot-1em float-left cover-third">
+            Trafikk overlegg
+        </div>
+        <div class="marg-bot-1em float-right">
+            <div class="onoffswitch">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="traffic-layer" checked>
+                <label class="onoffswitch-label" for="traffic-layer"></label>
+            </div>
+        </div>
+    </div>
+    <div class="clear-both">
+        <div class="marg-bot-1em float-left cover-third">
+            Automatisk oppdatering av ladestasjoner
+        </div>
+        <div class="marg-bot-1em float-right">
+            hvert <input id="bg-update-timer" type="number" value="5"/> min(0 er aldri). <br />
+        </div>
+    </div>
+</div>        </li>
+        <li class="border">
+            <h2 class="menu-item caret">Om oss</h2>
+<div class="sub-item">
+    <p>Dette er en webapplikasjon utviklet som bacheloroppgave for Høgskolen i Østfold våren 2016.</p>
+</div>        </li>
+        <li class="border">
+            <h2 class="menu-item caret">Hjelp</h2>
+<div class="sub-item">
+    <h3>Kun vise hurtig ladere eller hurtigladere og semihurtige</h3>
+    Du finner denne funksjonnaliteten i "Instillinger" menyen.
+    <h3>Legge til ladestasjoner i rute</h3>
+    For å legge til en ladestasjon i en rute, velger du den ønskede stasjonen fra kartet og trykker "Legg til i rute".
+    <h3>Stasjonsmarkører</h3>
+    Det er egne ikoner for stasjoner med hurtigladere og de uten. Hver markør har også ulik farge basert på om de tilbyr sanntidsstatus eller ikke.
+    <em>Markør ikoner fungerer desværre ikke i firefox for øyeblikket</em>
+    <div class="clear-both">
+        <img src="icons/marker_blue_v2.svg" class="float-left cover-third img-height-4em"/>
+        <p class="cover-twothird float-right">Indikerer at dette er en ladestasjon som ikke har sanntidsinformasjon og har en eller flere kontakter som er hurtig.</p>
+    </div>
+    <div class="clear-both">
+        <img src="icons/marker_blue_v3.svg" class="float-left cover-third img-height-4em"/>
+        <p class="cover-twothird float-right">Indikerer at dette er en ladestasjon uten sanntidsinformasjon som ikke er hurtig.</p>
+    </div>
+    <div class="clear-both">
+        <img src="icons/marker_green_v2.svg" class="float-left cover-third img-height-4em"/>
+        <p class="cover-twothird float-right">Indikerer at dette er en ladestasjon med sanntidsinformasjon og har en eller flere kontakter som er hurtig.</p>
+    </div>
+    <div class="clear-both">
+        <img src="icons/marker_green_v3.svg" class="float-left cover-third img-height-4em"/>
+        <p class="cover-twothird float-right">Indikerer at dette er en ladestasjon med sanntidsinformasjon som ikke er hurtig.</p>
+    </div>
+    <div class="clear-both">
+        <img src="icons/marker_yellow_v2.svg" class="float-left cover-third img-height-4em"/>
+        <p class="cover-twothird float-right">Indikerer at dette er en ladestasjon med sanntidsinformasjon og har en eller flere kontakter som er hurtig.</p>
+    </div>
+    <div class="clear-both">
+        <img src="icons/marker_yellow_v3.svg" class="float-left cover-third img-height-4em"/>
+        <p class="cover-twothird float-right">Indikerer at dette er en ladestasjon med sanntidsinformasjon som ikke er hurtig.</p>
+    </div>
+    <div class="clear-both">
+        <img src="icons/marker_red_v2.svg" class="float-left cover-third img-height-4em"/>
+        <p class="cover-twothird float-right">Indikerer at dette er en ladestasjon med en eller flere kontakter som er hurtig og er defekt.</p>
+    </div>
+    <div class="clear-both">
+        <img src="icons/marker_red_v3.svg" class="float-left cover-third img-height-4em"/>
+        <p class="cover-twothird float-right">Indikerer at dette er en ladestasjon som ikke er hurtig og er defekt.</p>
+    </div>
+</div>        </li>
+    </ul>
+</nav><div id="map">
+    <noscript>
+        <h1>
+            Du har enten deaktivert eller benytter en nettleser som ikke støtter javascript.
+        </h1>
+        <p>
+            For å bruke dette nettstedet kreves det at javascript er aktivert. Venligst aktiver javascript for dette nettstedet, eller bytt nettleser til en som støtter javascript.
+        </p>
+    </noscript>
+</div><script src="js/addStations.js"> </script><script src="js/global.js"> </script><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8&sensors=true&libraries=places,visualization,geometry&callback=initMap" async defer> </script><script src="js/googlemaps.js"> </script><script src="js/login.js"> </script><script src="js/chargers-nearby.js"> </script><script src="js/MarkerClusterer.js"> </script><script src="js/maplayers.js"> </script><script src="js/navigation.js"> </script><script src="js/buttons.js"> </script><script src="js/elevation.js"> </script></body>
+</html>
