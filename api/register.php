@@ -17,13 +17,13 @@ if($result->num_rows > 0){
         $new_user_id = ($row['count(*)'] == 0 ? $row['count(*)'] : $row['count(*)']);
     }
 }
-if(!empty(($_POST['username'] && $_POST['password']))){
+if(!empty(($_POST['username'] && $_POST['password'] && $_POST['mail']))){
     $sql = "INSERT INTO ec_user
                     VALUES (
                     " . $new_user_id . ",
                     '". $_POST['username']. "',
                     '". md5($_POST['password']) . "',
-                    'mail@mail.no'
+                    '" . $_POST['mail'] . "'
                     )";
     if ($conn->query($sql) === TRUE) {
         echo "Registrering fullført";

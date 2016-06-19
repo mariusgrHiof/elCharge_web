@@ -11,7 +11,6 @@
   <ul id="menu-list">
     <li>
       <?php
-      include 'includes/login.php';
       include 'includes/userwindow.php';
       ?>
     </li>

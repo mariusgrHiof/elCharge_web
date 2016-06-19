@@ -1,30 +1,46 @@
+
+<?php
+/*
+<head>
+  <link rel="stylesheet" type="text/css" href="../styles/maps.css"/>
+  <link rel="stylesheet" type="text/css" href="../styles/menu.css"/>
+  <link rel="stylesheet" type="text/css" href="../styles/tooltips.css"/>
+  <link rel="stylesheet" type="text/css" href="../styles/text.css"/>
+  <link rel="stylesheet" type="text/css" href="../styles/tablet.css"/>
+  <link rel="stylesheet" type="text/css" href="../styles/mobile.css"/>
+  <link rel="stylesheet" type="text/css" href="../styles/login.css"/>
+  <link rel="stylesheet" type="text/css" href="../styles/colors.css"/>
+  <link rel="stylesheet" type="text/css" href="../styles/download.css"/>
+  <link rel="stylesheet" type="text/css" href="../styles/footer.css"/>
+</head>
+*/
+?>
 <div id="auth">
-    <button class="show-login"> Logg inn </button>
-    <button class="show-register">Registrer bruker </button>
-
-    <div id="login-popup">
-        <form id="loggin-form" action="javascript:;" onsubmit="app.buttons.login(this)">
-            <input type="text" name="username" placeholder="Brukernavn">
-            <br>
-            <input type="password" name="password" placeholder="Passord">
-            <br>
-            <br>
-            <input type="submit" value="Logg inn" class="submit_button">
-            <a href="#" class="close-form">Lukk </a>
-
-        </form>
-    </div>
-
-    <div id="register-popup">
-        <form id="registration-form" action="javascript:;" onsubmit="app.buttons.register(this)">
-            <input type="text" name="username" placeholder="Brukernavn">
-            <br>
-            <input type="password" name="password" placeholder="Passord">
-            <br>
-            <br>
-            <input type="submit" value="Registrer" class="submit_button">
-            <a href="#" class="close-form">Lukk </a>
-
-        </form>
-    </div>
+  <div class="top-bar">
+    <button class="float-right close-form">x</button>
+  </div><!--
+  <button class="show-login"> Logg inn </button>
+  <button class="show-register">Registrer bruker</button>-->
+  <div id="login-popup">
+    <h2>Logg inn</h2>
+    <form id="loggin-form" action="javascript:;" onsubmit="app.buttons.login(this)">
+      <input type="text" name="username" placeholder="Brukernavn">
+      <br>
+      <input type="password" name="password" placeholder="Passord">
+      <br>
+      <br>
+      <input type="submit" value="Logg inn" class="submit_button">
+    </form>
+  </div>
+  <div id="register-popup">
+    <h2>Registrer ny bruker</h2>
+    <form id="registration-form" action="javascript:;" onsubmit="app.buttons.register(this)">
+      <input class="clear-both" type="text" name="username" placeholder="Brukernavn">
+      <input class="clear-both" type="password" name="password" placeholder="Passord">
+      <input class="clear-both" type="mail" name="mail" placeholder="Mail adresse">
+      <br>
+      <br>
+      <input type="submit" value="Registrer" class="submit_button">
+    </form>
+  </div>
 </div>

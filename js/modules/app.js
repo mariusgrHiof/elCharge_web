@@ -24,8 +24,10 @@ var app = {
       $('#login-popup').hide();
     },
     closeForm : function(){
-      app.login.hidePopup();
-      app.register.hidePopup();
+      $('#auth').hide();
+    },
+    showForm : function(){
+      $('#auth').show();
     }
   },
   register : {
@@ -111,7 +113,6 @@ var app = {
           username: $(form).children(":input[name='username']").val(),
           password: $(form).children(":input[name='password']").val() },
         function( data ){
-          window.alert(data);
           $('#logged-in').html(data );
         });
       return false;

@@ -24,83 +24,87 @@
     <link rel="stylesheet" type="text/css" href="styles/footer.css"/>
     <!-- Scripts -->
     <script src="https://www.google.com/jsapi"></script>
-    <script src="js/jQuery-min.js"></script>
-</head><body>
+    <script src="js/libs/jQuery-min.js"></script>
+</head>
+<body>
 <div id="download-progression">
     <img class="spinning float-left" src="icons/logo.svg"/> <p class="float-left">Laster inn ladestasjoner</p>
+</div>
+
+<div id="auth">
+  <div class="top-bar">
+    <button class="float-right close-form">x</button>
+  </div><!--
+  <button class="show-login"> Logg inn </button>
+  <button class="show-register">Registrer bruker</button>-->
+  <div id="login-popup">
+    <h2>Logg inn</h2>
+    <form id="loggin-form" action="javascript:;" onsubmit="app.buttons.login(this)">
+      <input type="text" name="username" placeholder="Brukernavn">
+      <br>
+      <input type="password" name="password" placeholder="Passord">
+      <br>
+      <br>
+      <input type="submit" value="Logg inn" class="submit_button">
+    </form>
+  </div>
+  <div id="register-popup">
+    <h2>Registrer ny bruker</h2>
+    <form id="registration-form" action="javascript:;" onsubmit="app.buttons.register(this)">
+      <input class="clear-both" type="text" name="username" placeholder="Brukernavn">
+      <input class="clear-both" type="password" name="password" placeholder="Passord">
+      <input class="clear-both" type="mail" name="mail" placeholder="Mail adresse">
+      <br>
+      <br>
+      <input type="submit" value="Registrer" class="submit_button">
+    </form>
+  </div>
 </div>
 <header>
     <div id="title" class="clear-both">
         <h1>elCharge</h1>
+        <button onclick="app.login.showForm()">Logg inn/</br>Registrer deg</button>
     </div>
     <div id="search">
-        <button onclick="slideIn()" id="menu-toggle"></button>
+        <button onclick="app.buttons.slideInMenu()" id="menu-toggle"></button>
         <input id="search-box" type="text"/>
-        <button id="my-loc-btn" onclick="centerOnUser(0)"><img src="icons/my_pos_marker.svg" style="width:1.5em; height:1.5em;"/></button>
-        <button id="lock-to-my-pos-btn" onclick="lockMapToUser(this)">L</button>
+        <button id="my-loc-btn" onclick="app.gps.centerOnUser(0)"><img src="icons/my_pos_marker.svg" style="width:1.5em; height:1.5em;"/></button>
+        <button id="lock-to-my-pos-btn" class="lock-pos" onclick="app.buttons.lockMapToUser(this)">Lock</button>
     </div>
 
 </header>
 <nav class="menu" style="left:-700px;">
-    <div id="auth">
-    <button class="show-login"> Logg inn </button>
-    <button class="show-register">Registrer bruker </button>
-
-    <div id="login-popup">
-        <form id="loggin-form" action="javascript:;" onsubmit="userLoggin(this)">
-            <input type="text" name="username" placeholder="Brukernavn">
-            <br>
-            <input type="password" name="password" placeholder="Passord">
-            <br>
-            <br>
-            <input type="submit" value="Logg inn" class="submit_button">
-            <a href="#" class="close-form">Lukk </a>
-
-        </form>
-    </div>
-
-    <div id="register-popup">
-        <form id="registration-form" action="javascript:;" onsubmit="userRegistration(this)">
-            <input type="text" name="username" placeholder="Brukernavn">
-            <br>
-            <input type="password" name="password" placeholder="Passord">
-            <br>
-            <br>
-            <input type="submit" value="Registrer" class="submit_button">
-            <a href="#" class="close-form">Lukk </a>
-
-        </form>
-    </div>
-</div>
-
-
-<div id="logged-in"></div>
-    <ul id="menu-list">
-        <li>
-            Velg bilmodell
-            <select id="select-car" name="car-model">
-                <option value="0">Vis alle ladere</option>
-            </select>
-        </li>
-        <li class="border">
-            <h2 class="menu-item caret">Ladere i nærheten</h2>
+  <ul id="menu-list">
+    <li>
+      <div id="logged-in"></div>
+    </li>
+    <li>
+      Velg bilmodell
+      <select id="select-car" name="car-model">
+        <option value="0">Vis alle ladere</option>
+      </select>
+    </li>
+    <li class="border">
+      <h2 class="menu-item caret">Ladere i nærheten</h2>
 <div class="sub-item">
-    <button onclick="updateNearbyChargers()">Oppdater listen</button>
+    <button onclick="nearby.update()">Oppdater listen</button>
     <ul id="chargers-nearby">
 
     </ul>
-</div>        </li>
-        <li class="border">
-            <h2 class="menu-item caret clear-both" style="max-width: 86%;">Favoritter</h2>
+</div>
+    </li>
+    <li class="border">
+      <h2 class="menu-item caret clear-both" style="max-width: 86%;">Favoritter</h2>
 <div class="sub-item">
     <em>Dine favoritt ladestasjoner. Kun synlig for innloggede brukere.</em>
     <h1> Favoritt ladestasjoner </h1>
     <ul id="favorite-stations"></ul>
     <h1>Favoritt reiseruter </h1>
     <ul id ="favorite-routes"> </ul>
-</div>        </li>
-        <li class="border">
-            <h2 class="menu-item caret">Planlegg rute</h2>
+</div>
+    </li>
+    <li class="border">
+      <h2 class="menu-item caret">Planlegg rute</h2>
 <div class="sub-item">
     <p><em>For å legge inn ladestasjoner du ønsker å kjøre innom på veien, velg ladestasjonens markør og velg "legg til i rute".</em></p>
     <div class="clear-both">
@@ -129,7 +133,6 @@
                 </li>
             </ul>
 
-
         </div>
         <div class="float-left cover-third">
             Start lokasjon</br>
@@ -139,10 +142,7 @@
         </div>
     </div>
     <div class="clear-both">
-        <div class="float-left cover-third">
-            Rutepunkter
-        </div>
-        <div class="float-left cover-twothird">
+        <div class="float-right cover-100">
             <span id="waypoint-list"></span>
         </div>
     </div>
@@ -154,9 +154,10 @@
             <input id="nav-end-pos" type="text"/>
         </div>
     </div>
-    <button class="float-left cover-third" onclick="clearRoute()">Fjern rute</button>
-    <button class="cover-third" onclick="showHideMarkers(this)">Skjul stasjonsmarkører</button>
-    <button class="float-right cover-third" onclick="navigate()">Bygg rute</button>
+    <button class="float-left cover-third" onclick="navigation.clearRoute()">Fjern rute</button>
+    <button class="cover-third" onclick="station.showHideMarkers(this)">Skjul markører</button>
+    <button class="float-right cover-third" onclick="navigation.build()">Bygg rute</button>
+    <button class="float-right cover-third" onclick="station.favorite.addRoute()">Lagre rute</button>
     <!-- <button onclick="saveRouteData()">Legg ruten til favoritt</button> -->
     <div id="total"></div>
     <div id="right-panel" class="clear-both">
@@ -164,9 +165,10 @@
     <!--<button class="build-elevation" onclick="displayPathElevation(myroute, elevationService)">Bygg høydegraf</button>-->
     <div id="elevation-chart" class="clear-both">
     </div>
-</div>        </li>
-        <li class="border">
-            <h2 class="menu-item caret">Innstillinger</h2>
+</div>
+    </li>
+    <li class="border">
+      <h2 class="menu-item caret">Innstillinger</h2>
 <div class="sub-item">
     <div class="clear-both">
         <div class="marg-bot-1em float-left cover-third">
@@ -199,14 +201,16 @@
             hvert <input id="bg-update-timer" type="number" value="5"/> min(0 er aldri). <br />
         </div>
     </div>
-</div>        </li>
-        <li class="border">
-            <h2 class="menu-item caret">Om oss</h2>
+</div>    </li>
+    <li class="border">
+      <h2 class="menu-item caret">Om oss</h2>
 <div class="sub-item">
     <p>Dette er en webapplikasjon utviklet som bacheloroppgave for Høgskolen i Østfold våren 2016.</p>
-</div>        </li>
-        <li class="border">
-            <h2 class="menu-item caret">Hjelp</h2>
+    <img alt="Høgskolen i Østfold logo" src="icons/hiof_logo.svg" />
+</div>
+    </li>
+    <li class="border">
+      <h2 class="menu-item caret">Hjelp</h2>
 <div class="sub-item">
     <h3>Kun vise hurtig ladere eller hurtigladere og semihurtige</h3>
     Du finner denne funksjonnaliteten i "Instillinger" menyen.
@@ -247,9 +251,10 @@
         <img src="icons/marker_red_v3.svg" class="float-left cover-third img-height-4em"/>
         <p class="cover-twothird float-right">Indikerer at dette er en ladestasjon som ikke er hurtig og er defekt.</p>
     </div>
-</div>        </li>
-    </ul>
-</nav><div id="map">
+</div>    </li>
+  </ul>
+</nav>
+<div id="map">
     <noscript>
         <h1>
             Du har enten deaktivert eller benytter en nettleser som ikke støtter javascript.
@@ -258,5 +263,5 @@
             For å bruke dette nettstedet kreves det at javascript er aktivert. Venligst aktiver javascript for dette nettstedet, eller bytt nettleser til en som støtter javascript.
         </p>
     </noscript>
-</div><script src="js/addStations.js"> </script><script src="js/global.js"> </script><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8&sensors=true&libraries=places,visualization,geometry&callback=initMap" async defer> </script><script src="js/googlemaps.js"> </script><script src="js/login.js"> </script><script src="js/chargers-nearby.js"> </script><script src="js/MarkerClusterer.js"> </script><script src="js/maplayers.js"> </script><script src="js/navigation.js"> </script><script src="js/buttons.js"> </script><script src="js/elevation.js"> </script></body>
+</div><script src="js/modules/elevation.js"> </script><script src="js/modules/navigation.js"> </script><script src="js/modules/nearby.js"> </script><script src="js/modules/station.js"> </script><script src="js/modules/app.js"> </script><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8&sensors=true&libraries=places,visualization,geometry&callback=app.init" async defer> </script><script src="js/MarkerClusterer.js"> </script><script src="js/old/maplayers.js"> </script></body>
 </html>
