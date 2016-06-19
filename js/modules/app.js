@@ -111,7 +111,8 @@ var app = {
         {
           //Posting username and password
           username: $(form).children(":input[name='username']").val(),
-          password: $(form).children(":input[name='password']").val() },
+          password: $(form).children(":input[name='password']").val(),
+          mail: $(form).children(":input[name='mail']").val() },
         function( data ){
           $('#logged-in').html(data );
         });

@@ -20,6 +20,7 @@ header{
     width:27em;
     border-bottom:1px gray solid;
     height: 5em;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21);
 }
 
 div#title h1{
@@ -61,10 +62,15 @@ nav{
     top:5em;
     height:calc(100vh - 5em);
     overflow: auto;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21);
 }
 nav ul{
     margin: 0 0 0 -2.5em;
 }
+.gmnoprint, .gm-svpc{
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21) !important;
+}
+
 #menu-list > ul{
     height:80vh;
 }
@@ -133,7 +139,7 @@ header.toggle{
 div#title button{
   position:absolute;
   width:20%;
-  right:0;
+  right:0.5em;
   top: 0.5em;
 }
 button, input[type="submit"]{

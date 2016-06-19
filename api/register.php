@@ -30,7 +30,6 @@ if(!empty(($_POST['username'] && $_POST['password'] && $_POST['mail']))){
     } else {
         echo "Brukernavn allerede registrert, velg et annet brukernavn";
     }
-    echo 'Error: '.error_get_last();
 }
 $conn->close();
 ?>
