@@ -467,7 +467,7 @@ var station = {
         "<div id='lowerContainer'>"+
           '<button onclick="station.addWaypoint(\'' + id + '\')" >Legg til i rute</button>' +
           '<button onclick="navigation.fromUser(app.gps.geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
-          '<button onclick="station.favorite.addStation(\'' + id + '\')" >Legg til favoritt</button>' +
+          '<button class="favorite" onclick="station.favorite.addStation(\'' + id + '\')" >Legg til favoritt</button>' +
         "</div>"+
       "</div>";
     return station.contentString;

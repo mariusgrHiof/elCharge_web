@@ -23,7 +23,7 @@
     <li class="border">
       <?php include 'menu-items/chargers-nearby.html' ?>
     </li>
-    <li class="border">
+    <li class="border favorite">
       <?php include 'menu-items/favourites.html' ?>
     </li>
     <li class="border">

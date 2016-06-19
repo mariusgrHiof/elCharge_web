@@ -4,6 +4,7 @@
   z-index: 2;
   background: white;
   left: calc( 50% - 20em );
+  top:8em;
   max-width: 40em;
   border:black 1px solid;
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21) !important;
@@ -19,11 +20,12 @@
 
 #login-popup {
   float:left;
-  padding: 20px;
+  padding: 1em;
   width: auto;
   max-width: 500px;
   visibility: visible;
   z-index: 999;
+  width:40%;
 }
 
 .login-form {
@@ -36,12 +38,12 @@
 
 #register-popup{
   float:left;
-  padding: 20px;
+  padding: 1em;
   width: auto;
-  max-width: 500px;
   visibility: visible;
   z-index: 999;
   border-left:black 1px solid;
+  width:40%;
 }
 #logged-in{
   padding-left: 1em;
@@ -58,8 +60,12 @@
     max-width: 98%;
     border:black 1px solid;
   }
+  #login-popup{
+    width:100%;
+  }
   #register-popup{
     border-left:none;
     border-top:black 1px solid;
+    width:100%;
   }
 }

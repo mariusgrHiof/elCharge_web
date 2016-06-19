@@ -27,9 +27,9 @@
       <input type="text" name="username" placeholder="Brukernavn">
       <br>
       <input type="password" name="password" placeholder="Passord">
-      <br>
-      <br>
+      <p id="login-form" class="clear-both"></p>
       <input type="submit" value="Logg inn" class="submit_button">
+      <a href="#">Glemt passord (Kommer)</a>
     </form>
   </div>
   <div id="register-popup">
@@ -38,8 +38,7 @@
       <input class="clear-both" type="text" name="username" placeholder="Brukernavn">
       <input class="clear-both" type="password" name="password" placeholder="Passord">
       <input class="clear-both" type="mail" name="mail" placeholder="Mail adresse">
-      <br>
-      <br>
+      <p id="register-form" class="clear-both"></p>
       <input type="submit" value="Registrer" class="submit_button">
     </form>
   </div>

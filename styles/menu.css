@@ -30,6 +30,9 @@ div#title h1{
     /*width: calc(100% - 2.5em);*/
     margin: 0.1em 0.3em 0.1em 1em;
 }
+.favorite{
+  display:none;
+}
 
 div#title-login {
     float:right;

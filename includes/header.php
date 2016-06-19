@@ -11,7 +11,7 @@
 <header>
     <div id="title" class="clear-both">
         <h1>elCharge</h1>
-        <button onclick="app.login.showForm()">Logg inn/</br>Registrer deg</button>
+        <button onclick="app.login.showForm()">Logg inn</button>
     </div>
     <div id="search">
         <button onclick="app.buttons.slideInMenu()" id="menu-toggle"></button>

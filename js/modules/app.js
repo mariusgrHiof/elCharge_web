@@ -15,6 +15,7 @@ var app = {
     url : 'https://nobil.no/api/server/datadump.php?',
     key : '274b68192b056e268f128ff63bfcd4a4'
   },
+  loggedIn : false,
   login : {
     showPopup : function(){
       $('#register-popup').hide();
@@ -27,7 +28,13 @@ var app = {
       $('#auth').hide();
     },
     showForm : function(){
-      $('#auth').show();
+      if(app.loggedIn){
+        app.buttons.logout();
+        app.loggedIn = false;
+        $('#title button').html('Logg inn');
+      }else{
+        $('#auth').show();
+      }
     }
   },
   register : {
@@ -80,10 +87,15 @@ var app = {
 
               //station.favorite.updateStations();
             }
+            app.loggedIn = true;
+            $('#title button').html('Logg ut');
             $('#auth').hide();
-            $('#logged-in').html('Velkommen, ' + result.username);
+            $('#logged-in').html('Du er logget på som, ' + result.username + '.');
+            $(".favorite").each(function(){
+              $(this).show();
+            });
           }else {
-            $('#logged-in').html('Feil brukernavn eller passord');
+            $('#login-form').html('Feil brukernavn eller passord');
           }
         }
       );
@@ -96,7 +108,10 @@ var app = {
       path +="api/logout.php";
 
       $.post(path, function data(){
-       $('#logged-in').html("logget ut");
+        $(".favorite").each(function(){
+          $(this).hide();
+        });
+       $('#logged-in').html("Avlogging vellykket.");
       });
       station.favorite.updateStations();
     },
@@ -105,17 +120,24 @@ var app = {
       if(app.device.phonegap)
         path += app.url;
       path +="api/register.php";
-
+      var uname = $(form).children(":input[name='username']").val();
+      var pw = $(form).children(":input[name='password']").val();
+      var m = $(form).children(":input[name='mail']").val();
       //Logging the user in
-      $.post(path,
-        {
-          //Posting username and password
-          username: $(form).children(":input[name='username']").val(),
-          password: $(form).children(":input[name='password']").val(),
-          mail: $(form).children(":input[name='mail']").val() },
-        function( data ){
-          $('#logged-in').html(data );
-        });
+      if(uname != "" && pw != "" && m != ""){
+        $.post(path,
+          {
+            username: $(form).children(":input[name='username']").val(),
+            password: $(form).children(":input[name='password']").val(),
+            mail: $(form).children(":input[name='mail']").val()
+          },
+          function( data ){
+            $('#register-form').html(data );
+          }
+        );
+      }else{
+        $('#register-form').html( 'Alle feltene må fylles ut!' );
+      }
       return false;
     },
     lockMapToUser : function(ele){
