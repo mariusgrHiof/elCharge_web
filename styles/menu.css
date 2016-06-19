@@ -29,12 +29,6 @@ div#title h1{
     /*width: calc(100% - 2.5em);*/
     margin: 0.1em 0.3em 0.1em 1em;
 }
-div#title button{
-  position:absolute;
-  width:20%;
-  right:0;
-  top: 0.5em;
-}
 
 div#title-login {
     float:right;
@@ -59,10 +53,6 @@ div#title-login h1{
     margin:auto;
 }
 
-div#title-login button.show-login {
-    float:right;
-    margin-right:0;
-}
 nav{
     z-index:1;
     background:white;
@@ -140,7 +130,13 @@ header.toggle{
 /*
     Buttons
 */
-button{
+div#title button{
+  position:absolute;
+  width:20%;
+  right:0;
+  top: 0.5em;
+}
+button, input[type="submit"]{
   border: solid black 1px;
   padding: 0.3em;
   border-radius: 5px;
@@ -149,7 +145,7 @@ button{
   background: transparent;
   transition: background 1s;
 }
-button:hover{
+button:hover, input[type="submit"]:hover{
   background: lightblue;
   transition: background 1s;
 }

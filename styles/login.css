@@ -49,15 +49,16 @@
 }
 
 @media screen and (max-width:600px){
-    /*#login_popup{
-        top:30%;
-        left:30%;
-    }
-    #register_popup{
-         top:30%;
-         left:30%;
-     }
-    #logged-in{
-        position: absolute;
-    }*/
+  #auth{
+    display:none;
+    position: absolute;
+    top:8em;
+    left: 1%;
+    max-width: 98%;
+    border:black 1px solid;
+  }
+  #register-popup{
+    border-left:none;
+    border-top:black 1px solid;
+  }
 }
