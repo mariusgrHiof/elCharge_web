@@ -6,6 +6,7 @@
   left: calc( 50% - 20em );
   max-width: 40em;
   border:black 1px solid;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21) !important;
 }
 .top-bar{
   width: 100%;
