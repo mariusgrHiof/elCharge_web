@@ -22,8 +22,10 @@ if(!empty(($_POST['username'] && $_POST['password'] && $_POST['mail']))){
                     VALUES (
                     " . $new_user_id . ",
                     '". $_POST['username']. "',
-                    '". md5($_POST['password']) . "',
-                    '" . $_POST['mail'] . "'
+                    '". password_hash($_POST['password'], PASSWORD_DEFAULT) . "',
+                    '" . $_POST['mail'] . "',
+                    null,
+                    null
                     )";
     if ($conn->query($sql) === TRUE) {
         echo "Registrering fullført";

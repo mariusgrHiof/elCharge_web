@@ -175,7 +175,7 @@ var station = {
       }, function(data){
         station.favorite.routeList[station.favorite.routeList.length] = {
           name : navigation.jsonRoute["start"] + ' til ' + navigation.jsonRoute["end"],
-          route : JSON.stringify(navigation.jsonRoute),
+          route : navigation.jsonRoute,
           distance : station.favorite.distance,
           comment : '__'
         };
