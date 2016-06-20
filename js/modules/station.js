@@ -245,6 +245,8 @@ var station = {
     }
     $('#download-progression').hide();
     app.download.hasDownloaded = true;
+    if(!app.device.isMobile)
+      nearby.update();
   },
   deleteMarkers : function(){
     //Memory managenent
@@ -465,7 +467,7 @@ var station = {
 
         "<div id='lowerContainer'>"+
           '<button onclick="station.addWaypoint(\'' + id + '\')" >Legg til i rute</button>' +
-          '<button onclick="navigation.fromUser(app.gps.geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
+          '<button class="nav-here" onclick="navigation.fromUser(app.gps.geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
           (app.loggedIn ? '<button onclick="station.favorite.addStation(\'' + id + '\')" >Legg til favoritt</button>' : '') +
         "</div>"+
       "</div>";

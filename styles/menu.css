@@ -148,6 +148,7 @@ div#title button{
 button, input[type="submit"]{
   border: solid black 1px;
   padding: 0.3em;
+  margin:2.5px;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -328,6 +329,19 @@ ul{
 }
 .route-element > img {
   max-height:5em;
+}
+.nav-here{
+  background: no-repeat url('../icons/nav-here-icon.svg');
+  text-indent: 120%;
+  white-space: nowrap;
+  overflow: hidden;
+  width:2em;
+  margin-top: 0;
+  margin-bottom: 0;
+  border:none;
+}
+.nav-here:hover{
+  background: no-repeat url('../icons/nav-here-icon.svg');
 }
 /*
 button{
