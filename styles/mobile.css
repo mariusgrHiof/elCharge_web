@@ -47,7 +47,7 @@
   }
   .gm-style .gm-style-iw{
     width:100% !important;
-    height:30em !important;
+    height: auto !important;
   }
   #infoLeft{
     width:100% !important;

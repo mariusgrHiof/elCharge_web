@@ -61,16 +61,15 @@
 <header>
     <div id="title" class="clear-both">
         <h1>elCharge</h1>
-        <button onclick="app.login.showForm()">Logg inn</button>
+        <button class="tooltip" onclick="app.login.showForm()"><p class="tooltiptext">Logg inn, eller registrer ny bruker</p>Logg inn</button>
     </div>
     <div id="search">
         <button onclick="app.buttons.slideInMenu()" id="menu-toggle"></button>
         <input id="search-box" type="text"/>
-        <button class="float-left nav-here">Naviger hit</button>
-        <button id="my-loc-btn" onclick="app.gps.centerOnUser(0)"><img src="icons/my_pos_marker.svg" style="width:1.5em; height:1.5em;"/></button>
-        <button id="lock-to-my-pos-btn" class="lock-pos" onclick="app.buttons.lockMapToUser(this)">Lock</button>
+        <button class="float-left nav-here tooltip"><p class="tooltiptext">Naviger hit</p>Naviger hit</button>
+        <button id="my-loc-btn" class ="tooltip" onclick="app.gps.centerOnUser(0)"><p class="tooltiptext">Gå til din posisjon</p><img src="icons/my_pos_marker.svg" style="width:1.5em; height:1.5em;"/></button>
+        <button id="lock-to-my-pos-btn" class="lock-pos tooltip" onclick="app.buttons.lockMapToUser(this)"><p class="tooltiptext">Lås kartet til din posisjon</p>Lock</button>
     </div>
-
 </header>
 <nav class="menu" style="left:-700px;">
   <ul id="menu-list">
@@ -84,7 +83,10 @@
       </select>
     </li>
     <li class="border">
-      <h2 class="menu-item caret">Ladere i nærheten</h2>
+      <span class="menu-item caret">
+  <div class="float-left back-icon"></div>
+  <h2>Ladere i nærheten</h2>
+</span>
 <div class="sub-item">
     <button onclick="nearby.update()">Oppdater listen</button>
     <ul id="chargers-nearby">
@@ -93,7 +95,10 @@
 </div>
     </li>
     <li class="border favorite">
-      <h2 class="menu-item caret clear-both" style="max-width: 86%;">Favoritter</h2>
+      <span class="menu-item caret">
+  <div class="float-left back-icon"></div>
+  <h2>Favoritter</h2>
+</span>
 <div class="sub-item">
     <em>Dine favoritt ladestasjoner. Kun synlig for innloggede brukere.</em>
     <h1> Favoritt ladestasjoner </h1>
@@ -103,7 +108,10 @@
 </div>
     </li>
     <li class="border">
-      <h2 class="menu-item caret">Planlegg rute</h2>
+      <span class="menu-item caret">
+  <div class="float-left back-icon"></div>
+  <h2>Planlegg rute</h2>
+</span>
 <div class="sub-item">
     <p><em>For å legge inn ladestasjoner du ønsker å kjøre innom på veien, velg ladestasjonens markør og velg "legg til i rute".</em></p>
     <div class="clear-both">
@@ -131,32 +139,33 @@
                     </div>
                 </li>
             </ul>
-
-        </div>
-        <div class="float-left cover-third">
-            Start lokasjon</br>
-        </div>
-        <div class="float-left cover-twothird">
-            <input id="nav-start-pos" type="text"/>
         </div>
     </div>
-    <div class="clear-both">
-        <div class="float-right cover-100">
-            <span id="waypoint-list"></span>
-        </div>
-    </div>
-    <div class="clear-both">
-        <div class="float-left cover-third">
-            Destinasjon
-        </div>
-        <div class="float-left cover-twothird">
-            <input id="nav-end-pos" type="text"/>
-        </div>
-    </div>
-    <button class="float-left cover-third" onclick="navigation.clearRoute()">Fjern rute</button>
-    <button class="" onclick="station.showHideMarkers(this)">Skjul markører</button>
-    <button class="float-right nav-here" onclick="navigation.build()">Bygg rute</button>
-    <button class="float-right favorite" onclick="station.favorite.addRoute()">Lagre rute</button>
+    <form  action="javascript:;" onsubmit="navigation.build()">
+      <div class="float-left cover-third">
+          Start lokasjon</br>
+      </div>
+      <div class="float-left cover-twothird">
+          <input id="nav-start-pos" type="text"/>
+      </div>
+      <div class="clear-both">
+          <div class="float-right cover-100">
+              <span id="waypoint-list"></span>
+          </div>
+      </div>
+      <div class="clear-both">
+          <div class="float-left cover-third">
+              Destinasjon
+          </div>
+          <div class="float-left cover-twothird">
+              <input id="nav-end-pos" type="text"/>
+          </div>
+      </div>
+      <button class="float-left nav-clear cover-third tooltip" onclick="navigation.clearRoute()"><p class="tooltiptext">Fjern ruten</p>Fjern rute</button>
+      <button class="float-left tooltip" onclick="station.showHideMarkers(this)"><p class="tooltiptext">Skjul eller vis stasjonsmarkører</p>Skjul markører</button>
+      <span class="tooltip"><input class="float-left nav-here" type="submit" onclick="navigation.build()"><p class="tooltiptext">Bygg ruten</p></span>
+      <button class="float-left nav-save favorite tooltip" onclick="station.favorite.addRoute()"><p class="tooltiptext">Lagre ruten</p>Lagre rute</button>
+    </form>
     <!-- <button onclick="saveRouteData()">Legg ruten til favoritt</button> -->
     <div id="total"></div>
     <div id="right-panel" class="clear-both">
@@ -167,7 +176,10 @@
 </div>
     </li>
     <li class="border">
-      <h2 class="menu-item caret">Innstillinger</h2>
+      <span class="menu-item caret">
+  <div class="float-left back-icon"></div>
+  <h2>Innstillinger</h2>
+</span>
 <div class="sub-item">
     <div class="clear-both">
         <div class="marg-bot-1em float-left cover-third">
@@ -200,16 +212,23 @@
             hvert <input id="bg-update-timer" type="number" value="5"/> min(0 er aldri). <br />
         </div>
     </div>
-</div>    </li>
+</div>
+    </li>
     <li class="border">
-      <h2 class="menu-item caret">Om oss</h2>
+      <span class="menu-item caret">
+  <div class="float-left back-icon"></div>
+  <h2>Om oss</h2>
+</span>
 <div class="sub-item">
     <p>Dette er en webapplikasjon utviklet som bacheloroppgave for Høgskolen i Østfold våren 2016.</p>
     <img alt="Høgskolen i Østfold logo" src="icons/hiof_logo.svg" />
 </div>
     </li>
     <li class="border">
-      <h2 class="menu-item caret">Hjelp</h2>
+      <span class="menu-item caret">
+  <div class="float-left back-icon"></div>
+  <h2>Hjelp</h2>
+</span>
 <div class="sub-item">
     <h3>Kun vise hurtig ladere eller hurtigladere og semihurtige</h3>
     Du finner denne funksjonnaliteten i "Instillinger" menyen.
@@ -250,7 +269,8 @@
         <img src="icons/marker_red_v3.svg" class="float-left cover-third img-height-4em"/>
         <p class="cover-twothird float-right">Indikerer at dette er en ladestasjon som ikke er hurtig og er defekt.</p>
     </div>
-</div>    </li>
+</div>
+    </li>
   </ul>
 </nav>
 <div id="map">

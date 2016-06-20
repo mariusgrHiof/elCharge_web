@@ -11,16 +11,15 @@
 <header>
     <div id="title" class="clear-both">
         <h1>elCharge</h1>
-        <button onclick="app.login.showForm()">Logg inn</button>
+        <button class="tooltip" onclick="app.login.showForm()"><p class="tooltiptext">Logg inn, eller registrer ny bruker</p>Logg inn</button>
     </div>
     <div id="search">
         <button onclick="app.buttons.slideInMenu()" id="menu-toggle"></button>
         <input id="search-box" type="text"/>
-        <button class="float-left nav-here">Naviger hit</button>
-        <button id="my-loc-btn" onclick="app.gps.centerOnUser(0)"><img src="icons/my_pos_marker.svg" style="width:1.5em; height:1.5em;"/></button>
-        <button id="lock-to-my-pos-btn" class="lock-pos" onclick="app.buttons.lockMapToUser(this)">Lock</button>
+        <button class="float-left nav-here tooltip"><p class="tooltiptext">Naviger hit</p>Naviger hit</button>
+        <button id="my-loc-btn" class ="tooltip" onclick="app.gps.centerOnUser(0)"><p class="tooltiptext">Gå til din posisjon</p><img src="icons/my_pos_marker.svg" style="width:1.5em; height:1.5em;"/></button>
+        <button id="lock-to-my-pos-btn" class="lock-pos tooltip" onclick="app.buttons.lockMapToUser(this)"><p class="tooltiptext">Lås kartet til din posisjon</p>Lock</button>
     </div>
-
 </header>
 <?php
 include 'menu.php';

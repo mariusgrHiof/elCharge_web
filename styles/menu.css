@@ -45,16 +45,17 @@ div#title-login h1{
 */
 
 .title-box {
-    background: url('../icons/back-icon.svg') no-repeat 0.5em;
-    padding: 0.7em 0 0.7em 3.2em;
-    margin-left: -0.7em;
+    padding: 0.7em 0 0.7em 0.7em;
     border: 1px;
     float: left;
-    width: calc(100% - 2.5em);
+    width: 100%;
+    height:3em;
 }
 
-.title-box h1{
+.title-box h2{
     margin:auto;
+    margin-bottom:0;
+    margin-top:0;
 }
 
 nav{
@@ -85,6 +86,7 @@ nav li{
     list-style:none;
     padding:1em;
 }
+
 nav ul li ul{
     margin-left:-2.8em;
 }
@@ -254,6 +256,11 @@ select{
   width:70%;
 
 }
+@media screen and (max-width:600px){
+  #search-box{
+    width:50%;
+  }
+}
 
 .searchable{
   background-color: #fff;
@@ -286,12 +293,24 @@ select{
 #right-panel{
   background:white;
 }
+#menu-list li{
+  margin-bottom:0;
+  margin-top:0;
+  cursor:pointer;
+  cursor:hand;
+}
+#menu-list li .menu-item h2{
+  margin:0;
+}
+#menu-list li .menu-item.title-box h2{
+  padding-top: 0.5em;
+  height:3em;
+}
 .menu-item{
   margin-bottom:0;
   margin-top:0;
   cursor:pointer;
   cursor:hand;
-  height: 1.2em;
 }
 ul{
   margin-left:0;
@@ -308,7 +327,16 @@ ul{
 /*
 * Icons
 */
-
+.back-icon{
+  display:none;
+}
+.title-box > .back-icon{
+  background: url('../icons/back-icon.svg') no-repeat 0.5em;
+  display:block;
+  height: 3em;
+  width: 3em;
+  padding-right: 1em;
+}
 .img-height-4em{
   height: 4em;
   width: auto;
@@ -331,25 +359,84 @@ ul{
   max-height:5em;
 }
 .nav-here{
-  background: no-repeat url('../icons/nav-here-icon.svg');
+  background: no-repeat url('../icons/nav-here-icon.svg') !important;
   text-indent: 120%;
   white-space: nowrap;
   overflow: hidden;
-  width:2em;
+  width:3em;
+  height:3em;
   margin-top: 0;
   margin-bottom: 0;
-  border:none;
+  border:none !important;
+}
+#search .nav-here{
+  margin-top: -0.4em;
 }
 .nav-here:hover{
-  background: no-repeat url('../icons/nav-here-icon.svg');
+  background: no-repeat url('../icons/nav-here-icon.svg') !important;
 }
-/*
-button{
-  background-color: lightgreen;
-  border: 1px black solid;
-  padding: 1px 5px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 5px;
-}*/
+.nav-add{
+  background: no-repeat url('../icons/nav-add-icon.svg') !important;
+  text-indent: 120%;
+  white-space: nowrap;
+  overflow: hidden;
+  width:3em;
+  height:3em;
+  margin-top: 0;
+  margin-bottom: 0;
+  border:none !important;
+}
+.nav-add:hover{
+  background: no-repeat url('../icons/nav-add-icon.svg') !important;
+}
+.nav-clear{
+  background: no-repeat url('../icons/nav-remove-icon.svg') !important;
+  text-indent: 120%;
+  white-space: nowrap;
+  overflow: hidden;
+  width:3em;
+  height:3em;
+  margin-top: 0;
+  margin-bottom: 0;
+  border:none !important;
+}
+.nav-clear:hover{
+  background: no-repeat url('../icons/nav-remove-icon.svg') !important;
+}
+.nav-save{
+  background: no-repeat url('../icons/nav-save-icon.svg') !important;
+  text-indent: 120%;
+  white-space: nowrap;
+  overflow: hidden;
+  width:3em;
+  height:3em;
+  margin-top: 0;
+  margin-bottom: 0;
+  border:none !important;
+}
+.nav-save:hover{
+  background: no-repeat url('../icons/nav-save-icon.svg') !important;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    text-indent: 0%;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    margin-left:-4em;
+    padding: 1em 0;
+    margin-top:1.5em;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}

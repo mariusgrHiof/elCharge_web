@@ -249,7 +249,7 @@ var app = {
     selectHandeler : function (parent, remove){
       $(parent).children('li').each(
         function(){
-          if(!$(this).children('h2').next().hasClass('toggle')){
+          if(!$(this).children('h2, span').next().hasClass('toggle')){
             $(this).css('display',remove ? 'none' : 'block');
           }else{
             $(this).css('display','block');

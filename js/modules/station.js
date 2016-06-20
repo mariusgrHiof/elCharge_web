@@ -465,10 +465,10 @@ var station = {
           "</div>"+
         "</div>"+
 
-        "<div id='lowerContainer'>"+
-          '<button onclick="station.addWaypoint(\'' + id + '\')" >Legg til i rute</button>' +
-          '<button class="nav-here" onclick="navigation.fromUser(app.gps.geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"") +'">Ta meg hit</button>'+
-          (app.loggedIn ? '<button onclick="station.favorite.addStation(\'' + id + '\')" >Legg til favoritt</button>' : '') +
+        '<div id="lowerContainer" class="clear-both">'+
+          '<button class="nav-add tooltip" onclick="station.addWaypoint(\'' + id + '\')" ><p class="tooltiptext">Legg til stasjon i rute</p>Legg til i rute</button>' +
+          '<button class="nav-here tooltip" onclick="navigation.fromUser(app.gps.geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"") +'"><p class="tooltiptext">Naviger hit</p>Naviger hit</button>'+
+          (app.loggedIn ? '<button class="float-left tooltip" onclick="station.favorite.addStation(\'' + id + '\')" ><p class="tooltiptext">Lagre stasjon</p>Lagre stasjon</button>' : '') +
         "</div>"+
       "</div>";
     return station.contentString;

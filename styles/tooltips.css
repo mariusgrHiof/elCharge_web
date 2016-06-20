@@ -112,7 +112,10 @@ div#station-tooltip div#secondRow img {
     float:left;
 
 }
-
+#lowerContainer{
+  width:100%;
+  height:3em;
+}
 .gm-style-iw {
     width: 38.5em !important;
     top: 15px !important;
