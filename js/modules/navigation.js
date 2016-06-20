@@ -108,8 +108,9 @@ var navigation = {
     }
     //Getting waypoint adresses
     navigation.getRouteData();
-    total = total / 1000;
+    total = (total / 1000).toFixed(2);
     $('#total').html('Total reise distanse '+ total + ' km');
+    station.favorite.distance = total;
     //Showing the path elevation
     elevation.displayForPath(navigation.route, elevation.service);
   },
@@ -150,7 +151,7 @@ var navigation = {
     var content =
       "<div class='route-element'>" +
         "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
-          "<Strong>" + address +"</Strong>"+
+          address +
         "</div>"+
         "<div><button onclick=\"station.removeWaypoint(this)\">X</button></div>" +
       "</div>";

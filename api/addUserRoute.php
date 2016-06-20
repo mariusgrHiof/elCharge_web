@@ -28,7 +28,7 @@ if(isset($_SESSION['sessionId'])){
             $user['route_id'] = 0;
           }
       }
-        $sql = "INSERT INTO ec_user_has_routes VALUES('" . $user['user_id'] . "','" . $user['route_id'] . "','" . $_POST['name'] ."','" . $_POST['route'] . "','" . $_POST['comment'] . "');";
+        $sql = "INSERT INTO ec_user_has_routes VALUES('" . $user['user_id'] . "','" . $user['route_id'] . "','" . $_POST['name'] ."','" . $_POST['route'] . "'," . $_POST['distance'] . ",'". $_POST['comment'] . "');";
 
         $conn->query($sql);
     }

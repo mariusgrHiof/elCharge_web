@@ -147,6 +147,7 @@ var station = {
   favorite : {
     stationList : [],
     routeList : [],
+    distance : 0,
     addRoute : function (id){
       var path ="";
       if(app.device.phonegap)
@@ -169,11 +170,16 @@ var station = {
       $.post( path,{
         name : navigation.jsonRoute["start"] + ' til ' + navigation.jsonRoute["end"],
         route : JSON.stringify(navigation.jsonRoute),
+        distance : station.favorite.distance,
         comment : '__'
       }, function(data){
-        console.log(data);
-        if(!app.device.phonegap)
-          station.favorite.updateStations();
+        station.favorite.routeList[station.favorite.routeList.length] = {
+          name : navigation.jsonRoute["start"] + ' til ' + navigation.jsonRoute["end"],
+          route : JSON.stringify(navigation.jsonRoute),
+          distance : station.favorite.distance,
+          comment : '__'
+        };
+        station.favorite.updateRoutes();
       });
       return false;
     },
@@ -186,15 +192,31 @@ var station = {
       $.post( path,{
         stationId: id
       }, function(){
-        if(!app.device.phonegap)
-          station.favorite.updateStations();
+        station.favorite.updateStations();
       });
       return false;
+    },
+    updateRoutes : function(){
+      $("#favorite-routes").html("");
+      for(var i in station.favorite.routeList){
+        var id = station.favorite.routeList[i].route_id;
+        $('#favorite-routes').append(
+          '<li class="border" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
+            '<div class="float-left" style="width:calc(66% - 1em);">'+
+              '<strong class="float-left">' + station.favorite.routeList[i].name + '</strong><br />'+
+              '<span>' + station.favorite.routeList[i].distance + 'km </span>'+
+              '<span>' + station.favorite.routeList[i].route.waypoints.length + ' rutepunkter</span>'+
+              '<button class="float-left nav-here" onclick="navigation.fromUser(app.gps.geopos, this)" value="">Ta meg hit</button>' +
+              '<div class="clear-both">' +//read-more
+              '</div>' +
+            '</div>' +
+        '</li>');
+      }
     },
     updateStations : function (){
       $("#favorite-stations").html("");
       for(var i in station.favorite.stationList){
-        var id = station.favorite.stationList[i].station_id
+        var id = station.favorite.stationList[i].station_id;
         $('#favorite-stations').append(
           '<li class="border" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
             '<img class="cover-third float-left img-height-4em" src=\"' + station.getImage(id) + '\"/>' +
@@ -204,7 +226,7 @@ var station = {
             '<div class="cover-twothird float-right" style="width:calc(66% - 1em);">'+
               '<strong class="float-left">' + station.list[id].csmd.name + '</strong><br />'+
               '<span>' + nearby.compareDistance(app.gps.geopos, station.list[id].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>'+
-              '<button class="float-left" onclick="navigation.fromUser(app.gps.geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
+              '<button class="float-left nav-here" onclick="navigation.fromUser(app.gps.geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
               '<div class="clear-both">' +//read-more
               '</div>' +
             '</div>' +
@@ -390,7 +412,7 @@ var station = {
         "<div class='route-element station-"+ id +"'>" +
           "<img class='cover-third float-left' src=\"" + station.getImage(id) + "\"/>" +
           "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
-            "<Strong>" + station.list[id].csmd.name +"</Strong>"+
+            station.list[id].csmd.name +
           "</div>"+
           "<div class='markerColor' style='background-color:"+ (station.conns.numFaulty / station.list[id].csmd.Number_charging_points == 1 ? "red" : (isLive ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>" +
             "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"station.removeWaypoint(this)\">X</button>" +

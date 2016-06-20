@@ -70,23 +70,25 @@ var app = {
           username: $(form).children(":input[name='username']").val(),
           password: $(form).children(":input[name='password']").val() },
         function( data ){
+          console.log(data);
           //Populating the user logged in window.
           //Cleaning out the array
           station.favorite.stationList.length = 0;
           station.favorite.routeList.length = 0;
           $("#favorite-stations").html("");
+          $("#favorite-routes").html("");
           if(data != "0"){
             var result = JSON.parse(data);
             if(result.stations.length > 0){
               station.favorite.stationList = result.stations;
-
               station.favorite.updateStations();
             }
-            if(result.routes.length > 0){
-              station.favorite.routeList = result.routes;
-
-              //station.favorite.updateStations();
-            }
+            try{
+              if(result.routes.length > 0){
+                station.favorite.routeList = result.routes;
+                station.favorite.updateRoutes();
+              }
+            }catch(e){console.log(e);}
             app.loggedIn = true;
             $('#title button').html('Logg ut');
             $('#auth').hide();

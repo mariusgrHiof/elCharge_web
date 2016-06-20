@@ -372,6 +372,11 @@ ul{
 #search .nav-here{
   margin-top: -0.4em;
 }
+.btn-row{
+  margin-right:auto;
+  margin-left:auto;
+  width:50%;
+}
 .nav-here:hover{
   background: no-repeat url('../icons/nav-here-icon.svg') !important;
 }

@@ -46,11 +46,12 @@ try {
     /*
      * Getting saved routes
      */
-     $sqlRoute = "select route_id, name, route, comment from ec_user_has_routes where user_id = '0'";
+     $sqlRoute = "select route_id, name, route, distance, comment from ec_user_has_routes where user_id = '". $result['user_id'] . "'";
      $result_routes = $conn->query($sqlRoute);
      if ($result_routes->num_rows > 0) {
        while ($row = $result_routes->fetch_assoc()) {
          $rows['comment'] = $row['comment'];
+         $rows['distance'] = $row['distance'];
          $rows['route'] = json_decode($row['route']);
          $rows['name'] = $row['name'];
          $rows['route_id'] = $row['route_id'];

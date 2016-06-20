@@ -100,7 +100,7 @@
   <h2>Favoritter</h2>
 </span>
 <div class="sub-item">
-    <em>Dine favoritt ladestasjoner. Kun synlig for innloggede brukere.</em>
+    <em>Her befinner dine lagrede stasjoner og ruter seg.</em>
     <h1> Favoritt ladestasjoner </h1>
     <ul id="favorite-stations"></ul>
     <h1>Favoritt reiseruter </h1>
@@ -141,7 +141,7 @@
             </ul>
         </div>
     </div>
-    <form  action="javascript:;" onsubmit="navigation.build()">
+    <form id="route-form" action="javascript:;" onsubmit="navigation.build()" class="clear-both">
       <div class="float-left cover-third">
           Start lokasjon</br>
       </div>
@@ -161,13 +161,15 @@
               <input id="nav-end-pos" type="text"/>
           </div>
       </div>
+    </form>
+    <div class="btn-row clear-both">
       <button class="float-left nav-clear cover-third tooltip" onclick="navigation.clearRoute()"><p class="tooltiptext">Fjern ruten</p>Fjern rute</button>
       <button class="float-left tooltip" onclick="station.showHideMarkers(this)"><p class="tooltiptext">Skjul eller vis stasjonsmarkører</p>Skjul markører</button>
-      <span class="tooltip"><input class="float-left nav-here" type="submit" onclick="navigation.build()"><p class="tooltiptext">Bygg ruten</p></span>
+      <button class="float-left nav-here tooltip" type="submit" value="submit" form="route-form"><p class="tooltiptext">Bygg ruten</p>Bygg ruten</button>
       <button class="float-left nav-save favorite tooltip" onclick="station.favorite.addRoute()"><p class="tooltiptext">Lagre ruten</p>Lagre rute</button>
-    </form>
+    </div>
     <!-- <button onclick="saveRouteData()">Legg ruten til favoritt</button> -->
-    <div id="total"></div>
+    <div id="total" class="clear-both"></div>
     <div id="right-panel" class="clear-both">
     </div>
     <!--<button class="build-elevation" onclick="displayPathElevation(myroute, elevationService)">Bygg høydegraf</button>-->
