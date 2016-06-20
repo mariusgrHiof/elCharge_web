@@ -24,9 +24,8 @@
   <div id="login-popup">
     <h2>Logg inn</h2>
     <form id="loggin-form" action="javascript:;" onsubmit="app.buttons.login(this)">
-      <input type="text" name="username" placeholder="Brukernavn">
-      <br>
-      <input type="password" name="password" placeholder="Passord">
+      <input class="clear-both" type="text" name="username" placeholder="Brukernavn">
+      <input class="clear-both" type="password" name="password" placeholder="Passord">
       <p id="login-form" class="clear-both"></p>
       <input type="submit" value="Logg inn" class="submit_button">
       <a href="#">Glemt passord (Kommer)</a>
@@ -37,7 +36,7 @@
     <form id="registration-form" action="javascript:;" onsubmit="app.buttons.register(this)">
       <input class="clear-both" type="text" name="username" placeholder="Brukernavn">
       <input class="clear-both" type="password" name="password" placeholder="Passord">
-      <input class="clear-both" type="mail" name="mail" placeholder="Mail adresse">
+      <input class="clear-both" type="email" name="mail" placeholder="petter@smart.no">
       <p id="register-form" class="clear-both"></p>
       <input type="submit" value="Registrer" class="submit_button">
     </form>

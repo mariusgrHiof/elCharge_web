@@ -4,7 +4,7 @@
   z-index: 2;
   background: white;
   left: calc( 50% - 20em );
-  top:8em;
+  top: 5.5em;
   max-width: 40em;
   border:black 1px solid;
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21) !important;
@@ -55,17 +55,17 @@
   #auth{
     display:none;
     position: absolute;
-    top:8em;
+    top: 5.5em;
     left: 1%;
     max-width: 98%;
     border:black 1px solid;
   }
   #login-popup{
-    width:100%;
+    width:90%;
   }
   #register-popup{
     border-left:none;
     border-top:black 1px solid;
-    width:100%;
+    width:90%;
   }
 }
