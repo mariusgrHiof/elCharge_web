@@ -12,7 +12,7 @@ var app = {
   initiatedMap : false,
   path : 'http://frigg.hiof.no/bo16-g6/webapp/',
   api : {
-    url : 'https://nobil.no/api/server/datadump.php?',
+    url : (window.location.protocol != "https:" ? 'http' : 'https') +'://nobil.no/api/server/datadump.php?',
     key : '274b68192b056e268f128ff63bfcd4a4'
   },
   loggedIn : false,
