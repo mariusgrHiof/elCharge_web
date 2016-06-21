@@ -24,8 +24,8 @@
   <div id="login-popup">
     <h2>Logg inn</h2>
     <form id="loggin-form" action="javascript:;" onsubmit="app.buttons.login(this)">
-      <input class="clear-both" type="text" name="username" placeholder="Brukernavn">
-      <input class="clear-both" type="password" name="password" placeholder="Passord">
+      <input class="clear-both" type="text" name="username" placeholder="Brukernavn" required>
+      <input class="clear-both" type="password" name="password" placeholder="Passord" required>
       <p id="login-form" class="clear-both"></p>
       <input type="submit" value="Logg inn" class="submit_button">
       <a href="#">Glemt passord (Kommer)</a>
@@ -34,9 +34,13 @@
   <div id="register-popup">
     <h2>Registrer ny bruker</h2>
     <form id="registration-form" action="javascript:;" onsubmit="app.buttons.register(this)">
-      <input class="clear-both" type="text" name="username" placeholder="Brukernavn">
-      <input class="clear-both" type="password" name="password" placeholder="Passord">
-      <input class="clear-both" type="email" name="mail" placeholder="petter@smart.no">
+      <input class="clear-both" type="text" name="username" placeholder="Brukernavn" required>
+      <p id="validate-username"></p>
+      <em>Passordet må ha store og små bokstaver og tall samt være lengre enn 5 tegn.</em>
+      <input class="clear-both" type="password" name="password" placeholder="Passord" required>
+      <p id="validate-password"></p>
+      <input class="clear-both" type="email" name="mail" placeholder="petter@smart.no" required>
+      <p id="validate-mail"></p>
       <p id="register-form" class="clear-both"></p>
       <input type="submit" value="Registrer" class="submit_button">
     </form>

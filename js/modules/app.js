@@ -38,6 +38,8 @@ var app = {
     }
   },
   register : {
+    validMail : true,
+    validPassword : true,
     showPopup : function(){
       $('#register-popup').show();
     },
@@ -126,7 +128,7 @@ var app = {
       var pw = $(form).children(":input[name='password']").val();
       var m = $(form).children(":input[name='mail']").val();
       //Logging the user in
-      if(uname != "" && pw != "" && m != ""){
+      if(uname != "" && pw != "" && m != "" && app.register.validMail && app.register.validPassword){
         $.post(path,
           {
             username: $(form).children(":input[name='username']").val(),
@@ -181,6 +183,34 @@ var app = {
           app.login.closeForm();
       });
 
+      //password strength indication
+      $(document).on('keyup', '#registration-form input[type=password]',
+        function(){
+          var pw = $(this).val();
+          if(pw.match(/[a-z]{1,99}/i) && pw.match(/[A-Z]{1,99}/i) && pw.match(/[0-9]{1,99}/i) && pw.length > 6){
+            $('#validate-password').html('').css({'color':'green'});
+            $(this).css({'color':'green'});
+            app.register.validPassword = true;
+          }else{
+            $(this).css({'color':'red'});
+            $('#validate-password').html('Passordet infrir ikke kravene.').css({'color':'red'});
+            app.register.validPassword = false;
+          }
+        }
+      );
+      //email validation
+      $(document).on('keyup', '#registration-form input[type=email]',
+        function(){
+          var mail = $(this).val();
+          if(mail.match(/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i)){
+            $(this).css({'color':'green'});
+            app.register.validMail = true;
+          }else{
+            $(this).css({'color':'red'});
+            app.register.validMail = false;
+          }
+        }
+      );
     },
     textButtons : function (){
       /*
