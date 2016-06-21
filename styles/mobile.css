@@ -9,6 +9,7 @@
     max-width:100%;
     position:relative;
   }
+
   #map{
     top: -0.3em;
     height: calc(100% - 5em);

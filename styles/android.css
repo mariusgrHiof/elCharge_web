@@ -6,15 +6,16 @@
     #map{
         height: calc(100% - 5em);
     }
-    #search {
-        width: 80%;
+    #search{
+      width:100%;
+      margin:0;
     }
 
     #search input {
-        width: auto;
+        width: 50% !important;
     }
 
     #my-loc-btn {
-        float: right;
+        float: left;
     }
 }
