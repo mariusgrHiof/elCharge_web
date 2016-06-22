@@ -364,6 +364,7 @@ var station = {
     if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1)
       marker = new google.maps.Marker({
         position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
+        icon : markerIcon,
         map: app.map,
         title: station.list[id].csmd.name
       });
