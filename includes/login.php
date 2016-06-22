@@ -38,6 +38,7 @@
       <p id="validate-username"></p>
       <em>Passordet må ha store og små bokstaver og tall samt være lengre enn 5 tegn.</em>
       <input class="clear-both" type="password" name="password" placeholder="Passord" required>
+      <input class="clear-both" type="password" name="password-match" placeholder="Gjenta passordet" required>
       <p id="validate-password"></p>
       <input class="clear-both" type="email" name="mail" placeholder="petter@smart.no" required>
       <p id="validate-mail"></p>

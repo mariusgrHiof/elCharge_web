@@ -141,7 +141,7 @@ var app = {
           }
         );
       }else{
-        $('#register-form').html( 'Alle feltene må fylles ut!' );
+        $('#register-form').html( 'Ikke alle feltene er gyldige.' );
       }
       return false;
     },
@@ -187,13 +187,20 @@ var app = {
       //password strength indication
       $(document).on('keyup', '#registration-form input[type=password]',
         function(){
-          var pw = $(this).val();
+          var pw = $('#registration-form input[name=password]').val();
+          var pws = '#registration-form input[type=password]';
           if(pw.match(/[a-z]{1,99}/i) && pw.match(/[A-Z]{1,99}/i) && pw.match(/[0-9]{1,99}/i) && pw.length > 6){
             $('#validate-password').html('').css({'color':'green'});
-            $(this).css({'color':'green'});
-            app.register.validPassword = true;
+            $(pws).css({'color':'green'});
+            if(pw != '' && pw == $('#registration-form input[name=password-match]').val()){
+              app.register.validPassword = true;
+            }else{
+              $(pws).css({'color':'red'});
+              $('#validate-password').html('Passordene er ikke like.').css({'color':'red'});
+              app.register.validPassword = false;
+            }
           }else{
-            $(this).css({'color':'red'});
+            $(pws).css({'color':'red'});
             $('#validate-password').html('Passordet infrir ikke kravene.').css({'color':'red'});
             app.register.validPassword = false;
           }

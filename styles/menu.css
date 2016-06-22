@@ -442,6 +442,9 @@ ul{
     position: absolute;
     z-index: 1;
 }
+#validate-password{
+  margin-top: 0;
+}
 #station-tooltip .tooltip .tooltiptext{
   width:auto !important;
   max-width:80%;
