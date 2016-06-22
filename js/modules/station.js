@@ -134,9 +134,10 @@ var station = {
           result +=
             "<div class='cpelements'>"+
               "<span style=\'color:black; width:90%; float:left;\'>"+
-              station.list[id].attr.conn[c][4].trans +
-              "</br>" + station.conns.connCapacityString(id, c) +
+              "<strong>Uttak: </strong>" + station.list[id].attr.conn[c][4].trans +
+              "</br><strong>KW: </strong>" + station.conns.connCapacityString(id, c) +
               station.conns.getImg(station.list[id].attr.conn[c][4].attrvalid) +
+              (isLive ? "</br><strong>Siste status: </strong>" + station.list[id].attr.conn[c][16].attrval.match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/gm) : '') +
               "</span>"+
               "<div class='chargePointColor' style='background-color:" + (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'>"+
               "</div>"+
