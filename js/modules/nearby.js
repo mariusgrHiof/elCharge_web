@@ -42,7 +42,7 @@ var nearby = {
               '<div class="chargePointColor" style="height:4em;background-color:' +
                 (station.list[nationalID].attr.st[21].attrvalid == "1" ? (station.occupiedStatus(nationalID) > 0.4 ? 'lightgreen' : 'yellow') : 'blue') + ';"></div>'+
               '<div class="cover-twothird float-right" style="width:calc(66% - 1em);">'+
-                '<strong class="float-left station-title">' + nearby.chargers[id].csmd.name + '</strong><br />'+
+                '<strong class="float-left station-title"><a class="station" value="' + nationalID +'" href="#">' + nearby.chargers[id].csmd.name + '</a></strong><br />'+
                 '<span>' + nearby.chargers[id].distance.toFixed(2)+ 'km </span>'+
                 '<button class="float-left nav-here tooltip" onclick="navigation.fromUser(geopos, this)" value="'+ thisPos +'"><p class="tooltiptext">Naviger hit</p>Naviger hit</button>' +
                 '<div class="clear-both">' +//read-more
@@ -52,5 +52,6 @@ var nearby = {
         }catch(e){console.log(e); console.log(nearby.chargers[id]); console.log(id);}
       }
     }
+    station.bindStationNames();
   }
 };

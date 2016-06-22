@@ -445,6 +445,12 @@ ul{
 #station-tooltip .tooltip .tooltiptext{
   width:auto !important;
   max-width:80%;
+  padding: 1em;
+}
+#station-tooltip #lowerContainer .tooltip .tooltiptext{
+  margin-top:-1.5em;
+  margin-left:0;
+  color:white;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */

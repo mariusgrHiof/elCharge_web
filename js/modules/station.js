@@ -9,28 +9,22 @@ var station = {
   list : [],
   attr : {
     st :{//Translated values (Source == English)
-      '2' : {
-        '1' : 'Offentlig',
-        '2' : 'Besøkende',
-        '3' : 'Ansatte',
-        '4' : 'Ved avtale',
-        '5' : 'Beboere'
+      2 : {
+        1 : 'Offentlig',
+        2 : 'Besøkende',
+        3 : 'Ansatte',
+        4 : 'Ved avtale',
+        5 : 'Beboere'
       },
-      '3' : {
-        '1' : 'Gate',
-        '2' : 'Parkeringsplass',
-        '3' : 'Flyplass',
-        '4' : 'Kjøpesenter',
-        '5' : 'Transport hub',
-        '6' : 'Hotell og restaurant',
-        '7' : 'Bensinstasjon'
-      },
-      '2' : {},
-      '2' : {},
-      '2' : {},
-      '2' : {},
-      '2' : {},
-      '2' : {}
+      3 : {
+        1 : 'Gate',
+        2 : 'Parkeringsplass',
+        3 : 'Flyplass',
+        4 : 'Kjøpesenter',
+        5 : 'Transport hub',
+        6 : 'Hotell og restaurant',
+        7 : 'Bensinstasjon'
+      }
     },
     conn : {
 
@@ -51,6 +45,12 @@ var station = {
   semiFastCharge : 12,
   fastCharge : 43,
   markerClusterer : null,
+  bindStationNames : function(){
+    $('a.station').unbind();
+    $('a.station').bind('click', function(){
+      google.maps.event.trigger(station.markers[station.list[$(this).attr('value')].markerID], 'click');
+    });
+  },
   /*
    * Connectors
    */
@@ -254,7 +254,7 @@ var station = {
             //TODO: Num of faulty gjelder kun for den siste som var lagt til av markers!
               (station.conns.numFaulty / station.list[id].csmd.Number_charging_points == 1 ? "red" : (station.list[id].attr.st[21].attrvalid == "1" ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ';"></div>'+
             '<div class="cover-twothird float-right" style="width:calc(66% - 1em);">'+
-              '<strong class="float-left">' + station.list[id].csmd.name + '</strong><br />'+
+              '<strong class="float-left"><a class="station" href="#" value="' + id + '">' + station.list[id].csmd.name + '</a></strong><br />'+
               '<span>' + nearby.compareDistance(app.gps.geopos, station.list[id].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>'+
               '<button class="float-left nav-here" onclick="navigation.fromUser(app.gps.geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
               '<div class="clear-both">' +//read-more
@@ -262,6 +262,7 @@ var station = {
             '</div>' +
         '</li>');
       }
+      station.bindStationNames();
     },
   },
   updateCarList : function(){
@@ -413,11 +414,12 @@ var station = {
         station.infoWindows[iw].setContent(null);
         station.infoWindows[iw].close();
       }
-      infowindow.open(map, marker);
+      infowindow.open(app.map, marker);
 
       infowindow.setContent(station.getInfoWindowContent(id, isLive));
     }));
     station.markers.push(marker);
+    station.list[id].markerID = station.markers.length-1;
 
     //Building closest charging stations list
     try{
@@ -442,7 +444,7 @@ var station = {
         "<div class='route-element station-"+ id +"'>" +
           "<img class='cover-third float-left' src=\"" + station.getImage(id) + "\"/>" +
           "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
-            station.list[id].csmd.name +
+            "<a value='" + id + "' class='station'>" + station.list[id].csmd.name + "</a>" +
           "</div>"+
           "<div class='markerColor' style='background-color:"+ (station.conns.numFaulty / station.list[id].csmd.Number_charging_points == 1 ? "red" : (isLive ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>" +
             "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"station.removeWaypoint(this)\">X</button>" +
@@ -459,6 +461,7 @@ var station = {
         navigation.build();
       }
     }catch(e){console.log(e);}
+    station.bindStationNames();
   },
   removeWaypoint : function (element){
     var parent = $(element).parent().parent();
@@ -503,9 +506,9 @@ var station = {
         "<div id='secondContainer'>"+
           "<div id='infoLeft'>" +
             (isLive ? '<p><strong>Sist oppdatert</strong> ' + station.list[id].csmd.Updated + '</p>' : '') +
-            "<p><strong>Tilgjengelighet</strong> "+ station.list[id].attr.st[2].trans.replace('\r\n','<br />')+"</p>" +
+            (isLive ? "<p><strong>Tilgjengelighet</strong> "+ station.attr.st[2][station.list[id].attr.st[2].attrvalid] + "</p>" : '') +
             "<p><strong>Parkerings avgift:</strong> " + (station.list[id].attr.st[7].attrvalid == 1 ? 'Ja' : 'Nei') + "</p>" +
-            "<p><strong>Lokasjon:</strong> " + (station.list[id].attr.st[3].attrvalid == 1 ? 'L578' : 'L578') + "</p>" +
+            (isLive ? "<p><strong>Lokasjon:</strong> " + station.attr.st[3][station.list[id].attr.st[3].attrvalid] + "</p>" : '') +
             "<p><strong>Adresse:</strong> "+ station.list[id].csmd.Street.replace('\r\n','<br />') +" " + station.list[id].csmd.House_number.replace('\r\n','<br />') + ", " + station.list[id].csmd.Zipcode.replace('\r\n','<br />') + " " + station.list[id].csmd.City.replace('\r\n','<br />') +"</p>"+
             "<p><strong>Lokasjonsbeskrivelse:</strong> "+ station.list[id].csmd.Description_of_location +"</p>" +
             "<p><strong>Eier:</strong> " + station.list[id].csmd.Owned_by.replace('\r\n','<br />') +"</p>" +
