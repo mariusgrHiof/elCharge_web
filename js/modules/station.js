@@ -499,7 +499,7 @@ var station = {
         "<div id=\"secondRow\">" +
           "<span class=\"tooltip\"><img class=\"img-to-load\" alt=\"" + station.list[id].csmd.name + "\" src=\""+ station.getImage(id) + "\"/><img class=\"tooltiptext\" src=\"" + station.getImage(id) + "\"/></span>" +
           "<div id='placeNameIcons' style='color:blue;'>"+
-            "<h3>"+ station.list[id].csmd.name + "(ID:" + id + ")</h3>" +
+            "<h3>"+ station.list[id].csmd.name +"</h3>" +
           "</div>"+
           "<div class='markerColor' style='background-color:"+ (station.conns.numFaulty / station.list[id].csmd.Number_charging_points == 1 ? "red" : (isLive ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>"+
           "</div>"+
