@@ -133,14 +133,14 @@ var station = {
           }
           result +=
             "<div class='cpelements'>"+
-              "<span style=\'color:black; width:90%; float:left;\'>"+
-              "<strong>Uttak: </strong>" + station.list[id].attr.conn[c][4].trans +
-              "</br><strong>KW: </strong>" + station.conns.connCapacityString(id, c) +
-              station.conns.getImg(station.list[id].attr.conn[c][4].attrvalid) +
-              (isLive ? "</br><strong>Siste status: </strong>" + station.list[id].attr.conn[c][16].attrval.match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/gm) : '') +
+              "<span style=\'color:black; max-width:80%; float:left;\'>"+
+                "<strong>Uttak: </strong>" + station.list[id].attr.conn[c][4].trans +
+                "</br><strong>KW: </strong>" + station.conns.connCapacityString(id, c) +
+                (isLive ? "</br><strong>Siste status: </strong>" + station.list[id].attr.conn[c][16].attrval.match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/gm) : '') +
               "</span>"+
-              "<div class='chargePointColor' style='background-color:" + (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'>"+
-              "</div>"+
+              "<div class='chargePointColor' style='background-color:" +
+                (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'></div>"+
+              station.conns.getImg(station.list[id].attr.conn[c][4].attrvalid) +
             "</div>";
         }catch(e){
           console.log('Failed to build connectorsString for ' + station.list[id].csmd.name + " Error: " + e);
@@ -150,28 +150,30 @@ var station = {
     },
     // TODO: connectorImg
     getImg : function (connType) {
-      var img;
+      var imgStart = '<img class="float-right" src="icons/conn/';
+      var imgEnd = '" style="max-height:2em; max-width:2em;"/>';
+      var result = '';
       if(app.inArrayVal(connType, station.conns.types.schuko))
-        img = 'schuko.svg';
-      else if(app.inArrayVal(connType, station.conns.types.type1))
-        img = 'type1.svg';
-      else if(app.inArrayVal(connType, station.conns.types.type2))
-        img = 'type2_tesla.svg';
-      else if(app.inArrayVal(connType, station.conns.types.chademo))
-        img = 'chademo.svg';
-      else if(app.inArrayVal(connType, station.conns.types.combo))
-        img = 'combo1.svg';
-      else if(app.inArrayVal(connType, station.conns.types.ind3pin))
-        img = 'industrial3pin.svg';
-      else if(app.inArrayVal(connType, station.conns.types.ind4pin))
-        img = 'industrial4pin.svg';
-      else if(app.inArrayVal(connType, station.conns.types.ind5pin))
-        img = 'industrial5pin.svg';
-      else if(app.inArrayVal(connType, station.conns.types.teslaModelS))
-        img = 'type2_tesla.svg';
-      else if(app.inArrayVal(connType, station.conns.types.teslaRoadster))
-        img = 'tesla_r.svg';
-      return '<img class="float-right" src="icons/conn/'+ img +'" style="max-height:2em; max-width:2em;"/>';
+        result += imgStart + 'schuko.svg' + imgEnd;
+      if(app.inArrayVal(connType, station.conns.types.type1))
+        result += imgStart + 'type1.svg' + imgEnd;
+      if(app.inArrayVal(connType, station.conns.types.type2))
+        result += imgStart + 'type2_tesla.svg' + imgEnd;
+      if(app.inArrayVal(connType, station.conns.types.chademo))
+        result += imgStart + 'chademo.svg' + imgEnd;
+      if(app.inArrayVal(connType, station.conns.types.combo))
+        result += imgStart + 'combo1.svg' + imgEnd;
+      if(app.inArrayVal(connType, station.conns.types.ind3pin))
+        result += imgStart + 'industrial3pin.svg' + imgEnd;
+      if(app.inArrayVal(connType, station.conns.types.ind4pin))
+        result += imgStart + 'industrial4pin.svg' + imgEnd;
+      if(app.inArrayVal(connType, station.conns.types.ind5pin))
+        result += imgStart + 'industrial5pin.svg' + imgEnd;
+      if(app.inArrayVal(connType, station.conns.types.teslaModelS))
+        result += imgStart + 'type2_tesla.svg' + imgEnd;
+      if(app.inArrayVal(connType, station.conns.types.teslaRoadster))
+        result += imgStart + 'tesla_r.svg' + imgEnd;
+      return result;
     }
   },
   favorite : {

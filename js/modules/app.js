@@ -1,12 +1,13 @@
 /**
 * Created by jonas on 13.06.16.
-*/
-
-/*
+*
 * Dependencies:
 *  - jQuery
 *  - app.js
 *  - station.js
+*  - elevation.js
+*  - nearby.js
+*  - navigation.js
 */
 var app = {
   initiatedMap : false,
