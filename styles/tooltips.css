@@ -27,7 +27,7 @@ div#station-tooltip button{
     display:block;
 }
 
-div#station-tooltip div#secondRow img {
+div#station-tooltip div#secondRow img.img-to-load {
     width: 6em;
     height: 5em;
     float:left;

@@ -7,6 +7,35 @@ var station = {
    * TODO: station.list
    */
   list : [],
+  attr : {
+    st :{//Translated values (Source == English)
+      '2' : {
+        '1' : 'Offentlig',
+        '2' : 'Besøkende',
+        '3' : 'Ansatte',
+        '4' : 'Ved avtale',
+        '5' : 'Beboere'
+      },
+      '3' : {
+        '1' : 'Gate',
+        '2' : 'Parkeringsplass',
+        '3' : 'Flyplass',
+        '4' : 'Kjøpesenter',
+        '5' : 'Transport hub',
+        '6' : 'Hotell og restaurant',
+        '7' : 'Bensinstasjon'
+      },
+      '2' : {},
+      '2' : {},
+      '2' : {},
+      '2' : {},
+      '2' : {},
+      '2' : {}
+    },
+    conn : {
+
+    }
+  },
   user : {
     carConns : []
   },
@@ -462,17 +491,20 @@ var station = {
         "<div id=\"topBox\">"+
         "</div>"+
         "<div id=\"secondRow\">" +
-          "<img class='img-to-load' src=\""+ station.getImage(id) + "\"/>" +
+          "<span class=\"tooltip\"><img class=\"img-to-load\" alt=\"" + station.list[id].csmd.name + "\" src=\""+ station.getImage(id) + "\"/><img class=\"tooltiptext\" src=\"" + station.getImage(id) + "\"/></span>" +
           "<div id='placeNameIcons' style='color:blue;'>"+
             "<h3>"+ station.list[id].csmd.name + "(ID:" + id + ")</h3>" +
-            "<p><strong>Tilgjengelighet</strong> "+ station.list[id].attr.st[2].trans.replace('\r\n','<br />')+"</p>" +
           "</div>"+
           "<div class='markerColor' style='background-color:"+ (station.conns.numFaulty / station.list[id].csmd.Number_charging_points == 1 ? "red" : (isLive ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>"+
           "</div>"+
         "</div>"+
 
         "<div id='secondContainer'>"+
-          "<div id='infoLeft'>"+
+          "<div id='infoLeft'>" +
+            (isLive ? '<p><strong>Sist oppdatert</strong> ' + station.list[id].csmd.Updated + '</p>' : '') +
+            "<p><strong>Tilgjengelighet</strong> "+ station.list[id].attr.st[2].trans.replace('\r\n','<br />')+"</p>" +
+            "<p><strong>Parkerings avgift:</strong> " + (station.list[id].attr.st[7].attrvalid == 1 ? 'Ja' : 'Nei') + "</p>" +
+            "<p><strong>Lokasjon:</strong> " + (station.list[id].attr.st[3].attrvalid == 1 ? 'L578' : 'L578') + "</p>" +
             "<p><strong>Adresse:</strong> "+ station.list[id].csmd.Street.replace('\r\n','<br />') +" " + station.list[id].csmd.House_number.replace('\r\n','<br />') + ", " + station.list[id].csmd.Zipcode.replace('\r\n','<br />') + " " + station.list[id].csmd.City.replace('\r\n','<br />') +"</p>"+
             "<p><strong>Lokasjonsbeskrivelse:</strong> "+ station.list[id].csmd.Description_of_location +"</p>" +
             "<p><strong>Eier:</strong> " + station.list[id].csmd.Owned_by.replace('\r\n','<br />') +"</p>" +
