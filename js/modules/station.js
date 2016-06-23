@@ -294,7 +294,7 @@ var station = {
         $('#favorite-routes').append(
           '<li class="border clear-both" value="' + id + '" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
             '<div class="float-left clear-both" >'+
-              '<strong class="float-left oneliner">' + station.favorite.routeList[i].name + '</strong>' +
+              '<strong class="float-left oneliner">' + station.favorite.routeList[i].name.substring(0,40) + (station.favorite.routeList[i].name.length > 40 ? '...' : '') + '</strong>' +
               '<button class="float-right" style="border:none; background:transparent; padding: 0.4em; color:black;" onclick="station.favorite.deleteRoute(this)">X</button>' +
               '<br />'+
               '<span>' + station.favorite.routeList[i].distance + 'km </span>'+

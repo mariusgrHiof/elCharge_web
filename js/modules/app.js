@@ -58,11 +58,13 @@ var app = {
         if($(target).css("left") == "-432px"){
           $('#menu-toggle').addClass('toggle');
           $(target).animate({left :'0em'}, {queue: false, duration: 300});
-          $('#map').animate({width : (window.innerWidth / parseFloat($("body").css("font-size")) - 27) + 'em'}, {queue: false, duration: 300});
+          if(!app.device.isMobile)
+            $('#map').animate({width : (window.innerWidth / parseFloat($("body").css("font-size")) - 27) + 'em'}, {queue: false, duration: 300});
         }else{
           $('#menu-toggle').removeClass('toggle');
           $(target).animate({left :'-432px'}, {queue: false, duration: 300});
-          $('#map').animate({width : window.innerWidth / parseFloat($("body").css("font-size")) + 'em'}, {queue: false, duration: 300});
+          if(!app.device.isMobile)
+            $('#map').animate({width : window.innerWidth / parseFloat($("body").css("font-size")) + 'em'}, {queue: false, duration: 300});
         }
       }catch(e){console.log(e);}
     },
