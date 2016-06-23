@@ -468,10 +468,18 @@ ul{
 /*Anim*/
 #map.toggle{
   width: calc( 100% - 27em ) !important;
+  -webkit-transition: width 1s;
+  -o-transition: width 1s;
+  -moz-transition: width 1s;
+  -ms-transition: width 1s;
   transition: width 1s;
 }
 #map{
     width: 100% !important;
+    -webkit-transition: width 1s;
+    -o-transition: width 1s;
+    -moz-transition: width 1s;
+    -ms-transition: width 1s;
     transition: width 1s;
 }
 .menu{

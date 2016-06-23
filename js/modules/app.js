@@ -52,16 +52,19 @@ var app = {
     slideInMenu : function(){
       try{
         var target = $('.menu');
+        var em = parseInt($("html").css("font-size"));
+        var width = (em * 100) + 'px';
+        var widthWithMenu = (em*100 - 27*em) + 'px';
         if( !$(target).hasClass('toggle') ){
           $('#menu-toggle').addClass('toggle');
           $(target).addClass('toggle');
-          if(!app.device.isMobile)
-            $('#map').addClass('toggle');
+          if(!app.device.isMobile && !(navigator.userAgent.toLowerCase().indexOf('edge') > -1 || navigator.userAgent.toLowerCase().indexOf('rv') > -1) )//Not for phones, explorer or edge
+              $('#map').addClass('toggle');
         }else{
           $('#menu-toggle').removeClass('toggle');
           $(target).removeClass('toggle');
-          if(!app.device.isMobile)
-            $('#map').removeClass('toggle');
+          if(!app.device.isMobile && !(navigator.userAgent.toLowerCase().indexOf('edge') > -1 || navigator.userAgent.toLowerCase().indexOf('rv') > -1) )//Not for phones, explorer or edge
+              $('#map').removeClass('toggle');
         }
       }catch(e){console.log(e);}
     },

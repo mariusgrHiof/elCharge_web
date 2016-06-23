@@ -40,8 +40,8 @@
   <div id="login-popup">
     <h2>Logg inn</h2>
     <form id="loggin-form" action="javascript:;" onsubmit="app.buttons.login(this)">
-      <input class="clear-both" type="text" name="username" placeholder="Brukernavn">
-      <input class="clear-both" type="password" name="password" placeholder="Passord">
+      <input class="clear-both" type="text" name="username" placeholder="Brukernavn" required>
+      <input class="clear-both" type="password" name="password" placeholder="Passord" required>
       <p id="login-form" class="clear-both"></p>
       <input type="submit" value="Logg inn" class="submit_button">
       <a href="#">Glemt passord (Kommer)</a>
@@ -50,9 +50,14 @@
   <div id="register-popup">
     <h2>Registrer ny bruker</h2>
     <form id="registration-form" action="javascript:;" onsubmit="app.buttons.register(this)">
-      <input class="clear-both" type="text" name="username" placeholder="Brukernavn">
-      <input class="clear-both" type="password" name="password" placeholder="Passord">
-      <input class="clear-both" type="email" name="mail" placeholder="petter@smart.no">
+      <input class="clear-both" type="text" name="username" placeholder="Brukernavn" required>
+      <p id="validate-username"></p>
+      <em>Passordet må ha store og små bokstaver og tall samt være lengre enn 5 tegn.</em>
+      <input class="clear-both" type="password" name="password" placeholder="Passord" required>
+      <input class="clear-both" type="password" name="password-match" placeholder="Gjenta passordet" required>
+      <p id="validate-password"></p>
+      <input class="clear-both" type="email" name="mail" placeholder="petter@smart.no" required>
+      <p id="validate-mail"></p>
       <p id="register-form" class="clear-both"></p>
       <input type="submit" value="Registrer" class="submit_button">
     </form>
@@ -66,12 +71,12 @@
     <div id="search">
         <button onclick="app.buttons.slideInMenu()" id="menu-toggle"></button>
         <input id="search-box" type="text"/>
-        <button class="float-left nav-here tooltip"><p class="tooltiptext">Naviger hit</p>Naviger hit</button>
+        <button class="float-left nav-here tooltip" onclick="navigation.fromUserSearch()"><p class="tooltiptext">Naviger hit</p>Naviger hit</button>
         <button id="my-loc-btn" class ="tooltip" onclick="app.gps.centerOnUser(0)"><p class="tooltiptext">Gå til din posisjon</p><img src="icons/my_pos_marker.svg" style="width:1.5em; height:1.5em;"/></button>
         <button id="lock-to-my-pos-btn" class="lock-pos tooltip" onclick="app.buttons.lockMapToUser(this)"><p class="tooltiptext">Lås kartet til din posisjon</p>Lock</button>
     </div>
 </header>
-<nav class="menu" style="left:-700px;">
+<nav class="menu">
   <ul id="menu-list">
     <li>
       <div id="logged-in"></div>
@@ -101,9 +106,9 @@
 </span>
 <div class="sub-item">
     <em>Her befinner dine lagrede stasjoner og ruter seg.</em>
-    <h1> Favoritt ladestasjoner </h1>
+    <h3> Favoritt ladestasjoner </h3>
     <ul id="favorite-stations"></ul>
-    <h1>Favoritt reiseruter </h1>
+    <h3>Favoritt reiseruter </h3>
     <ul id ="favorite-routes"> </ul>
 </div>
     </li>
