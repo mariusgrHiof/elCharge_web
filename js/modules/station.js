@@ -197,6 +197,7 @@ var station = {
           navigation.jsonRoute["end"] =  navigation.route.legs[i].end_address;
       }
       navigation.jsonRoute['waypoints'] = navigation.waypoints;
+      navigation.jsonRoute['waypointsData'] = navigation.waypointsData;
 
       //Posting route
       $.post( path,{
@@ -332,6 +333,7 @@ var station = {
     },
     restoreRoute : function(element){
       var r_id = $(element).parent().parent().attr('value');
+      var isLive = true; //TODO: FIX!
       $('#nav-start-pos').val(station.favorite.routeList[r_id].route.start);
       navigation.waypoints = station.favorite.routeList[r_id].route.waypoints;
       $('#nav-end-pos').val(station.favorite.routeList[r_id].route.end);
@@ -356,7 +358,7 @@ var station = {
         }else{
           content += "<div class='route-element'>" +
             "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
-              navigation.waypointsData[wp].station_adress +
+              navigation.waypointsData[wp].address +
             "</div>"+
             "<div><button onclick=\"station.removeWaypoint(this)\">X</button></div>" +
           "</div>";

@@ -181,7 +181,7 @@ var navigation = {
     navigation.waypointsData.push(
       {
         isStation : false,
-        adress : adress
+        address : address
       });
     navigation.waypoints.push(
       {location: ltlng}
