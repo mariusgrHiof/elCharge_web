@@ -14,6 +14,12 @@
   height: 1.5em;
 }
 
+.oneliner{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width:100%;
+}
 header{
     z-index: 1;
     position:absolute;

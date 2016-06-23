@@ -294,7 +294,7 @@ var station = {
         $('#favorite-routes').append(
           '<li class="border clear-both" value="' + id + '" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
             '<div class="float-left clear-both" >'+
-              '<strong class="float-left">' + station.favorite.routeList[i].name + '</strong>' +
+              '<strong class="float-left oneliner">' + station.favorite.routeList[i].name + '</strong>' +
               '<button class="float-right" style="border:none; background:transparent; padding: 0.4em; color:black;" onclick="station.favorite.deleteRoute(this)">X</button>' +
               '<br />'+
               '<span>' + station.favorite.routeList[i].distance + 'km </span>'+
@@ -316,23 +316,24 @@ var station = {
             '<div class="chargePointColor" style="height:4em;background-color:' +
             //TODO: Num of faulty gjelder kun for den siste som var lagt til av markers!
               (station.conns.numFaulty / station.list[id].csmd.Number_charging_points == 1 ? "red" : (station.list[id].attr.st[21].attrvalid == "1" ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ';">' +
-                "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"station.favorite.deleteStation(this)\">X</button>" +
-              '</div>'+
-            '<div class="cover-twothird float-right" style="width:calc(66% - 1em);">'+
-              '<strong class="float-left"><a class="station" href="#" value="' + id + '">' + station.list[id].csmd.name + '</a></strong><br />'+
-              '<span>' + nearby.compareDistance(app.gps.geopos, station.list[id].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>'+
-              '<button class="float-left nav-here" onclick="navigation.fromUser(app.gps.geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
+              "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"station.favorite.deleteStation(this)\">X</button>" +
+            '</div>'+
+            '<div class="cover-twothird float-left" style="padding-left:1em; width:calc(60% - 1em);">'+
+              '<strong class="float-left"><a class="station oneliner" style="padding-left:0;" href="#" value="' + id + '">' + station.list[id].csmd.name.substring(0,28) + (station.list[id].csmd.name.length > 28 ? '...' : '') + '</a></strong><br />'+
+              '<span class="float-left"><strong>Adresse: </strong> '+ station.list[id].csmd.Street +" " + station.list[id].csmd.House_number + ", " + station.list[id].csmd.Zipcode + ' ' + station.list[id].csmd.City +'</span>' +
+              '<span class="float-left"><strong>Distanse: </strong>' + nearby.compareDistance(app.gps.geopos, station.list[id].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>'+
               '<div class="clear-both">' +//read-more
               '</div>' +
             '</div>' +
-        '</li>');
+            '<button class="float-right nav-here" onclick="navigation.fromUser(app.gps.geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
+          '</li>');
       }
       station.bindStationNames();
     },
   },
   restoreRoute : function(id){
     //TODO: Logic for going into the route planner
-    
+
   },
   updateCarList : function(){
     //Adding elements to the car list dropdown
