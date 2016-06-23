@@ -299,7 +299,7 @@ var station = {
               '<br />'+
               '<span>' + station.favorite.routeList[i].distance + 'km </span>'+
               '<span>' + station.favorite.routeList[i].route.waypoints.length + ' rutepunkter</span>'+
-              '<button class="float-right nav-here" onclick="navigation.fromUser(app.gps.geopos, this)" value="">Ta meg hit</button>' +
+              '<button class="float-right nav-here" onclick="station.favorite.restoreRoute(this)" value="">Ta meg hit</button>' +
               '<div class="clear-both">' +//read-more
               '</div>' +
             '</div>' +
@@ -325,15 +325,16 @@ var station = {
               '<div class="clear-both">' +//read-more
               '</div>' +
             '</div>' +
-            '<button class="float-right nav-here" onclick="navigation.fromUser(app.gps.geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
+            '<button class="float-right nav-here" onclick="navigation.fromUser(this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
           '</li>');
       }
       station.bindStationNames();
     },
-  },
-  restoreRoute : function(id){
-    //TODO: Logic for going into the route planner
+    restoreRoute : function(id){
+      //TODO: Logic for going into the route planner
+      console.log('Kommer snart');
 
+    }
   },
   updateCarList : function(){
     //Adding elements to the car list dropdown

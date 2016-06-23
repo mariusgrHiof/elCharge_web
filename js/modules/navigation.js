@@ -30,14 +30,14 @@ var navigation = {
     });
     navigation.displayRoute(navigation.startDestination, navigation.endDestination, navigation.service,navigation.display);
   },
-  fromUser : function (from, toel){
+  fromUser : function (toel){
     navigation.clearRoute();
     if(document.getElementById('right-panel').innerHTML != null)
       $("#right-panel").html("") //The route description
     if(navigation.display != null)
       navigation.display.setMap(null);//The route in the map
     var to = $(toel).attr('value');
-    $('#nav-start-pos').val(from);
+    $('#nav-start-pos').val(app.gps.geopos);
     $('#nav-end-pos').val(to);
     //Cleaning previous directions
     if(navigation.display != null)
@@ -47,7 +47,39 @@ var navigation = {
       $("#right-panel").html(""); //The route description
 
     //Getting destinations
-    navigation.startDestination = from[0] + "," + from[1];
+    navigation.startDestination = app.gps.geopos[0] + "," + app.gps.geopos[1];
+    navigation.endDestination = to;
+    navigation.service = new google.maps.DirectionsService;
+    navigation.display = new google.maps.DirectionsRenderer({
+      draggable: true,
+      map: app.map,
+      panel: $('#right-panel')[0]
+    });
+
+    //Allows us to do stuff when the route is dragged and/or changed.
+    navigation.display.addListener('directions_changed', function() {
+      navigation.getTotalDistance(navigation.display.getDirections());
+    });
+    navigation.displayRoute(navigation.startDestination, navigation.endDestination, navigation.service, navigation.display);
+  },
+  fromUserSearch : function (){
+    navigation.clearRoute();
+    if(document.getElementById('right-panel').innerHTML != null)
+      $("#right-panel").html("") //The route description
+    if(navigation.display != null)
+      navigation.display.setMap(null);//The route in the map
+    var to = $('#search-box').val();
+    $('#nav-start-pos').val(app.gps.geopos);
+    $('#nav-end-pos').val(to);
+    //Cleaning previous directions
+    if(navigation.display != null)
+      navigation.display.setMap(null);//The route in the map
+
+    if(document.getElementById('right-panel').innerHTML != null)
+      $("#right-panel").html(""); //The route description
+
+    //Getting destinations
+    navigation.startDestination = app.gps.geopos[0] + "," + app.gps.geopos[1];
     navigation.endDestination = to;
     navigation.service = new google.maps.DirectionsService;
     navigation.display = new google.maps.DirectionsRenderer({
