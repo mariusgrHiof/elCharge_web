@@ -330,10 +330,40 @@ var station = {
       }
       station.bindStationNames();
     },
-    restoreRoute : function(id){
-      //TODO: Logic for going into the route planner
-      console.log('Kommer snart');
-
+    restoreRoute : function(element){
+      var r_id = $(element).parent().parent().attr('value');
+      $('#nav-start-pos').val(station.favorite.routeList[r_id].route.start);
+      navigation.waypoints = station.favorite.routeList[r_id].route.waypoints;
+      $('#nav-end-pos').val(station.favorite.routeList[r_id].route.end);
+      var content = '';
+      for(var wp in navigation.waypoints){
+        if(navigation.waypointsData[wp].isStation){
+          var id = navigation.waypointsData[wp].station_id;
+          content +=
+            "<div class='route-element station-"+ id +"'>" +
+              "<img class='cover-third float-left' src=\"" + station.getImage(id) + "\"/>" +
+              "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
+                "<a value='" + id + "' class='station'>" + station.list[id].csmd.name + "</a>" +
+              "</div>"+
+              "<div class='markerColor' style='background-color:"+ (station.conns.numFaulty / station.list[id].csmd.Number_charging_points == 1 ? "red" : (isLive ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>" +
+                "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"station.removeWaypoint(this)\">X</button>" +
+              "</div>"+
+              "<button onclick='app.menu.readMore(this)'>Vis mer</button>"+
+              "<div class='read-more clear-both'>" +
+                station.conns.getString(id,station.list[id].attr.st[21].attrvalid == "1") +
+              "</div>" +
+            "</div>";
+        }else{
+          content += "<div class='route-element'>" +
+            "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
+              navigation.waypointsData[wp].station_adress +
+            "</div>"+
+            "<div><button onclick=\"station.removeWaypoint(this)\">X</button></div>" +
+          "</div>";
+        }
+      }
+      $('#waypoint-list').html(content);
+      navigation.build();
     }
   },
   updateCarList : function(){
@@ -508,6 +538,11 @@ var station = {
     try{
       var disPos = station.list[id].csmd.Position.replace(/[()]/g,"").split(",");
       var isLive = station.list[id].attr.st[21].attrvalid == "1";
+      navigation.waypointsData.push(
+        {
+          isStation : true,
+          station_id : id
+        });
       navigation.waypoints.push(
         {location: new google.maps.LatLng(disPos[0],disPos[1])}
       );
@@ -544,6 +579,7 @@ var station = {
     //Removing elements from waypoints and moving the other elements down in the array.
     if(index > -1){
       navigation.waypoints.splice(index, 1);
+      navigation.waypointsData.splice(index, 1);
     }
 
     //Refreshing the route if it's active

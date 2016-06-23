@@ -4,6 +4,7 @@
 var navigation = {
   startDestination : '',
   waypoints : [],
+  waypointsData : [],
   endDestination : '',
   service : null,
   display : null,
@@ -177,6 +178,11 @@ var navigation = {
     request.send();
   },
   showDraggedInListAdress : function (ltlng, address){
+    navigation.waypointsData.push(
+      {
+        isStation : false,
+        adress : adress
+      });
     navigation.waypoints.push(
       {location: ltlng}
     );
