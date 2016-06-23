@@ -330,6 +330,10 @@ var station = {
       station.bindStationNames();
     },
   },
+  restoreRoute : function(id){
+    //TODO: Logic for going into the route planner
+    
+  },
   updateCarList : function(){
     //Adding elements to the car list dropdown
     var txt = '<option value="0">Vis alle ladere</option>';
