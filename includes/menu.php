@@ -7,7 +7,7 @@
  */
 
 ?>
-<nav class="menu" style="left:-700px;">
+<nav class="menu" style="left:-432px;">
   <ul id="menu-list">
     <li>
       <?php

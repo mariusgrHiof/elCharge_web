@@ -50,14 +50,19 @@ var app = {
   },
   buttons : {
     slideInMenu : function(){
+      var em = parseInt($("html").css("font-size"));
+      var width = (em * 100) + 'px';
+      var widthWithMenu = (em*100 - 27*em) + 'px';
       try{
         var target = $('.menu');
-        if($(target).css("left") == "-700px"){
+        if($(target).css("left") == "-432px"){
           $('#menu-toggle').addClass('toggle');
-          $(target).animate({left:'0px'}, {queue: false, duration: 300});
+          $(target).animate({left :'0em'}, {queue: false, duration: 300});
+          $('#map').animate({width : (window.innerWidth / parseFloat($("body").css("font-size")) - 27) + 'em'}, {queue: false, duration: 300});
         }else{
           $('#menu-toggle').removeClass('toggle');
-          $(target).animate({left:'-700px'}, {queue: false, duration: 300});
+          $(target).animate({left :'-432px'}, {queue: false, duration: 300});
+          $('#map').animate({width : window.innerWidth / parseFloat($("body").css("font-size")) + 'em'}, {queue: false, duration: 300});
         }
       }catch(e){console.log(e);}
     },
