@@ -50,21 +50,18 @@ var app = {
   },
   buttons : {
     slideInMenu : function(){
-      var em = parseInt($("html").css("font-size"));
-      var width = (em * 100) + 'px';
-      var widthWithMenu = (em*100 - 27*em) + 'px';
       try{
         var target = $('.menu');
-        if($(target).css("left") == "-432px"){
+        if( !$(target).hasClass('toggle') ){
           $('#menu-toggle').addClass('toggle');
-          $(target).animate({left :'0em'}, {queue: false, duration: 300});
+          $(target).addClass('toggle');
           if(!app.device.isMobile)
-            $('#map').animate({width : (window.innerWidth / parseFloat($("body").css("font-size")) - 27) + 'em'}, {queue: false, duration: 300});
+            $('#map').addClass('toggle');
         }else{
           $('#menu-toggle').removeClass('toggle');
-          $(target).animate({left :'-432px'}, {queue: false, duration: 300});
+          $(target).removeClass('toggle');
           if(!app.device.isMobile)
-            $('#map').animate({width : window.innerWidth / parseFloat($("body").css("font-size")) + 'em'}, {queue: false, duration: 300});
+            $('#map').removeClass('toggle');
         }
       }catch(e){console.log(e);}
     },

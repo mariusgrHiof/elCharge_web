@@ -464,3 +464,21 @@ ul{
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+
+/*Anim*/
+#map.toggle{
+  width: calc( 100% - 27em ) !important;
+  transition: width 1s;
+}
+#map{
+    width: 100% !important;
+    transition: width 1s;
+}
+.menu{
+    left: -27em !important;
+    transition: left 1s;
+}
+.menu.toggle{
+    left: 0em !important;
+    transition: left 1s;
+}
