@@ -9,22 +9,12 @@
 session_start();
 include 'dbConn.php';
 
-$stationId = $_REQUEST['stationId'];
-
-$userIdResult = $conn->query("select user_id from ec_user where username = '" . $_SESSION['username'] . "'")->fetch_assoc()['user_id'];
-echo $userIdResult;
-
-echo $_SESSION['username'];
 if(isset($_SESSION['sessionId'])){
     if(isset($_SESSION['username'])){
-        $sql = "INSERT INTO ec_user_has_stations VALUES(" . $userIdResult . ",'" . $stationId ."')";
+        $sql = 'INSERT INTO ec_user_has_stations VALUES'.
+        '("' . $_SESSION['user_id'] . '","' . $_REQUEST['stationId'] .'")';
         echo $sql;
         $conn->query($sql);
     }
-    else{
-        echo "Du må være logget inn";
-    }
 }
-else
-    echo "Session er ikke satt";
 ?>

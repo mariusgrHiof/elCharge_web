@@ -26,6 +26,7 @@ try {
     $routes = [];
     // output data of each row
     while ($row = $result_login->fetch_assoc()) {
+      $_SESSION['user_id'] = $row['user_id'];
       $user['user_id'] = $row['user_id'];
       $user['username'] = $row['username'];
       $hash = $row['password'];
