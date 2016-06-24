@@ -55,6 +55,7 @@ try {
            $rows['comment'] = $row['comment'];
            $rows['distance'] = $row['distance'];
            $rows['route'] = json_decode($row['route']);
+           $rows['route'] = json_decode($row['route']);
            $rows['name'] = $row['name'];
            $rows['route_id'] = $row['route_id'];
            $routes[] = $rows;

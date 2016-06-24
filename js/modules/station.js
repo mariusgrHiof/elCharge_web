@@ -209,6 +209,7 @@ var station = {
       }, function(result){
         console.log(result);
         station.favorite.routeList[station.favorite.routeList.length] = {
+          route_id : navigation.jsonRoute.length,
           name : navigation.jsonRoute["end"],
           route : navigation.jsonRoute,
           distance : station.favorite.distance,
@@ -333,14 +334,15 @@ var station = {
     },
     restoreRoute : function(element){
       var r_id = $(element).parent().parent().attr('value');
-      var isLive = true; //TODO: FIX!
       $('#nav-start-pos').val(station.favorite.routeList[r_id].route.start);
       navigation.waypoints = station.favorite.routeList[r_id].route.waypoints;
+      navigation.waypointsData = station.favorite.routeList[r_id].route.waypointsData;
       $('#nav-end-pos').val(station.favorite.routeList[r_id].route.end);
       var content = '';
       for(var wp in navigation.waypoints){
         if(navigation.waypointsData[wp].isStation){
           var id = navigation.waypointsData[wp].station_id;
+          var isLive = navigation.waypointsData[wp].isLive;
           content +=
             "<div class='route-element station-"+ id +"'>" +
               "<img class='cover-third float-left' src=\"" + station.getImage(id) + "\"/>" +
@@ -543,7 +545,8 @@ var station = {
       navigation.waypointsData.push(
         {
           isStation : true,
-          station_id : id
+          station_id : id,
+          isLive : isLive
         });
       navigation.waypoints.push(
         {location: new google.maps.LatLng(disPos[0],disPos[1])}
