@@ -261,7 +261,7 @@ select{
   background-color: #fff;
   float:left;
   margin-left: 0.5em;
-  width:70%;
+  width:60%;
 
 }
 @media screen and (max-width:600px){
@@ -468,25 +468,25 @@ ul{
 /*Anim*/
 #map.toggle{
   width: calc( 100% - 27em ) !important;
-  -webkit-transition: width 1s;
-  -o-transition: width 1s;
-  -moz-transition: width 1s;
-  -ms-transition: width 1s;
-  transition: width 1s;
+  -webkit-transition: width 0.5s;
+  -o-transition: width 0.5s;
+  -moz-transition: width 0.5s;
+  -ms-transition: width 0.5s;
+  transition: width 0.5s;
 }
 #map{
     width: 100% !important;
-    -webkit-transition: width 1s;
-    -o-transition: width 1s;
-    -moz-transition: width 1s;
-    -ms-transition: width 1s;
-    transition: width 1s;
+    -webkit-transition: width 0.5s;
+    -o-transition: width 0.5s;
+    -moz-transition: width 0.5s;
+    -ms-transition: width 0.5s;
+    transition: width 0.5s;
 }
 .menu{
     left: -27em !important;
-    transition: left 1s;
+    transition: left 0.5s;
 }
 .menu.toggle{
     left: 0em !important;
-    transition: left 1s;
+    transition: left 0.5s;
 }

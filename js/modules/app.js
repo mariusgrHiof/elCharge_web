@@ -58,12 +58,12 @@ var app = {
         if( !$(target).hasClass('toggle') ){
           $('#menu-toggle').addClass('toggle');
           $(target).addClass('toggle');
-          if(!app.device.isMobile && !(navigator.userAgent.toLowerCase().indexOf('edge') > -1 || navigator.userAgent.toLowerCase().indexOf('rv') > -1) )//Not for phones, explorer or edge
+          if(!app.device.isMobile && !(navigator.userAgent.toLowerCase().indexOf('edge') > -1 || navigator.userAgent.toLowerCase().indexOf('trident') > -1) )//Not for phones, explorer or edge
               $('#map').addClass('toggle');
         }else{
           $('#menu-toggle').removeClass('toggle');
           $(target).removeClass('toggle');
-          if(!app.device.isMobile && !(navigator.userAgent.toLowerCase().indexOf('edge') > -1 || navigator.userAgent.toLowerCase().indexOf('rv') > -1) )//Not for phones, explorer or edge
+          if(!app.device.isMobile && !(navigator.userAgent.toLowerCase().indexOf('edge') > -1 || navigator.userAgent.toLowerCase().indexOf('trident') > -1) )//Not for phones, explorer or edge
               $('#map').removeClass('toggle');
         }
       }catch(e){console.log(e);}
