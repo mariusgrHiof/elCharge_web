@@ -209,7 +209,7 @@ var station = {
       }, function(result){
         console.log(result);
         station.favorite.routeList[station.favorite.routeList.length] = {
-          route_id : navigation.jsonRoute.length,
+          route_id : station.favorite.routeList.length,
           name : navigation.jsonRoute["end"],
           route : navigation.jsonRoute,
           distance : station.favorite.distance,
