@@ -1,2 +1,13 @@
 @import "_clearings.scss";
 @import "_alignment.scss";
+
+.oneliner{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width:100%;
+}
+
+.marg-bot-1em{
+    margin-bottom: 1em;
+}

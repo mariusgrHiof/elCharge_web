@@ -1,0 +1,87 @@
+/*
+* Input boxes and comboboxes
+*/
+select{
+  /*width:100%;*/
+}
+#bg-update-timer{
+  width:3em;
+}
+.cover-third{
+  width:33%;
+}
+.cover-twothird{
+  padding-left: 0.2em;
+  width:66%;
+}
+.cover-twothird input.cover-100{
+  width:100%;
+}
+
+
+/* Sliders -> source = https://proto.io/freebies/onoff/*/
+.onoffswitch {
+  position: relative; width: 40px;
+  float:right;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+  display: none;
+}
+.onoffswitch-label {
+  display: block; overflow: hidden; cursor: pointer;
+  height: 14px; padding: 0; line-height: 14px;
+  border: 2px solid #FFFFFF; border-radius: 14px;
+  background-color: #9E9E9E;
+  transition: background-color 0.3s ease-in;
+}
+.onoffswitch-label:before {
+  content: "";
+  display: block; width: 14px; margin: 0px;
+  background: #FFFFFF;
+  position: absolute; top: 0; bottom: 0;
+  right: 24px;
+  border: 2px solid #FFFFFF; border-radius: 14px;
+  transition: all 0.3s ease-in 0s;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+  background-color: #42A5F5;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  border-color: #42A5F5;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  right: 0px;
+}
+
+/* Search */
+#search{
+  /*margin: 0.5em 0 0.5em 10%;
+  width: calc( 100% - 10% );*/
+  margin:0;
+  width:100%;
+  float:left;
+  
+  .nav-here{
+    margin-top: -0.4em;
+  }
+}
+
+#search-box{
+  background-color: #fff;
+  float:left;
+  margin-left: 0.5em;
+  width:60%;
+}
+.searchable{
+  background-color: #fff;
+  float:left;
+  margin: 0.5em 0 0.5em 10%;
+  width:300px;
+}
+
+@media screen and (max-width:600px){
+  #search-box{
+    width:50%;
+  }
+}

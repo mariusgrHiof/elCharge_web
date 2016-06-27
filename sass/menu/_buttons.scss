@@ -1,0 +1,71 @@
+/*
+* Buttons
+*/
+/*Position lock indicator*/
+.unlock-pos{
+  background: url('icons/lock-unlocked.svg') no-repeat !important;
+  text-indent:-9999px;
+  line-height: 0;
+  width: 1.5em;
+  height: 1.5em;
+}
+.lock-pos{
+  background: url('icons/lock-locked.svg') no-repeat !important;
+  text-indent:-9999px;
+  line-height: 0;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+/*Nav*/
+.back-btn{
+    display:none;
+}
+.title-box > .back-btn{
+    display:block;
+    height:1em;
+}
+
+/* General*/
+div#title button{
+  position:absolute;
+  width:20%;
+  right:0.5em;
+  top: 0.5em;
+}
+button, input[type="submit"]{
+  border: solid black 1px;
+  padding: 0.3em;
+  margin:2.5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  background: transparent;
+  transition: background 1s;
+}
+button:hover, input[type="submit"]:hover{
+  background: lightblue;
+  transition: background 1s;
+}
+button#menu-toggle{
+  float:left;
+  background: url(icons/hamburger_v2.svg) no-repeat transparent;
+  border-style:none;
+  width:3em;
+  height:2em;
+}
+button#menu-toggle.toggle{
+  background: url('icons/colapse_icon.svg') no-repeat transparent;
+}
+button#my-loc-btn{
+  background: transparent;
+  border:none;
+  vertical-align: middle;
+  padding:0;
+}
+button#lock-to-my-pos-btn{
+  background: white;
+  border:none;
+  vertical-align: middle;
+  padding:0;
+}
