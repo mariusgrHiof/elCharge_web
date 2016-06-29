@@ -37,15 +37,13 @@ button, input[type="submit"]{
   border: solid black 1px;
   padding: 0.3em;
   margin:2.5px;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
+  @include border-radius(5px);
   background: transparent;
-  transition: background 1s;
+  @include transition(background 1s);
 }
 button:hover, input[type="submit"]:hover{
   background: lightblue;
-  transition: background 1s;
+  @include transition(background 1s);
 }
 button#menu-toggle{
   float:left;

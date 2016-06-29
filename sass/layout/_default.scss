@@ -4,7 +4,7 @@ header{
     width:27em;
     border-bottom:1px gray solid;
     height: 5em;
-    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21);
+    @include box-shadow( 10px 10px 5px rgba(0, 0, 0, 0.21) );
 }
 
 div#title h1{
@@ -43,20 +43,20 @@ div#title-login h1{
 }
 
 nav{
-    z-index:1;
-    background:white;
-    position: fixed;
-    width:27em;
-    top:5em;
-    height:calc(100vh - 5em);
-    overflow: auto;
-    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21);
+  z-index:1;
+  background:white;
+  position: fixed;
+  width:27em;
+  top:5em;
+  height:calc(100vh - 5em);
+  overflow: auto;
+  @include box-shadow( 10px 10px 5px rgba(0, 0, 0, 0.21) );
 }
 nav ul{
     margin: 0 0 0 -2.5em;
 }
 .gmnoprint, .gm-svpc{
-  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21) !important;
+  @include box-shadow(10px 10px 5px rgba(0, 0, 0, 0.21) !important);
 }
 
 #menu-list > ul{
@@ -84,33 +84,37 @@ nav ul li ul{
 }
 
 /*On toggle*/
-header.toggle nav{
-    display:block;
-    overflow:auto;
-    max-height:85%;
-}
-header.toggle{
+header{
+  .toggle{
     height:100%;
+    nav{
+      display:block;
+      overflow:auto;
+      max-height:85%;
+    }
+  }
 }
+
 .toggle{
     display:block;
 }
+
 /*Route planner*/
 .route-element{
-    clear:both;
-    float:left;
-    border-bottom:1px black;
-    margin:0.5em 0 0 0;
-    width:100%;
-}
-.route-element img{
+  clear:both;
+  float:left;
+  border-bottom:1px black;
+  margin:0.5em 0 0 0;
+  width:100%;
+  img{
     max-width:30%;
     float:left;
-}
-.route-element span{
+  }
+  span{
     padding:0 0.5em 0 0.5em;
     float:left;
     max-width:80%;
+  }
 }
 
 
@@ -131,29 +135,25 @@ header.toggle{
   border-bottom:1px gray solid;
 }
 
-.clear-both{
-  clear:both;
-  width:100%;
-}
 #right-panel{
   background:white;
 }
 #menu-list li{
   margin-bottom:0;
   margin-top:0;
-}
-#menu-list li .menu-item h2{
-  margin:0;
-}
-#menu-list li .menu-item.title-box h2{
-  padding-top: 0.5em;
-  height:3em;
-}
-.menu-item{
-  margin-bottom:0;
-  margin-top:0;
-  cursor:pointer;
-  cursor:hand;
+  .menu-item{
+    margin-bottom:0;
+    margin-top:0;
+    cursor:pointer;
+    cursor:hand;
+    h2{
+      margin:0;
+    }
+    .title-box h2{
+      padding-top: 0.5em;
+      height:3em;
+    }
+  }
 }
 ul{
   margin-left:0;
@@ -186,18 +186,15 @@ ul{
 }
 
 /*Route*/
-.route-element{/*
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;*/
+.route-element{
+  > img {
+    max-height:5em;
+  }
 }
-.route-element > img {
-  max-height:5em;
-}
+
 .nav-here{
   background: no-repeat url('icons/nav-here-icon.svg') !important;
-  text-indent: 120%;
-  white-space: nowrap;
-  overflow: hidden;
+  @include hide-text();
   width:3em;
   height:3em;
   margin-top: 0;
@@ -215,9 +212,7 @@ ul{
 }
 .nav-add{
   background: no-repeat url('icons/nav-add-icon.svg') !important;
-  text-indent: 120%;
-  white-space: nowrap;
-  overflow: hidden;
+  @include hide-text();
   width:3em;
   height:3em;
   margin-top: 0;
@@ -229,9 +224,7 @@ ul{
 }
 .nav-clear{
   background: no-repeat url('icons/nav-remove-icon.svg') !important;
-  text-indent: 120%;
-  white-space: nowrap;
-  overflow: hidden;
+  @include hide-text();
   width:3em;
   height:3em;
   margin-top: 0;
@@ -243,9 +236,7 @@ ul{
 }
 .nav-save{
   background: no-repeat url('icons/nav-save-icon.svg') !important;
-  text-indent: 120%;
-  white-space: nowrap;
-  overflow: hidden;
+  @include hide-text();
   width:3em;
   height:3em;
   margin-top: 0;
@@ -276,46 +267,40 @@ ul{
 #validate-password{
   margin-top: 0;
 }
-#station-tooltip .tooltip .tooltiptext{
-  width:auto !important;
-  max-width:80%;
-  padding: 1em;
-  float: left;
-  left: 15%;
+#station-tooltip {
+  .tooltip .tooltiptext{
+    width:auto !important;
+    max-width:80%;
+    padding: 1em;
+    float: left;
+    left: 15%;
+  }
+  #lowerContainer .tooltip .tooltiptext{
+    margin-top:-1.5em;
+    margin-left:0;
+    color:white;
+  }
 }
-#station-tooltip #lowerContainer .tooltip .tooltiptext{
-  margin-top:-1.5em;
-  margin-left:0;
-  color:white;
-}
-
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
 
 /*Anim*/
-#map.toggle{
-  width: calc( 100% - 27em ) !important;
-  -webkit-transition: width 0.5s;
-  -o-transition: width 0.5s;
-  -moz-transition: width 0.5s;
-  -ms-transition: width 0.5s;
-  transition: width 0.5s;
-}
 #map{
     width: 100% !important;
-    -webkit-transition: width 0.5s;
-    -o-transition: width 0.5s;
-    -moz-transition: width 0.5s;
-    -ms-transition: width 0.5s;
-    transition: width 0.5s;
+    @include transition(width 0.5s);
+
+    &.toggle{
+      width: calc( 100% - 27em ) !important;
+      @include transition(width 0.5s);
+    }
 }
 .menu{
     left: -27em !important;
-    transition: left 0.5s;
-}
-.menu.toggle{
-    left: 0em !important;
-    transition: left 0.5s;
+    @include transition(left 0.5s);
+    &.toggle{
+        left: 0em !important;
+        @include transition(left 0.5s);
+    }
 }

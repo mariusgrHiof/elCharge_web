@@ -1,0 +1,25 @@
+@mixin border-radius($radius){
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin box-shadow($shadow){
+  -webkit-box-shadow:$shadow;
+  -moz-box-shadow:$shadow;
+  box-shadow:$shadow;
+}
+
+@mixin hide-text(){
+  text-indent: 120%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+@mixin transition($val){
+  -webkit-transition: $val;
+  -o-transition: $val;
+  -moz-transition: $val;
+  -ms-transition: $val;
+  transition: $val;
+}
