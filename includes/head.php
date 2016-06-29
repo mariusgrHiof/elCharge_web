@@ -9,6 +9,8 @@
 
     <meta charset="utf-8">
     <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <!--
     <link rel="stylesheet" type="text/css" href="styles/maps.css"/>
     <link rel="stylesheet" type="text/css" href="styles/menu.css"/>
     <link rel="stylesheet" type="text/css" href="styles/tooltips.css"/>
@@ -18,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="styles/login.css"/>
     <link rel="stylesheet" type="text/css" href="styles/colors.css"/>
     <link rel="stylesheet" type="text/css" href="styles/download.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/footer.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/footer.css"/> -->
     <!-- Scripts -->
     <script src="https://www.google.com/jsapi"></script>
     <script src="js/libs/jQuery-min.js"></script>

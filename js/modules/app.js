@@ -188,7 +188,7 @@ var app = {
 
       //Close login and register popup
       $('.close-form').click(function(){
-          app.login.closeForm();
+          $(this).parent().parent().hide();
       });
 
       //password strength indication
@@ -670,6 +670,9 @@ var app = {
    * A function for initiating the app
   */
   init : function(){
+    $('.route-search').autocomplete({
+      source : station.favorite.routeList
+    });
     app.eventListeners.init();
     app.download.init();
     station.init();

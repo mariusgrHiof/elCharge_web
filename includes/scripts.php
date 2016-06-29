@@ -1,5 +1,6 @@
 <?php
 //addJS('js/old/addStations.js', false, false);
+addJS('js/libs/jquery-ui.min.js', false, false);
 addJS('js/modules/elevation.js', false, false);
 addJS('js/modules/navigation.js', false, false);
 addJS('js/modules/nearby.js', false, false);

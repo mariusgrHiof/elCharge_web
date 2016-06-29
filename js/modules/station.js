@@ -180,7 +180,10 @@ var station = {
     stationList : [],
     routeList : [],
     distance : 0,
-    addRoute : function (id){
+    saveRoute : function(id){
+      $('#save-route').show();
+    },
+    addRoute : function (element){
       var path ="";
       if(app.device.phonegap)
         path += app.path;
@@ -202,18 +205,18 @@ var station = {
       //Posting route
       $.post( path,{
         action : 'add',
-        name : navigation.jsonRoute["end"],
+        name : $(element).find(':input[name="name"]'),
         route : JSON.stringify(navigation.jsonRoute),
         distance : station.favorite.distance,
-        comment : '__'
+        comment : $(element).find(':input[name="comment"')
       }, function(result){
         console.log(result);
         station.favorite.routeList[station.favorite.routeList.length] = {
           route_id : station.favorite.routeList.length,
-          name : navigation.jsonRoute["end"],
+          name : $(element).find(':input[name="name"]'),
           route : navigation.jsonRoute,
           distance : station.favorite.distance,
-          comment : '__'
+          comment : $(element).find(':input[name="comment"]')
         };
         station.favorite.updateRoutes();
       });

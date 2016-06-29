@@ -6,7 +6,8 @@
  * Time: 09:50
  */
 
- include 'includes/dialogs/login.php';
+include 'includes/dialogs/login.php';
+include 'includes/dialogs/saveRoute.php';
 ?>
 <header>
     <div id="title" class="clear-both">

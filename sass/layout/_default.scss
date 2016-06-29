@@ -1,10 +1,16 @@
+html, body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
 header{
-    z-index: 1;
-    position:absolute;
-    width:27em;
-    border-bottom:1px gray solid;
-    height: 5em;
-    @include box-shadow( 10px 10px 5px rgba(0, 0, 0, 0.21) );
+  background: $color__white;
+  z-index: 1;
+  position: absolute;
+  width:27em;
+  border-bottom:1px gray solid;
+  height: 5em;
+  @include box-shadow( 10px 10px 5px rgba(0, 0, 0, 0.21) );
 }
 
 div#title h1{
@@ -29,6 +35,7 @@ div#title-login h1{
 */
 
 .title-box {
+  background: $color__grey;
     padding: 0.7em 0 0.7em 0.7em;
     border: 1px;
     float: left;
@@ -285,10 +292,11 @@ ul{
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
-
 /*Anim*/
 #map{
     width: 100% !important;
+    height: 100vh;
+    float: right;
     @include transition(width 0.5s);
 
     &.toggle{
@@ -355,4 +363,57 @@ ul{
   padding-left: 1em;
   z-index: 1;
   background: white;
+}
+
+/*
+* Download indicator
+*/
+#download-progression{
+  background: $color__white;
+  position: fixed;
+  z-index: 4;
+  padding: 10px;
+  height:1em;
+  width: 13em;
+  bottom:0;
+  margin-left: calc( 50% - 7em);
+  display:none;
+}
+#download-progression p{
+    margin-top:0;
+    margin-bottom:0;
+    vertical-align: middle;
+    align:center;
+    text-align:center;
+}
+#download-progression h3 {
+    text-align:center;
+}
+
+.dl-progressbar-bg{
+    width:80%;
+    height:2em;
+
+    margin-left:auto;
+    margin-right:auto;
+}
+.dl-progressbar{
+    z-index: 5;
+    height:2em;
+    width:0%;
+}
+
+.dl-progressbar-bg p{
+    z-index:6;
+    margin-top:-1.5em;
+    align:center;
+    text-align:center;
+}
+.dl-progress-text{
+    text-align:center;
+}
+
+.spinning{
+    max-height:1em;
+    max-width:1em;
 }

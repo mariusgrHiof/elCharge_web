@@ -61,10 +61,15 @@ div #station-tooltip {
   height: 35em; }
   div #station-tooltip p, div #station-tooltip h3 {
     color: black; }
-  div #station-tooltip div#secondRow img .img-to-load {
-    width: 6em;
+  div #station-tooltip div#secondRow {
     height: 5em;
-    float: left; }
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid gray; }
+    div #station-tooltip div#secondRow img.img-to-load {
+      width: 6em;
+      height: 5em;
+      float: left; }
   div #station-tooltip div .float-left img {
     max-width: 100%; }
   div #station-tooltip div .float-right {
@@ -82,11 +87,6 @@ div #station-tooltip {
     white-space: nowrap;
     overflow: hidden;
     max-width: 100%; }
-  div #station-tooltip #secondRow {
-    height: 5em;
-    width: 100%;
-    float: left;
-    border-bottom: 1px solid gray; }
   div #station-tooltip #placeImage {
     width: 6em;
     height: 5em;
@@ -291,7 +291,13 @@ select {
 @media screen and (max-width: 600px) {
   #search-box {
     width: 50%; } }
+html, body {
+  height: 100vh;
+  margin: 0;
+  padding: 0; }
+
 header {
+  background: #FFFFFF;
   z-index: 1;
   position: absolute;
   width: 27em;
@@ -321,6 +327,7 @@ div#title-login h1 {
     Menu elements
 */
 .title-box {
+  background: #98E095;
   padding: 0.7em 0 0.7em 0.7em;
   border: 1px;
   float: left;
@@ -560,6 +567,8 @@ ul {
 /*Anim*/
 #map {
   width: 100% !important;
+  height: 100vh;
+  float: right;
   -webkit-transition: width 0.5s;
   -o-transition: width 0.5s;
   -moz-transition: width 0.5s;
@@ -637,6 +646,54 @@ ul {
   z-index: 1;
   background: white; }
 
+/*
+* Download indicator
+*/
+#download-progression {
+  background: #FFFFFF;
+  position: fixed;
+  z-index: 4;
+  padding: 10px;
+  height: 1em;
+  width: 13em;
+  bottom: 0;
+  margin-left: calc( 50% - 7em);
+  display: none; }
+
+#download-progression p {
+  margin-top: 0;
+  margin-bottom: 0;
+  vertical-align: middle;
+  align: center;
+  text-align: center; }
+
+#download-progression h3 {
+  text-align: center; }
+
+.dl-progressbar-bg {
+  width: 80%;
+  height: 2em;
+  margin-left: auto;
+  margin-right: auto; }
+
+.dl-progressbar {
+  z-index: 5;
+  height: 2em;
+  width: 0%; }
+
+.dl-progressbar-bg p {
+  z-index: 6;
+  margin-top: -1.5em;
+  align: center;
+  text-align: center; }
+
+.dl-progress-text {
+  text-align: center; }
+
+.spinning {
+  max-height: 1em;
+  max-width: 1em; }
+
 /*Mobile layout*/
 @media screen and (max-width: 600px) {
   html {
@@ -651,7 +708,8 @@ ul {
   #map {
     top: -0.3em;
     height: calc(100% - $size__menu-height);
-    position: relative !important; }
+    position: relative !important;
+    width: 100%; }
 
   nav {
     width: 100%; }
@@ -720,6 +778,7 @@ ul {
     width: 100%; } }
 h1, h2, h3, h4, p, a, li {
   padding-left: 1em;
-  font-family: Arial; }
+  font-family: Arial;
+  color: #000000; }
 
 /*# sourceMappingURL=style.css.map */

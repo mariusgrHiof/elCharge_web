@@ -6,10 +6,10 @@
      <button class="float-right close-form">x</button>
    </div>
    <h2>Lagre ruten</h2>
-   <form id="loggin-form" action="javascript:;" onsubmit="app.buttons.login(this)">
-     <input class="clear-both" type="text" name="username" placeholder="Brukernavn" required>
-     <input class="clear-both" type="password" name="password" placeholder="Passord" required>
-     <p id="login-form" class="clear-both"></p>
-     <input type="submit" value="Logg inn" class="submit_button">
+   <form id="route-form" action="javascript:;" onsubmit="station.favorite.addRoute(this)">
+     <input class="clear-both" type="text" name="name" placeholder="Rutenavn" required>
+     <input class="clear-both" type="text" name="comment" placeholder="Kommentar" required>
+     <p>Lagre som: <input class="clear-both route-search" type="text" name="save-as" placeholder="Ny rute"></p>
+     <input type="submit" value="Lagre" class="submit_button">
    </form>
  </div>

@@ -42,8 +42,12 @@ div{
     }
     div{
       &#secondRow{
+        height: 5em;
+        width: 100%;
+        float:left;
+        border-bottom: 1px solid gray;
         img{
-          .img-to-load {
+          &.img-to-load {
             width: 6em;
             height: 5em;
             float:left;
@@ -75,12 +79,6 @@ div{
       white-space: nowrap;
       overflow: hidden;
       max-width:100%;
-    }
-    #secondRow {
-      height: 5em;
-      width: 100%;
-      float:left;
-      border-bottom: 1px solid gray;
     }
     #placeImage {
       width: 6em;
