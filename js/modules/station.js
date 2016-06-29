@@ -458,10 +458,10 @@ var station = {
           (station.conns.numFaulty/numOfPorts == 1 ? 'marker_red_v2' :( station.occupiedStatus(id) > station.occupiedLimit ? 'marker_green_v2' : 'marker_yellow_v2')):
           (station.conns.numFaulty/numOfPorts == 1 ? 'marker_red_v3' :( station.occupiedStatus(id) > station.occupiedLimit ? 'marker_green_v3' : 'marker_yellow_v3')))
           :(station.hasFastCharge ? (station.conns.numFaulty/numOfPorts == 1 ? 'marker_red_v2' :'marker_blue_v2'):(station.conns.numFaulty/numOfPorts == 1 ? 'marker_red_v3' :'marker_blue_v3')))+'.svg', //Changing the color of the marker based on if it has live status or not.
-      anchor: new google.maps.Point(0, 32),
-      origin: new google.maps.Point(0, 0),
+      anchor : new google.maps.Point(16, 51),
+      origin : new google.maps.Point(0, 0),
       scaledSize: new google.maps.Size(32, 51),
-      size: new google.maps.Size(64, 64)
+      size : new google.maps.Size(64, 64)
     };
 
     if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1)
