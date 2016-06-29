@@ -6,7 +6,7 @@
  * Time: 09:50
  */
 
- include 'includes/login.php';
+ include 'includes/dialogs/login.php';
 ?>
 <header>
     <div id="title" class="clear-both">

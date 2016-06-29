@@ -15,7 +15,7 @@
 </head>
 */
 ?>
-<div id="auth">
+<div id="auth" class="dialog">
   <div class="top-bar">
     <button class="float-right close-form">x</button>
   </div><!--

@@ -67,4 +67,20 @@
   .iw-close-btn{
     display:none;
   }
+  .dialog{
+    display:none;
+    position: absolute;
+    top: 5.5em;
+    left: 1%;
+    max-width: 98%;
+    border:black 1px solid;
+  }
+  #login-popup{
+    width:90%;
+  }
+  #register-popup{
+    border-left:none;
+    border-top:black 1px solid;
+    width:90%;
+  }
 }

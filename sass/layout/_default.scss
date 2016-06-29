@@ -304,3 +304,55 @@ ul{
         @include transition(left 0.5s);
     }
 }
+.dialog{
+  display:none;
+  position: absolute;
+  z-index: 2;
+  background: white;
+  left: calc( 50% - 20em );
+  top: 5.5em;
+  max-width: 40em;
+  border:black 1px solid;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21) !important;
+}
+.top-bar{
+  width: 100%;
+  height: 1.5em;
+  border-bottom: 1px solid black;
+}
+.top-bar button{
+  border: none;
+}
+
+#login-popup {
+  float:left;
+  padding: 1em;
+  width: auto;
+  max-width: 500px;
+  visibility: visible;
+  z-index: 999;
+  width:40%;
+}
+
+.login-form {
+  position: relative;
+  visibility:hidden;
+  margin: 100px;
+  margin-right: 250px;
+  z-index: 999;
+}
+
+#register-popup{
+  float:left;
+  padding: 1em;
+  width: auto;
+  visibility: visible;
+  z-index: 999;
+  border-left:black 1px solid;
+  width:40%;
+}
+#logged-in{
+  padding-left: 1em;
+  z-index: 1;
+  background: white;
+}
