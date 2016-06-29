@@ -670,8 +670,10 @@ var app = {
    * A function for initiating the app
   */
   init : function(){
+    //TODO: fix
+
     $('.route-search').autocomplete({
-      source : station.favorite.routeList
+      source : station.favorite.routeNames
     });
     app.eventListeners.init();
     app.download.init();

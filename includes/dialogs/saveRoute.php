@@ -6,10 +6,11 @@
      <button class="float-right close-form">x</button>
    </div>
    <h2>Lagre ruten</h2>
-   <form id="route-form" action="javascript:;" onsubmit="station.favorite.addRoute(this)">
-     <input class="clear-both" type="text" name="name" placeholder="Rutenavn" required>
-     <input class="clear-both" type="text" name="comment" placeholder="Kommentar" required>
-     <p>Lagre som: <input class="clear-both route-search" type="text" name="save-as" placeholder="Ny rute"></p>
+   <form class="ui-widget" action="javascript:;" onsubmit="station.favorite.addRoute(this)">
+     <input class="clear-both" type="text" name="route-name" placeholder="Rutenavn" required>
+     <input class="clear-both" type="text" name="route-comment" placeholder="Kommentar" required>
+     <label for="save-as">Lagre som:</label>
+     <input id="save-as" class="route-search" type="text" name="save-as" placeholder="Ny rute">
      <input type="submit" value="Lagre" class="submit_button">
    </form>
  </div>

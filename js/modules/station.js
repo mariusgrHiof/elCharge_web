@@ -180,6 +180,16 @@ var station = {
     stationList : [],
     routeList : [],
     distance : 0,
+    routeNames : [],
+    searchRoute : function(){
+      //TODO: Fix!!
+      var list = [];
+      for(var i in station.favorite.routeList){
+        list.push(station.favorite.routeList[i].name);
+      }
+      console.log(list);
+      station.favorite.routeNames = list;
+    },
     saveRoute : function(id){
       $('#save-route').show();
     },
@@ -205,18 +215,18 @@ var station = {
       //Posting route
       $.post( path,{
         action : 'add',
-        name : $(element).find(':input[name="name"]'),
+        name : $(element).find(':input[name="route-name"]').val(),
         route : JSON.stringify(navigation.jsonRoute),
         distance : station.favorite.distance,
-        comment : $(element).find(':input[name="comment"')
+        comment : $(element).find(':input[name="route-comment"]').val()
       }, function(result){
         console.log(result);
         station.favorite.routeList[station.favorite.routeList.length] = {
           route_id : station.favorite.routeList.length,
-          name : $(element).find(':input[name="name"]'),
+          name : $(element).find(':input[name="route-name"]').val(),
           route : navigation.jsonRoute,
           distance : station.favorite.distance,
-          comment : $(element).find(':input[name="comment"]')
+          comment : $(element).find(':input[name="route-comment"]').val()
         };
         station.favorite.updateRoutes();
       });
@@ -297,7 +307,7 @@ var station = {
       for(var i in station.favorite.routeList){
         var id = station.favorite.routeList[i].route_id;
         $('#favorite-routes').append(
-          '<li class="border clear-both" value="' + id + '" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
+          '<li class="border clear-both" value="' + i + '" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
             '<div class="float-left clear-both" >'+
               '<strong class="float-left oneliner">' + station.favorite.routeList[i].name.substring(0,40) + (station.favorite.routeList[i].name.length > 40 ? '...' : '') + '</strong>' +
               '<button class="float-right" style="border:none; background:transparent; padding: 0.4em; color:black;" onclick="station.favorite.deleteRoute(this)">X</button>' +
@@ -310,6 +320,7 @@ var station = {
             '</div>' +
         '</li>');
       }
+      station.favorite.searchRoute();
     },
     updateStations : function (){
       $("#favorite-stations").html("");

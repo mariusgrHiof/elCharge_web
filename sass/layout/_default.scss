@@ -417,3 +417,14 @@ ul{
     max-height:1em;
     max-width:1em;
 }
+
+.ui-autocomplete {
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: default;
+}
+
+.ui-autocomplete.ui-widget-content{
+  z-index:200;
+}

@@ -9,7 +9,14 @@
     max-width:100%;
     position:relative;
   }
-
+  .menu{
+      left: -100% !important;
+      @include transition(left 0.5s);
+      &.toggle{
+          left: 0em !important;
+          @include transition(left 0.5s);
+      }
+  }
   #map{
     top: -0.3em;
     height: calc(100% - $size__menu-height);

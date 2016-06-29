@@ -24,4 +24,5 @@
     <!-- Scripts -->
     <script src="https://www.google.com/jsapi"></script>
     <script src="js/libs/jQuery-min.js"></script>
+    <script src="js/libs/jquery-ui.min.js"> </script>
 </head>

@@ -694,6 +694,15 @@ ul {
   max-height: 1em;
   max-width: 1em; }
 
+.ui-autocomplete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: default; }
+
+.ui-autocomplete.ui-widget-content {
+  z-index: 200; }
+
 /*Mobile layout*/
 @media screen and (max-width: 600px) {
   html {
@@ -704,6 +713,21 @@ ul {
     min-width: 100%;
     max-width: 100%;
     position: relative; }
+
+  .menu {
+    left: -100% !important;
+    -webkit-transition: left 0.5s;
+    -o-transition: left 0.5s;
+    -moz-transition: left 0.5s;
+    -ms-transition: left 0.5s;
+    transition: left 0.5s; }
+    .menu.toggle {
+      left: 0em !important;
+      -webkit-transition: left 0.5s;
+      -o-transition: left 0.5s;
+      -moz-transition: left 0.5s;
+      -ms-transition: left 0.5s;
+      transition: left 0.5s; }
 
   #map {
     top: -0.3em;
