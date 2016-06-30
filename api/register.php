@@ -21,9 +21,9 @@ if(!empty(($_POST['username'] && $_POST['password'] && $_POST['mail']))){
     $sql = "INSERT INTO ec_user
                     VALUES (
                     " . $new_user_id . ",
-                    '". $_POST['username']. "',
-                    '". password_hash($_POST['password'], PASSWORD_DEFAULT) . "',
-                    '" . $_POST['mail'] . "',
+                    '". filter_var($_POST['username'], FILTER_SANITIZE_STRING). "',
+                    '". password_hash(filter_var($_POST['password'], FILTER_SANITIZE_STRING), PASSWORD_DEFAULT) . "',
+                    '" . filter_var($_POST['mail'], FILTER_SANITIZE_STRING) . "',
                     null,
                     null
                     )";

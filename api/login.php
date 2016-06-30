@@ -19,7 +19,7 @@ try {
   $prepStatment->bind_param("ss", $_POST['username'], $ecnryptedPass);
   $prepStatment->execute();*/
 
-  $sqlLogin = "select * from ec_user where username='" . $_SESSION['username'] . "'";
+  $sqlLogin = "select * from ec_user where username='" . filter_var($_SESSION['username'], FILTER_SANITIZE_STRING) . "'";
   $result_login = $conn->query($sqlLogin);
   if ($result_login->num_rows > 0) {
     $stations = [];
