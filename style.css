@@ -30,14 +30,15 @@
   background-color: lightgreen; }
 
 .chargePointColor {
-  height: 3.5em;
+  height: 3.8em;
   width: 1em;
   float: right;
   background-color: lightgreen; }
 
 .cpelements {
   width: 100%;
-  height: 3.5em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
   border-bottom: 1px solid gray;
   float: left; }
 

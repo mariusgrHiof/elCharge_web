@@ -613,10 +613,26 @@ var app = {
     },
     utcToNOR : function(time){
       console.log(time);
+      //TODO: Fullfør
       //Date of update
       var d = time.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}/gm).toString().split('-');
       //Time of update
       var t = time.match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/gm).toString().split(':');
+      var dayOfYear = (function(){
+        var day = 0;
+        for(var i = 0; i <= app.date.getMonth(); i++){
+          day += app.time.getDaysInMonth(i, app.date.getFullYear);
+          console.log(day);
+        }
+        return day;
+      });
+      var days = (function(){
+        var day = 0;
+          for(var i = 0; i <= d[1]; i++){
+            day += app.time.getDaysInMonth(d[1], d[0]);
+          }
+        return day;
+      });
       console.log((app.date.getDate() + app.time.getDaysInMonth(d[1], d[0])) + ' -> ' + d[2]);
       var timeDiff = ( (app.date.getMonth()+1) - d[1] > 0 ? ( (app.date.getDate() + app.time.getDaysInMonth(d[1], d[0])) - parseInt(d[2]) ) : app.date.getDate() - parseInt(d[2]));
       console.log(timeDiff);
