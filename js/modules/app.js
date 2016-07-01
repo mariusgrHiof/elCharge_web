@@ -10,6 +10,7 @@
 *  - navigation.js
 */
 var app = {
+  date : new Date(),
   initiatedMap : false,
   path : 'http://frigg.hiof.no/bo16-g6/webapp/',
   api : {
@@ -342,8 +343,7 @@ var app = {
     },
     updateTime : function (){
       //Updating the time for when the last update was performed
-      var date = new Date();
-      app.download.lastDownloaded = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+      app.download.lastDownloaded = app.date.getFullYear() + "-" + (app.date.getMonth() + 1) + "-" + app.date.getDate();
     },
     getDumpPhoneGap : function(){
       $.ajax({
@@ -607,6 +607,23 @@ var app = {
       return new google.maps.LatLng(arr[0],arr[1]);
     }
   },
+  time : {
+    getDaysInMonth : function(month,year) {
+      return new Date(year, month, 0).getDate();
+    },
+    utcToNOR : function(time){
+      console.log(time);
+      //Date of update
+      var d = time.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}/gm).toString().split('-');
+      //Time of update
+      var t = time.match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/gm).toString().split(':');
+      console.log((app.date.getDate() + app.time.getDaysInMonth(d[1], d[0])) + ' -> ' + d[2]);
+      var timeDiff = ( (app.date.getMonth()+1) - d[1] > 0 ? ( (app.date.getDate() + app.time.getDaysInMonth(d[1], d[0])) - parseInt(d[2]) ) : app.date.getDate() - parseInt(d[2]));
+      console.log(timeDiff);
+      return (app.date.dst() ? (parseInt(t[0]) + 2) : (parseInt(t[0])  + 1) ) + ':' + t[1] +
+        (timeDiff == 0 ? '': (timeDiff == 1 ? '(i går)' : '(' + timeDiff + 'dager)') );
+    }
+  },
   /*
    * An object to hold any device related methods or variables
    */
@@ -816,3 +833,16 @@ var app = {
     }, false);
   }
 };
+
+/*
+ * For recognizing if there is summer or wintertime
+*/
+Date.prototype.stdTimezoneOffset = function() {
+    var jan = new Date(this.getFullYear(), 0, 1);
+    var jul = new Date(this.getFullYear(), 6, 1);
+    return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
+}
+
+Date.prototype.dst = function() {
+    return this.getTimezoneOffset() < this.stdTimezoneOffset();
+}

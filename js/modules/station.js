@@ -136,7 +136,10 @@ var station = {
               "<span style=\'color:black; max-width:80%; float:left;\'>"+
                 "<strong>Uttak: </strong>" + station.list[id].attr.conn[c][4].trans +
                 "</br><strong>KW: </strong>" + station.conns.connCapacityString(id, c) +
-                (isLive ? "</br><strong>Siste status: </strong>" + station.list[id].attr.conn[c][16].attrval.match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/gm) : '') +
+                (isLive ?
+                    "</br><strong>Siste status: </strong>" +
+                      app.time.utcToNOR(station.list[id].attr.conn[c][16].attrval)
+                    : '') +
               "</span>"+
               "<div class='chargePointColor' style='background-color:" +
                 (isLive ? (isInService ? (connStatus == "0" ? "lightgreen" : (connStatus == "9" ? "blue" : "yellow")) : "red") : "blue") +";'></div>"+

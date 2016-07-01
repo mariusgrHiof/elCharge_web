@@ -12,6 +12,8 @@
 
     <meta charset="utf-8">
     <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <!--
     <link rel="stylesheet" type="text/css" href="styles/maps.css"/>
     <link rel="stylesheet" type="text/css" href="styles/menu.css"/>
     <link rel="stylesheet" type="text/css" href="styles/tooltips.css"/>
@@ -21,10 +23,11 @@
     <link rel="stylesheet" type="text/css" href="styles/login.css"/>
     <link rel="stylesheet" type="text/css" href="styles/colors.css"/>
     <link rel="stylesheet" type="text/css" href="styles/download.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/footer.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/footer.css"/> -->
     <!-- Scripts -->
     <script src="https://www.google.com/jsapi"></script>
     <script src="js/libs/jQuery-min.js"></script>
+    <script src="js/libs/jquery-ui.min.js"> </script>
 </head>
 <body>
 <div id="download-progression">
@@ -63,6 +66,19 @@
     </form>
   </div>
 </div>
+ <div id="save-route" class="dialog">
+   <div class="top-bar">
+     <button class="float-right close-form">x</button>
+   </div>
+   <h2>Lagre ruten</h2>
+   <form class="ui-widget" action="javascript:;" onsubmit="station.favorite.addRoute(this)">
+     <input class="clear-both" type="text" name="route-name" placeholder="Rutenavn" required>
+     <input class="clear-both" type="text" name="route-comment" placeholder="Kommentar" required>
+     <label for="save-as">Lagre som:</label>
+     <input id="save-as" class="route-search" type="text" name="save-as" placeholder="Ny rute">
+     <input type="submit" value="Lagre" class="submit_button">
+   </form>
+ </div>
 <header>
     <div id="title" class="clear-both">
         <h1>elCharge</h1>
@@ -171,7 +187,7 @@
       <button class="float-left nav-clear cover-third tooltip" onclick="navigation.clearRoute()"><p class="tooltiptext">Fjern ruten</p>Fjern rute</button>
       <button class="float-left tooltip" onclick="station.showHideMarkers(this)"><p class="tooltiptext">Skjul eller vis stasjonsmarkører</p>Skjul markører</button>
       <button class="float-left nav-here tooltip" type="submit" value="submit" form="route-form"><p class="tooltiptext">Bygg ruten</p>Bygg ruten</button>
-      <button class="float-left nav-save favorite tooltip" onclick="station.favorite.addRoute()"><p class="tooltiptext">Lagre ruten</p>Lagre rute</button>
+      <button class="float-left nav-save favorite tooltip" onclick="station.favorite.saveRoute()"><p class="tooltiptext">Lagre ruten</p>Lagre rute</button>
     </div>
     <!-- <button onclick="saveRouteData()">Legg ruten til favoritt</button> -->
     <div id="total" class="clear-both"></div>
