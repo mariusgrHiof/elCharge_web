@@ -9,6 +9,7 @@
 *  - nearby.js
 *  - navigation.js
 */
+
 var app = {
   date : new Date(),
   initiatedMap : false,
@@ -458,10 +459,26 @@ var app = {
       if(app.download.lastDownloaded == "2005-01-01")
         station.list = []; // We only need to create a empty array if we haven't already downloaded.
       var id;
-      for(var i = 0; i < data.chargerstations.length; i++){
+
+      for(var i in data.chargerstations){
         id = data.chargerstations[i].csmd.International_id;
         station.list[id] = data.chargerstations[i];
+        setTimeout(station.generateMarker(id), 0.001);
       }
+      $('#download-progression').hide();
+      station.hasDownloaded = true;
+
+      if(station.markerClusterer == null)
+        station.markerClusterer = new MarkerClusterer(app.map, station.markers, app.options.markerCluster);
+      else{
+        station.markerClusterer.clearMarkers();
+        station.markerClusterer.addMarkers(station.markers);
+      }
+      $('#download-progression').hide();
+      app.download.hasDownloaded = true;
+      if(!app.device.isMobile)
+        nearby.update();
+      /*TODO: REMOVE?
       //Adding markers
       if(!app.download.initDownloaded){
         setTimeout(station.generateMarkers(),0.001);
@@ -470,7 +487,7 @@ var app = {
         //TODO:Remove when the K,V markerlist works propperly again
         setTimeout(station.generateMarkers(),0.001);
         app.download.hasDownloaded = true;
-      }
+      }*/
       //Starting automatic location update for mobile app and mobile browsers
       if(app.device.isMobile || app.device.phonegap)
         navigator.geolocation.watchPosition(app.gps.onSuccess, app.gps.onError, {enableHighAccuracy: true, timeout: 100, maximumAge: 1000 });
