@@ -111,11 +111,11 @@ var station = {
       21 : {'id':21, 'name':'Less then 100 kW + 22 kW - 500VDC max 50A + 400V 3-phase max 32A','current':'DC', 'kW':22, 'volt':400, 'ampere':32},
       22 : {'id':22, 'name':'135 kW - 480VDC max 270A','current':'DC', 'kW':135, 'volt':480, 'ampere':270}
     },
-    connCapacityString(id, connectorID){
+    connCapacityString : function(id, connectorID){
       var capacity = station.conns.capacity[station.list[id].attr.conn[connectorID][5].attrvalid].kW;
       return capacity >= station.fastCharge ? capacity + "kW " + 'hurtiglader' : (capacity >= station.semiFastCharge ? capacity + "kW " +"semihurtig": capacity + "kW "+ "vanlig");
     },
-    getString(id, isLive){
+    getString : function(id, isLive){
       var isInService = true;
       var connStatus = "9";
       station.conns.numFaulty = 0;
@@ -153,7 +153,7 @@ var station = {
       return result += "</div>";
     },
     // TODO: connectorImg
-    getImg(connType) {
+    getImg : function(connType) {
       var imgStart = '<img class="float-right" src="icons/conn/';
       var imgEnd = '" style="max-height:2em; max-width:2em;"/>';
       var result = '';
@@ -197,7 +197,7 @@ var station = {
     saveRoute : function(id){
       $('#save-route').show();
     },
-    addRoute(element){
+    addRoute : function(element){
       var path ="";
       if(app.device.phonegap)
         path += app.path;
@@ -236,7 +236,7 @@ var station = {
       });
       return false;
     },
-    addStation(id){
+    addStation : function(id){
       var path ="";
       if(app.device.phonegap)
         path += app.path;
@@ -250,7 +250,7 @@ var station = {
       });
       return false;
     },
-    deleteStation(element){
+    deleteStation : function(element){
       var path ="";
       if(app.device.phonegap)
         path += app.path;
@@ -270,7 +270,7 @@ var station = {
       });
       return false;
     },
-    deleteRoute(element){
+    deleteRoute : function(element){
       var path ="";
       if(app.device.phonegap)
         path += app.path;
@@ -288,7 +288,7 @@ var station = {
       });
       return false;
     },
-    editRoute(element){
+    editRoute : function(element){
       var path ="";
       if(app.device.phonegap)
         path += app.path;
@@ -326,7 +326,7 @@ var station = {
       }
       station.favorite.searchRoute();
     },
-    updateStations(){
+    updateStations : function(){
       $("#favorite-stations").html("");
       for(var i in station.favorite.stationList){
         var id = station.favorite.stationList[i].station_id;
@@ -435,7 +435,7 @@ var station = {
     nearby.chargers.length = 0;
     station.markers.length = 0;
   },
-  getCarMatch(id){
+  getCarMatch : function(id){
     var match = false;
     var connType;
     var hasFastCharge_temp = false;
@@ -461,14 +461,14 @@ var station = {
     return match;
   },
   //TODO: station.getImage
-  getImage(id){
+  getImage : function(id){
     try{
       return (/kommer/i.test(station.list[id].csmd.Image.toLowerCase()) || /no.image.svg/i.test(station.list[id].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ station.list[id].csmd.Image);
     }catch(e){
       console.log("Failed for: " + id + " MSG: " + e);
     }
   },
-  addMarker(numOfPorts, id){
+  addMarker : function(numOfPorts, id){
     //Adding markers
     var pos = station.list[id].csmd.Position.replace(/[()]/g,"").split(",");
     var isLive = station.list[id].attr.st[21].attrvalid == "1";
@@ -559,7 +559,7 @@ var station = {
   /*
    *  along a given route
    */
-  addWaypoint(id){
+  addWaypoint : function(id){
     try{
       var disPos = station.list[id].csmd.Position.replace(/[()]/g,"").split(",");
       var isLive = station.list[id].attr.st[21].attrvalid == "1";
@@ -596,7 +596,7 @@ var station = {
     }catch(e){console.log(e);}
     station.bindStationNames();
   },
-  removeWaypoint(element){
+  removeWaypoint : function(element){
     var parent = $(element).parent().parent();
     var index = $(parent).index();
 
@@ -613,13 +613,13 @@ var station = {
       navigation.build();
     }
   },
-  occupiedStatus(id){
+  occupiedStatus : function(id){
     return parseFloat(station.list[id].csmd.Available_charging_points) / parseFloat(station.list[id].csmd.Number_charging_points);
   },
   /*
    * A method for generating the content of a infowindow
    */
-  getInfoWindowContent(id, isLive) {
+  getInfoWindowContent : function(id, isLive) {
     if($('#select-car').val() !=0)
       station.user.carConns = station.conns.carModels[$('#select-car').val()];
     //Showing a info windows when you click on the marker
@@ -665,7 +665,7 @@ var station = {
       "</div>";
     return station.contentString;
   },
-  showHideMarkers(ele){
+  showHideMarkers : function(ele){
     var visible = true;
     for(var marker in station.markers)
       station.markers[marker].setVisible(!station.markers[marker].getVisible());
