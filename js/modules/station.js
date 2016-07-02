@@ -620,46 +620,45 @@ var station = {
       station.user.carConns = station.conns.carModels[$('#select-car').val()];
     //Showing a info windows when you click on the marker
     station.connectorsString = station.conns.getString(id, isLive);
-    station.contentString = `
-      <div id="station-tooltip">
-        <div id="topBox">
-        </div>
-        <div id="secondRow">
-          <span class="tooltip"><img class="img-to-load" alt="${station.list[id].csmd.name}" src="${station.getImage(id)}"/><img class="tooltiptext" src="${station.getImage(id)}"/></span>
-          <div id="placeNameIcons" style="color:blue;">
-            <h3>${station.list[id].csmd.name}</h3>
-          </div>
-          <div class="markerColor" style="background-color:${(station.conns.numFaulty / station.list[id].csmd.Number_charging_points == 1 ? 'red' : (isLive ? (station.occupiedStatus(id) < station.occupiedLimit ? 'yellow':'lightgreen') : 'blue'))};">+
-          </div>
-        </div>
+    station.contentString =
+      "<div id=\"station-tooltip\">"+
+        "<div id=\"topBox\">"+
+        "</div>"+
+        "<div id=\"secondRow\">" +
+          "<span class=\"tooltip\"><img class=\"img-to-load\" alt=\"" + station.list[id].csmd.name + "\" src=\""+ station.getImage(id) + "\"/><img class=\"tooltiptext\" src=\"" + station.getImage(id) + "\"/></span>" +
+          "<div id='placeNameIcons' style='color:blue;'>"+
+            "<h3>"+ station.list[id].csmd.name +"</h3>" +
+          "</div>"+
+          "<div class='markerColor' style='background-color:"+ (station.conns.numFaulty / station.list[id].csmd.Number_charging_points == 1 ? "red" : (isLive ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>"+
+          "</div>"+
+        "</div>"+
 
-        <div id="secondContainer">
-          <div id="infoLeft">
-            ${(isLive ? '<p><strong>Sist oppdatert</strong> ' + station.list[id].csmd.Updated + '</p>' : '')}
-            ${(isLive ? "<p><strong>Tilgjengelighet</strong> "+ station.attr.st[2][station.list[id].attr.st[2].attrvalid] + "</p>" : '')}
-            <p><strong>Parkerings avgift:</strong> ${(station.list[id].attr.st[7].attrvalid == 1 ? 'Ja' : 'Nei')}</p>
-            ${(isLive ? "<p><strong>Lokasjon:</strong> " + station.attr.st[3][station.list[id].attr.st[3].attrvalid] + "</p>" : '')}
-            <p><strong>Adresse:</strong>${station.list[id].csmd.Street.replace('\r\n','<br />') +" " + station.list[id].csmd.House_number.replace('\r\n','<br />') + ", " + station.list[id].csmd.Zipcode.replace('\r\n','<br />') + " " + station.list[id].csmd.City.replace('\r\n','<br />')}</p>
-            <p><strong>Lokasjonsbeskrivelse:</strong>${station.list[id].csmd.Description_of_location}</p>
-            <p><strong>Eier:</strong>${station.list[id].csmd.Owned_by.replace('\r\n','<br />')}</p>
-            <p><strong>Kommentarer:</strong>${station.list[id].csmd.User_comment.replace('\r\n','<br />')}</p>
-            ${(station.list[id].csmd.Contact_info != undefined ? '<p><strong>Kontakt info:</strong>' + station.list[id].csmd.Contact_info.replace('\r\n','<br />') + '</p>' : "")}
-          </div>
-          <div id="chargingPoints">
-            <p style="border-bottom:1px solid gray;margin-bottom:0;"><strong>Ladepunkter:</strong> ${station.list[id].csmd.Number_charging_points} </p>
-            <div>
-              ${station.connectorsString}
-            </div>
-          </div>
-        </div>
+        "<div id='secondContainer'>"+
+          "<div id='infoLeft'>" +
+            (isLive ? '<p><strong>Sist oppdatert</strong> ' + station.list[id].csmd.Updated + '</p>' : '') +
+            (isLive ? "<p><strong>Tilgjengelighet</strong> "+ station.attr.st[2][station.list[id].attr.st[2].attrvalid] + "</p>" : '') +
+            "<p><strong>Parkerings avgift:</strong> " + (station.list[id].attr.st[7].attrvalid == 1 ? 'Ja' : 'Nei') + "</p>" +
+            (isLive ? "<p><strong>Lokasjon:</strong> " + station.attr.st[3][station.list[id].attr.st[3].attrvalid] + "</p>" : '') +
+            "<p><strong>Adresse:</strong> "+ station.list[id].csmd.Street.replace('\r\n','<br />') +" " + station.list[id].csmd.House_number.replace('\r\n','<br />') + ", " + station.list[id].csmd.Zipcode.replace('\r\n','<br />') + " " + station.list[id].csmd.City.replace('\r\n','<br />') +"</p>"+
+            "<p><strong>Lokasjonsbeskrivelse:</strong> "+ station.list[id].csmd.Description_of_location +"</p>" +
+            "<p><strong>Eier:</strong> " + station.list[id].csmd.Owned_by.replace('\r\n','<br />') +"</p>" +
+            "<p><strong>Kommentarer:</strong> "+ station.list[id].csmd.User_comment.replace('\r\n','<br />')+"</p>" +
+            (station.list[id].csmd.Contact_info != null ? "<p><strong>Kontakt info:</strong> "+ station.list[id].csmd.Contact_info.replace('\r\n','<br />')+"</p>" : "") +
+          "</div>"+
+          "<div id='chargingPoints'>"+
+            "<p style='border-bottom:1px solid gray;margin-bottom:0;'><strong>Ladepunkter:</strong> "+ station.list[id].csmd.Number_charging_points + " </p>" +
+            "<div> "+
+              station.connectorsString +
+            "</div>" +
+          "</div>"+
+        "</div>"+
 
-        <div id="lowerContainer" class="clear-both">
-          <button class="nav-add tooltip" onclick="station.addWaypoint('${id}')" ><p class="tooltiptext">Legg til stasjon i rute</p>Legg til i rute</button>
-          <button class="nav-here tooltip" onclick="navigation.fromUser(app.gps.geopos, this)" value="${station.list[id].csmd.Position.replace(/[()]/g,"")}"><p class="tooltiptext">Naviger hit</p>Naviger hit</button>
-          ${(app.loggedIn ? '<button class="float-left tooltip" onclick="station.favorite.addStation(\'' + id + '\')" ><p class="tooltiptext">Lagre stasjon</p>Lagre stasjon</button>' : '')}
-        </div>
-      </div>
-      `;
+        '<div id="lowerContainer" class="clear-both">'+
+          '<button class="nav-add tooltip" onclick="station.addWaypoint(\'' + id + '\')" ><p class="tooltiptext">Legg til stasjon i rute</p>Legg til i rute</button>' +
+          '<button class="nav-here tooltip" onclick="navigation.fromUser(app.gps.geopos, this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"") +'"><p class="tooltiptext">Naviger hit</p>Naviger hit</button>'+
+          (app.loggedIn ? '<button class="float-left tooltip" onclick="station.favorite.addStation(\'' + id + '\')" ><p class="tooltiptext">Lagre stasjon</p>Lagre stasjon</button>' : '') +
+        "</div>"+
+      "</div>";
     return station.contentString;
   },
   showHideMarkers : function (ele){
