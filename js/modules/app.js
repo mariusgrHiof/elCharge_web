@@ -60,20 +60,23 @@ var app = {
         if( !$(target).hasClass('toggle') ){
           $('#menu-toggle').addClass('toggle');
           $(target).addClass('toggle');
-          if(!app.device.isMobile && !(navigator.userAgent.toLowerCase().indexOf('edge') > -1 || navigator.userAgent.toLowerCase().indexOf('trident') > -1) )//Not for phones, explorer or edge
+          if(!app.device.isMobile && !(navigator.userAgent.toLowerCase().indexOf('edge') > -1 || navigator.userAgent.toLowerCase().indexOf('trident') > -1) ){//Not for phones, explorer or edge
               $('#map').addClass('toggle');
+            }
         }else{
           $('#menu-toggle').removeClass('toggle');
           $(target).removeClass('toggle');
-          if(!app.device.isMobile && !(navigator.userAgent.toLowerCase().indexOf('edge') > -1 || navigator.userAgent.toLowerCase().indexOf('trident') > -1) )//Not for phones, explorer or edge
+          if(!app.device.isMobile && !(navigator.userAgent.toLowerCase().indexOf('edge') > -1 || navigator.userAgent.toLowerCase().indexOf('trident') > -1) ){//Not for phones, explorer or edge
               $('#map').removeClass('toggle');
+            }
         }
       }catch(e){console.log(e);}
     },
     login : function(form){
       var path = "";
-      if(app.device.phonegap)
+      if(app.device.phonegap){
         path += app.url;
+      }
       path +="api/login.php";
 
       //Logging the user in
@@ -117,8 +120,9 @@ var app = {
     },
     logout : function(){
       var path = "";
-      if(app.device.phonegap)
+      if(app.device.phonegap){
           path += app.url;
+      }
       path +="api/logout.php";
 
       $.post(path, function data(){
@@ -131,8 +135,9 @@ var app = {
     },
     register : function(form){
       var path = "";
-      if(app.device.phonegap)
+      if(app.device.phonegap){
         path += app.url;
+      }
       path +="api/register.php";
       var uname = $(form).children(":input[name='username']").val();
       var pw = $(form).children(":input[name='password']").val();
@@ -260,17 +265,19 @@ var app = {
       //Turning layers on or off
       $('input[type=checkbox].onoffswitch-checkbox').change(
         function(){
-          if($(this).attr('id') == 'traffic-layer')
+          if($(this).attr('id') == 'traffic-layer'){
             app.layers.traffic();
+          }
         }
       );
       //Changing the autoupdate interval or deactivate autoupdate
       $('input[type=number]#bg-update-timer').change(
         function(){
-          if($(this).val() <= 0)
+          if($(this).val() <= 0){
             app.download.stopBackgroundTimer();
-          else
+          }else{
             app.download.updateBackgroundTimer($(this).val());
+          }
         }
       );
       //Changing the selected car and updating station markers accordingly
@@ -330,10 +337,11 @@ var app = {
         console.log("The time has come!");
         if(app.download.hasDownloaded){
             app.download.hasDownloaded = false;
-            if(app.device.phonegap)
+            if(app.device.phonegap){
               app.download.getDumpPhoneGap();
-            else
+            }else{
               app.download.getDump();
+            }
         }else{
           console.log("nope..");
         }
@@ -456,8 +464,10 @@ var app = {
       }
     },
     finalize : function (data){
-      if(app.download.lastDownloaded == "2005-01-01")
-        station.list = []; // We only need to create a empty array if we haven't already downloaded.
+      if(app.download.lastDownloaded == "2005-01-01"){
+        // We only need to create a empty array if we haven't already downloaded.
+        station.list = [];
+      }
       var id;
 
       for(var i in data.chargerstations){
@@ -468,16 +478,17 @@ var app = {
       $('#download-progression').hide();
       station.hasDownloaded = true;
 
-      if(station.markerClusterer == null)
+      if(station.markerClusterer == null){
         station.markerClusterer = new MarkerClusterer(app.map, station.markers, app.options.markerCluster);
-      else{
+      }else{
         station.markerClusterer.clearMarkers();
         station.markerClusterer.addMarkers(station.markers);
       }
       $('#download-progression').hide();
       app.download.hasDownloaded = true;
-      if(!app.device.isMobile)
+      if(!app.device.isMobile){
         nearby.update();
+      }
       /*TODO: REMOVE?
       //Adding markers
       if(!app.download.initDownloaded){
@@ -489,8 +500,9 @@ var app = {
         app.download.hasDownloaded = true;
       }*/
       //Starting automatic location update for mobile app and mobile browsers
-      if(app.device.isMobile || app.device.phonegap)
+      if(app.device.isMobile || app.device.phonegap){
         navigator.geolocation.watchPosition(app.gps.onSuccess, app.gps.onError, {enableHighAccuracy: true, timeout: 100, maximumAge: 1000 });
+      }
       app.download.updateTime();
     },
     init : function(){
@@ -514,9 +526,9 @@ var app = {
     trafficIsActive : false,
     trafficLayer : null,
     traffic : function(){
-        if(app.layers.trafficLayer == null)
+        if(app.layers.trafficLayer == null){
             app.layers.trafficLayer = new google.maps.TrafficLayer();
-
+        }
         if(app.layers.trafficLayerIsActive){
             app.layers.trafficLayer.setMap(null);
             !app.layers.trafficLayerIsActive;
@@ -576,8 +588,9 @@ var app = {
         app.gps.pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         app.gps.myLocationIndicator.setPosition(app.gps.pos);
         if(app.device.isMobile){
-          if(app.gps.accuracyRadius != null)
+          if(app.gps.accuracyRadius != null){
             app.gps.accuracyRadius.setMap(null);
+          }
           app.gps.accuracyRadius = new google.maps.Circle({
             strokeColor: '#00d8ff',
             strokeOpacity: 0.8,
@@ -588,8 +601,9 @@ var app = {
             center: app.gps.pos,
             radius: position.coords.accuracy
           });
-          if(app.gps.lockPos)
+          if(app.gps.lockPos){
             app.gps.centerOnUser(45);
+          }
         }
       }catch(e){
         console.log(e);
@@ -609,8 +623,9 @@ var app = {
     },
     centerOnUser : function (camtilt){
       //Refreshing user pos
-      if(!app.device.isMobile)//Only for desktop
+      if(!app.device.isMobile){//Only for desktop
         navigator.geolocation.getCurrentPosition(app.gps.onSuccess, app.gps.onError);
+      }
       //Applying wanted cam tilt
       if (app.map.getTilt()) {
         app.map.setTilt(camtilt);
@@ -664,18 +679,21 @@ var app = {
         else
           app.device.isIOS = true;
       }
-      if(app.device.phonegap)
+      if(app.device.phonegap){
         $('head').append('<script type="text/javascript" src="cordova.js"></script>');
-      if(app.device.phonegap && app.device.isIOS)
+      }
+      if(app.device.phonegap && app.device.isIOS){
         $('head').append('<link rel="stylesheet" type="text/css" href="styles/ios.css">');
-      else if(app.device.isAndroid)
+      }else if(app.device.isAndroid){
         $('head').append('<link rel="stylesheet" type="text/css" href="styles/android.css">');
+      }
     },
     onReady : function (){
-      if(app.device.isIOS)
+      if(app.device.isIOS){
         app.download.getDump();
-      else
+      }else{
         app.download.getDumpPhoneGap();
+      }
 
       document.addEventListener("backbutton", slideIn, false);
       document.addEventListener("pause", app.device.onPause, false);
@@ -830,18 +848,19 @@ var app = {
       app.gps.geopos = [59.91673,10.74782]; // Defaulting to oslo incase geopos isn't possible
     }
     //Downloading station data
-    if(app.device.phonegap)
+    if(app.device.phonegap){
       //Safeguarding against timeout for the cordovaWebView
       setTimeout(document.addEventListener("deviceready", app.device.onReady, false), 2000);
-    else
+    }else{
       app.download.getDump();
-    if(app.device.isMobile)
+    }
+    if(app.device.isMobile){
       setInterval(function () {
         //Updating the "nearby chargers" list for all mobile devices (web and app)
         nearby.update();
         station.favorite.updateStations();
       }, 1000);
-
+    }
     window.addEventListener("resize",function(){
       google.maps.event.trigger(app.map, 'resize');
     }, false);
