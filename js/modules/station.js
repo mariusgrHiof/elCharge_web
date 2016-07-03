@@ -398,11 +398,15 @@ var station = {
   },
   generateMarker : function(id){
     try{
-      station.conns.list.length = 0;
-      if(station.getCarMatch(id))
+      if($('#select-car').val() !=0){
+        station.conns.list.length = 0;
+        if(station.getCarMatch(id))
+          station.addMarker(station.list[id].csmd.Number_charging_points, id);
+        if($.inArray(id, station.favorite.stationList))
+          station.favorite.updateStations(id);
+      }else{
         station.addMarker(station.list[id].csmd.Number_charging_points, id);
-      if($.inArray(id, station.favorite.stationList))
-        station.favorite.updateStations(id);
+      }
     }catch(err){console.log(err);}
   },
   generateMarkers : function(){
@@ -445,16 +449,19 @@ var station = {
     for(var c in station.list[id].attr.conn){
       //Checking if any connection ports match the user prefs
       try{
-        if($('#select-car').val() != 0 && !match && app.inArray(station.list[id].attr.conn[c][4].attrvalid, station.user.carConns) && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW))
+        if($('#select-car').val() != 0 && !match && app.inArray(station.list[id].attr.conn[c][4].attrvalid, station.user.carConns) && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW)){
           match = true;
-        else if($('#select-car').val() == 0 && !match && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW))
+          break;
+        }else if($('#select-car').val() == 0 && !match && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW)){
         //If no car or type is selected
           match = true;
-        if(station.list[id].attr.conn[c][9] != undefined && station.list[id].attr.conn[c][9].attrvalid == 1)//Is a faulty connector
+          break;
+        }if(station.list[id].attr.conn[c][9] != undefined && station.list[id].attr.conn[c][9].attrvalid == 1){//Is a faulty connector
           station.conns.numFaulty++;
         //For the markers, to indicate if a id has a fast charger or not!
-        if(!hasFastCharge_temp && (station.fastCharge <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW))
+        }if(!hasFastCharge_temp && (station.fastCharge <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW)){
           station.hasFastCharge = true;
+        }
         station.conns.list.push(station.list[id].attr.conn[c]);
       }catch(e){}
     }
