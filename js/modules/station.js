@@ -157,26 +157,26 @@ var station = {
       var imgStart = '<img class="float-right" src="icons/conn/',
         imgEnd = '" style="max-height:2em; max-width:2em;"/>',
         result = '';
-      if(app.inArrayVal(connType, station.conns.types.schuko))
-        result += imgStart + 'schuko.svg' + imgEnd;
-      if(app.inArrayVal(connType, station.conns.types.type1))
-        result += imgStart + 'type1.svg' + imgEnd;
-      if(app.inArrayVal(connType, station.conns.types.type2))
-        result += imgStart + 'type2_tesla.svg' + imgEnd;
-      if(app.inArrayVal(connType, station.conns.types.chademo))
-        result += imgStart + 'chademo.svg' + imgEnd;
-      if(app.inArrayVal(connType, station.conns.types.combo))
-        result += imgStart + 'combo1.svg' + imgEnd;
-      if(app.inArrayVal(connType, station.conns.types.ind3pin))
-        result += imgStart + 'industrial3pin.svg' + imgEnd;
-      if(app.inArrayVal(connType, station.conns.types.ind4pin))
-        result += imgStart + 'industrial4pin.svg' + imgEnd;
-      if(app.inArrayVal(connType, station.conns.types.ind5pin))
-        result += imgStart + 'industrial5pin.svg' + imgEnd;
-      if(app.inArrayVal(connType, station.conns.types.teslaModelS))
-        result += imgStart + 'type2_tesla.svg' + imgEnd;
-      if(app.inArrayVal(connType, station.conns.types.teslaRoadster))
-        result += imgStart + 'tesla_r.svg' + imgEnd;
+      if(app.inArrayVal(connType, station.conns.types.schuko)){
+        result += imgStart + 'schuko.svg' + imgEnd;}
+      if(app.inArrayVal(connType, station.conns.types.type1)){
+        result += imgStart + 'type1.svg' + imgEnd;}
+      if(app.inArrayVal(connType, station.conns.types.type2)){
+        result += imgStart + 'type2_tesla.svg' + imgEnd;}
+      if(app.inArrayVal(connType, station.conns.types.chademo)){
+        result += imgStart + 'chademo.svg' + imgEnd;}
+      if(app.inArrayVal(connType, station.conns.types.combo)){
+        result += imgStart + 'combo1.svg' + imgEnd;}
+      if(app.inArrayVal(connType, station.conns.types.ind3pin)){
+        result += imgStart + 'industrial3pin.svg' + imgEnd;}
+      if(app.inArrayVal(connType, station.conns.types.ind4pin)){
+        result += imgStart + 'industrial4pin.svg' + imgEnd;}
+      if(app.inArrayVal(connType, station.conns.types.ind5pin)){
+        result += imgStart + 'industrial5pin.svg' + imgEnd;}
+      if(app.inArrayVal(connType, station.conns.types.teslaModelS)){
+        result += imgStart + 'type2_tesla.svg' + imgEnd;}
+      if(app.inArrayVal(connType, station.conns.types.teslaRoadster)){
+        result += imgStart + 'tesla_r.svg' + imgEnd;}
       return result;
     }
   },
@@ -199,19 +199,22 @@ var station = {
     },
     addRoute : function(element){
       var path ="";
-      if(app.device.phonegap)
+      if(app.device.phonegap){
         path += app.path;
+      }
       path +="api/alterUserRoute.php";
 
       //Generating object
       for(var i in navigation.route.legs){
-        if(i == 0)
+        if(i == 0){
           //Getting starting pos
           navigation.jsonRoute["start"] = navigation.route.legs[i].start_address;
+        }
 
-        if (i == navigation.route.legs.length -1)
+        if (i == navigation.route.legs.length -1){
           //Getting end destination
           navigation.jsonRoute["end"] =  navigation.route.legs[i].end_address;
+        }
       }
       navigation.jsonRoute['waypoints'] = navigation.waypoints;
       navigation.jsonRoute['waypointsData'] = navigation.waypointsData;
@@ -238,8 +241,9 @@ var station = {
     },
     addStation : function(id){
       var path ="";
-      if(app.device.phonegap)
+      if(app.device.phonegap){
         path += app.path;
+      }
       path +="api/addUserStation.php";
       station.favorite.stationList.push({station_id:id});
       $.post( path,{
@@ -253,8 +257,9 @@ var station = {
     deleteStation : function(element){
       var path ="",
         id = $(element).parent().parent().attr('value');
-      if(app.device.phonegap)
+      if(app.device.phonegap){
         path += app.path;
+      }
       path +="api/deleteUserStation.php";
       //Deleting from array
       for(var i in station.favorite.stationList){
@@ -273,8 +278,9 @@ var station = {
     },
     deleteRoute : function(element){
       var path ="";
-      if(app.device.phonegap)
+      if(app.device.phonegap){
         path += app.path;
+      }
       path +="api/alterUserRoute.php";
       var id = $(element).parent().parent().attr('value');
       console.log(id);
@@ -292,8 +298,9 @@ var station = {
     editRoute : function(element){
       var path ="",
         id = $(element).parent().parent().attr('value');
-      if(app.device.phonegap)
+      if(app.device.phonegap){
         path += app.path;
+      }
       path +="api/alterUserRoute.php";
 
       //Deleting from array
@@ -405,10 +412,12 @@ var station = {
     try{
       if($('#select-car').val() !=0){
         station.conns.list.length = 0;
-        if(station.getCarMatch(id))
+        if(station.getCarMatch(id)){
           station.addMarker(station.list[id].csmd.Number_charging_points, id);
-        if($.inArray(id, station.favorite.stationList))
+        }
+        if($.inArray(id, station.favorite.stationList)){
           station.favorite.updateStations(id);
+        }
       }else{
         station.addMarker(station.list[id].csmd.Number_charging_points, id);
       }
@@ -416,8 +425,9 @@ var station = {
   },
   generateMarkers : function(){
     $('#download-progression').show();
-    if($('#select-car').val() !=0)
+    if($('#select-car').val() !=0){
       station.user.carConns = station.conns.carModels[$('#select-car').val()];
+    }
     station.deleteMarkers();
     for(var id in station.list){
       station.generateMarker(id);
@@ -425,16 +435,17 @@ var station = {
     $('#download-progression').hide();
     station.hasDownloaded = true;
 
-    if(station.markerClusterer == null)
+    if(station.markerClusterer == null){
       station.markerClusterer = new MarkerClusterer(app.map, station.markers, app.options.markerCluster);
-    else{
+    }else{
       station.markerClusterer.clearMarkers();
       station.markerClusterer.addMarkers(station.markers);
     }
     $('#download-progression').hide();
     app.download.hasDownloaded = true;
-    if(!app.device.isMobile)
+    if(!app.device.isMobile){
       nearby.update();
+    }
   },
   deleteMarkers : function(){
     //Memory managenent
@@ -500,14 +511,14 @@ var station = {
         size : new google.maps.Size(64, 64)
       };
 
-    if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1)
+    if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
       marker = new google.maps.Marker({
         position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
         icon : markerIcon,
         map: app.map,
         title: station.list[id].csmd.name
       });
-    else
+    }else{
       marker = new google.maps.Marker({
         position:{lat: parseFloat(pos[0]), lng: parseFloat(pos[1])},
         icon: markerIcon,
@@ -515,7 +526,7 @@ var station = {
         map: app.map,
         title: station.list[id].csmd.name
       });
-
+    }
     maxWidth = (app.device.isMobile?500:500);
     maxHeight = (app.device.isMobile?300:500);
     infowindow = new google.maps.InfoWindow({
@@ -637,8 +648,9 @@ var station = {
    * A method for generating the content of a infowindow
    */
   getInfoWindowContent : function(id, isLive) {
-    if($('#select-car').val() !=0)
+    if($('#select-car').val() !=0){
       station.user.carConns = station.conns.carModels[$('#select-car').val()];
+    }
     //Showing a info windows when you click on the marker
     station.connectorsString = station.conns.getString(id, isLive);
     station.contentString =

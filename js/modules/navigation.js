@@ -11,10 +11,12 @@ var navigation = {
   jsonRoute : {},
   route : [],
   build : function (){
-    if(document.getElementById('right-panel').innerHTML != null)
-      $("#right-panel").html("") //The route description
-    if(navigation.display != null)
-      navigation.display.setMap(null);//The route in the map
+    if(document.getElementById('right-panel').innerHTML != null){
+      $("#right-panel").html("")
+    } //The route description
+    if(navigation.display != null){
+      navigation.display.setMap(null);
+    }//The route in the map
     //Getting destinations
     navigation.startDestination = $('#nav-start-pos').val();
     navigation.endDestination = $('#nav-end-pos').val();
@@ -33,19 +35,23 @@ var navigation = {
   },
   fromUser : function (toel){
     navigation.clearRoute();
-    if(document.getElementById('right-panel').innerHTML != null)
-      $("#right-panel").html("") //The route description
-    if(navigation.display != null)
-      navigation.display.setMap(null);//The route in the map
+    if(document.getElementById('right-panel').innerHTML != null){
+      $("#right-panel").html("")
+    } //The route description
+    if(navigation.display != null){
+      navigation.display.setMap(null);
+    }//The route in the map
     var to = $(toel).attr('value');
     $('#nav-start-pos').val(app.gps.geopos);
     $('#nav-end-pos').val(to);
     //Cleaning previous directions
-    if(navigation.display != null)
-      navigation.display.setMap(null);//The route in the map
+    if(navigation.display != null){
+      navigation.display.setMap(null);
+    }//The route in the map
 
-    if(document.getElementById('right-panel').innerHTML != null)
-      $("#right-panel").html(""); //The route description
+    if(document.getElementById('right-panel').innerHTML != null){
+      $("#right-panel").html("");
+    } //The route description
 
     //Getting destinations
     navigation.startDestination = app.gps.geopos[0] + "," + app.gps.geopos[1];
@@ -65,20 +71,22 @@ var navigation = {
   },
   fromUserSearch : function (){
     navigation.clearRoute();
-    if(document.getElementById('right-panel').innerHTML != null)
-      $("#right-panel").html("") //The route description
-    if(navigation.display != null)
-      navigation.display.setMap(null);//The route in the map
+    if(document.getElementById('right-panel').innerHTML != null){
+      $("#right-panel").html("");
+    } //The route description
+    if(navigation.display != null){
+      navigation.display.setMap(null);
+    }//The route in the map
     var to = $('#search-box').val();
     $('#nav-start-pos').val(app.gps.geopos);
     $('#nav-end-pos').val(to);
     //Cleaning previous directions
-    if(navigation.display != null)
+    if(navigation.display != null){
       navigation.display.setMap(null);//The route in the map
-
-    if(document.getElementById('right-panel').innerHTML != null)
+    }
+    if(document.getElementById('right-panel').innerHTML != null){
       $("#right-panel").html(""); //The route description
-
+    }
     //Getting destinations
     navigation.startDestination = app.gps.geopos[0] + "," + app.gps.geopos[1];
     navigation.endDestination = to;
@@ -149,18 +157,21 @@ var navigation = {
   },
   getRouteData : function () {
     for(var i in navigation.route.legs){
-      if(i == 0)
+      if(i == 0){
         //Getting starting pos
         console.log("Start pos is: " + navigation.route.legs[i].start_address);
-      if(navigation.route.legs.length > 0 && i != 0)
+      }
+      if(navigation.route.legs.length > 0 && i != 0){
         //Getting all waypoints
         console.log("Waypoint "+ i +": " + navigation.route.legs[i].start_address);
+      }
       for(var sWP in navigation.route.legs[i].via_waypoints){
         navigation.getLocationNameFromLatLng(navigation.route.legs[i].via_waypoints[sWP],i, sWP); // Can be used for something fancy?
       }
-      if (i == navigation.route.legs.length -1)
+      if (i == navigation.route.legs.length -1){
         //Getting end destination
         console.log("End dest is: " + navigation.route.legs[i].end_address);
+      }
     }
   },
   getLocationNameFromLatLng : function (latlng){
