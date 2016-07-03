@@ -116,8 +116,8 @@ var station = {
       return capacity >= station.fastCharge ? capacity + "kW " + 'hurtiglader' : (capacity >= station.semiFastCharge ? capacity + "kW " +"semihurtig": capacity + "kW "+ "vanlig");
     },
     getString : function(id, isLive){
-      var isInService = true;
-      var connStatus = "9";
+      var isInService = true,
+        connStatus = "9";
       station.conns.numFaulty = 0;
 
       var result = '<div style="margin:0.1em 0 0.1em 0;">';
@@ -154,9 +154,9 @@ var station = {
     },
     // TODO: connectorImg
     getImg : function(connType) {
-      var imgStart = '<img class="float-right" src="icons/conn/';
-      var imgEnd = '" style="max-height:2em; max-width:2em;"/>';
-      var result = '';
+      var imgStart = '<img class="float-right" src="icons/conn/',
+        imgEnd = '" style="max-height:2em; max-width:2em;"/>',
+        result = '';
       if(app.inArrayVal(connType, station.conns.types.schuko))
         result += imgStart + 'schuko.svg' + imgEnd;
       if(app.inArrayVal(connType, station.conns.types.type1))
@@ -251,16 +251,17 @@ var station = {
       return false;
     },
     deleteStation : function(element){
-      var path ="";
+      var path ="",
+        id = $(element).parent().parent().attr('value');
       if(app.device.phonegap)
         path += app.path;
       path +="api/deleteUserStation.php";
-      var id = $(element).parent().parent().attr('value');
-      console.log(id);
       //Deleting from array
       for(var i in station.favorite.stationList){
-        if(id == station.favorite.stationList[i].station_id)
+        if(id == station.favorite.stationList[i].station_id){
           station.favorite.stationList.splice(i, 1);
+          break;
+        }
       }
       $.post( path,{
         stationId: id
@@ -289,27 +290,27 @@ var station = {
       return false;
     },
     editRoute : function(element){
-      var path ="";
+      var path ="",
+        id = $(element).parent().parent().attr('value');
       if(app.device.phonegap)
         path += app.path;
       path +="api/alterUserRoute.php";
-      var id = $(element).parent().parent().attr('value');
-      console.log(id);
+
       //Deleting from array
       station.favorite.routeList.splice(id, 1);
       $.post( path,{
         action : 'edit',
         route_id: id
       }, function(response){
-        console.log(response);
         station.favorite.updateRoutes();
       });
       return false;
     },
     updateRoutes : function(){
       $("#favorite-routes").html("");
+      var id;
       for(var i in station.favorite.routeList){
-        var id = station.favorite.routeList[i].route_id;
+        id = station.favorite.routeList[i].route_id;
         $('#favorite-routes').append(
           '<li class="border clear-both" value="' + i + '" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
             '<div class="float-left clear-both" >'+
@@ -328,8 +329,9 @@ var station = {
     },
     updateStations : function(){
       $("#favorite-stations").html("");
+      var id;
       for(var i in station.favorite.stationList){
-        var id = station.favorite.stationList[i].station_id;
+        id = station.favorite.stationList[i].station_id;
         $('#favorite-stations').append(
           '<li class="border" value="' + id + '" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
             '<img class="cover-third float-left img-height-4em" src=\"' + station.getImage(id) + '\"/>' +
@@ -351,16 +353,19 @@ var station = {
       station.bindStationNames();
     },
     restoreRoute : function(element){
-      var r_id = $(element).parent().parent().attr('value');
+      var r_id = $(element).parent().parent().attr('value'),
+        content = '',
+        id,
+        isLive;
       $('#nav-start-pos').val(station.favorite.routeList[r_id].route.start);
       navigation.waypoints = station.favorite.routeList[r_id].route.waypoints;
       navigation.waypointsData = station.favorite.routeList[r_id].route.waypointsData;
       $('#nav-end-pos').val(station.favorite.routeList[r_id].route.end);
-      var content = '';
+
       for(var wp in navigation.waypoints){
         if(navigation.waypointsData[wp].isStation){
-          var id = navigation.waypointsData[wp].station_id;
-          var isLive = navigation.waypointsData[wp].isLive;
+          id = navigation.waypointsData[wp].station_id;
+          isLive = navigation.waypointsData[wp].isLive;
           content +=
             "<div class='route-element station-"+ id +"'>" +
               "<img class='cover-third float-left' src=\"" + station.getImage(id) + "\"/>" +
@@ -440,10 +445,10 @@ var station = {
     station.markers.length = 0;
   },
   getCarMatch : function(id){
-    var match = false;
-    var connType;
-    var hasFastCharge_temp = false;
-    var isFaulty = false;
+    var match = false,
+      connType,
+      hasFastCharge_temp = false,
+      isFaulty = false;
     station.hasFastCharge = false;
     station.conns.numFaulty = 0;
     for(var c in station.list[id].attr.conn){
@@ -477,20 +482,23 @@ var station = {
   },
   addMarker : function(numOfPorts, id){
     //Adding markers
-    var pos = station.list[id].csmd.Position.replace(/[()]/g,"").split(",");
-    var isLive = station.list[id].attr.st[21].attrvalid == "1";
-    var marker;
-    var markerIcon = {
-      url: 'icons/'+(
-        isLive ? (station.hasFastCharge ?
-          (station.conns.numFaulty/numOfPorts == 1 ? 'marker_red_v2' :( station.occupiedStatus(id) > station.occupiedLimit ? 'marker_green_v2' : 'marker_yellow_v2')):
-          (station.conns.numFaulty/numOfPorts == 1 ? 'marker_red_v3' :( station.occupiedStatus(id) > station.occupiedLimit ? 'marker_green_v3' : 'marker_yellow_v3')))
-          :(station.hasFastCharge ? (station.conns.numFaulty/numOfPorts == 1 ? 'marker_red_v2' :'marker_blue_v2'):(station.conns.numFaulty/numOfPorts == 1 ? 'marker_red_v3' :'marker_blue_v3')))+'.svg', //Changing the color of the marker based on if it has live status or not.
-      anchor : new google.maps.Point(16, 51),
-      origin : new google.maps.Point(0, 0),
-      scaledSize: new google.maps.Size(32, 51),
-      size : new google.maps.Size(64, 64)
-    };
+    var pos = station.list[id].csmd.Position.replace(/[()]/g,"").split(","),
+      isLive = station.list[id].attr.st[21].attrvalid == "1",
+      marker,
+      maxWidth,
+      maxHeight,
+      infowindow,
+      markerIcon = {
+        url: 'icons/'+(
+          isLive ? (station.hasFastCharge ?
+            (station.conns.numFaulty/numOfPorts == 1 ? 'marker_red_v2' :( station.occupiedStatus(id) > station.occupiedLimit ? 'marker_green_v2' : 'marker_yellow_v2')):
+            (station.conns.numFaulty/numOfPorts == 1 ? 'marker_red_v3' :( station.occupiedStatus(id) > station.occupiedLimit ? 'marker_green_v3' : 'marker_yellow_v3')))
+            :(station.hasFastCharge ? (station.conns.numFaulty/numOfPorts == 1 ? 'marker_red_v2' :'marker_blue_v2'):(station.conns.numFaulty/numOfPorts == 1 ? 'marker_red_v3' :'marker_blue_v3')))+'.svg', //Changing the color of the marker based on if it has live status or not.
+        anchor : new google.maps.Point(16, 51),
+        origin : new google.maps.Point(0, 0),
+        scaledSize: new google.maps.Size(32, 51),
+        size : new google.maps.Size(64, 64)
+      };
 
     if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1)
       marker = new google.maps.Marker({
@@ -508,9 +516,9 @@ var station = {
         title: station.list[id].csmd.name
       });
 
-    var maxWidth = (app.device.isMobile?500:500);
-    var maxHeight = (app.device.isMobile?300:500);
-    var infowindow = new google.maps.InfoWindow({
+    maxWidth = (app.device.isMobile?500:500);
+    maxHeight = (app.device.isMobile?300:500);
+    infowindow = new google.maps.InfoWindow({
       content: station.contentString,
       maxWidth: maxWidth,
       maxHeight: maxHeight
@@ -518,14 +526,15 @@ var station = {
 
     station.infoWindows.push(infowindow);
     station.markerListeners.push(google.maps.event.addListener(infowindow, 'domready', function() {
-      var iwOuter = $('.gm-style-iw');
-      var iwBackground = iwOuter.prev();
+      var iwOuter = $('.gm-style-iw'),
+        iwCloseBtn,
+        iwBackground = iwOuter.prev();
       // Remove the background shadow DIV
       iwBackground.children(':nth-child(2)').css({'display' : 'none'});
       // Remove the white background DIV
       iwBackground.children(':nth-child(4)').css({'display' : 'none'});
 
-      var iwCloseBtn = iwOuter.next();
+      iwCloseBtn = iwOuter.next();
       iwCloseBtn.css({
         opacity: '1',
         right: '52px',
@@ -568,8 +577,9 @@ var station = {
    */
   addWaypoint : function(id){
     try{
-      var disPos = station.list[id].csmd.Position.replace(/[()]/g,"").split(",");
-      var isLive = station.list[id].attr.st[21].attrvalid == "1";
+      var disPos = station.list[id].csmd.Position.replace(/[()]/g,"").split(","),
+        isLive = station.list[id].attr.st[21].attrvalid == "1",
+        content;
       navigation.waypointsData.push(
         {
           isStation : true,
@@ -580,7 +590,7 @@ var station = {
         {location: new google.maps.LatLng(disPos[0],disPos[1])}
       );
 
-      var content =
+      content =
         "<div class='route-element station-"+ id +"'>" +
           "<img class='cover-third float-left' src=\"" + station.getImage(id) + "\"/>" +
           "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
@@ -604,8 +614,8 @@ var station = {
     station.bindStationNames();
   },
   removeWaypoint : function(element){
-    var parent = $(element).parent().parent();
-    var index = $(parent).index();
+    var parent = $(element).parent().parent(),
+      index = $(parent).index();
 
     //Removing the waypoint from the html
     $(parent).remove();
@@ -680,27 +690,27 @@ var station = {
   },
   init : function() {
     station.conns.carModels = {
-      'Nissan Leaf' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-      'BMW i3' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type2, station.conns.types.combo),
+      'Nissan Leaf' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
+      'BMW i3' : station.conns.types.schuko.concat(station.conns.types.type2, station.conns.types.combo),
       'Buddy' : station.conns.types.schuko,
-      'Citroën Berlingo' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-      'Citroën C-ZERO' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
+      'Citroën Berlingo' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
+      'Citroën C-ZERO' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
       'Ford Focus Electric' : station.conns.types.schuko.concat(station.conns.types.schuko,station.conns.types.type1, station.conns.types.type2),
-      'Kia Soul Electric' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-      'Mercedes B-klasse ED' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type2),
-      'Mitsubishi i-MIEV' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-      'Nissan e-NV200/Evalia' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-      'Peugeot iOn' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-      'Peugeot Partner' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-      'Renault Kangoo ZE' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2),
+      'Kia Soul Electric' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
+      'Mercedes B-klasse ED' : station.conns.types.schuko.concat(station.conns.types.type2),
+      'Mitsubishi i-MIEV' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
+      'Nissan e-NV200/Evalia' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
+      'Peugeot iOn' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
+      'Peugeot Partner' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
+      'Renault Kangoo ZE' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2),
       'Renault Twizy' : station.conns.types.schuko,
-      'Renault Zoe' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type2),
+      'Renault Zoe' : station.conns.types.schuko.concat(station.conns.types.type2),
       'Reva' : station.conns.types.schuko,
-      'Tesla Model S' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type2, station.conns.types.ind3pin, station.conns.types.ind5pin, station.conns.types.teslaModelS),
-      'Tesla Roadster' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.teslaRoadster),
+      'Tesla Model S' : station.conns.types.schuko.concat(station.conns.types.type2, station.conns.types.ind3pin, station.conns.types.ind5pin, station.conns.types.teslaModelS),
+      'Tesla Roadster' : station.conns.types.schuko.concat(station.conns.types.teslaRoadster),
       'Think' : station.conns.types.schuko,
-      'VW e-Golf' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type2, station.conns.types.combo),
-      'VW e-up!' : station.conns.types.schuko.concat(station.conns.types.schuko, station.conns.types.type1, station.conns.types.type2),
+      'VW e-Golf' : station.conns.types.schuko.concat(station.conns.types.type2, station.conns.types.combo),
+      'VW e-up!' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2),
     }
   }
 };

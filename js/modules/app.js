@@ -629,30 +629,11 @@ var app = {
       return new Date(year, month, 0).getDate();
     },
     utcToNOR : function(time){
-      console.log(time);
-      //TODO: Fullfør
       //Date of update
-      var d = time.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}/gm).toString().split('-');
+      var d = time.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}/gm).toString().split('-'),
       //Time of update
-      var t = time.match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/gm).toString().split(':');
-      var dayOfYear = (function(){
-        var day = 0;
-        for(var i = 0; i <= app.date.getMonth(); i++){
-          day += app.time.getDaysInMonth(i, app.date.getFullYear);
-          console.log(day);
-        }
-        return day;
-      });
-      var days = (function(){
-        var day = 0;
-          for(var i = 0; i <= d[1]; i++){
-            day += app.time.getDaysInMonth(d[1], d[0]);
-          }
-        return day;
-      });
-      console.log((app.date.getDate() + app.time.getDaysInMonth(d[1], d[0])) + ' -> ' + d[2]);
-      var timeDiff = ( (app.date.getMonth()+1) - d[1] > 0 ? ( (app.date.getDate() + app.time.getDaysInMonth(d[1], d[0])) - parseInt(d[2]) ) : app.date.getDate() - parseInt(d[2]));
-      console.log(timeDiff);
+       t = time.match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/gm).toString().split(':'),
+       timeDiff = ( (app.date.getMonth()+1) - d[1] > 0 ? ( (app.date.getDate() + app.time.getDaysInMonth(d[1], d[0])) - parseInt(d[2]) ) : app.date.getDate() - parseInt(d[2]));
       return (app.date.dst() ? (parseInt(t[0]) + 2) : (parseInt(t[0])  + 1) ) + ':' + t[1] +
         (timeDiff == 0 ? '': (timeDiff == 1 ? '(i går)' : '(' + timeDiff + 'dager)') );
     }
@@ -747,7 +728,7 @@ var app = {
         position: google.maps.ControlPosition.RIGHT_BOTTOM
       }
     });
-    app.options.markerCluster = {gridSize: 50, maxZoom: 15, styles: app.cluster.styles};
+    app.options.markerCluster = {gridSize: 35, maxZoom: 15, styles: app.cluster.styles};
     app.options.panorama = {
       addressControlOptions:{
         position: google.maps.ControlPosition.BOTTOM_CENTER
@@ -884,9 +865,9 @@ Date.prototype.dst = function() {
   Testing
 */
 function SpeedTest(testImplement, testParams, repetitions){
-  this.testImplement = testImplement;
-  this.testParams = testParams;
-  this.repetitions = repetitions || 10000;
+  this.testImplement = testImplement; //Function to test
+  this.testParams = testParams; //Function params
+  this.repetitions = repetitions || 10000; //Num of repetitions
   this.average = 0;
 }
 SpeedTest.prototype = {
