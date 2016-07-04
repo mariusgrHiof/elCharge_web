@@ -30,14 +30,14 @@ var nearby = {
     var thisPos = [],
       id,
       nationalID,
-      element;
+      element = '';
     for(var id in nearby.chargers){
       nationalID = nearby.chargers[id].csmd.International_id;
       //If it is matching our filters and is available to the public
       if(station.getCarMatch(nationalID)){
         try{
           thisPos = nearby.chargers[id].csmd.Position.replace(/[()]/g,"").split(",");
-          element = '<li class="border" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
+          element += '<li class="border" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
             '<img class="cover-third float-left img-height-4em" src=\"' + station.getImage(nationalID) + '\"/>' +
             '<div class="chargePointColor" style="height:4em;background-color:' +
               (station.list[nationalID].attr.st[21].attrvalid == "1" ? (station.occupiedStatus(nationalID) > 0.4 ? 'lightgreen' : 'yellow') : 'blue') + ';"></div>'+
