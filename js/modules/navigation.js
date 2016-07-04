@@ -32,16 +32,6 @@ var navigation = {
       navigation.getTotalDistance(navigation.display.getDirections());
     });
     navigation.displayRoute(navigation.startDestination, navigation.endDestination, navigation.service,navigation.display);
-    //Route summary
-    $('.adp-summary').click(
-      function(){
-        if($(this).hasClass('toggle')){
-          $(this).removeClass('toggle');
-        }else{
-          $(this).addClass('toggle');
-        }
-      }
-    );
   },
   fromUser : function (toel){
     //Cleaning out the route before we build a new one

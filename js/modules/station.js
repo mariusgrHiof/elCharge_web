@@ -234,6 +234,8 @@ var station = {
         };
         station.favorite.updateRoutes();
       });
+      //Closing the window
+      $(this).parent().parent().hide();
       return false;
     },
     addStation : function(id){
@@ -366,10 +368,10 @@ var station = {
       navigation.waypointsData = station.favorite.routeList[r_id].route.waypointsData;
       $('#nav-end-pos').val(station.favorite.routeList[r_id].route.end);
 
-      for(var wp = 0, x = navigation.waypoints.length; i < x; i++){
-        if(navigation.waypointsData[wp].isStation){
-          id = navigation.waypointsData[wp].station_id;
-          isLive = navigation.waypointsData[wp].isLive;
+      for(var i = 0, x = navigation.waypoints.length; i < x; i++){
+        if(navigation.waypointsData[i].isStation){
+          id = navigation.waypointsData[i].station_id;
+          isLive = navigation.waypointsData[i].isLive;
           content +=
             "<div class='route-element station-"+ id +"'>" +
               "<img class='cover-third float-left' src=\"" + station.getImage(id) + "\"/>" +
@@ -387,7 +389,7 @@ var station = {
         }else{
           content += "<div class='route-element'>" +
             "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
-              navigation.waypointsData[wp].address +
+              navigation.waypointsData[i].address +
             "</div>"+
             "<div><button onclick=\"station.removeWaypoint(this)\">X</button></div>" +
           "</div>";

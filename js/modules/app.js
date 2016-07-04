@@ -256,6 +256,15 @@ var app = {
           }
         }
       );
+      //Route summary
+      $('body').on('click', '.adp-summary', function (){
+          if($(this).hasClass('toggle')){
+            $(this).removeClass('toggle');
+          }else{
+            $(this).addClass('toggle');
+          }
+        }
+      );
     },
     input : function(){
       /**
