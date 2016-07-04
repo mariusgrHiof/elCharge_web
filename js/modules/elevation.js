@@ -9,7 +9,7 @@ var elevation = {
   path: [],
   displayForPath: function (path, elevator) {
     elevation.path.length = 0;
-    for (var i = 0; i < path.legs.length; i++) {
+    for (var i = 0, x = path.legs.length; i < x; i++) {
       //The start position
       if (i == 0)
         elevation.path.push(path.legs[i].start_location);
@@ -20,7 +20,7 @@ var elevation = {
         elevation.path.push(path.legs[i].steps[s].lat_lngs[0]);
       }
       //The final destination
-      if (i == path.legs.length - 1)
+      if (i == x - 1)
         elevation.path.push(path.legs[i].end_location);
     }
     elevator.getElevationAlongPath({
@@ -29,16 +29,16 @@ var elevation = {
     }, elevation.plot);
   },
   plot: function (elevations, status) {
-    var chartDiv = document.getElementById('elevation-chart');
+    var chartDiv = document.getElementById('elevation-chart'),
+      chart = new google.visualization.ColumnChart(chartDiv),
+      data = new google.visualization.DataTable();
     if (status !== google.maps.ElevationStatus.OK) {
       chartDiv.innerHTML = "Request failed because" + status;
       return;
     }
-    var chart = new google.visualization.ColumnChart(chartDiv);
-    var data = new google.visualization.DataTable();
     data.addColumn('string', 'Sample');
     data.addColumn('number', 'Elevation');
-    for (var i = 0; i < elevations.length; i++) {
+    for (var i = 0, x = elevations.length; i < x; i++) {
       data.addRow(['', elevations[i].elevation]);
     }
     chart.draw(data, {

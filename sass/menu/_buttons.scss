@@ -67,3 +67,13 @@ button#lock-to-my-pos-btn{
   vertical-align: middle;
   padding:0;
 }
+/*Route summaries*/
+.adp-summary{
+  background: url('icons/back-icon.svg') no-repeat right;
+  & + div{
+    display:none;
+  }
+  &.toggle + div{
+    display:block;
+  }
+}

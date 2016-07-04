@@ -85,7 +85,6 @@ var app = {
           username: $(form).children(":input[name='username']").val(),
           password: $(form).children(":input[name='password']").val() },
         function( data ){
-          console.log(data);
           //Populating the user logged in window.
           //Cleaning out the array
           station.favorite.stationList.length = 0;
@@ -489,6 +488,7 @@ var app = {
       if(!app.device.isMobile){
         nearby.update();
       }
+      station.favorite.updateStations();
       /*TODO: REMOVE?
       //Adding markers
       if(!app.download.initDownloaded){

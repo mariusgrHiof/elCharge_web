@@ -201,6 +201,14 @@ button#lock-to-my-pos-btn {
   vertical-align: middle;
   padding: 0; }
 
+/*Route summaries*/
+.adp-summary {
+  background: url("icons/back-icon.svg") no-repeat right; }
+  .adp-summary + div {
+    display: none; }
+  .adp-summary.toggle + div {
+    display: block; }
+
 /*
 * Input boxes and comboboxes
 */

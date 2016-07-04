@@ -11,8 +11,8 @@ var navigation = {
   jsonRoute : {},
   route : [],
   build : function (){
-    if(document.getElementById('right-panel').innerHTML != null){
-      $("#right-panel").html("")
+    if($("#right-panel").html() != ''){
+      $("#right-panel").html('')
     } //The route description
     if(navigation.display != null){
       navigation.display.setMap(null);
@@ -32,26 +32,31 @@ var navigation = {
       navigation.getTotalDistance(navigation.display.getDirections());
     });
     navigation.displayRoute(navigation.startDestination, navigation.endDestination, navigation.service,navigation.display);
+    //Route summary
+    $('.adp-summary').click(
+      function(){
+        if($(this).hasClass('toggle')){
+          $(this).removeClass('toggle');
+        }else{
+          $(this).addClass('toggle');
+        }
+      }
+    );
   },
   fromUser : function (toel){
+    //Cleaning out the route before we build a new one
     navigation.clearRoute();
-    if(document.getElementById('right-panel').innerHTML != null){
-      $("#right-panel").html("")
-    } //The route description
+    if($("#right-panel").html() != ''){
+      $("#right-panel").html('')
+    }
     if(navigation.display != null){
       navigation.display.setMap(null);
-    }//The route in the map
+    }
+
+    //Starting to build a new route
     var to = $(toel).attr('value');
     $('#nav-start-pos').val(app.gps.geopos);
     $('#nav-end-pos').val(to);
-    //Cleaning previous directions
-    if(navigation.display != null){
-      navigation.display.setMap(null);
-    }//The route in the map
-
-    if(document.getElementById('right-panel').innerHTML != null){
-      $("#right-panel").html("");
-    } //The route description
 
     //Getting destinations
     navigation.startDestination = app.gps.geopos[0] + "," + app.gps.geopos[1];
@@ -71,7 +76,7 @@ var navigation = {
   },
   fromUserSearch : function (){
     navigation.clearRoute();
-    if(document.getElementById('right-panel').innerHTML != null){
+    if($("#right-panel").html() != ''){
       $("#right-panel").html("");
     } //The route description
     if(navigation.display != null){
@@ -84,9 +89,7 @@ var navigation = {
     if(navigation.display != null){
       navigation.display.setMap(null);//The route in the map
     }
-    if(document.getElementById('right-panel').innerHTML != null){
-      $("#right-panel").html(""); //The route description
-    }
+
     //Getting destinations
     navigation.startDestination = app.gps.geopos[0] + "," + app.gps.geopos[1];
     navigation.endDestination = to;
@@ -144,7 +147,7 @@ var navigation = {
   getTotalDistance : function (result) {
     var total = 0;
     navigation.route = result.routes[0];
-    for (var i = 0; i < navigation.route.legs.length; i++) {
+    for (var i = 0, x = navigation.route.legs.length; i < x; i++){
       total += navigation.route.legs[i].distance.value;
     }
     //Getting waypoint adresses
@@ -156,33 +159,35 @@ var navigation = {
     elevation.displayForPath(navigation.route, elevation.service);
   },
   getRouteData : function () {
-    for(var i in navigation.route.legs){
+    var x = navigation.route.legs.length;
+    for(var i = 0; i < x; i++){
       if(i == 0){
         //Getting starting pos
         console.log("Start pos is: " + navigation.route.legs[i].start_address);
       }
-      if(navigation.route.legs.length > 0 && i != 0){
+      if(x > 0 && i != 0){
         //Getting all waypoints
         console.log("Waypoint "+ i +": " + navigation.route.legs[i].start_address);
       }
       for(var sWP in navigation.route.legs[i].via_waypoints){
         navigation.getLocationNameFromLatLng(navigation.route.legs[i].via_waypoints[sWP],i, sWP); // Can be used for something fancy?
       }
-      if (i == navigation.route.legs.length -1){
+      if (i == x -1){
         //Getting end destination
         console.log("End dest is: " + navigation.route.legs[i].end_address);
       }
     }
   },
   getLocationNameFromLatLng : function (latlng){
-    var request = new XMLHttpRequest();
-    var method = 'GET';
-    var url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+latlng.lat().toFixed(4) +','+latlng.lng().toFixed(4) +'&sensor=true';
-    var async = true;
+    var request = new XMLHttpRequest(),
+      method = 'GET',
+      url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+latlng.lat().toFixed(4) +','+latlng.lng().toFixed(4) +'&sensor=true',
+      async = true,
+      data;
     request.open(method, url, async);
     request.onreadystatechange = function(){
       if(request.readyState == 4 && request.status == 200){
-        var data = JSON.parse(request.responseText);
+        data = JSON.parse(request.responseText);
         navigation.showDraggedInListAdress(latlng, data.results[0].formatted_address);
       }
     };
@@ -197,14 +202,14 @@ var navigation = {
     navigation.waypoints.push(
       {location: ltlng}
     );
-    var content =
+    $('#waypoint-list').append(
       "<div class='route-element'>" +
         "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
           address +
         "</div>"+
         "<div><button onclick=\"station.removeWaypoint(this)\">X</button></div>" +
-      "</div>";
-    document.getElementById('waypoint-list').innerHTML += content;
+      "</div>"
+    );
 
     //Refreshing the route if it's active
     if($('#nav-start-pos').val() != "" && $('#nav-end-pos').val() != ""){
