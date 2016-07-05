@@ -11,10 +11,10 @@ var navigation = {
   jsonRoute : {},
   route : [],
   build : function (){
-    if($("#right-panel").html() != ''){
+    if($("#right-panel").html() !== ''){
       $("#right-panel").html('')
     } //The route description
-    if(navigation.display != null){
+    if(navigation.display !== null){
       navigation.display.setMap(null);
     }//The route in the map
     //Getting destinations
@@ -36,10 +36,10 @@ var navigation = {
   fromUser : function (toel){
     //Cleaning out the route before we build a new one
     navigation.clearRoute();
-    if($("#right-panel").html() != ''){
+    if($("#right-panel").html() !== ''){
       $("#right-panel").html('')
     }
-    if(navigation.display != null){
+    if(navigation.display !== null){
       navigation.display.setMap(null);
     }
 
@@ -66,17 +66,17 @@ var navigation = {
   },
   fromUserSearch : function (){
     navigation.clearRoute();
-    if($("#right-panel").html() != ''){
+    if($("#right-panel").html() !== ''){
       $("#right-panel").html("");
     } //The route description
-    if(navigation.display != null){
+    if(navigation.display !== null){
       navigation.display.setMap(null);
     }//The route in the map
     var to = $('#search-box').val();
     $('#nav-start-pos').val(app.gps.geopos);
     $('#nav-end-pos').val(to);
     //Cleaning previous directions
-    if(navigation.display != null){
+    if(navigation.display !== null){
       navigation.display.setMap(null);//The route in the map
     }
 
@@ -97,7 +97,7 @@ var navigation = {
     navigation.displayRoute(navigation.startDestination, navigation.endDestination, navigation.service, navigation.display);
   },
   clearRoute : function(){
-    if(navigation.display != null){
+    if(navigation.display !== null){
       $("#right-panel").html("");
       navigation.display.setMap(null);//The route in the map
     }
@@ -151,18 +151,18 @@ var navigation = {
   getRouteData : function () {
     var x = navigation.route.legs.length;
     for(var i = 0; i < x; i++){
-      if(i == 0){
+      if(i === 0){
         //Getting starting pos
         console.log("Start pos is: " + navigation.route.legs[i].start_address);
       }
-      if(x > 0 && i != 0){
+      if(x > 0 && i !== 0){
         //Getting all waypoints
         console.log("Waypoint "+ i +": " + navigation.route.legs[i].start_address);
       }
       for(var sWP in navigation.route.legs[i].via_waypoints){
         navigation.getLocationNameFromLatLng(navigation.route.legs[i].via_waypoints[sWP],i, sWP); // Can be used for something fancy?
       }
-      if (i == x -1){
+      if (i === x -1){
         //Getting end destination
         console.log("End dest is: " + navigation.route.legs[i].end_address);
       }
@@ -176,7 +176,7 @@ var navigation = {
       data;
     request.open(method, url, async);
     request.onreadystatechange = function(){
-      if(request.readyState == 4 && request.status == 200){
+      if(request.readyState === 4 && request.status === 200){
         data = JSON.parse(request.responseText);
         navigation.showDraggedInListAdress(latlng, data.results[0].formatted_address);
       }
@@ -202,7 +202,7 @@ var navigation = {
     );
 
     //Refreshing the route if it's active
-    if($('#nav-start-pos').val() != "" && $('#nav-end-pos').val() != ""){
+    if($('#nav-start-pos').val() !== "" && $('#nav-end-pos').val() !== ""){
       navigation.build();
     }
   }

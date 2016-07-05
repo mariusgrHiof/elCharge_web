@@ -15,7 +15,7 @@ var app = {
   initiatedMap : false,
   path : 'http://frigg.hiof.no/bo16-g6/webapp/',
   api : {
-    url : (window.location.protocol != "https:" ? 'http' : 'https') +'://nobil.no/api/server/datadump.php?',
+    url : (window.location.protocol !== "https:" ? 'http' : 'https') +'://nobil.no/api/server/datadump.php?',
     key : '274b68192b056e268f128ff63bfcd4a4'
   },
   loggedIn : false,
@@ -91,7 +91,7 @@ var app = {
           station.favorite.routeList.length = 0;
           $("#favorite-stations").html("");
           $("#favorite-routes").html("");
-          if(data != "0"){
+          if(data !== "0"){
             var result = JSON.parse(data);
             if(result.stations.length > 0){
               station.favorite.stationList = result.stations;
@@ -142,7 +142,7 @@ var app = {
       var pw = $(form).children(":input[name='password']").val();
       var m = $(form).children(":input[name='mail']").val();
       //Logging the user in
-      if(uname != "" && pw != "" && m != "" && app.register.validMail && app.register.validPassword){
+      if(uname !== "" && pw !== "" && m !== "" && app.register.validMail && app.register.validPassword){
         $.post(path,
           {
             username: $(form).children(":input[name='username']").val(),
@@ -205,7 +205,7 @@ var app = {
           if(pw.match(/[a-z]{1,99}/i) && pw.match(/[A-Z]{1,99}/i) && pw.match(/[0-9]{1,99}/i) && pw.length > 6){
             $('#validate-password').html('').css({'color':'green'});
             $(pws).css({'color':'green'});
-            if(pw != '' && pw == $('#registration-form input[name=password-match]').val()){
+            if(pw !== '' && pw === $('#registration-form input[name=password-match]').val()){
               app.register.validPassword = true;
             }else{
               $(pws).css({'color':'red'});
@@ -273,7 +273,7 @@ var app = {
       //Turning layers on or off
       $('input[type=checkbox].onoffswitch-checkbox').change(
         function(){
-          if($(this).attr('id') == 'traffic-layer'){
+          if($(this).attr('id') === 'traffic-layer'){
             app.layers.traffic();
           }
         }
@@ -395,7 +395,7 @@ var app = {
         type: 'POST',
         datatype:'json',
         contentType: 'application/json; charset=utf-8',
-        url: (app.download.lastDownloaded == "2005-01-01" && app.device.isAndroid ? "datadump.json" : app.api.url + "&apikey=" + app.api.key + "&fromdate=" + app.download.lastDownloaded + "&format=json"),
+        url: (app.download.lastDownloaded === "2005-01-01" && app.device.isAndroid ? "datadump.json" : app.api.url + "&apikey=" + app.api.key + "&fromdate=" + app.download.lastDownloaded + "&format=json"),
         data: {},
         success: function(i){
           var data;
@@ -472,21 +472,31 @@ var app = {
       }
     },
     finalize : function (data){
-      if(app.download.lastDownloaded == "2005-01-01"){
+      if(app.download.lastDownloaded === "2005-01-01"){
         // We only need to create a empty array if we haven't already downloaded.
         station.list = [];
       }
-      var id;
+      var id,
+        isLive;
 
       for(var i in data.chargerstations){
         id = data.chargerstations[i].csmd.International_id;
         station.list[id] = data.chargerstations[i];
-        setTimeout(station.generateMarker(id), 0.001);
+        //For updated stations
+        if(station.markers[id] !== undefined){
+          isLive = (station.list[id].attr.st[21].attrvalid === "1");
+          station.markers[id].setIcon(station.getMarkerIcon( (station.list[id].csmd.Number_charging_points),id , isLive ));
+          if(id === station.visibleInfoWindowID){
+            google.maps.event.trigger(station.markers[id], 'click');
+          }
+        }else{
+           station.generateMarker(id);
+        }
       }
       $('#download-progression').hide();
       station.hasDownloaded = true;
 
-      if(station.markerClusterer == null){
+      if(station.markerClusterer === null){
         station.markerClusterer = new MarkerClusterer(app.map, station.markers, app.options.markerCluster);
       }else{
         station.markerClusterer.clearMarkers();
@@ -498,16 +508,6 @@ var app = {
         nearby.update();
       }
       station.favorite.updateStations();
-      /*TODO: REMOVE?
-      //Adding markers
-      if(!app.download.initDownloaded){
-        setTimeout(station.generateMarkers(),0.001);
-        app.download.initDownloaded = true;
-      }else{
-        //TODO:Remove when the K,V markerlist works propperly again
-        setTimeout(station.generateMarkers(),0.001);
-        app.download.hasDownloaded = true;
-      }*/
       //Starting automatic location update for mobile app and mobile browsers
       if(app.device.isMobile || app.device.phonegap){
         navigator.geolocation.watchPosition(app.gps.onSuccess, app.gps.onError, {enableHighAccuracy: true, timeout: 100, maximumAge: 1000 });
@@ -535,7 +535,7 @@ var app = {
     trafficIsActive : false,
     trafficLayer : null,
     traffic : function(){
-        if(app.layers.trafficLayer == null){
+        if(app.layers.trafficLayer === null){
             app.layers.trafficLayer = new google.maps.TrafficLayer();
         }
         if(app.layers.trafficLayerIsActive){
@@ -597,7 +597,7 @@ var app = {
         app.gps.pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         app.gps.myLocationIndicator.setPosition(app.gps.pos);
         if(app.device.isMobile){
-          if(app.gps.accuracyRadius != null){
+          if(app.gps.accuracyRadius !== null){
             app.gps.accuracyRadius.setMap(null);
           }
           app.gps.accuracyRadius = new google.maps.Circle({
@@ -619,7 +619,7 @@ var app = {
       }
     },
     onError : function (error) {
-      if (window.location.protocol != "https:" && !app.device.phonegap)
+      if (window.location.protocol !== "https:" && !app.device.phonegap)
         window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
       console.log('code: '    + error.code    + '\n' +
         'message: ' + error.message + '\n');
@@ -659,7 +659,7 @@ var app = {
        t = time.match(/[0-9]{2}:[0-9]{2}:[0-9]{2}/gm).toString().split(':'),
        timeDiff = ( (app.date.getMonth()+1) - d[1] > 0 ? ( (app.date.getDate() + app.time.getDaysInMonth(d[1], d[0])) - parseInt(d[2]) ) : app.date.getDate() - parseInt(d[2]));
       return (app.date.dst() ? (parseInt(t[0]) + 2) : (parseInt(t[0])  + 1) ) + ':' + t[1] +
-        (timeDiff == 0 ? '': (timeDiff == 1 ? '(i går)' : '(' + timeDiff + 'dager)') );
+        (timeDiff === 0 ? '': (timeDiff === 1 ? '(i går)' : '(' + timeDiff + 'dager)') );
     }
   },
   /*
@@ -718,7 +718,7 @@ var app = {
   },
   inArrayVal : function (value, array){
     for(var i in array){
-      if(array[i] == value ){
+      if(array[i] === value ){
         return true;
       }
     }
@@ -776,7 +776,7 @@ var app = {
       searchBox.addListener('places_changed', function() {
         var places = searchBox.getPlaces();
 
-        if (places.length == 0)
+        if (places.length === 0)
           return;
 
         // For each place, get the icon, name and location.

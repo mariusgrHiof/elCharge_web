@@ -11,7 +11,7 @@ var elevation = {
     elevation.path.length = 0;
     for (var i = 0, x = path.legs.length; i < x; i++) {
       //The start position
-      if (i == 0)
+      if (i === 0)
         elevation.path.push(path.legs[i].start_location);
 
       //Looping through points
@@ -20,7 +20,7 @@ var elevation = {
         elevation.path.push(path.legs[i].steps[s].lat_lngs[0]);
       }
       //The final destination
-      if (i == x - 1)
+      if (i === x - 1)
         elevation.path.push(path.legs[i].end_location);
     }
     elevator.getElevationAlongPath({

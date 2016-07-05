@@ -40,7 +40,7 @@ var nearby = {
           element += '<li class="border" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
             '<img class="cover-third float-left img-height-4em" src=\"' + station.getImage(nationalID) + '\"/>' +
             '<div class="chargePointColor" style="height:4em;background-color:' +
-              (station.list[nationalID].attr.st[21].attrvalid == "1" ? (station.occupiedStatus(nationalID) > 0.4 ? 'lightgreen' : 'yellow') : 'blue') + ';"></div>'+
+              (station.list[nationalID].attr.st[21].attrvalid === "1" ? (station.occupiedStatus(nationalID) > 0.4 ? 'lightgreen' : 'yellow') : 'blue') + ';"></div>'+
             '<div class="cover-twothird float-right" style="width:calc(66% - 1em);">'+
               '<strong class="float-left station-title"><a class="station" value="' + nationalID +'" href="#">' + nearby.chargers[id].csmd.name + '</a></strong><br />'+
               '<span>' + nearby.chargers[id].distance.toFixed(2)+ 'km </span>'+
