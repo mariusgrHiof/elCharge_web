@@ -368,12 +368,6 @@ nav ul {
   -moz-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21) !important;
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21) !important; }
 
-#menu-list > ul {
-  height: 80vh; }
-
-.parent {
-  padding: 0; }
-
 nav li {
   list-style: none;
   padding: 1em; }
@@ -383,12 +377,6 @@ nav ul li ul {
 
 /*Child menu element spesific*/
 /*nav ul li ul*/
-.sub-item {
-  display: none;
-  padding: 1em;
-  overflow: auto;
-  height: calc(100vh - 5em - 6em); }
-
 /*On toggle*/
 header .toggle {
   height: 100%; }
@@ -433,20 +421,6 @@ header .toggle {
 #right-panel {
   background: white; }
 
-#menu-list li {
-  margin-bottom: 0;
-  margin-top: 0; }
-  #menu-list li .menu-item {
-    margin-bottom: 0;
-    margin-top: 0;
-    cursor: pointer;
-    cursor: hand; }
-    #menu-list li .menu-item h2 {
-      margin: 0; }
-    #menu-list li .menu-item .title-box h2 {
-      padding-top: 0.5em;
-      height: 3em; }
-
 ul {
   margin-left: 0; }
 
@@ -488,6 +462,10 @@ ul {
   margin-top: 0;
   margin-bottom: 0;
   border: none !important; }
+
+#favorite-stations .nav-here {
+  margin-top: -2em;
+  margin-right: -4em; }
 
 .btn-row {
   margin-right: auto;
@@ -548,7 +526,7 @@ ul {
   background-color: black;
   color: #fff;
   text-align: center;
-  margin-left: -4em;
+  margin-left: -5em;
   padding: 1em 0;
   margin-top: 1.5em;
   border-radius: 6px;
@@ -593,6 +571,7 @@ ul {
     transition: width 0.5s; }
 
 .menu {
+  height: calc(100vh - 5em - 0.2em);
   left: -27em !important;
   -webkit-transition: left 0.5s;
   -o-transition: left 0.5s;
@@ -606,6 +585,31 @@ ul {
     -moz-transition: left 0.5s;
     -ms-transition: left 0.5s;
     transition: left 0.5s; }
+  .menu #menu-list li {
+    margin-bottom: 0;
+    margin-top: 0; }
+    .menu #menu-list li .menu-item {
+      margin-bottom: 0;
+      margin-top: 0;
+      cursor: pointer;
+      cursor: hand; }
+      .menu #menu-list li .menu-item h2 {
+        margin: 0; }
+      .menu #menu-list li .menu-item .title-box h2 {
+        padding-top: 0.5em;
+        height: 3em; }
+    .menu #menu-list li .sub-item {
+      display: none;
+      padding: 1em;
+      overflow: auto;
+      height: calc(100vh - 5em - 3em - 5em); }
+      .menu #menu-list li .sub-item.toggle {
+        display: block; }
+  .menu #menu-list .parent {
+    padding: 0;
+    height: calc(100vh - 5em - 2em); }
+  .menu #menu-list > ul {
+    height: 80vh; }
 
 .dialog {
   display: none;
@@ -722,6 +726,7 @@ ul {
     width: 100%;
     min-width: 100%;
     max-width: 100%;
+    height: 5em;
     position: relative; }
 
   .menu {
@@ -744,7 +749,7 @@ ul {
 
   #map {
     top: -0.3em;
-    height: calc(100% - $size__menu-height);
+    height: calc( 100vh - 5em );
     position: relative !important;
     width: 100%; }
 

@@ -867,7 +867,7 @@ var app = {
       setInterval(function () {
         //Updating the "nearby chargers" list for all mobile devices (web and app)
         nearby.update();
-        station.favorite.updateStations();
+        //station.favorite.updateStations();
       }, 1000);
     }
     window.addEventListener("resize",function(){

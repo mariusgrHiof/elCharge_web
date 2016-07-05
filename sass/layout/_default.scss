@@ -40,7 +40,7 @@ div#title-login h1{
     border: 1px;
     float: left;
     width: 100%;
-    height:3em;
+    height:$size__titlebox-height;
 }
 
 .title-box h2{
@@ -66,12 +66,7 @@ nav ul{
   @include box-shadow(10px 10px 5px rgba(0, 0, 0, 0.21) !important);
 }
 
-#menu-list > ul{
-    height:80vh;
-}
-.parent{
-    padding:0;
-}
+
 
 nav li{
     list-style:none;
@@ -83,12 +78,6 @@ nav ul li ul{
 }
 /*Child menu element spesific*/
 /*nav ul li ul*/
-.sub-item{
-    display:none;
-    padding:1em;
-    overflow: auto;
-    height: calc(100vh - 5em - 6em);
-}
 
 /*On toggle*/
 header{
@@ -145,23 +134,7 @@ header{
 #right-panel{
   background:white;
 }
-#menu-list li{
-  margin-bottom:0;
-  margin-top:0;
-  .menu-item{
-    margin-bottom:0;
-    margin-top:0;
-    cursor:pointer;
-    cursor:hand;
-    h2{
-      margin:0;
-    }
-    .title-box h2{
-      padding-top: 0.5em;
-      height:3em;
-    }
-  }
-}
+
 ul{
   margin-left:0;
 }
@@ -208,7 +181,12 @@ ul{
   margin-bottom: 0;
   border:none !important;
 }
-
+#favorite-stations{
+  .nav-here{
+    margin-top: -2em;
+    margin-right: -4em;
+  }
+}
 .btn-row{
   margin-right:auto;
   margin-left:auto;
@@ -263,7 +241,7 @@ ul{
     background-color: black;
     color: #fff;
     text-align: center;
-    margin-left:-4em;
+    margin-left:-5em;
     padding: 1em 0;
     margin-top:1.5em;
     border-radius: 6px;
@@ -306,12 +284,48 @@ ul{
     }
 }
 .menu{
-    left: -27em !important;
-    @include transition(left 0.5s);
-    &.toggle{
-        left: 0em !important;
-        @include transition(left 0.5s);
+  height: calc(100vh - #{$size__menu-height} - 0.2em);
+  left: -27em !important;
+  @include transition(left 0.5s);
+  &.toggle{
+      left: 0em !important;
+      @include transition(left 0.5s);
+  }
+  #menu-list {
+    li{
+      margin-bottom:0;
+      margin-top:0;
+      .menu-item{
+        margin-bottom:0;
+        margin-top:0;
+        cursor:pointer;
+        cursor:hand;
+        h2{
+          margin:0;
+        }
+        .title-box h2{
+          padding-top: 0.5em;
+          height:$size__titlebox-height;
+        }
+      }
+      .sub-item{
+        display:none;
+        padding:1em;
+        overflow: auto;
+        height: calc(100vh - #{$size__menu-height} - #{$size__titlebox-height} - 5em);
+        &.toggle{
+          display:block;
+        }
+      }
     }
+    .parent{
+        padding:0;
+        height: calc(100vh - #{$size__menu-height} - 2em);
+    }
+    &> ul{
+      height:80vh;
+    }
+  }
 }
 .dialog{
   display:none;
