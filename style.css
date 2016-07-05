@@ -761,16 +761,19 @@ ul {
     height: 70vh;
     overflow-y: auto; }
 
+  /*Tooltip*/
   .gm-style-iw {
     width: 200% !important;
     min-width: 130% !important;
     max-width: 130% !important; }
-
-  .gm-style-iw > div {
-    width: 100% !important; }
+    .gm-style-iw > div {
+      width: 100% !important; }
 
   .gm-style .gm-style-iw {
     width: 100% !important;
+    height: auto !important; }
+
+  #station-tooltip {
     height: auto !important; }
 
   #infoLeft {
@@ -781,14 +784,14 @@ ul {
     width: 100% !important;
     max-height: 12em !important;
     float: right; }
-
-  #chargingPoints > div {
-    overflow-y: scroll;
-    height: 10em; }
+    #chargingPoints > div {
+      overflow-y: scroll;
+      max-height: 10em !important; }
 
   .iw-close-btn {
     display: none; }
 
+  /*Dialogs and login*/
   .dialog {
     display: none;
     position: absolute;
