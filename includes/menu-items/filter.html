@@ -3,35 +3,45 @@
   <h2>Innstillinger</h2>
 </span>
 <div class="sub-item">
-    <div class="clear-both">
-        <div class="marg-bot-1em float-left cover-third">
-            Velg lade kapasitet:
-        </div>
-        <div class="marg-bot-1em float-right ">
-            <form id="selected-charger-capacity" action="">
-                <input type="radio" name="kW" value="0" checked> Alle kapasiteter<br>
-                <input type="radio" name="kW" value="12"> Semihurtig og hurtig<br>
-                <input type="radio" name="kW" value="43"> Kun hurtigladere
-            </form>
-        </div>
+  <div class="clear-both">
+    <div class="marg-bot-1em float-left cover-third">
+      Velg bilmodell
     </div>
-    <div class="clear-both">
-        <div class="marg-bot-1em float-left cover-third">
-            Trafikk overlegg
-        </div>
-        <div class="marg-bot-1em float-right">
-            <div class="onoffswitch">
-                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="traffic-layer" checked>
-                <label class="onoffswitch-label" for="traffic-layer"></label>
-            </div>
-        </div>
+    <div class="marg-bot-1em float-right ">
+      <select id="select-car" name="car-model">
+        <option value="0">Vis alle ladere</option>
+      </select>
     </div>
-    <div class="clear-both">
-        <div class="marg-bot-1em float-left cover-third">
-            Automatisk oppdatering av ladestasjoner
-        </div>
-        <div class="marg-bot-1em float-right">
-            hvert <input id="bg-update-timer" type="number" value="5"/> min(0 er aldri). <br />
-        </div>
+  </div>
+  <div class="clear-both">
+    <div class="marg-bot-1em float-left cover-third">
+      Velg lade kapasitet:
     </div>
+    <div class="marg-bot-1em float-right ">
+      <form id="selected-charger-capacity" action="">
+        <input type="radio" name="kW" value="0" checked> Alle kapasiteter<br>
+        <input type="radio" name="kW" value="12"> Semihurtig og hurtig<br>
+        <input type="radio" name="kW" value="43"> Kun hurtigladere
+      </form>
+    </div>
+  </div>
+  <div class="clear-both">
+    <div class="marg-bot-1em float-left cover-third">
+      Trafikk overlegg
+    </div>
+    <div class="marg-bot-1em float-right">
+      <div class="onoffswitch">
+        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="traffic-layer" checked>
+        <label class="onoffswitch-label" for="traffic-layer"></label>
+      </div>
+    </div>
+  </div>
+  <div class="clear-both">
+    <div class="marg-bot-1em float-left cover-third">
+      Automatisk oppdatering av ladestasjoner
+    </div>
+    <div class="marg-bot-1em float-right">
+      hvert <input id="bg-update-timer" type="number" value="5"/> min(0 er aldri). <br />
+    </div>
+  </div>
 </div>

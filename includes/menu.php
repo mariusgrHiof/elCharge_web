@@ -9,17 +9,9 @@
 ?>
 <nav class="menu">
   <ul id="menu-list">
-    <li>
       <?php
-      include 'includes/userwindow.php';
+      //include 'includes/userwindow.php';
       ?>
-    </li>
-    <li>
-      Velg bilmodell
-      <select id="select-car" name="car-model">
-        <option value="0">Vis alle ladere</option>
-      </select>
-    </li>
     <li class="border">
       <?php include 'menu-items/chargers-nearby.html' ?>
     </li>

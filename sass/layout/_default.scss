@@ -292,6 +292,18 @@ ul{
       @include transition(left 0.5s);
   }
   #menu-list {
+    &>li{
+      background:$color__white;
+      @include transition(background 0.5s);
+      &:hover{
+        background:$color__blue;
+        @include transition(background 0.5s);
+      }
+      &:hover.parent{
+        background: $color__white;
+        @include transition(background 0s);
+      }
+    }
     li{
       margin-bottom:0;
       margin-top:0;
