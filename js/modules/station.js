@@ -339,9 +339,9 @@ var station = {
       for(var i = 0, x = station.favorite.stationList.length; i < x; i++){
         id = station.favorite.stationList[i].station_id;
         $('#favorite-stations').append(
-          '<li class="border" value="' + id + '" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
+          '<li class="border" value="' + id + '" style="height:6em; width:auto; padding: 0.5em 0 0.5em 0;">' +
             '<img class="cover-third float-left img-height-4em" src=\"' + station.getImage(id) + '\"/>' +
-            '<div class="chargePointColor" style="height:4em;background-color:' +
+            '<div class="chargePointColor" style="height:6em;background-color:' +
             //TODO: Num of faulty gjelder kun for den siste som var lagt til av markers!
               (station.conns.numFaulty / station.list[id].csmd.Number_charging_points === 1 ? "red" : (station.list[id].attr.st[21].attrvalid === "1" ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ';">' +
               "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"station.favorite.deleteStation(this)\">X</button>" +
