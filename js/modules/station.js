@@ -124,7 +124,7 @@ var station = {
             try {
               isInService = station.list[id].attr.conn[c][9].attrvalid === "0";
               connStatus = station.list[id].attr.conn[c][8].attrvalid;
-              if(station.list[id].attr.conn[c][9].attrvalid === 1){//Is a faulty connector
+              if(station.list[id].attr.conn[c][9].attrvalid === '1'){//Is a faulty connector
                 station.conns.numFaulty++;
               }
             } catch(e) {console.log(e);}
@@ -462,21 +462,21 @@ var station = {
     for(var c in station.list[id].attr.conn){
       //Checking if any connection ports match the user prefs
       try{
-        if($('#select-car').val() !== 0 && !match && app.inArray(station.list[id].attr.conn[c][4].attrvalid, station.user.carConns) && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW)){
+        if($('#select-car').val() !== '0' && !match && app.inArray(station.list[id].attr.conn[c][4].attrvalid, station.user.carConns) && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW)){
           match = true;
           break;
-        }else if($('#select-car').val() === 0 && !match && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW)){
+        }else if($('#select-car').val() === '0' && !match && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW)){
         //If no car or type is selected
           match = true;
           break;
-        }if(station.list[id].attr.conn[c][9] !== undefined && station.list[id].attr.conn[c][9].attrvalid === 1){//Is a faulty connector
+        }if(station.list[id].attr.conn[c][9] !== undefined && station.list[id].attr.conn[c][9].attrvalid === '1'){//Is a faulty connector
           station.conns.numFaulty++;
         //For the markers, to indicate if a id has a fast charger or not!
         }if(!hasFastCharge_temp && (station.fastCharge <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW)){
           station.hasFastCharge = true;
         }
         station.conns.list.push(station.list[id].attr.conn[c]);
-      }catch(e){}
+      }catch(e){console.log(e);}
     }
     return match;
   },
@@ -665,7 +665,7 @@ var station = {
         "<div id='infoLeft'>" +
           (isLive ? '<p><strong>Sist oppdatert</strong> ' + station.list[id].csmd.Updated + '</p>' : '') +
           (isLive ? "<p><strong>Tilgjengelighet</strong> "+ station.attr.st[2][station.list[id].attr.st[2].attrvalid] + "</p>" : '') +
-          "<p><strong>Parkerings avgift:</strong> " + (station.list[id].attr.st[7].attrvalid === 1 ? 'Ja' : 'Nei') + "</p>" +
+          "<p><strong>Parkerings avgift:</strong> " + (station.list[id].attr.st[7].attrvalid === '1' ? 'Ja' : 'Nei') + "</p>" +
           (isLive ? "<p><strong>Lokasjon:</strong> " + station.attr.st[3][station.list[id].attr.st[3].attrvalid] + "</p>" : '') +
           "<p><strong>Adresse:</strong> "+ station.list[id].csmd.Street.replace('\r\n','<br />') +" " + station.list[id].csmd.House_number.replace('\r\n','<br />') + ", " + station.list[id].csmd.Zipcode.replace('\r\n','<br />') + " " + station.list[id].csmd.City.replace('\r\n','<br />') +"</p>"+
           "<p><strong>Lokasjonsbeskrivelse:</strong> "+ station.list[id].csmd.Description_of_location +"</p>" +
