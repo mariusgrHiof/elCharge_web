@@ -10,12 +10,16 @@
     position:relative;
   }
   .menu{
-      left: -100% !important;
+    width:100%;
+    left: -100% !important;
+    @include transition(left 0.5s);
+    &.toggle{
+      left: 0em !important;
       @include transition(left 0.5s);
-      &.toggle{
-          left: 0em !important;
-          @include transition(left 0.5s);
-      }
+    }
+    .menu-item.title-box{
+      width: calc( 100% - 1em );
+    }
   }
   #map{
     top: -0.3em;

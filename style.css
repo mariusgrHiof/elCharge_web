@@ -544,6 +544,7 @@ ul {
   visibility: hidden;
   width: 120px;
   text-indent: 0%;
+  float: right;
   background-color: black;
   color: #fff;
   text-align: center;
@@ -724,6 +725,7 @@ ul {
     position: relative; }
 
   .menu {
+    width: 100%;
     left: -100% !important;
     -webkit-transition: left 0.5s;
     -o-transition: left 0.5s;
@@ -737,6 +739,8 @@ ul {
       -moz-transition: left 0.5s;
       -ms-transition: left 0.5s;
       transition: left 0.5s; }
+    .menu .menu-item.title-box {
+      width: calc( 100% - 1em ); }
 
   #map {
     top: -0.3em;
