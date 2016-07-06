@@ -99,7 +99,7 @@ div{
     }
     #infoLeft {
       height: 25em;
-      width: 49%;
+      width: calc(49% - 1em);
       float: left;
       overflow-y: scroll;
     }

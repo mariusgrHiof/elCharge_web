@@ -13,6 +13,9 @@
 .no-padding {
   padding: 0 0 0 1em; }
 
+.padding-1eml {
+  padding-left: 1em; }
+
 .float-left {
   float: left; }
 
@@ -108,7 +111,7 @@ div #station-tooltip {
     width: 100%; }
   div #station-tooltip #infoLeft {
     height: 25em;
-    width: 49%;
+    width: calc(49% - 1em);
     float: left;
     overflow-y: scroll; }
   div #station-tooltip #chargingPoints {
@@ -136,15 +139,15 @@ div #station-tooltip {
   background: url("icons/lock-unlocked.svg") no-repeat !important;
   text-indent: -9999px;
   line-height: 0;
-  width: 1.5em;
-  height: 1.5em; }
+  width: 2em;
+  height: 2em; }
 
 .lock-pos {
   background: url("icons/lock-locked.svg") no-repeat !important;
   text-indent: -9999px;
   line-height: 0;
-  width: 1.5em;
-  height: 1.5em; }
+  width: 2em;
+  height: 2em; }
 
 /*Nav*/
 .back-btn {
@@ -153,6 +156,62 @@ div #station-tooltip {
 .title-box > .back-btn {
   display: block;
   height: 1em; }
+
+.nav-here {
+  background: no-repeat url("icons/nav-here-icon.svg") !important;
+  text-indent: 120%;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 2em;
+  height: 2em;
+  margin-top: 0;
+  margin-bottom: 0;
+  border: none !important; }
+
+.nav-here:hover {
+  background: no-repeat url("icons/nav-here-icon.svg") !important; }
+
+.nav-add {
+  background: no-repeat url("icons/nav-add-icon.svg") !important;
+  text-indent: 120%;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 2em;
+  height: 2em;
+  margin-top: 0;
+  margin-bottom: 0;
+  border: none !important; }
+
+.nav-add:hover {
+  background: no-repeat url("icons/nav-add-icon.svg") !important; }
+
+.nav-clear {
+  background: no-repeat url("icons/nav-remove-icon.svg") !important;
+  text-indent: 120%;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 2em;
+  height: 2em;
+  margin-top: 0;
+  margin-bottom: 0;
+  border: none !important; }
+
+.nav-clear:hover {
+  background: no-repeat url("icons/nav-remove-icon.svg") !important; }
+
+.nav-save {
+  background: no-repeat url("icons/nav-save-icon.svg") !important;
+  text-indent: 120%;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 2em;
+  height: 2em;
+  margin-top: 0;
+  margin-bottom: 0;
+  border: none !important; }
+
+.nav-save:hover {
+  background: no-repeat url("icons/nav-save-icon.svg") !important; }
 
 /* General*/
 div#title button {
@@ -188,14 +247,17 @@ button#menu-toggle {
   float: left;
   background: url(icons/hamburger_v2.svg) no-repeat transparent;
   border-style: none;
-  width: 3em;
+  width: 2em;
   height: 2em; }
 
 button#menu-toggle.toggle {
   background: url("icons/colapse_icon.svg") no-repeat transparent; }
 
 button#my-loc-btn {
-  background: transparent;
+  background: url("icons/my_pos_marker.svg") no-repeat transparent !important;
+  width: 2em !important;
+  height: 2em !important;
+  margin-top: -0.4em;
   border: none;
   vertical-align: middle;
   padding: 0; }
@@ -485,17 +547,6 @@ ul {
 .route-element > img {
   max-height: 5em; }
 
-.nav-here {
-  background: no-repeat url("icons/nav-here-icon.svg") !important;
-  text-indent: 120%;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 3em;
-  height: 3em;
-  margin-top: 0;
-  margin-bottom: 0;
-  border: none !important; }
-
 #favorite-stations .nav-here {
   margin-top: -2em;
   margin-right: -4em; }
@@ -504,51 +555,6 @@ ul {
   margin-right: auto;
   margin-left: auto;
   width: 50%; }
-
-.nav-here:hover {
-  background: no-repeat url("icons/nav-here-icon.svg") !important; }
-
-.nav-add {
-  background: no-repeat url("icons/nav-add-icon.svg") !important;
-  text-indent: 120%;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 3em;
-  height: 3em;
-  margin-top: 0;
-  margin-bottom: 0;
-  border: none !important; }
-
-.nav-add:hover {
-  background: no-repeat url("icons/nav-add-icon.svg") !important; }
-
-.nav-clear {
-  background: no-repeat url("icons/nav-remove-icon.svg") !important;
-  text-indent: 120%;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 3em;
-  height: 3em;
-  margin-top: 0;
-  margin-bottom: 0;
-  border: none !important; }
-
-.nav-clear:hover {
-  background: no-repeat url("icons/nav-remove-icon.svg") !important; }
-
-.nav-save {
-  background: no-repeat url("icons/nav-save-icon.svg") !important;
-  text-indent: 120%;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 3em;
-  height: 3em;
-  margin-top: 0;
-  margin-bottom: 0;
-  border: none !important; }
-
-.nav-save:hover {
-  background: no-repeat url("icons/nav-save-icon.svg") !important; }
 
 /* Tooltip text */
 .tooltip .tooltiptext {
@@ -626,7 +632,7 @@ ul {
     -ms-transition: background 0.5s;
     transition: background 0.5s; }
     .menu #menu-list > li:hover {
-      background: #29ABE2;
+      background: #98E095;
       -webkit-transition: background 0.5s;
       -o-transition: background 0.5s;
       -moz-transition: background 0.5s;
@@ -875,9 +881,20 @@ ul {
   footer {
     left: 0;
     width: 100%; } }
-h1, h2, h3, h4, p, a, li {
-  padding-left: 1em;
+/*Headings*/
+h1, h2, h3, h4 {
+  /*padding-left:1em;*/
   font-family: Arial;
   color: #000000; }
+
+/*Regular text*/
+p, a, li, input, button, select, label, em, strong {
+  /*padding-left:1em;*/
+  font-family: Arial;
+  font-size: 1rem;
+  color: #000000; }
+
+button {
+  padding: 0.1em; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,5 +1,17 @@
-h1,h2,h3,h4,p,a,li{
-    padding-left:1em;
-    font-family: Arial;
-    color: $color__black;
+/*Headings*/
+h1,h2,h3,h4{
+  /*padding-left:1em;*/
+  font-family: Arial;
+  color: $color__black;
+}
+
+/*Regular text*/
+p,a,li,input,button,select,label,em,strong{
+  /*padding-left:1em;*/
+  font-family: Arial;
+  font-size:1rem;
+  color: $color__black;
+}
+button{
+  padding:0.1em;
 }

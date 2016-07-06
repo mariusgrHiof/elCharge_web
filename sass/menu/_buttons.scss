@@ -6,15 +6,15 @@
   background: url('icons/lock-unlocked.svg') no-repeat !important;
   text-indent:-9999px;
   line-height: 0;
-  width: 1.5em;
-  height: 1.5em;
+  width: 2em;
+  height: 2em;
 }
 .lock-pos{
   background: url('icons/lock-locked.svg') no-repeat !important;
   text-indent:-9999px;
   line-height: 0;
-  width: 1.5em;
-  height: 1.5em;
+  width: 2em;
+  height: 2em;
 }
 
 /*Nav*/
@@ -25,7 +25,54 @@
     display:block;
     height:1em;
 }
-
+.nav-here{
+  background: no-repeat url('icons/nav-here-icon.svg') !important;
+  @include hide-text();
+  width:2em;
+  height:2em;
+  margin-top: 0;
+  margin-bottom: 0;
+  border:none !important;
+}
+.nav-here:hover{
+  background: no-repeat url('icons/nav-here-icon.svg') !important;
+}
+.nav-add{
+  background: no-repeat url('icons/nav-add-icon.svg') !important;
+  @include hide-text();
+  width:2em;
+  height:2em;
+  margin-top: 0;
+  margin-bottom: 0;
+  border:none !important;
+}
+.nav-add:hover{
+  background: no-repeat url('icons/nav-add-icon.svg') !important;
+}
+.nav-clear{
+  background: no-repeat url('icons/nav-remove-icon.svg') !important;
+  @include hide-text();
+  width:2em;
+  height:2em;
+  margin-top: 0;
+  margin-bottom: 0;
+  border:none !important;
+}
+.nav-clear:hover{
+  background: no-repeat url('icons/nav-remove-icon.svg') !important;
+}
+.nav-save{
+  background: no-repeat url('icons/nav-save-icon.svg') !important;
+  @include hide-text();
+  width:2em;
+  height:2em;
+  margin-top: 0;
+  margin-bottom: 0;
+  border:none !important;
+}
+.nav-save:hover{
+  background: no-repeat url('icons/nav-save-icon.svg') !important;
+}
 /* General*/
 div#title button{
   position:absolute;
@@ -36,7 +83,7 @@ div#title button{
 button, input[type="submit"]{
   border: solid black 1px;
   padding: 0.3em;
-  margin:2.5px;
+  margin: 2.5px;
   @include border-radius(5px);
   background: transparent;
   @include transition(background 1s);
@@ -49,14 +96,17 @@ button#menu-toggle{
   float:left;
   background: url(icons/hamburger_v2.svg) no-repeat transparent;
   border-style:none;
-  width:3em;
+  width:2em;
   height:2em;
 }
 button#menu-toggle.toggle{
   background: url('icons/colapse_icon.svg') no-repeat transparent;
 }
 button#my-loc-btn{
-  background: transparent;
+  background: url('icons/my_pos_marker.svg') no-repeat transparent !important;
+  width:2em !important;
+  height:2em !important;
+  margin-top: -0.4em;
   border:none;
   vertical-align: middle;
   padding:0;
