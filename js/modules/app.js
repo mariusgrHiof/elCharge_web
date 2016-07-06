@@ -75,9 +75,10 @@ var app = {
     login : function(form){
       var path = "";
       if(app.device.phonegap){
-        path += app.url;
+        path += app.path;
       }
       path +="api/login.php";
+      console.log(path);
 
       //Logging the user in
       $.post(path,{
@@ -121,7 +122,7 @@ var app = {
     logout : function(){
       var path = "";
       if(app.device.phonegap){
-          path += app.url;
+          path += app.path;
       }
       path +="api/logout.php";
 
@@ -136,7 +137,7 @@ var app = {
     register : function(form){
       var path = "";
       if(app.device.phonegap){
-        path += app.url;
+        path += app.path;
       }
       path +="api/register.php";
       var uname = $(form).children(":input[name='username']").val();
@@ -795,11 +796,11 @@ var app = {
     }catch(e){console.log(e);}
 
     //Users current position marker
-    var scaleSize = app.device.isIOS ? 120 : 15;
+    var scaleSize = app.device.isIOS ? 15 : 15;
     var mi = {
         url: 'icons/my_pos_marker.svg',
-        optimize : false,
-        anchor: new google.maps.Point( (app.device.phonegap && !app.device.isIOS ? scaleSize/2 : scaleSize/20), (app.device.phonegap && !app.device.isIOS ? scaleSize/2 : scaleSize/20) ),
+        optimize : true,
+        anchor: new google.maps.Point( (scaledSize/2), (scaledSize/2) ),//(app.device.phonegap && !app.device.isIOS ? scaleSize/2 : scaleSize/20), (app.device.phonegap && !app.device.isIOS ? scaleSize/2 : scaleSize/20)
         origin: new google.maps.Point(0, 0),
         scaledSize: new google.maps.Size(scaleSize, scaleSize),
         size: new google.maps.Size(64, 64)
