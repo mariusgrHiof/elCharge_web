@@ -800,7 +800,7 @@ var app = {
     var mi = {
         url: 'icons/my_pos_marker.svg',
         optimize : true,
-        anchor: new google.maps.Point( (scaledSize/2), (scaledSize/2) ),//(app.device.phonegap && !app.device.isIOS ? scaleSize/2 : scaleSize/20), (app.device.phonegap && !app.device.isIOS ? scaleSize/2 : scaleSize/20)
+        anchor: new google.maps.Point( (scaleSize/2), (scaleSize/2) ),//(app.device.phonegap && !app.device.isIOS ? scaleSize/2 : scaleSize/20), (app.device.phonegap && !app.device.isIOS ? scaleSize/2 : scaleSize/20)
         origin: new google.maps.Point(0, 0),
         scaledSize: new google.maps.Size(scaleSize, scaleSize),
         size: new google.maps.Size(64, 64)
