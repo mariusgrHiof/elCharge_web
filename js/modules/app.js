@@ -92,6 +92,7 @@ var app = {
           $("#favorite-stations").html("");
           $("#favorite-routes").html("");
           if(data !== "0"){
+            console.log(data);
             var result = JSON.parse(data);
             if(result.stations.length > 0){
               station.favorite.stationList = result.stations;

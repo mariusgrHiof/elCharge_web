@@ -4,14 +4,6 @@ html,body {
     height: auto;
 }
 
-#search {
-    width: 75% !important;
-}
-
-#search input {
-    width: 70% !important;
-}
-
 #my-loc-btn {
     float: right !important;
     max-width:19% !important;
