@@ -9,9 +9,6 @@
 ?>
 <nav class="menu">
   <ul id="menu-list">
-      <?php
-      //include 'includes/userwindow.php';
-      ?>
     <li class="border">
       <?php include 'menu-items/chargers-nearby.html' ?>
     </li>

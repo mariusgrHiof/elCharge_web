@@ -305,6 +305,34 @@ select {
 @media screen and (max-width: 600px) {
   #search-box {
     width: 50%; } }
+#logged-in {
+  padding-left: 1em;
+  display: none;
+  background: #FFFFFF;
+  width: calc(27em - 1em);
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  -webkit-transition: top 10s;
+  -o-transition: top 10s;
+  -moz-transition: top 10s;
+  -ms-transition: top 10s;
+  transition: top 10s;
+  -webkit-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21);
+  -moz-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21);
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21); }
+  #logged-in.true {
+    display: block;
+    top: 5em;
+    -webkit-transition: top 10s;
+    -o-transition: top 10s;
+    -moz-transition: top 10s;
+    -ms-transition: top 10s;
+    transition: top 10s;
+    -webkit-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21);
+    -moz-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21);
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21); }
+
 html, body {
   height: 100vh;
   margin: 0;
@@ -646,6 +674,8 @@ ul {
   top: 5.5em;
   max-width: 40em;
   border: black 1px solid;
+  -webkit-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21) !important;
+  -moz-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21) !important;
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21) !important; }
 
 .top-bar {
@@ -680,11 +710,6 @@ ul {
   z-index: 999;
   border-left: black 1px solid;
   width: 40%; }
-
-#logged-in {
-  padding-left: 1em;
-  z-index: 1;
-  background: white; }
 
 /*
 * Download indicator
@@ -754,6 +779,9 @@ ul {
     max-width: 100%;
     height: 5em;
     position: relative; }
+
+  #logged-in {
+    width: 100%; }
 
   .menu {
     width: 100%;

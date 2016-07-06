@@ -10,7 +10,7 @@ header{
   width:27em;
   border-bottom:1px gray solid;
   height: 5em;
-  @include box-shadow( 10px 10px 5px rgba(0, 0, 0, 0.21) );
+  @include box-shadow( $color__shadow );
 }
 
 div#title h1{
@@ -36,11 +36,11 @@ div#title-login h1{
 
 .title-box {
   background: $color__grey;
-    padding: 0.7em 0 0.7em 0.7em;
-    border: 1px;
-    float: left;
-    width: 100%;
-    height:$size__titlebox-height;
+  padding: 0.7em 0 0.7em 0.7em;
+  border: 1px;
+  float: left;
+  width: 100%;
+  height:$size__titlebox-height;
 }
 
 .title-box h2{
@@ -57,13 +57,13 @@ nav{
   top:5em;
   height:calc(100vh - 5em);
   overflow: auto;
-  @include box-shadow( 10px 10px 5px rgba(0, 0, 0, 0.21) );
+  @include box-shadow( $color__shadow );
 }
 nav ul{
     margin: 0 0 0 -2.5em;
 }
 .gmnoprint, .gm-svpc{
-  @include box-shadow(10px 10px 5px rgba(0, 0, 0, 0.21) !important);
+  @include box-shadow($color__shadow !important);
 }
 
 
@@ -348,7 +348,7 @@ ul{
   top: 5.5em;
   max-width: 40em;
   border:black 1px solid;
-  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21) !important;
+  @include box-shadow($color__shadow !important);
 }
 .top-bar{
   width: 100%;
@@ -385,11 +385,6 @@ ul{
   z-index: 999;
   border-left:black 1px solid;
   width:40%;
-}
-#logged-in{
-  padding-left: 1em;
-  z-index: 1;
-  background: white;
 }
 
 /*

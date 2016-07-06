@@ -106,7 +106,7 @@ var app = {
             app.loggedIn = true;
             $('#title button').html('Logg ut');
             $('#auth').hide();
-            $('#logged-in').html('Du er logget på som, ' + result.username + '.');
+            $('#logged-in').html('Du er logget på som, ' + result.username + '.').addClass('true');
             $(".favorite").each(function(){
               $(this).show();
             });
@@ -128,7 +128,7 @@ var app = {
         $(".favorite").each(function(){
           $(this).hide();
         });
-       $('#logged-in').html("Avlogging vellykket.");
+       $('#logged-in').html("Avlogging vellykket.").removeClass('true');
       });
       station.favorite.updateStations();
     },

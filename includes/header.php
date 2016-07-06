@@ -7,6 +7,7 @@
  */
 
 include 'includes/dialogs/login.php';
+include 'includes/userwindow.php';
 include 'includes/dialogs/saveRoute.php';
 ?>
 <header>
