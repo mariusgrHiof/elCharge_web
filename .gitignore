@@ -1,4 +1,5 @@
-
+.settings/
+.project
 .idea/dictionaries/jonas.xml
 .sass-cache/
 .DS_Store
