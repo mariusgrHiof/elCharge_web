@@ -205,7 +205,7 @@ var station = {
       path +="api/alterUserRoute.php";
 
       //Generating object
-      for(var i in navigation.route.legs){
+      for(var i = 0, x = navigation.route.legs.length; i < x; i++){
         if(i === 0){
           //Getting starting pos
           navigation.jsonRoute["start"] = navigation.route.legs[i].start_address;
@@ -238,7 +238,7 @@ var station = {
         station.favorite.updateRoutes();
       });
       //Closing the window
-      $(this).parent().parent().hide();
+      $(this).parent().hide();
       return false;
     },
     addStation : function(id){
@@ -602,7 +602,7 @@ var station = {
       );
 
         $('#waypoint-list').append(
-          "<div class='route-element station-"+ id +"'>" +
+          "<li class='ui-state-default route-element station-"+ id +"'>" +
             "<img class='cover-third float-left' src=\"" + station.getImage(id) + "\"/>" +
             "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
               "<a value='" + id + "' class='station'>" + station.list[id].csmd.name + "</a>" +
@@ -614,7 +614,7 @@ var station = {
             "<div class='read-more clear-both'>" +
               station.conns.getString(id,station.list[id].attr.st[21].attrvalid === "1") +
             "</div>" +
-          "</div>"
+          "</li>"
         );
 
       //Refreshing the route if it's active

@@ -2,7 +2,7 @@
 * Created by jonas on 13.06.16.
 *
 * Dependencies:
-*  - jQuery
+*  - jQuery && jQuery UI
 *  - app.js
 *  - station.js
 *  - elevation.js
@@ -739,6 +739,10 @@ var app = {
     app.download.init();
     station.init();
     elevation.init();
+    //Sortable waypoint list
+    $('#waypoint-list').sortable();
+    $('#waypoint-list').disableSelection();
+
     app.map = new google.maps.Map($('#map')[0], {
       center: {lat: 59.91673, lng: 10.74782},
       zoom: 13,

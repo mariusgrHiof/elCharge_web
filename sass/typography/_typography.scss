@@ -1,16 +1,20 @@
 /*Headings*/
 h1,h2,h3,h4{
   /*padding-left:1em;*/
-  font-family: Arial;
+  font-family:  'Roboto','sans-serif';//Arial;
   color: $color__black;
 }
 
 /*Regular text*/
 p,a,li,input,button,select,label,em,strong{
   /*padding-left:1em;*/
-  font-family: Arial;
+  font-family:  'Roboto','sans-serif';//Arial;
   font-size:1rem;
   color: $color__black;
+}
+ .adp-text, .adp-summary, .adp-substep{
+ font-family:  'Roboto','sans-serif' !important;//Arial;
+ color: $color__black !important;
 }
 button{
   padding:0.1em;
