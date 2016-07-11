@@ -120,21 +120,24 @@ var station = {
       var result = '<div style="margin:0.1em 0 0.1em 0;">';
       for(var c in station.list[id].attr.conn){
         try{
-          if(isLive){
+          if(isLive
+            && station.list[id].attr.conn[c][9] !== undefined
+            && station.list[id].attr.conn[c][8] !== undefined
+          ){
             try {
               isInService = station.list[id].attr.conn[c][9].attrvalid === "0";
               connStatus = station.list[id].attr.conn[c][8].attrvalid;
-              if(station.list[id].attr.conn[c][9].attrvalid === '1'){//Is a faulty connector
+              if(!isInService){//Is a faulty connector
                 station.conns.numFaulty++;
               }
-            } catch(e) {console.log(e);}
+            } catch(e) {console.log(c +' ERROR: ' + e);}
           }
           result +=
             '<div class="cpelements">'+
               '<span style="color:black; max-width:80%; float:left;">'+
                 '<strong>Uttak: </strong>' + station.list[id].attr.conn[c][4].trans +
                 '</br><strong>KW: </strong>' + station.conns.connCapacityString(id, c) +
-                (isLive ?
+                (isLive && station.list[id].attr.conn[c][16] !== undefined ?
                     '</br><strong>Siste status: </strong>' +
                       app.time.utcToNOR(station.list[id].attr.conn[c][16].attrval)
                     : '') +
@@ -144,7 +147,7 @@ var station = {
               station.conns.getImg(station.list[id].attr.conn[c][4].attrvalid) +
             '</div>';
         }catch(e){
-          console.log('Failed to build connectorsString for ' + station.list[id].csmd.name + " Error: " + e);
+          console.log('Failed to build connectorsString for ' + station.list[id].csmd.name + '(' + id + ' c: ' + c + ')' +" Error: " + e);
         }
       }
       return result += "</div>";
