@@ -341,28 +341,31 @@ var station = {
       station.favorite.searchRoute();
     },
     updateStations : function(){
-      $("#favorite-stations").html("");
-      var id;
+
+      var id, txt;
       for(var i = 0, x = station.favorite.stationList.length; i < x; i++){
-        id = station.favorite.stationList[i].station_id;
-        $('#favorite-stations').append(
-          '<li class="border" value="' + id + '" style="height:6em; width:auto; padding: 0.5em 0 0.5em 0;">' +
-            '<img class="cover-third float-left img-height-4em" src=\"' + station.getImage(id) + '\"/>' +
-            '<div class="chargePointColor" style="height:6em;background-color:' +
-            //TODO: Num of faulty gjelder kun for den siste som var lagt til av markers!
-              (station.conns.numFaulty / station.list[id].csmd.Number_charging_points === 1 ? "red" : (station.list[id].attr.st[21].attrvalid === "1" ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ';">' +
-              "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"station.favorite.deleteStation(this)\">X</button>" +
-            '</div>'+
-            '<div class="float-left" style="padding-left:1em; width:calc(50% - 1em);">'+
-              '<strong class="float-left"><a class="station oneliner" style="padding-left:0;" href="#" value="' + id + '">' + station.list[id].csmd.name.substring(0,28) + (station.list[id].csmd.name.length > 28 ? '...' : '') + '</a></strong><br />'+
-              '<span class="float-left"><strong>Adresse: </strong> '+ station.list[id].csmd.Street +" " + station.list[id].csmd.House_number + ", " /*TODO: fix+ station.list[id].csmd.Zipcode + ' '*/ + station.list[id].csmd.City.substring(0,1) + station.list[id].csmd.City.toLowerCase().substring(1) +'</span>' +
-              '<span class="float-left"><strong>Distanse: </strong>' + nearby.compareDistance(app.gps.geopos, station.list[id].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>' +
-              '<button class="float-right nav-here" onclick="navigation.fromUser(this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
-              '<div class="clear-both">' +//read-more
+        try{
+          id = station.favorite.stationList[i].station_id;
+          txt +=
+            '<li class="border" value="' + id + '" style="height:6em; width:auto; padding: 0.5em 0 0.5em 0;">' +
+              '<img class="cover-third float-left img-height-4em" src=\"' + station.getImage(id) + '\"/>' +
+              '<div class="chargePointColor" style="height:6em;background-color:' +
+              //TODO: Num of faulty gjelder kun for den siste som var lagt til av markers!
+                (station.conns.numFaulty / station.list[id].csmd.Number_charging_points === 1 ? "red" : (station.list[id].attr.st[21].attrvalid === "1" ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ';">' +
+                "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"station.favorite.deleteStation(this)\">X</button>" +
+              '</div>'+
+              '<div class="float-left" style="padding-left:1em; width:calc(50% - 1em);">'+
+                '<strong class="float-left"><a class="station oneliner" style="padding-left:0;" href="#" value="' + id + '">' + station.list[id].csmd.name.substring(0,28) + (station.list[id].csmd.name.length > 28 ? '...' : '') + '</a></strong><br />'+
+                '<span class="float-left"><strong>Adresse: </strong> '+ station.list[id].csmd.Street +" " + station.list[id].csmd.House_number + ", " /*TODO: fix+ station.list[id].csmd.Zipcode + ' '*/ + station.list[id].csmd.City.substring(0,1) + station.list[id].csmd.City.toLowerCase().substring(1) +'</span>' +
+                '<span class="float-left"><strong>Distanse: </strong>' + nearby.compareDistance(app.gps.geopos, station.list[id].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>' +
+                '<button class="float-right nav-here" onclick="navigation.fromUser(this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
+                '<div class="clear-both">' +//read-more
+                '</div>' +
               '</div>' +
-            '</div>' +
-          '</li>');
+            '</li>';
+        }catch(e){}
       }
+      $("#favorite-stations").html(txt);
       station.bindStationNames();
     },
     restoreRoute : function(element){
