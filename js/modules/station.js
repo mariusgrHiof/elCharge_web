@@ -394,8 +394,8 @@ var station = {
               "</div>" +
             "</li>";
         }else{
-          content += "<div class='route-element'>" +
-            "<li class='float-left' style='width:calc( 66% - 1.1em );'>"+
+          content += "<li class='route-element'>" +
+            "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
               navigation.waypointsData[i].address +
             "</div>"+
             "<div><button onclick=\"station.removeWaypoint(this)\">X</button></div>" +

@@ -8,6 +8,6 @@
 session_start();
 
 if(isset($_SESSION['sessionId'])){
-    session_unset();
-    session_destroy();}
+  session_destroy();
+}
 ?>

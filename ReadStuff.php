@@ -11,8 +11,4 @@ if(!file_exists($fileName)){
     //Downloading data dump if not already downloaded
     file_put_contents($fileName, fopen($url, 'r'));
 }
-
-
-
 ?>
-

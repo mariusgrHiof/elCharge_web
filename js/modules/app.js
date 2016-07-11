@@ -86,6 +86,7 @@ var app = {
           username: $(form).children(":input[name='username']").val(),
           password: $(form).children(":input[name='password']").val() },
         function( data ){
+          console.log('Output: ' + data);
           //Populating the user logged in window.
           //Cleaning out the array
           station.favorite.stationList.length = 0;
@@ -93,7 +94,6 @@ var app = {
           $("#favorite-stations").html("");
           $("#favorite-routes").html("");
           if(data !== "0"){
-            console.log(data);
             var result = JSON.parse(data);
             if(result.stations.length > 0){
               station.favorite.stationList = result.stations;
@@ -102,7 +102,9 @@ var app = {
             try{
               if(result.routes.length > 0){
                 station.favorite.routeList = result.routes;
-                station.favorite.updateRoutes();
+                try{
+                  station.favorite.updateRoutes();
+                }catch(e){}
               }
             }catch(e){console.log(e);}
             app.loggedIn = true;
@@ -495,6 +497,9 @@ var app = {
            station.generateMarker(id);
         }
       }
+      if(app.loggedIn){
+        station.favorite.updateRoutes();
+      }
       $('#download-progression').hide();
       station.hasDownloaded = true;
 
@@ -739,6 +744,8 @@ var app = {
     app.download.init();
     station.init();
     elevation.init();
+    //restoring session if exsists
+    app.buttons.login(null);
     //Sortable waypoint list
     $('#waypoint-list').sortable({
         start: function(event, ui) {
