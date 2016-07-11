@@ -116,7 +116,7 @@ var navigation = {
     service.route({
       origin: origin,
       destination: destination,
-      optimizeWaypoints: true,
+      optimizeWaypoints: false,//TODO: true
       waypoints: navigation.waypoints,
       travelMode: google.maps.TravelMode.DRIVING,
       avoidTolls: avoidTolls,
@@ -193,12 +193,12 @@ var navigation = {
       {location: ltlng}
     );
     $('#waypoint-list').append(
-      "<div class='route-element'>" +
+      "<li class='route-element'>" +
         "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
           address +
         "</div>"+
         "<div><button onclick=\"station.removeWaypoint(this)\">X</button></div>" +
-      "</div>"
+      "</li>"
     );
 
     //Refreshing the route if it's active

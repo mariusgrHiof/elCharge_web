@@ -184,7 +184,11 @@ var station = {
     stationList : [],
     routeList : [],
     distance : 0,
-    routeNames : [],
+    routeNames : ['test', 'test2'],
+    waypoint: {
+      //For draggable WP's
+      start_pos: 0
+    },
     searchRoute : function(){
       //TODO: Fix!!
       var list = [];
@@ -376,7 +380,7 @@ var station = {
           id = navigation.waypointsData[i].station_id;
           isLive = navigation.waypointsData[i].isLive;
           content +=
-            "<div class='route-element station-"+ id +"'>" +
+            "<li class='route-element station-"+ id +"'>" +
               "<img class='cover-third float-left' src=\"" + station.getImage(id) + "\"/>" +
               "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
                 "<a value='" + id + "' class='station'>" + station.list[id].csmd.name + "</a>" +
@@ -388,14 +392,14 @@ var station = {
               "<div class='read-more clear-both'>" +
                 station.conns.getString(id,station.list[id].attr.st[21].attrvalid === "1") +
               "</div>" +
-            "</div>";
+            "</li>";
         }else{
           content += "<div class='route-element'>" +
-            "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
+            "<li class='float-left' style='width:calc( 66% - 1.1em );'>"+
               navigation.waypointsData[i].address +
             "</div>"+
             "<div><button onclick=\"station.removeWaypoint(this)\">X</button></div>" +
-          "</div>";
+          "</li>";
         }
       }
       $('#waypoint-list').html(content);
@@ -687,7 +691,7 @@ var station = {
       '<div id="lowerContainer" class="clear-both">'+
         '<button class="nav-add tooltip" onclick="station.addWaypoint(\'' + id + '\')" ><p class="tooltiptext">Legg til stasjon i rute</p>Legg til i rute</button>' +
         '<button class="nav-here tooltip" onclick="navigation.fromUser(this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"") +'"><p class="tooltiptext">Naviger hit</p>Naviger hit</button>'+
-        (app.loggedIn ? '<button class="float-left tooltip" onclick="station.favorite.addStation("' + id + '")" ><p class="tooltiptext">Lagre stasjon</p>Lagre stasjon</button>' : '') +
+        (app.loggedIn ? '<button class="float-left tooltip" onclick="station.favorite.addStation(\'' + id + '\')" ><p class="tooltiptext">Lagre stasjon</p>Lagre stasjon</button>' : '') +
       "</div>"+
     "</div>";
   },

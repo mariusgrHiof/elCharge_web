@@ -95,31 +95,6 @@ header{
     display:block;
 }
 
-/*Route planner*/
-.route-element{
-  clear:both;
-  float:left;
-  border-bottom:1px black;
-  margin:0.5em 0 0 0;
-  width:100%;
-  img{
-    max-width:30%;
-    float:left;
-  }
-  span{
-    padding:0 0.5em 0 0.5em;
-    float:left;
-    max-width:80%;
-  }
-}
-
-
-/*
-* Route options
-*/
-.route-options ul li{
-  padding: 0.5em 0 0.5em 0;
-}
 #chargers-nearby{
   overflow-y:auto;
 }

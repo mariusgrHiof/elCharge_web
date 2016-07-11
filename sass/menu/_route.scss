@@ -1,0 +1,28 @@
+/*Route planner*/
+.route-element{
+  background: $color__white;
+  clear:both;
+  float:left;
+  border-bottom:1px black;
+  margin:0.5em 0 0 0;
+  width:90%;
+  img{
+    max-width:30%;
+    float:left;
+  }
+  a{
+    padding-left:1em;
+  }
+  span{
+    padding:0 0.5em 0 0.5em;
+    float:left;
+    max-width:80%;
+  }
+}
+
+/*
+* Route options
+*/
+.route-options ul li{
+  padding: 0.5em 0 0.5em 0;
+}

@@ -740,7 +740,21 @@ var app = {
     station.init();
     elevation.init();
     //Sortable waypoint list
-    $('#waypoint-list').sortable();
+    $('#waypoint-list').sortable({
+        start: function(event, ui) {
+          station.favorite.waypoint.start_pos = ui.item.index();
+          console.log('started ' + ui.item.index());
+        },
+        update: function(event, ui) {
+          var start_pos = station.favorite.waypoint.start_pos;
+          var end_pos = ui.item.index();
+          console.log(ui.item);
+          console.log('Dropped -> re-building route' + 'f' + start_pos + 't' + end_pos);
+          navigation.waypoints.splice(end_pos, 0, navigation.waypoints.splice(start_pos, 1)[0]);
+          navigation.waypointsData.splice(end_pos, 0, navigation.waypointsData.splice(start_pos, 1)[0]);
+          navigation.build();
+        }
+    });
     $('#waypoint-list').disableSelection();
 
     app.map = new google.maps.Map($('#map')[0], {
