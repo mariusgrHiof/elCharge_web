@@ -242,7 +242,7 @@ var station = {
         station.favorite.updateRoutes();
       });
       //Closing the window
-      $(this).parent().hide();
+      $(element).parent().hide();
       return false;
     },
     addStation : function(id){
