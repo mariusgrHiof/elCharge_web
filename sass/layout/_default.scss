@@ -368,10 +368,14 @@ ul{
 }
 
 .ui-autocomplete {
+  background:$color__white;
 	position: absolute;
 	top: 0;
 	left: 0;
 	cursor: default;
+  ul{
+    list-style: none;
+  }
 }
 
 .ui-autocomplete.ui-widget-content{

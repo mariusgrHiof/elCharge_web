@@ -200,6 +200,9 @@ var station = {
     },
     saveRoute : function(id){
       $('#save-route').show();
+      $('.route-search').autocomplete({
+        source : station.favorite.routeNames
+      });
     },
     addRoute : function(element){
       var path ="";

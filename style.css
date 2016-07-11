@@ -769,10 +769,13 @@ ul {
   max-width: 1em; }
 
 .ui-autocomplete {
+  background: #FFFFFF;
   position: absolute;
   top: 0;
   left: 0;
   cursor: default; }
+  .ui-autocomplete ul {
+    list-style: none; }
 
 .ui-autocomplete.ui-widget-content {
   z-index: 200; }
