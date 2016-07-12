@@ -477,7 +477,7 @@ nav {
   width: 27em;
   top: 5em;
   height: calc(100vh - 5em);
-  overflow: auto;
+  overflow: hidden;
   -webkit-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21);
   -moz-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21);
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21); }
