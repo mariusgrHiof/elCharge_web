@@ -437,7 +437,7 @@ var station = {
   },
   generateMarker : function(id){
     try{
-      if($('#select-car').val() !=0){
+      if($('#select-car').val() !=0 || station.selectedCapacity != 0){
         station.conns.list.length = 0;
         if(station.getCarMatch(id)){
           station.addMarker(station.list[id].csmd.Number_charging_points, id);
