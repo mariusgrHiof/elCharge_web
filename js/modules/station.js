@@ -511,7 +511,7 @@ var station = {
   //TODO: station.getImage
   getImage : function(id){
     try{
-      return (/kommer/i.test(station.list[id].csmd.Image.toLowerCase()) || /no.image.svg/i.test(station.list[id].csmd.Image.toLowerCase())? 'icons/logo.svg' : 'http://www.nobil.no/img/ladestasjonbilder/'+ station.list[id].csmd.Image);
+      return (/kommer/i.test(station.list[id].csmd.Image.toLowerCase()) || /no.image.svg/i.test(station.list[id].csmd.Image.toLowerCase())? 'icons/logo.svg' : ((window.location.protocol !== "https:" ? 'http' : 'https') + '://www.nobil.no/img/ladestasjonbilder/'+ station.list[id].csmd.Image) );
     }catch(e){
       console.log("Failed for: " + id + " MSG: " + e);
     }
