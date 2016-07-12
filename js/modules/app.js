@@ -95,7 +95,7 @@ var app = {
           $("#favorite-routes").html("");
           if(data !== "0"){
             var result = JSON.parse(data);
-            if(result.stations.length > 0){
+            if(result.stations != null && result.stations.length > 0){
               station.favorite.stationList = result.stations;
               station.favorite.updateStations();
             }
@@ -562,6 +562,32 @@ var app = {
   },
   cluster : {
     styles : [
+      {
+      height: 53,
+      url: "icons/cluster/m1.png",
+      width: 53
+      },
+      {
+      height: 56,
+      url: "icons/cluster/m2.png",
+      width: 56
+      },
+      {
+      height: 66,
+      url: "icons/cluster/m3.png",
+      width: 66
+      },
+      {
+      height: 78,
+      url: "icons/cluster/m4.png",
+      width: 78
+      },
+      {
+      height: 90,
+      url: "icons/cluster/m5.png",
+      width: 90
+      }
+      /*
     {
         textColor: 'black',
         url: 'icons/markercluster.svg',
@@ -579,7 +605,7 @@ var app = {
         url: 'icons/markercluster.svg',
         height: 50,
         width: 50
-      }
+      }*/
     ]
   },
   /*
@@ -777,6 +803,46 @@ var app = {
         position: google.maps.ControlPosition.RIGHT_BOTTOM
       }
     });
+    //Finding user location with geolocation
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        app.gps.pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        //Storing the user pos value
+        app.gps.geopos = [position.coords.latitude, position.coords.longitude];
+        app.map.setCenter(app.gps.pos);
+      }, function() {
+        var infoWindow = new google.maps.InfoWindow({
+            content: '',
+            maxWidth: 500,
+            maxHeight: 500
+        });
+        app.gps.handleLocationError(true, infoWindow, app.map.getCenter());
+      });
+    } else {
+      // If the browser doesn't support Geolocation
+      var infoWindow = new google.maps.InfoWindow({
+          content: '',
+          maxWidth: 500,
+          maxHeight: 500
+      });
+      app.gps.handleLocationError(false, infoWindow, app.map.getCenter());
+      app.gps.geopos = [59.91673,10.74782]; // Defaulting to oslo incase geopos isn't possible
+      app.map.setCenter(app.gps.pos);
+    }
+
+    //Map viewport change listeners
+    google.maps.event.addListener(app.map, 'idle', function(ev){
+      //TODO: Add func for less data userAgent -> http://info.nobil.no/images/downloads/nobil_api_documentation_v3.pdf
+      /*
+      var bound = app.map.getBounds();
+      var ne = bound.getNorthEast();
+      var sw = bound.getSouthWest();
+      */
+    });
+
     app.options.markerCluster = {gridSize: 35, maxZoom: 15, styles: app.cluster.styles};
     app.options.panorama = {
       addressControlOptions:{
@@ -845,39 +911,6 @@ var app = {
     }catch(e){}
 
     station.updateCarList();
-    //Turning on layers
-    try{
-      //TODO: trafficOverlay();
-    }catch(e){}
-
-    //Finding user location with geolocation
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        app.gps.pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-        //Storing the user pos value
-        app.gps.geopos = [position.coords.latitude, position.coords.longitude];
-        app.map.setCenter(app.gps.pos);
-      }, function() {
-        var infoWindow = new google.maps.InfoWindow({
-            content: '',
-            maxWidth: 500,
-            maxHeight: 500
-        });
-        app.gps.handleLocationError(true, infoWindow, app.map.getCenter());
-      });
-    } else {
-      // If the browser doesn't support Geolocation
-      var infoWindow = new google.maps.InfoWindow({
-          content: '',
-          maxWidth: 500,
-          maxHeight: 500
-      });
-      app.gps.handleLocationError(false, infoWindow, app.map.getCenter());
-      app.gps.geopos = [59.91673,10.74782]; // Defaulting to oslo incase geopos isn't possible
-    }
     //Downloading station data
     if(app.device.phonegap){
       //Safeguarding against timeout for the cordovaWebView

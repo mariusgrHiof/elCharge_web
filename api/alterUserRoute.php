@@ -12,7 +12,13 @@ if(isset($_SESSION['sessionId'])){
         echo $sql;
         $conn->query($sql);
       }else if($_REQUEST['action'] == 'edit'){
-        //Edit logic goes here
+        //Edit logic
+
+
+        $sql = "UPDATE `ec_user_has_routes` SET `name`='". filter_var($_POST['name'], FILTER_SANITIZE_STRING) ."', `route`='". $_POST['route'] ."', `distance`='". filter_var($_POST['distance'], FILTER_SANITIZE_STRING) ."', `comment`='". filter_var($_POST['comment'], FILTER_SANITIZE_STRING) ."' WHERE `user_id`='". $user['user_id'] . "' AND `route_id`='". filter_var($_POST['id'], FILTER_SANITIZE_STRING) . "';";
+        echo 'SQL: ' . $sql;
+        $conn->query($sql);
+        echo 'Updated route';
       }else if($_REQUEST['action'] == 'add'){
         //Add logic
         //Getting the last route ID for the user
@@ -24,9 +30,9 @@ if(isset($_SESSION['sessionId'])){
         }else{
           $user['route_id'] = 0;
         }
-        $sql = "INSERT INTO ec_user_has_routes VALUES('" . $user['user_id'] . "','" . $user['route_id'] . "','" . $_POST['name'] ."','" . $_POST['route'] . "'," . $_POST['distance'] . ",'". $_POST['comment'] . "');";
+        $sql = "INSERT INTO ec_user_has_routes VALUES('" . $user['user_id'] . "','" . $user['route_id'] . "','" . filter_var($_POST['name'], FILTER_SANITIZE_STRING) ."','" . $_POST['route'] . "'," . filter_var($_POST['distance'], FILTER_SANITIZE_STRING) . ",'". filter_var($_POST['comment'], FILTER_SANITIZE_STRING) . "');";
         $conn->query($sql);
-        echo '1';
+        echo 'Saved route';
       }
     }
 }

@@ -205,11 +205,26 @@ var station = {
       });
     },
     addRoute : function(element){
-      var path ="";
+      var path ="",
+        saveAsName = $('#save-as').val(),
+        saveAs = false,
+        saveAsID;
       if(app.device.phonegap){
         path += app.path;
       }
       path +="api/alterUserRoute.php";
+
+      //checking if there are matches for "save as"
+      if(saveAsName != ''){
+        for(var i in station.favorite.routeList){
+          if(station.favorite.routeList[i].name == saveAsName){
+            saveAs = true;
+            saveAsID = i;
+            console.log(saveAsName);
+            break;
+          }
+        }
+      }
 
       //Generating object
       for(var i = 0, x = navigation.route.legs.length; i < x; i++){
@@ -228,14 +243,15 @@ var station = {
 
       //Posting route
       $.post( path,{
-        action : 'add',
+        action : saveAs ? 'edit':'add',
+        id : saveAs ? saveAsID : '0',
         name : $(element).find(':input[name="route-name"]').val(),
         route : JSON.stringify(navigation.jsonRoute),
         distance : station.favorite.distance,
         comment : $(element).find(':input[name="route-comment"]').val()
       }, function(result){
         console.log(result);
-        station.favorite.routeList[station.favorite.routeList.length] = {
+        station.favorite.routeList[saveAs ? saveAsID : station.favorite.routeList.length] = {
           route_id : station.favorite.routeList.length,
           name : $(element).find(':input[name="route-name"]').val(),
           route : navigation.jsonRoute,

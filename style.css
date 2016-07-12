@@ -769,16 +769,19 @@ ul {
   max-width: 1em; }
 
 .ui-autocomplete {
+  padding-left: 0;
   background: #FFFFFF;
   position: absolute;
   top: 0;
   left: 0;
   cursor: default; }
-  .ui-autocomplete ul {
-    list-style: none; }
-
-.ui-autocomplete.ui-widget-content {
-  z-index: 200; }
+  .ui-autocomplete li {
+    list-style: none;
+    padding: 0.5em; }
+  .ui-autocomplete .ui-state-focus {
+    background: #29ABE2 !important; }
+  .ui-autocomplete.ui-widget-content {
+    z-index: 200; }
 
 /*Mobile layout*/
 @media screen and (max-width: 600px) {

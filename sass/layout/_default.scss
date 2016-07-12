@@ -368,16 +368,20 @@ ul{
 }
 
 .ui-autocomplete {
+  padding-left:0;
   background:$color__white;
 	position: absolute;
 	top: 0;
 	left: 0;
 	cursor: default;
-  ul{
+  li{
     list-style: none;
+    padding:0.5em;
   }
-}
-
-.ui-autocomplete.ui-widget-content{
-  z-index:200;
+  .ui-state-focus{
+    background: $color__blue !important;
+  }
+  &.ui-widget-content{
+    z-index:200;
+  }
 }
