@@ -29,6 +29,9 @@
   padding-left: 0.2em;
   width: 60%; }
 
+.cover-100 {
+  width: 100%; }
+
 .oneliner {
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -782,6 +785,11 @@ ul {
     background: #29ABE2 !important; }
   .ui-autocomplete.ui-widget-content {
     z-index: 200; }
+
+.ui-sortable-helper {
+  -webkit-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21);
+  -moz-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21);
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21); }
 
 /*Mobile layout*/
 @media screen and (max-width: 600px) {

@@ -385,3 +385,7 @@ ul{
     z-index:200;
   }
 }
+
+.ui-sortable-helper{
+  @include box-shadow($color__shadow);
+}

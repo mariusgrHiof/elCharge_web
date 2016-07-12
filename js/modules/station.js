@@ -339,11 +339,10 @@ var station = {
       return false;
     },
     updateRoutes : function(){
-      $("#favorite-routes").html("");
-      var id;
+      var id, txt = '';
       for(var i in station.favorite.routeList){
         id = station.favorite.routeList[i].route_id;
-        $('#favorite-routes').append(
+        txt +=
           '<li class="border clear-both" value="' + i + '" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
             '<div class="float-left clear-both" >'+
               '<strong class="float-left oneliner">' + station.favorite.routeList[i].name.substring(0,40) + (station.favorite.routeList[i].name.length > 40 ? '...' : '') + '</strong>' +
@@ -355,13 +354,13 @@ var station = {
               '<div class="clear-both">' +//read-more
               '</div>' +
             '</div>' +
-        '</li>');
+        '</li>';
       }
+      $("#favorite-routes").html(txt);
       station.favorite.searchRoute();
     },
     updateStations : function(){
-
-      var id, txt;
+      var id, txt = '';
       for(var i = 0, x = station.favorite.stationList.length; i < x; i++){
         try{
           id = station.favorite.stationList[i].station_id;
@@ -417,10 +416,10 @@ var station = {
             "</li>";
         }else{
           content += "<li class='route-element'>" +
-            "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
+            "<div class='float-left' style='max-width:90%;'>"+
               navigation.waypointsData[i].address +
             "</div>"+
-            "<div><button onclick=\"station.removeWaypoint(this)\">X</button></div>" +
+            "<div class='float-right'><button onclick=\"station.removeWaypoint(this)\">X</button></div>" +
           "</li>";
         }
       }

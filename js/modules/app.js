@@ -781,6 +781,7 @@ var app = {
           navigation.waypoints.splice(end_pos, 0, navigation.waypoints.splice(start_pos, 1)[0]);
           navigation.waypointsData.splice(end_pos, 0, navigation.waypointsData.splice(start_pos, 1)[0]);
           navigation.build();
+          station.bindStationNames();
         }
     });
     $('#waypoint-list').disableSelection();

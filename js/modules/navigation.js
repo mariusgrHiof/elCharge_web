@@ -30,6 +30,15 @@ var navigation = {
     //Allows us to do stuff when the route is dragged and/or changed.
     navigation.display.addListener('directions_changed', function() {
       navigation.getTotalDistance(navigation.display.getDirections());
+      console.log($("#right-panel"));
+      setTimeout(function(){
+        $('.adp-placemark').each(function(index){
+          if(index != 0 && index <= navigation.waypointsData.length && navigation.waypointsData[index - 1].isStation){
+            $(this).find('.adp-text').html(station.list[navigation.waypointsData[index - 1].station_id].csmd.name);
+            //TODO: $('.adp-summary').eq(index).find(':first-child').html('99');
+          }
+        });
+      }, 1);
     });
     navigation.displayRoute(navigation.startDestination, navigation.endDestination, navigation.service,navigation.display);
   },
@@ -116,7 +125,7 @@ var navigation = {
     service.route({
       origin: origin,
       destination: destination,
-      optimizeWaypoints: false,//TODO: true
+      optimizeWaypoints: false,
       waypoints: navigation.waypoints,
       travelMode: google.maps.TravelMode.DRIVING,
       avoidTolls: avoidTolls,
@@ -194,10 +203,10 @@ var navigation = {
     );
     $('#waypoint-list').append(
       "<li class='route-element'>" +
-        "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
+        "<div class='float-left' style='max-width:90%;'>"+
           address +
         "</div>"+
-        "<div><button onclick=\"station.removeWaypoint(this)\">X</button></div>" +
+        "<div class='float-right'><button onclick=\"station.removeWaypoint(this)\">X</button></div>" +
       "</li>"
     );
 
