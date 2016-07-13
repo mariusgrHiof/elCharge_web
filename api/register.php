@@ -30,7 +30,7 @@ if(!empty(($_POST['username'] && $_POST['password'] && $_POST['mail']))){
     if ($conn->query($sql) === TRUE) {
         echo "Registrering fullført";
     } else {
-        echo "Brukernavn allerede registrert, velg et annet brukernavn";
+        echo "Brukernavn  eller mail er allerede registrert.";
     }
 }
 $conn->close();
