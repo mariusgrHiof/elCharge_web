@@ -26,7 +26,8 @@ var app = {
         name: '0'
       },
       selectedCapacity: '0',
-      trafficOverlay: true
+      trafficOverlay: true,
+      updateTimer: undefined
     },
     loadSettings: function(settings){
       app.user.settings = settings;
@@ -43,6 +44,13 @@ var app = {
         //TODO: $("input[type=checkbox].onoffswitch-checkbox#traffic-layer").attr("checked", app.layers.trafficLayerIsActive);
         app.layers.traffic();
       }
+      if(settings.updateTimer != undefined){
+        app.download.intervalTime = settings.updateTimer;
+        $('input[type=number]#bg-update-timer').val(settings.updateTimer/60000);
+      }
+      if(app.download.hasDownloaded){
+        station.generateMarkers();
+      }
     },
     saveSettings: function () {
       var path = "", s = app.user.settings;
@@ -54,6 +62,7 @@ var app = {
       s.car.name = $('#select-car').val();
       s.selectedCapacity = station.selectedCapacity;
       s.trafficOverlay = app.layers.trafficLayerIsActive;
+      s.updateTimer = app.download.intervalTime;
       console.log(s);
       $.post(path, {settings: JSON.stringify(s)}, function( data ){
         console.log(data);
@@ -327,6 +336,7 @@ var app = {
         function(){
           if($(this).attr('id') === 'traffic-layer'){
             app.layers.traffic();
+            app.user.saveSettings();
           }
         }
       );
@@ -338,12 +348,14 @@ var app = {
           }else{
             app.download.updateBackgroundTimer($(this).val());
           }
+          app.user.saveSettings();
         }
       );
       //Changing the selected car and updating station markers accordingly
       $('#select-car').change(
         function(){
           station.generateMarkers();
+          app.user.saveSettings();
         }
       );
       //Updating stations with the prefered minimum charging capacity
@@ -352,6 +364,7 @@ var app = {
           station.selectedCapacity = $(this).children(":input[name='kW']:checked").val();
           //Updating the map with markers
           station.generateMarkers();
+          app.user.saveSettings();
         }
       );
     },
