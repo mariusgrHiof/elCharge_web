@@ -26,10 +26,11 @@ if (!isset($_SESSION['user_id'])) {
     // output data of each row
     while ($row = $result_login->fetch_assoc()) {
       $_SESSION['user_id'] = $row['user_id'];
+      $result['settings'] = $row['settings'];
       $hash = $row['password'];
     }
     if(password_verify($_POST['password'], $hash)){
-      getUserData($conn);
+    getUserData($conn, $result['settings']);
     }else{
       echo "0";
     }
@@ -45,17 +46,18 @@ if (!isset($_SESSION['user_id'])) {
       $result['settings'] = $row['settings'];
     }
   }
-  getUserData($conn);
+  getUserData($conn, $result['settings']);
 }else{
   echo '0';
 }
 
 $hash = '';
 
-function getUserData($conn){
+function getUserData($conn, $settings){
   $result['user_id'] = $_SESSION['user_id'];
   $result['username'] = $_SESSION['username'];
   $_SESSION['logged_in'] = true;
+  $result['settings'] = json_decode($settings);
 
   /*
    * Getting saved stations

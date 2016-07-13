@@ -20,7 +20,14 @@ var app = {
     key : '274b68192b056e268f128ff63bfcd4a4'
   },
   user: {
-    settings: {},
+    settings: {
+      car:{
+        conns: [],
+        name: '0'
+      },
+      selectedCapacity: '0',
+      trafficOverlay: true
+    },
     loadSettings: function(settings){
       app.user.settings = settings;
       if(settings.car !== undefined){
@@ -38,7 +45,17 @@ var app = {
       }
     },
     saveSettings: function () {
-      $.post(path, {settings: app.user.settings}, function( data ){
+      var path = "", s = app.user.settings;
+      if(app.device.phonegap){
+        path += app.path;
+      }
+      path +="api/userSettings.php";
+      s.car.conns = station.user.carConns;
+      s.car.name = $('#select-car').val();
+      s.selectedCapacity = station.selectedCapacity;
+      s.trafficOverlay = app.layers.trafficLayerIsActive;
+      console.log(s);
+      $.post(path, {settings: JSON.stringify(s)}, function( data ){
         console.log(data);
       });
     }
@@ -120,9 +137,6 @@ var app = {
           $("#favorite-routes").html("");
           if(data !== "0"){
             var result = JSON.parse(data);
-            if(result.settings != null){
-              app.user.loadSettings(data.settings);
-            }
             if(result.stations != null && result.stations.length > 0){
               station.favorite.stationList = result.stations;
               station.favorite.updateStations();
@@ -133,6 +147,12 @@ var app = {
                 try{
                   station.favorite.updateRoutes();
                 }catch(e){}
+              }
+            }catch(e){console.log(e);}
+            try{
+              if(result.settings != null){
+                app.user.loadSettings(result.settings);
+                console.log(result.settings);
               }
             }catch(e){console.log(e);}
             app.loggedIn = true;
@@ -165,21 +185,21 @@ var app = {
       station.favorite.updateStations();
     },
     register : function(form){
-      var path = "";
+      var path = "",
+        uname = $(form).children(":input[name='username']").val(),
+        pw = $(form).children(":input[name='password']").val(),
+        m = $(form).children(":input[name='mail']").val();
       if(app.device.phonegap){
         path += app.path;
       }
       path +="api/register.php";
-      var uname = $(form).children(":input[name='username']").val();
-      var pw = $(form).children(":input[name='password']").val();
-      var m = $(form).children(":input[name='mail']").val();
       //Logging the user in
       if(uname !== "" && pw !== "" && m !== "" && app.register.validMail && app.register.validPassword){
         $.post(path,
           {
-            username: $(form).children(":input[name='username']").val(),
-            password: $(form).children(":input[name='password']").val(),
-            mail: $(form).children(":input[name='mail']").val()
+            username: uname,
+            password: pw,
+            mail: m
           },
           function( data ){
             $('#register-form').html(data );
