@@ -1,11 +1,18 @@
 /*Route planner*/
 .route-element{
+
+  > img {
+    max-height:5em;
+  }
+}
+.route-element{
   background: $color__white;
   clear:both;
   float:left;
   border-bottom:1px black;
   margin:0.5em 0 0 0;
-  width:90%;
+  padding-left:0 !important;
+  width:100%;
   img{
     max-width:30%;
     float:left;

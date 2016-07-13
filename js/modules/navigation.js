@@ -23,6 +23,9 @@ var navigation = {
     navigation.service = new google.maps.DirectionsService;
     navigation.display = new google.maps.DirectionsRenderer({
       draggable: true,
+      polylineOptions: {
+        strokeColor: 'black'
+      },
       map: app.map,
       panel: $('#right-panel')[0]
     });
@@ -32,10 +35,13 @@ var navigation = {
       navigation.getTotalDistance(navigation.display.getDirections());
       console.log($("#right-panel"));
       setTimeout(function(){
+        var d = 0;//distance from previous station
         $('.adp-placemark').each(function(index){
+          d += parseFloat($($('.adp-summary').eq(index).find(':first-child').get(0)).text().replace(' km', ''));
           if(index != 0 && index <= navigation.waypointsData.length && navigation.waypointsData[index - 1].isStation){
             $(this).find('.adp-text').html(station.list[navigation.waypointsData[index - 1].station_id].csmd.name);
-            //TODO: $('.adp-summary').eq(index).find(':first-child').html('99');
+            $('.route-element').eq(index - 1).find('.js-distance').html(d + ' km');
+            d = 0;
           }
         });
       }, 1);
