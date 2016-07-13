@@ -914,8 +914,6 @@ var app = {
 
     var sw = app.map.getStreetView().setOptions(app.options.panorama);
     app.device.typeCheck();
-    //Setting default map layer type to terrain
-    app.map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
     try{
       //Search box header
       // Create the search box and link it to the UI element.

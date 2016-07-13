@@ -298,6 +298,10 @@ select {
 .cover-twothird input.cover-100 {
   width: 100%; }
 
+input {
+  border: none;
+  border-bottom: 1px solid black; }
+
 /* Sliders -> source = https://proto.io/freebies/onoff/*/
 .onoffswitch {
   position: relative;
@@ -399,13 +403,17 @@ select {
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21); }
 
 /*Route planner*/
+.route-element > img {
+  max-height: 5em; }
+
 .route-element {
   background: #FFFFFF;
   clear: both;
   float: left;
   border-bottom: 1px black;
   margin: 0.5em 0 0 0;
-  width: 90%; }
+  padding-left: 0 !important;
+  width: 100%; }
   .route-element img {
     max-width: 30%;
     float: left; }
@@ -548,10 +556,6 @@ ul {
   white-space: nowrap;
   overflow: hidden;
   max-width: 95%; }
-
-/*Route*/
-.route-element > img {
-  max-height: 5em; }
 
 #favorite-stations .nav-here {
   margin-top: -2em;

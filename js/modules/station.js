@@ -180,6 +180,23 @@ var station = {
       return result;
     }
   },
+  getWPString: function(id, isLive){
+    var txt = "<li class='ui-state-default route-element station-"+ id +"'>" +
+      "<img class='cover-third float-left' src=\"" + station.getImage(id) + "\"/>" +
+      "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
+        "<a value='" + id + "' class='station'>" + station.list[id].csmd.name + "</a>" +
+      "</div>"+
+      "<div class='markerColor' style='background-color:"+ (station.conns.numFaulty / station.list[id].csmd.Number_charging_points === 1 ? "red" : (isLive ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>" +
+        "<button style='border:none; background:transparent; color:white;' onclick=\"station.removeWaypoint(this)\">X</button>" +
+      "</div>"+
+      "<div class='float-left js-distance'>0 km</div>"+
+      "<button class='float-right' onclick='app.menu.readMore(this)'>Vis mer</button>"+
+      "<div class='read-more clear-both'>" +
+        station.conns.getString(id,station.list[id].attr.st[21].attrvalid === "1") +
+      "</div>" +
+    "</li>";
+    return txt;
+  },
   favorite : {
     stationList : [],
     routeList : [],
@@ -400,20 +417,7 @@ var station = {
         if(navigation.waypointsData[i].isStation){
           id = navigation.waypointsData[i].station_id;
           isLive = navigation.waypointsData[i].isLive;
-          content +=
-            "<li class='route-element station-"+ id +"'>" +
-              "<img class='cover-third float-left' src=\"" + station.getImage(id) + "\"/>" +
-              "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
-                "<a value='" + id + "' class='station'>" + station.list[id].csmd.name + "</a>" +
-              "</div>"+
-              "<div class='markerColor' style='background-color:"+ (station.conns.numFaulty / station.list[id].csmd.Number_charging_points === 1 ? "red" : (isLive ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>" +
-                "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"station.removeWaypoint(this)\">X</button>" +
-              "</div>"+
-              "<button onclick='app.menu.readMore(this)'>Vis mer</button>"+
-              "<div class='read-more clear-both'>" +
-                station.conns.getString(id,station.list[id].attr.st[21].attrvalid === "1") +
-              "</div>" +
-            "</li>";
+          content += station.getWPString(id, isLive);
         }else{
           content += "<li class='route-element'>" +
             "<div class='float-left' style='max-width:90%;'>"+
@@ -490,21 +494,29 @@ var station = {
     for(var c in station.list[id].attr.conn){
       //Checking if any connection ports match the user prefs
       try{
-        if($('#select-car').val() !== '0' && !match && app.inArray(station.list[id].attr.conn[c][4].attrvalid, station.user.carConns) && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW)){
-          match = true;
-          break;
-        }else if($('#select-car').val() === '0' && !match && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW)){
-        //If no car or type is selected
-          match = true;
-          break;
-        }if(station.list[id].attr.conn[c][9] !== undefined && station.list[id].attr.conn[c][9].attrvalid === '1'){//Is a faulty connector
-          station.conns.numFaulty++;
-        //For the markers, to indicate if a id has a fast charger or not!
-        }if(!hasFastCharge_temp && (station.fastCharge <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW)){
-          station.hasFastCharge = true;
+        if(station.list[id].attr.conn[c][4] !== undefined && station.list[id].attr.conn[c][5] !== undefined){
+          if(station.list[id].attr.conn[c][9] !== undefined && station.list[id].attr.conn[c][9].attrvalid === '1'){//Is a faulty connector
+            station.conns.numFaulty++;
+            isFaulty = true;
+          }else{
+            isFaulty = false;
+          }
+          if($('#select-car').val() !== '0' && !match && app.inArray(station.list[id].attr.conn[c][4].attrvalid, station.user.carConns) && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW)){
+            //If a car model is chosen
+            if(!isFaulty){
+              match = true;
+            }
+          }else if($('#select-car').val() === '0' && !match && (station.selectedCapacity <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW)){
+            //If a car model is not chosen
+            if(!isFaulty){
+              match = true;
+            }
+          }if(!hasFastCharge_temp && (station.fastCharge <= station.conns.capacity[station.list[id].attr.conn[c][5].attrvalid].kW)){
+            station.hasFastCharge = true;
+          }
+          station.conns.list.push(station.list[id].attr.conn[c]);
         }
-        station.conns.list.push(station.list[id].attr.conn[c]);
-      }catch(e){console.log(e);}
+      }catch(e){console.log('ERROR: ' + e + ' for station with id ' + id);}
     }
     return match;
   },
@@ -626,21 +638,7 @@ var station = {
         {location: new google.maps.LatLng(disPos[0],disPos[1])}
       );
 
-        $('#waypoint-list').append(
-          "<li class='ui-state-default route-element station-"+ id +"'>" +
-            "<img class='cover-third float-left' src=\"" + station.getImage(id) + "\"/>" +
-            "<div class='float-left' style='width:calc( 66% - 1.1em );'>"+
-              "<a value='" + id + "' class='station'>" + station.list[id].csmd.name + "</a>" +
-            "</div>"+
-            "<div class='markerColor' style='background-color:"+ (station.conns.numFaulty / station.list[id].csmd.Number_charging_points === 1 ? "red" : (isLive ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>" +
-              "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"station.removeWaypoint(this)\">X</button>" +
-            "</div>"+
-            "<button onclick='app.menu.readMore(this)'>Vis mer</button>"+
-            "<div class='read-more clear-both'>" +
-              station.conns.getString(id,station.list[id].attr.st[21].attrvalid === "1") +
-            "</div>" +
-          "</li>"
-        );
+      $('#waypoint-list').append(station.getWPString(id, isLive));
 
       //Refreshing the route if it's active
       if($('#nav-start-pos').val() !== "" && $('#nav-end-pos').val() !== ""){
