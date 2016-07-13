@@ -38,6 +38,13 @@ if (!isset($_SESSION['user_id'])) {
     echo "0";
   }
 }else if($_SESSION['logged_in']){
+  $result_login = $conn->query("select settings from ec_user where user_id='" . filter_var($_SESSION['user_id'], FILTER_SANITIZE_STRING) . "';");
+  if ($result_login->num_rows > 0) {
+    // output data of each row
+    while ($row = $result_login->fetch_assoc()) {
+      $result['settings'] = $row['settings'];
+    }
+  }
   getUserData($conn);
 }else{
   echo '0';

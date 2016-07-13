@@ -19,6 +19,30 @@ var app = {
     url : ((window.location.protocol !== "https:" ? 'http' : 'https') + '://nobil.no/api/server/datadump.php?'),
     key : '274b68192b056e268f128ff63bfcd4a4'
   },
+  user: {
+    settings: {},
+    loadSettings: function(settings){
+      app.user.settings = settings;
+      if(settings.car !== undefined){
+        station.user.carConns = settings.car.conns;
+        $('#select-car').val(settings.car.name);
+      }
+      if(settings.selectedCapacity !== undefined){
+        station.selectedCapacity = settings.selectedCapacity;
+        $('input[name=kW]', '#selected-charger-capacity').filter('[value=' + settings.selectedCapacity + ']').prop('checked', true);
+      }
+      if(settings.trafficOverlay != undefined){
+        app.layers.trafficLayerIsActive = !settings.trafficOverlay;
+        //TODO: $("input[type=checkbox].onoffswitch-checkbox#traffic-layer").attr("checked", app.layers.trafficLayerIsActive);
+        app.layers.traffic();
+      }
+    },
+    saveSettings: function () {
+      $.post(path, {settings: app.user.settings}, function( data ){
+        console.log(data);
+      });
+    }
+  },
   loggedIn : false,
   login : {
     showPopup : function(){
@@ -96,6 +120,9 @@ var app = {
           $("#favorite-routes").html("");
           if(data !== "0"){
             var result = JSON.parse(data);
+            if(result.settings != null){
+              app.user.loadSettings(data.settings);
+            }
             if(result.stations != null && result.stations.length > 0){
               station.favorite.stationList = result.stations;
               station.favorite.updateStations();
