@@ -213,7 +213,6 @@ var station = {
       for(var i in station.favorite.routeList){
         list.push(station.favorite.routeList[i].name);
       }
-      console.log(list);
       station.favorite.routeNames = list;
     },
     saveRoute: function(id){

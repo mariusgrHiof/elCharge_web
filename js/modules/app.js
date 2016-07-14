@@ -67,7 +67,6 @@ var app = {
       s.trafficOverlay = app.layers.trafficLayerIsActive;
       s.updateTimer = app.download.intervalTime;
       s.mapTypeId = app.map.mapTypeId;
-      console.log(s);
       $.post(path, {settings: JSON.stringify(s)});
     }
   },
@@ -828,7 +827,7 @@ var app = {
    * A function for initiating the app
   */
   init: function(){
-    if (window.location.protocol !== "https:" && !app.device.phonegap && window.hostname !== 'localhost'){
+    if (window.location.protocol !== "https:" && !app.device.phonegap && window.hostname !== undefined){
       window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
     }
     app.eventListeners.init();
