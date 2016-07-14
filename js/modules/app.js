@@ -585,6 +585,7 @@ var app = {
         nearby.update();
       }
       station.favorite.updateStations();
+      station.updateRouteWPStrings();
       //Starting automatic location update for mobile app and mobile browsers
       if(app.device.isMobile || app.device.phonegap){
         navigator.geolocation.watchPosition(app.gps.onSuccess, app.gps.onError, {enableHighAccuracy: true, timeout: 100, maximumAge: 1000 });

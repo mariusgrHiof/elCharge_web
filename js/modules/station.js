@@ -189,7 +189,7 @@ var station = {
       "<div class='markerColor' style='background-color:"+ (station.conns.numFaulty / station.list[id].csmd.Number_charging_points === 1 ? "red" : (isLive ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ";'>" +
         "<button style='border:none; background:transparent; color:white;' onclick=\"station.removeWaypoint(this)\">X</button>" +
       "</div>"+
-      "<div class='float-left js-distance'>0 km</div>"+
+      "<div class='float-left js-distance' style='padding-left:1em;'>0 km fra forrige stasjon</div>"+
       "<button class='float-right' onclick='app.menu.readMore(this)'>Vis mer</button>"+
       "<div class='read-more clear-both'>" +
         station.conns.getString(id,station.list[id].attr.st[21].attrvalid === "1") +
@@ -218,7 +218,20 @@ var station = {
     saveRoute: function(id){
       $('#save-route').show();
       $('.route-search').autocomplete({
-        source : station.favorite.routeNames
+        source: station.favorite.routeNames,
+        select: function(a, b){
+          var saveAsName = b.item.value;
+          //checking if there are matches for "save as"
+          if(saveAsName != ''){
+            for(var i in station.favorite.routeList){
+              if(station.favorite.routeList[i].name == saveAsName){
+                $('#js-save-route-form').find('textarea').val(station.favorite.routeList[i].comment);
+                $('#js-save-route-form').find(':input[name="route-name"]').val(station.favorite.routeList[i].name);
+                break;
+              }
+            }
+          }
+        }
       });
     },
     addRoute: function(element){
@@ -242,7 +255,6 @@ var station = {
           }
         }
       }
-
       //Generating object
       for(var i = 0, x = navigation.route.legs.length; i < x; i++){
         if(i === 0){
@@ -265,7 +277,7 @@ var station = {
         name : $(element).find(':input[name="route-name"]').val(),
         route : JSON.stringify(navigation.jsonRoute),
         distance : station.favorite.distance,
-        comment : $(element).find(':input[name="route-comment"]').val()
+        comment : $(element).find('textarea').val()
       }, function(result){
         console.log(result);
         station.favorite.routeList[saveAs ? saveAsID : station.favorite.routeList.length] = {
@@ -273,7 +285,7 @@ var station = {
           name : $(element).find(':input[name="route-name"]').val(),
           route : navigation.jsonRoute,
           distance : station.favorite.distance,
-          comment : $(element).find(':input[name="route-comment"]').val()
+          comment : $(element).find('textarea').val()
         };
         station.favorite.updateRoutes();
       });
@@ -365,7 +377,7 @@ var station = {
               '<strong class="float-left oneliner">' + station.favorite.routeList[i].name.substring(0,40) + (station.favorite.routeList[i].name.length > 40 ? '...' : '') + '</strong>' +
               '<button class="float-right" style="border:none; background:transparent; padding: 0.4em; color:black;" onclick="station.favorite.deleteRoute(this)">X</button>' +
               '<br />'+
-              '<span>' + station.favorite.routeList[i].distance + 'km </span>'+
+              '<span>Distanse: ' + station.favorite.routeList[i].distance + 'km </span>'+
               '<span>' + station.favorite.routeList[i].route.waypoints.length + ' rutepunkter</span>'+
               '<button class="float-right nav-here" onclick="station.favorite.restoreRoute(this)" value="">Ta meg hit</button>' +
               '<div class="clear-both">' +//read-more
@@ -438,11 +450,6 @@ var station = {
     }
     $('#download-progression').hide();
     app.download.hasDownloaded = true;
-    if(!app.device.isMobile){
-      nearby.update();
-    }
-    station.favorite.updateStations();
-    station.updateRouteWPStrings();
   },
   deleteMarkers: function(){
     //Memory managenent

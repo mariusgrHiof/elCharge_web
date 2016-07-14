@@ -804,6 +804,11 @@ li {
 #menu-list > li {
   width: 100%; }
 
+#save-route ui-widget {
+  padding: 1em; }
+#save-route textarea {
+  height: 5em; }
+
 /*Mobile layout*/
 @media screen and (max-width: 600px) {
   html {

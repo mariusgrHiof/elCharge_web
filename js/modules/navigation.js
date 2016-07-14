@@ -39,7 +39,7 @@ var navigation = {
         $('.adp-placemark').each(function(index){
           if(index != 0 && index <= navigation.waypointsData.length && navigation.waypointsData[index - 1].isStation){
             $(this).find('.adp-text').html(station.list[navigation.waypointsData[index - 1].station_id].csmd.name);
-            $('.route-element').eq(index - 1).find('.js-distance').html(d + ' km');
+            $('.route-element').eq(index - 1).find('.js-distance').html(d + ' km fra forrige stasjon');
             d = 0;
           }
           d += parseFloat($($('.adp-summary').eq(index).find(':first-child').get(0)).text().replace(' km', ''));
