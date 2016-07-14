@@ -33,7 +33,6 @@ var navigation = {
     //Allows us to do stuff when the route is dragged and/or changed.
     navigation.display.addListener('directions_changed', function() {
       navigation.getTotalDistance(navigation.display.getDirections());
-      console.log($("#right-panel"));
       setTimeout(function(){
         var d = 0;//distance from previous station
         $('.adp-placemark').each(function(index){
@@ -168,19 +167,25 @@ var navigation = {
     var x = navigation.route.legs.length;
     for(var i = 0; i < x; i++){
       if(i === 0){
-        //Getting starting pos
-        console.log("Start pos is: " + navigation.route.legs[i].start_address);
+        if(app.debug){
+          //Getting starting pos
+          console.log("Start pos is: " + navigation.route.legs[i].start_address);
+        }
       }
       if(x > 0 && i !== 0){
-        //Getting all waypoints
-        console.log("Waypoint "+ i +": " + navigation.route.legs[i].start_address);
+        if(app.debug){
+          //Getting all waypoints
+          console.log("Waypoint "+ i +": " + navigation.route.legs[i].start_address);
+        }
       }
       for(var sWP in navigation.route.legs[i].via_waypoints){
         navigation.getLocationNameFromLatLng(navigation.route.legs[i].via_waypoints[sWP],i, sWP); // Can be used for something fancy?
       }
       if (i === x -1){
-        //Getting end destination
-        console.log("End dest is: " + navigation.route.legs[i].end_address);
+        if(app.debug){
+          //Getting end destination
+          console.log("End dest is: " + navigation.route.legs[i].end_address);
+        }
       }
     }
   },

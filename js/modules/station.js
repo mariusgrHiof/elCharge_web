@@ -131,7 +131,11 @@ var station = {
               if(!isInService){//Is a faulty connector
                 station.conns.numFaulty++;
               }
-            } catch(e) {console.log(c +' ERROR: ' + e);}
+            }catch(e) {
+              if(app.debug){
+                console.log(c +' ERROR: ' + e);
+              }
+            }
           }
           result +=
             '<div class="cpelements">'+
@@ -148,7 +152,9 @@ var station = {
               station.conns.getImg(station.list[id].attr.conn[c][4].attrvalid) +
             '</div>';
         }catch(e){
-          console.log('Failed to build connectorsString for ' + station.list[id].csmd.name + '(' + id + ' c: ' + c + ')' +" Error: " + e);
+          if(app.debug){
+            console.log('Failed to build connectorsString for ' + station.list[id].csmd.name + '(' + id + ' c: ' + c + ')' +" Error: " + e);
+          }
         }
       }
       return result += "</div>";
@@ -302,7 +308,9 @@ var station = {
       $.post( path,{
         stationId: id
       }, function(response){
-        console.log(response);
+        if(app.debug){
+          console.log(response);
+        }
         station.favorite.updateStations();
       });
       return false;
@@ -324,7 +332,9 @@ var station = {
       $.post( path,{
         stationId: id
       }, function(response){
-        console.log(response);
+        if(app.debug){
+          console.log(response);
+        }
         station.favorite.updateStations();
       });
       return false;
@@ -336,14 +346,15 @@ var station = {
       }
       path +="api/alterUserRoute.php";
       var id = $(element).parent().parent().attr('value');
-      console.log(id);
       //Deleting from array
       station.favorite.routeList.splice(id, 1);
       $.post( path,{
         action : 'delete',
         route_id: id
       }, function(response){
-        console.log(response);
+        if(app.debug){
+          console.log(response);
+        }
         station.favorite.updateRoutes();
       });
       return false;
@@ -428,7 +439,11 @@ var station = {
       }else{
         station.addMarker(station.list[id].csmd.Number_charging_points, id);
       }
-    }catch(err){console.log(err);}
+    }catch(err){
+      if(app.debug){
+        console.log(err);
+      }
+    }
   },
   generateMarkers: function(){
     $('#download-progression').show();
@@ -491,7 +506,11 @@ var station = {
           }
           station.conns.list.push(station.list[id].attr.conn[c]);
         }
-      }catch(e){console.log('ERROR: ' + e + ' for station with id ' + id);}
+      }catch(e){
+        if(app.debug){
+          console.log('ERROR: ' + e + ' for station with id ' + id);
+        }
+      }
     }
     return match;
   },
@@ -500,7 +519,9 @@ var station = {
     try{
       return (/kommer/i.test(station.list[id].csmd.Image.toLowerCase()) || /no.image.svg/i.test(station.list[id].csmd.Image.toLowerCase())? 'icons/logo.svg' : ((window.location.protocol !== "https:" ? 'http' : 'https') + '://www.nobil.no/img/ladestasjonbilder/'+ station.list[id].csmd.Image) );
     }catch(e){
-      console.log("Failed for: " + id + " MSG: " + e);
+      if(app.debug){
+        console.log("Failed for: " + id + " MSG: " + e);
+      }
     }
   },
   getMarkerIcon: function(numOfPorts, id, isLive){
@@ -594,7 +615,11 @@ var station = {
         nearby.chargers[station.list[id].csmd.id] = station.list[id];
         nearby.chargers[station.list[id].csmd.id]["distance"] = nearby.compareDistance(app.gps.geopos, pos);
       }
-    }catch(e){console.log(e);}
+    }catch(e){
+      if(app.debug){
+        console.log(e);
+      }
+    }
   },
   /*
    *  along a given route
@@ -619,7 +644,11 @@ var station = {
       if($('#nav-start-pos').val() !== "" && $('#nav-end-pos').val() !== ""){
         navigation.build();
       }
-    }catch(e){console.log(e);}
+    }catch(e){
+      if(app.debug){
+        console.log(e);
+      }
+    }
     station.bindStationNames();
   },
   removeWaypoint: function(element){

@@ -7,7 +7,9 @@ var nearby = {
     try{
       return google.maps.geometry.spherical.computeDistanceBetween (app.gps.strToLtLng(userPos[0] + "," + userPos[1]), app.gps.strToLtLng(stationPos[0] + "," + stationPos[1]))/1000;
     }catch(e){
-      console.log(e);
+      if(app.debug){
+        console.log(e);
+      }
       return 999;//Unable to get the location so defaulting to unreachable value
     }
   },
@@ -38,7 +40,13 @@ var nearby = {
         try{
           thisPos = nearby.chargers[id].csmd.Position.replace(/[()]/g,"").split(",");
           element += station.getListString(nationalID);
-        }catch(e){console.log(e); console.log(nearby.chargers[id]); console.log(id);}
+        }catch(e){
+          if(app.debug){
+            console.log(e);
+            console.log(nearby.chargers[id]);
+            console.log(id);
+          }
+        }
       }
     }
     $('#chargers-nearby').html(element);

@@ -11,6 +11,7 @@
 */
 
 var app = {
+  debug: false,
   date : new Date(),
   initiatedMap : false,
   path : 'http://frigg.hiof.no/bo16-g6/webapp/',
@@ -122,7 +123,11 @@ var app = {
               $('#map').removeClass('toggle');
             }
         }
-      }catch(e){console.log(e);}
+      }catch(e){
+        if(app.debug){
+          console.log(e);
+        }
+      }
     },
     login: function(form){
       var path = "";
@@ -162,12 +167,20 @@ var app = {
                   station.favorite.updateRoutes();
                 }catch(e){}
               }
-            }catch(e){console.log(e);}
+            }catch(e){
+              if(app.debug){
+                console.log(e);
+              }
+            }
             try{
               if(result.settings != null){
                 app.user.loadSettings(result.settings);
               }
-            }catch(e){console.log(e);}
+            }catch(e){
+              if(app.debug){
+                console.log(e);
+              }
+            }
             app.loggedIn = true;
             $('#title button').html('Logg ut');
             $('#auth').hide();
@@ -406,11 +419,15 @@ var app = {
     doInBackground : null,
     intervalTime : 0,
     updateBackgroundTimer: function (minutes){
-      console.log("Timer is now: " + minutes);
+      if(app.debug){
+        console.log("Timer is now: " + minutes);
+      }
       app.download.intervalTime = minutes * 60000;
       clearInterval(app.download.doInBackground);
       app.download.doInBackground = setInterval(function() {
-        console.log("The time has come!");
+        if(app.debug){
+          console.log("The time has come!");
+        }
         if(app.download.hasDownloaded){
             app.download.hasDownloaded = false;
             if(app.device.phonegap){
@@ -419,7 +436,9 @@ var app = {
               app.download.getDump();
             }
         }else{
-          console.log("nope..");
+          if(app.debug){
+            console.log("Not ready to download yet after all");
+          }
         }
       }, app.download.intervalTime)
     },
@@ -432,33 +451,6 @@ var app = {
     },
     getDumpPhoneGap: function(){
       $.ajax({
-        xhr: function()
-        {
-          $('#download-progression').show();
-          var xhr = new window.XMLHttpRequest();
-          //Upload progress
-          xhr.upload.addEventListener("progress", function(evt){
-            if (evt.lengthComputable) {
-              var percentComplete = evt.loaded / evt.total;
-              //Do something with upload progress
-              console.log(percentComplete);
-            }
-          }, false);
-          //Download progress
-          xhr.addEventListener("progress", function(evt){
-            if (evt.lengthComputable) {
-              var percentComplete = evt.loaded / evt.total;
-              var downloaded = (evt.loaded/1000000).toFixed(2);
-              var totalSize = (evt.total/1000000).toFixed(2);
-              //Do something with download progress
-              $('.dl-progress').text(Math.round(percentComplete * 100) + '%');
-              $('.dl-progressbar').css('width', function (){ return Math.round(percentComplete * 100) + '%'});
-              $('.dl-progress-text').text(downloaded + '/' + totalSize + 'MB');
-              console.log(Math.round(percentComplete * 100) + '%');
-            }
-          }, false);
-          return xhr;
-        },
         crossDomain: true,
         type: 'POST',
         datatype:'json',
@@ -476,8 +468,10 @@ var app = {
           event.preventDefault();
         },
         error: function(err){
-          console.log("Unable to download file: ");
-          console.log(JSON.stringify(err));
+          if(app.debug){
+            console.log("Unable to download file: ");
+            console.log(JSON.stringify(err));
+          }
           $('#download-progression').hide();
           app.download.hasDownloaded = true;
         }
@@ -488,33 +482,6 @@ var app = {
       try{
         $('.dl-progress-text').text("Laster ned stasjoner");
         $.ajax({
-          xhr: function()
-          {
-            $('#download-progression').show();
-            var xhr = new window.XMLHttpRequest();
-            //Upload progress
-            xhr.upload.addEventListener("progress", function(evt){
-              if (evt.lengthComputable) {
-                var percentComplete = evt.loaded / evt.total;
-                //Do something with upload progress
-                console.log(percentComplete);
-              }
-            }, false);
-            //Download progress
-            xhr.addEventListener("progress", function(evt){
-              if (evt.lengthComputable) {
-                var percentComplete = evt.loaded / evt.total;
-                var downloaded = (evt.loaded/1000000).toFixed(2);
-                var totalSize = (evt.total/1000000).toFixed(2);
-                //Do something with download progress
-                $('.dl-progress').text(Math.round(percentComplete * 100) + '%');
-                $('.dl-progressbar').css('width', function (){ return Math.round(percentComplete * 100) + '%'});
-                $('.dl-progress-text').text(downloaded + '/' + totalSize + 'MB');
-                console.log(Math.round(percentComplete * 100) + '%');
-              }
-            }, false);
-            return xhr;
-          },
           dataType: 'jsonp',
           url: app.api.url,
           data: {
@@ -527,15 +494,19 @@ var app = {
             app.download.finalize(data);
           },
           error: function(err){
-            console.log("Unable to download file: ");
-            console.log("URL: "+ app.api.url);
-            console.log(JSON.stringify(err));
+            if(app.debug){
+              console.log("Unable to download file: ");
+              console.log("URL: "+ app.api.url);
+              console.log(JSON.stringify(err));
+            }
             $('#download-progression').hide();
             app.download.hasDownloaded = true;
           }
         });
       }catch(err){
-        console.log("Failed: " + err);
+        if(app.debug){
+          console.log("Failed: " + err);
+        }
         $('.dl-progress-text').text("Nedlasingen har feilet med følgende feilmelding: " + err);
       }
     },
@@ -720,8 +691,10 @@ var app = {
       if (window.location.protocol !== "https:" && !app.device.phonegap){
         window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
       }
-      console.log('code: '    + error.code    + '\n' +
-        'message: ' + error.message + '\n');
+      if(app.debug){
+        console.log('code: '    + error.code    + '\n' +
+          'message: ' + error.message + '\n');
+      }
     },
     handleLocationError: function (browserHasGeolocation, infoWindow, pos) {
       infoWindow.setPosition(pos);
@@ -827,6 +800,7 @@ var app = {
    * A function for initiating the app
   */
   init: function(){
+    app.debug = window.hostname ? false : true;
     if (window.location.protocol !== "https:" && !app.device.phonegap && window.hostname !== undefined){
       window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
     }
@@ -838,13 +812,17 @@ var app = {
     $('#waypoint-list').sortable({
         start: function(event, ui) {
           station.favorite.waypoint.start_pos = ui.item.index();
-          console.log('started ' + ui.item.index());
+          if(app.debug){
+            console.log('started ' + ui.item.index());
+          }
         },
         update: function(event, ui) {
           var start_pos = station.favorite.waypoint.start_pos;
           var end_pos = ui.item.index();
-          console.log(ui.item);
-          console.log('Dropped -> re-building route' + 'f' + start_pos + 't' + end_pos);
+          if(app.debug){
+            console.log(ui.item);
+            console.log('Dropped -> re-building route' + 'f' + start_pos + 't' + end_pos);
+          }
           navigation.waypoints.splice(end_pos, 0, navigation.waypoints.splice(start_pos, 1)[0]);
           navigation.waypointsData.splice(end_pos, 0, navigation.waypointsData.splice(start_pos, 1)[0]);
           navigation.build();
@@ -950,7 +928,11 @@ var app = {
         });
         app.map.fitBounds(bounds);
       });
-    }catch(e){console.log(e);}
+    }catch(e){
+      if(app.debug){
+        console.log(e);
+      }
+    }
 
     //Users current position marker
     var scaleSize = app.device.isIOS ? 15 : 15;
