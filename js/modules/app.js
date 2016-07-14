@@ -718,8 +718,9 @@ var app = {
       }
     },
     onError: function (error) {
-      if (window.location.protocol !== "https:" && !app.device.phonegap)
+      if (window.location.protocol !== "https:" && !app.device.phonegap){
         window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+      }
       console.log('code: '    + error.code    + '\n' +
         'message: ' + error.message + '\n');
     },
@@ -827,6 +828,9 @@ var app = {
    * A function for initiating the app
   */
   init: function(){
+    if (window.location.protocol !== "https:" && !app.device.phonegap && window.hostname !== 'localhost'){
+      window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+    }
     app.eventListeners.init();
     app.download.init();
     station.init();
