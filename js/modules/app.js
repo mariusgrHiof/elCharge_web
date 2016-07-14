@@ -800,7 +800,7 @@ var app = {
    * A function for initiating the app
   */
   init: function(){
-    app.debug = window.hostname ? false : true;
+    app.debug = window.location.hostname === 'localhost';
     if (window.location.protocol !== "https:" && !app.device.phonegap && window.hostname !== undefined){
       window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
     }
