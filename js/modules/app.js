@@ -11,6 +11,18 @@
 */
 
 var app = {
+  array: {
+    unique: function(arr) {
+      var a = arr.concat();
+      for(var i=0; i<a.length; ++i) {
+        for(var j=i+1; j<a.length; ++j) {
+          if(a[i] === a[j])
+            a.splice(j--, 1);
+        }
+      }
+      return a;
+    }
+  },
   debug: false,
   date : new Date(),
   initiatedMap : false,
@@ -519,17 +531,26 @@ var app = {
         isLive;
 
       for(var i in data.chargerstations){
-        id = data.chargerstations[i].csmd.International_id;
-        station.list[id] = data.chargerstations[i];
-        //For updated stations
-        if(station.markers[id] !== undefined){
-          isLive = (station.list[id].attr.st[21].attrvalid === "1");
-          station.markers[id].setIcon(station.getMarkerIcon( (station.list[id].csmd.Number_charging_points),id , isLive ));
-          if(id === station.visibleInfoWindowID){
-            google.maps.event.trigger(station.markers[id], 'click');
+        try{
+          id = data.chargerstations[i].csmd.International_id;
+          station.list[id] = data.chargerstations[i];
+          //For updated stations
+          if(station.markers[id] !== undefined){
+            isLive = (station.list[id].attr.st[21].attrvalid === "1");
+            station.markers[id].setIcon(station.getMarkerIcon( (station.list[id].csmd.Number_charging_points),id , isLive ));
+            if(id === station.visibleInfoWindowID){
+              google.maps.event.trigger(station.markers[id], 'click');
+            }
+          }else{
+             station.generateMarker(id);
           }
-        }else{
-           station.generateMarker(id);
+        }catch(e){
+          if(app.debug){
+            console.log('ERROR: ' + e);
+            try{
+              console.log(data.chargerstations[i]);
+            }catch(ex){}
+          }
         }
       }
       if(app.loggedIn){
@@ -786,7 +807,7 @@ var app = {
     }
   },
   inArray: function(key, array) {
-    return $.inArray(key, array)>0;
+    return $.inArray(key, array)>-1;
   },
   inArrayVal: function (value, array){
     for(var i in array){
@@ -801,7 +822,7 @@ var app = {
   */
   init: function(){
     app.debug = window.location.hostname === 'localhost';
-    if (window.location.protocol !== "https:" && !app.device.phonegap && window.hostname !== undefined){
+    if (window.location.protocol !== "https:" && !app.device.phonegap && !app.debug){
       window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
     }
     app.eventListeners.init();
@@ -985,6 +1006,7 @@ var app = {
 };
 
 /*
+ -> Prototypes
  * For recognizing if there is summer or wintertime
 */
 Date.prototype.stdTimezoneOffset = function() {

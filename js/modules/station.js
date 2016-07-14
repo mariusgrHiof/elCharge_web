@@ -137,6 +137,9 @@ var station = {
               }
             }
           }
+          if(app.debug){
+            console.log('Conn type: ' + station.list[id].attr.conn[c][4].trans + ' with id: ' + station.list[id].attr.conn[c][4].attrvalid);
+          }
           result +=
             '<div class="cpelements">'+
               '<span style="color:black; max-width:80%; float:left;">'+
@@ -766,27 +769,27 @@ var station = {
   },
   init: function() {
     station.conns.carModels = {
-      'Nissan Leaf' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-      'BMW i3' : station.conns.types.schuko.concat(station.conns.types.type2, station.conns.types.combo),
+      'Nissan Leaf' : app.array.unique(station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo)),
+      'BMW i3' : app.array.unique(station.conns.types.schuko.concat(station.conns.types.type2, station.conns.types.combo)),
       'Buddy' : station.conns.types.schuko,
-      'Citroën Berlingo' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-      'Citroën C-ZERO' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-      'Ford Focus Electric' : station.conns.types.schuko.concat(station.conns.types.schuko,station.conns.types.type1, station.conns.types.type2),
-      'Kia Soul Electric' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-      'Mercedes B-klasse ED' : station.conns.types.schuko.concat(station.conns.types.type2),
-      'Mitsubishi i-MIEV' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-      'Nissan e-NV200/Evalia' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-      'Peugeot iOn' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-      'Peugeot Partner' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
-      'Renault Kangoo ZE' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2),
+      'Citroën Berlingo' : app.array.unique(station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo)),
+      'Citroën C-ZERO' : app.array.unique(station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo)),
+      'Ford Focus Electric' : app.array.unique(station.conns.types.schuko.concat(station.conns.types.schuko,station.conns.types.type1, station.conns.types.type2)),
+      'Kia Soul Electric' : app.array.unique(station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo)),
+      'Mercedes B-klasse ED' : app.array.unique(station.conns.types.schuko.concat(station.conns.types.type2)),
+      'Mitsubishi i-MIEV' : app.array.unique(station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo)),
+      'Nissan e-NV200/Evalia' : app.array.unique(station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo)),
+      'Peugeot iOn' : app.array.unique(station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo)),
+      'Peugeot Partner' : app.array.unique(station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo)),
+      'Renault Kangoo ZE' : app.array.unique(station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2)),
       'Renault Twizy' : station.conns.types.schuko,
-      'Renault Zoe' : station.conns.types.schuko.concat(station.conns.types.type2),
+      'Renault Zoe' : app.array.unique(station.conns.types.schuko.concat(station.conns.types.type2)),
       'Reva' : station.conns.types.schuko,
-      'Tesla Model S' : station.conns.types.schuko.concat(station.conns.types.type2, station.conns.types.ind3pin, station.conns.types.ind5pin, station.conns.types.teslaModelS),
-      'Tesla Roadster' : station.conns.types.schuko.concat(station.conns.types.teslaRoadster),
+      'Tesla Model S' : app.array.unique(station.conns.types.schuko.concat(station.conns.types.type2, station.conns.types.ind3pin, station.conns.types.ind5pin, station.conns.types.teslaModelS)),
+      'Tesla Roadster' : app.array.unique(station.conns.types.schuko.concat(station.conns.types.teslaRoadster)),
       'Think' : station.conns.types.schuko,
-      'VW e-Golf' : station.conns.types.schuko.concat(station.conns.types.type2, station.conns.types.combo),
-      'VW e-up!' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2),
+      'VW e-Golf' : app.array.unique(station.conns.types.schuko.concat(station.conns.types.type2, station.conns.types.combo)),
+      'VW e-up!' : app.array.unique(station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2)),
     }
   }
 };
