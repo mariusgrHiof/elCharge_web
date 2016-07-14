@@ -43,7 +43,7 @@ var station = {
   semiFastCharge : 12,
   fastCharge : 43,
   markerClusterer : null,
-  bindStationNames : function(){
+  bindStationNames: function(){
     $('a.station').unbind();
     $('a.station').bind('click', function(){
       google.maps.event.trigger(station.markers[station.list[$(this).attr('value')].markerID], 'click');
@@ -108,11 +108,11 @@ var station = {
       21 : {'id':21, 'name':'Less then 100 kW + 22 kW - 500VDC max 50A + 400V 3-phase max 32A','current':'DC', 'kW':22, 'volt':400, 'ampere':32},
       22 : {'id':22, 'name':'135 kW - 480VDC max 270A','current':'DC', 'kW':135, 'volt':480, 'ampere':270}
     },
-    connCapacityString : function(id, connectorID){
+    connCapacityString: function(id, connectorID){
       var capacity = station.conns.capacity[station.list[id].attr.conn[connectorID][5].attrvalid].kW;
       return capacity >= station.fastCharge ? capacity + "kW " + 'hurtiglader' : (capacity >= station.semiFastCharge ? capacity + "kW " +"semihurtig": capacity + "kW "+ "vanlig");
     },
-    getString : function(id, isLive){
+    getString: function(id, isLive){
       var isInService = true,
         connStatus = "9";
       station.conns.numFaulty = 0;
@@ -153,7 +153,7 @@ var station = {
       return result += "</div>";
     },
     // TODO: connectorImg
-    getImg : function(connType) {
+    getImg: function(connType) {
       var imgStart = '<img class="float-right" src="icons/conn/',
         imgEnd = '" style="max-height:2em; max-width:2em;"/>',
         result = '';
@@ -206,7 +206,7 @@ var station = {
       //For draggable WP's
       start_pos: 0
     },
-    searchRoute : function(){
+    searchRoute: function(){
       //TODO: Fix!!
       var list = [];
       for(var i in station.favorite.routeList){
@@ -215,13 +215,13 @@ var station = {
       console.log(list);
       station.favorite.routeNames = list;
     },
-    saveRoute : function(id){
+    saveRoute: function(id){
       $('#save-route').show();
       $('.route-search').autocomplete({
         source : station.favorite.routeNames
       });
     },
-    addRoute : function(element){
+    addRoute: function(element){
       var path ="",
         saveAsName = $('#save-as').val(),
         saveAs = false,
@@ -281,7 +281,7 @@ var station = {
       $(element).parent().hide();
       return false;
     },
-    addStation : function(id){
+    addStation: function(id){
       var path ="";
       if(app.device.phonegap){
         path += app.path;
@@ -296,7 +296,7 @@ var station = {
       });
       return false;
     },
-    deleteStation : function(element){
+    deleteStation: function(element){
       var path ="",
         id = $(element).parent().parent().attr('value');
       if(app.device.phonegap){
@@ -318,7 +318,7 @@ var station = {
       });
       return false;
     },
-    deleteRoute : function(element){
+    deleteRoute: function(element){
       var path ="";
       if(app.device.phonegap){
         path += app.path;
@@ -337,7 +337,7 @@ var station = {
       });
       return false;
     },
-    editRoute : function(element){
+    editRoute: function(element){
       var path ="",
         id = $(element).parent().parent().attr('value');
       if(app.device.phonegap){
@@ -355,12 +355,12 @@ var station = {
       });
       return false;
     },
-    updateRoutes : function(){
+    updateRoutes: function(){
       var id, txt = '';
       for(var i in station.favorite.routeList){
         id = station.favorite.routeList[i].route_id;
         txt +=
-          '<li class="border clear-both" value="' + i + '" style="height:4em; width:auto; padding: 0.5em 0 0.5em 0;">' +
+          '<li class="border clear-both" value="' + i + '" style="padding: 0.5em 0 0.5em 0;">' +
             '<div class="float-left clear-both" >'+
               '<strong class="float-left oneliner">' + station.favorite.routeList[i].name.substring(0,40) + (station.favorite.routeList[i].name.length > 40 ? '...' : '') + '</strong>' +
               '<button class="float-right" style="border:none; background:transparent; padding: 0.4em; color:black;" onclick="station.favorite.deleteRoute(this)">X</button>' +
@@ -376,62 +376,29 @@ var station = {
       $("#favorite-routes").html(txt);
       station.favorite.searchRoute();
     },
-    updateStations : function(){
+    updateStations: function(){
       var id, txt = '';
       for(var i = 0, x = station.favorite.stationList.length; i < x; i++){
         try{
           id = station.favorite.stationList[i].station_id;
-          txt +=
-            '<li class="border" value="' + id + '" style="height:6em; width:auto; padding: 0.5em 0 0.5em 0;">' +
-              '<img class="cover-third float-left img-height-4em" src=\"' + station.getImage(id) + '\"/>' +
-              '<div class="chargePointColor" style="height:6em;background-color:' +
-              //TODO: Num of faulty gjelder kun for den siste som var lagt til av markers!
-                (station.conns.numFaulty / station.list[id].csmd.Number_charging_points === 1 ? "red" : (station.list[id].attr.st[21].attrvalid === "1" ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ';">' +
-                "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"station.favorite.deleteStation(this)\">X</button>" +
-              '</div>'+
-              '<div class="float-left" style="padding-left:1em; width:calc(50% - 1em);">'+
-                '<strong class="float-left"><a class="station oneliner" style="padding-left:0;" href="#" value="' + id + '">' + station.list[id].csmd.name.substring(0,28) + (station.list[id].csmd.name.length > 28 ? '...' : '') + '</a></strong><br />'+
-                '<span class="float-left"><strong>Adresse: </strong> '+ station.list[id].csmd.Street +" " + station.list[id].csmd.House_number + ", " /*TODO: fix+ station.list[id].csmd.Zipcode + ' '*/ + station.list[id].csmd.City.substring(0,1) + station.list[id].csmd.City.toLowerCase().substring(1) +'</span>' +
-                '<span class="float-left"><strong>Distanse: </strong>' + nearby.compareDistance(app.gps.geopos, station.list[id].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>' +
-                '<button class="float-right nav-here" onclick="navigation.fromUser(this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
-                '<div class="clear-both">' +//read-more
-                '</div>' +
-              '</div>' +
-            '</li>';
+          txt += station.getListString(id);
         }catch(e){}
       }
       $("#favorite-stations").html(txt);
       station.bindStationNames();
     },
-    restoreRoute : function(element){
-      var r_id = $(element).parent().parent().attr('value'),
-        content = '',
-        id,
-        isLive;
+    restoreRoute: function(element){
+      var r_id = $(element).parent().parent().attr('value');
       $('#nav-start-pos').val(station.favorite.routeList[r_id].route.start);
       navigation.waypoints = station.favorite.routeList[r_id].route.waypoints;
       navigation.waypointsData = station.favorite.routeList[r_id].route.waypointsData;
       $('#nav-end-pos').val(station.favorite.routeList[r_id].route.end);
 
-      for(var i = 0, x = navigation.waypoints.length; i < x; i++){
-        if(navigation.waypointsData[i].isStation){
-          id = navigation.waypointsData[i].station_id;
-          isLive = navigation.waypointsData[i].isLive;
-          content += station.getWPString(id, isLive);
-        }else{
-          content += "<li class='route-element'>" +
-            "<div class='float-left' style='max-width:90%;'>"+
-              navigation.waypointsData[i].address +
-            "</div>"+
-            "<div class='float-right'><button onclick=\"station.removeWaypoint(this)\">X</button></div>" +
-          "</li>";
-        }
-      }
-      $('#waypoint-list').html(content);
+      station.updateRouteWPStrings();
       navigation.build();
     }
   },
-  updateCarList : function(){
+  updateCarList: function(){
     //Adding elements to the car list dropdown
     var txt = '<option value="0">Vis alle ladere</option>';
     for(var car in station.conns.carModels){
@@ -439,7 +406,7 @@ var station = {
     }
     $('#select-car').html(txt);
   },
-  generateMarker : function(id){
+  generateMarker: function(id){
     try{
       if($('#select-car').val() !=0 || station.selectedCapacity != 0){
         station.conns.list.length = 0;
@@ -451,7 +418,7 @@ var station = {
       }
     }catch(err){console.log(err);}
   },
-  generateMarkers : function(){
+  generateMarkers: function(){
     $('#download-progression').show();
     if($('#select-car').val() !=0){
       station.user.carConns = station.conns.carModels[$('#select-car').val()];
@@ -475,8 +442,9 @@ var station = {
       nearby.update();
     }
     station.favorite.updateStations();
+    station.updateRouteWPStrings();
   },
-  deleteMarkers : function(){
+  deleteMarkers: function(){
     //Memory managenent
     app.setMapOnAll(null);
     station.markerListeners.length = 0;
@@ -484,7 +452,7 @@ var station = {
     nearby.chargers.length = 0;
     station.markers = [];
   },
-  getCarMatch : function(id){
+  getCarMatch: function(id){
     var match = false,
       connType,
       hasFastCharge_temp = false,
@@ -521,14 +489,14 @@ var station = {
     return match;
   },
   //TODO: station.getImage
-  getImage : function(id){
+  getImage: function(id){
     try{
       return (/kommer/i.test(station.list[id].csmd.Image.toLowerCase()) || /no.image.svg/i.test(station.list[id].csmd.Image.toLowerCase())? 'icons/logo.svg' : ((window.location.protocol !== "https:" ? 'http' : 'https') + '://www.nobil.no/img/ladestasjonbilder/'+ station.list[id].csmd.Image) );
     }catch(e){
       console.log("Failed for: " + id + " MSG: " + e);
     }
   },
-  getMarkerIcon : function(numOfPorts, id, isLive){
+  getMarkerIcon: function(numOfPorts, id, isLive){
     //Changing the color of the marker based on if it has live status or not.
     return 'icons/' + (
       isLive ? (station.hasFastCharge ?
@@ -546,7 +514,7 @@ var station = {
         )
       ) + '.svg';
   },
-  addMarker : function(numOfPorts, id){
+  addMarker: function(numOfPorts, id){
     //Adding markers
     var pos = station.list[id].csmd.Position.replace(/[()]/g,"").split(","),
       isLive = station.list[id].attr.st[21].attrvalid === "1",
@@ -624,7 +592,7 @@ var station = {
   /*
    *  along a given route
    */
-  addWaypoint : function(id){
+  addWaypoint: function(id){
     try{
       var disPos = station.list[id].csmd.Position.replace(/[()]/g,"").split(","),
         isLive = station.list[id].attr.st[21].attrvalid === "1";
@@ -647,7 +615,7 @@ var station = {
     }catch(e){console.log(e);}
     station.bindStationNames();
   },
-  removeWaypoint : function(element){
+  removeWaypoint: function(element){
     var parent = $(element).parent().parent(),
       index = $(parent).index();
 
@@ -664,13 +632,53 @@ var station = {
       navigation.build();
     }
   },
-  occupiedStatus : function(id){
+  occupiedStatus: function(id){
     return parseFloat(station.list[id].csmd.Available_charging_points) / parseFloat(station.list[id].csmd.Number_charging_points);
+  },
+  getListString: function(id){
+    return '<li class="border" value="' + id + '" style="width:auto; padding: 0.5em 0 0.5em 0;">' +
+      '<img class="cover-third float-left img-height-4em" src=\"' + station.getImage(id) + '\"/>' +
+      '<div class="chargePointColor" style="height:6em;background-color:' +
+      //TODO: Num of faulty gjelder kun for den siste som var lagt til av markers!
+        (station.conns.numFaulty / station.list[id].csmd.Number_charging_points === 1 ? "red" : (station.list[id].attr.st[21].attrvalid === "1" ? (station.occupiedStatus(id) < station.occupiedLimit ? "yellow":"lightgreen") : "blue")) + ';">' +
+        "<button style='border:none; background:transparent; padding: 0.4em; color:white;' onclick=\"station.favorite.deleteStation(this)\">X</button>" +
+      '</div>'+
+      '<div class="float-left" style="padding-left:1em; width:calc(50% - 1em);">'+
+        '<strong class="float-left"><a class="station oneliner" style="padding-left:0;" href="#" value="' + id + '">' + station.list[id].csmd.name.substring(0,28) + (station.list[id].csmd.name.length > 28 ? '...' : '') + '</a></strong><br />'+
+        '<span class="float-left"><strong>Adresse: </strong> '+ station.list[id].csmd.Street +" " + station.list[id].csmd.House_number + ", " /*TODO: fix+ station.list[id].csmd.Zipcode + ' '*/ + station.list[id].csmd.City.substring(0,1) + station.list[id].csmd.City.toLowerCase().substring(1) +'</span>' +
+        '<span class="float-left"><strong>Distanse: </strong>' + nearby.compareDistance(app.gps.geopos, station.list[id].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>' +
+        '<button class="float-right nav-here" onclick="navigation.fromUser(this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
+      '</div>' +
+      '<button class="float-right" onclick="app.menu.readMore(this)">Vis mer</button>'+
+      '<div class="read-more clear-both">' +
+        station.conns.getString(id,station.list[id].attr.st[21].attrvalid === "1") +
+      '</div>' +
+    '</li>';
+  },
+  updateRouteWPStrings: function(){
+    var content = '',
+      id,
+      isLive;
+    for(var i = 0, x = navigation.waypoints.length; i < x; i++){
+      if(navigation.waypointsData[i].isStation){
+        id = navigation.waypointsData[i].station_id;
+        isLive = navigation.waypointsData[i].isLive;
+        content += station.getWPString(id, isLive);
+      }else{
+        content += "<li class='route-element'>" +
+          "<div class='float-left' style='max-width:90%;'>"+
+            navigation.waypointsData[i].address +
+          "</div>"+
+          "<div class='float-right'><button onclick=\"station.removeWaypoint(this)\">X</button></div>" +
+        "</li>";
+      }
+    }
+    $('#waypoint-list').html(content);
   },
   /*
    * A method for generating the content of a infowindow
    */
-  getInfoWindowContent : function(id, isLive) {
+  getInfoWindowContent: function(id, isLive) {
     if($('#select-car').val() !=0){
       station.user.carConns = station.conns.carModels[$('#select-car').val()];
     }
@@ -714,13 +722,13 @@ var station = {
       "</div>"+
     "</div>";
   },
-  showHideMarkers : function(ele){
+  showHideMarkers: function(ele){
     var visible = true;
     for(var marker in station.markers)
       station.markers[marker].setVisible(!station.markers[marker].getVisible());
     $(ele).html(!visible ? 'Skjul markører' : 'Vis markører');
   },
-  init : function() {
+  init: function() {
     station.conns.carModels = {
       'Nissan Leaf' : station.conns.types.schuko.concat(station.conns.types.type1, station.conns.types.type2, station.conns.types.chademo),
       'BMW i3' : station.conns.types.schuko.concat(station.conns.types.type2, station.conns.types.combo),

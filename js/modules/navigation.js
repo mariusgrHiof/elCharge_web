@@ -10,7 +10,7 @@ var navigation = {
   display : null,
   jsonRoute : {},
   route : [],
-  build : function (){
+  build: function (){
     if($("#right-panel").html() !== ''){
       $("#right-panel").html('')
     } //The route description
@@ -48,7 +48,7 @@ var navigation = {
     });
     navigation.displayRoute(navigation.startDestination, navigation.endDestination, navigation.service,navigation.display);
   },
-  fromUser : function (toel){
+  fromUser: function (toel){
     //Cleaning out the route before we build a new one
     navigation.clearRoute();
     if($("#right-panel").html() !== ''){
@@ -79,7 +79,7 @@ var navigation = {
     });
     navigation.displayRoute(navigation.startDestination, navigation.endDestination, navigation.service, navigation.display);
   },
-  fromUserSearch : function (){
+  fromUserSearch: function (){
     navigation.clearRoute();
     if($("#right-panel").html() !== ''){
       $("#right-panel").html("");
@@ -111,7 +111,7 @@ var navigation = {
     });
     navigation.displayRoute(navigation.startDestination, navigation.endDestination, navigation.service, navigation.display);
   },
-  clearRoute : function(){
+  clearRoute: function(){
     if(navigation.display !== null){
       $("#right-panel").html("");
       navigation.display.setMap(null);//The route in the map
@@ -124,7 +124,7 @@ var navigation = {
     );
     navigation.waypoints.length = 0;
   },
-  displayRoute : function (origin, destination, service, display) {
+  displayRoute: function (origin, destination, service, display) {
     var avoidTolls = !$('#route-option-tolls').prop('checked');
     var avoidHighways = !$('#route-option-highways').prop('checked');
     var provideRouteAlternatives = $('#route-option-alternative-routes').prop('checked');
@@ -149,7 +149,7 @@ var navigation = {
    * Calculating the distance between all the route points
    * And assigning route to array
    */
-  getTotalDistance : function (result) {
+  getTotalDistance: function (result) {
     var total = 0;
     navigation.route = result.routes[0];
     for (var i = 0, x = navigation.route.legs.length; i < x; i++){
@@ -163,7 +163,7 @@ var navigation = {
     //Showing the path elevation
     elevation.displayForPath(navigation.route, elevation.service);
   },
-  getRouteData : function () {
+  getRouteData: function () {
     var x = navigation.route.legs.length;
     for(var i = 0; i < x; i++){
       if(i === 0){
@@ -183,7 +183,7 @@ var navigation = {
       }
     }
   },
-  getLocationNameFromLatLng : function (latlng){
+  getLocationNameFromLatLng: function (latlng){
     var request = new XMLHttpRequest(),
       method = 'GET',
       url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+latlng.lat().toFixed(4) +','+latlng.lng().toFixed(4) +'&sensor=true',
@@ -198,7 +198,7 @@ var navigation = {
     };
     request.send();
   },
-  showDraggedInListAdress : function (ltlng, address){
+  showDraggedInListAdress: function (ltlng, address){
     navigation.waypointsData.push(
       {
         isStation : false,

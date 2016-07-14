@@ -75,17 +75,17 @@ var app = {
   },
   loggedIn : false,
   login : {
-    showPopup : function(){
+    showPopup: function(){
       $('#register-popup').hide();
       $('#login-popup').show();
     },
-    hidePopup : function(){
+    hidePopup: function(){
       $('#login-popup').hide();
     },
-    closeForm : function(){
+    closeForm: function(){
       $('#auth').hide();
     },
-    showForm : function(){
+    showForm: function(){
       if(app.loggedIn){
         app.buttons.logout();
         app.loggedIn = false;
@@ -98,15 +98,15 @@ var app = {
   register : {
     validMail : true,
     validPassword : true,
-    showPopup : function(){
+    showPopup: function(){
       $('#register-popup').show();
     },
-    hidePopup : function(){
+    hidePopup: function(){
       $('#register-popup').hide();
     }
   },
   buttons : {
-    slideInMenu : function(){
+    slideInMenu: function(){
       try{
         var target = $('.menu');
         var em = parseInt($("html").css("font-size"));
@@ -127,7 +127,7 @@ var app = {
         }
       }catch(e){console.log(e);}
     },
-    login : function(form){
+    login: function(form){
       var path = "";
       if(app.device.phonegap){
         path += app.path;
@@ -187,7 +187,7 @@ var app = {
       );
       return false;
     },
-    logout : function(){
+    logout: function(){
       var path = "";
       if(app.device.phonegap){
           path += app.path;
@@ -202,7 +202,7 @@ var app = {
       });
       station.favorite.updateStations();
     },
-    register : function(form){
+    register: function(form){
       var path = "",
         uname = $(form).children(":input[name='username']").val(),
         pw = $(form).children(":input[name='password']").val(),
@@ -228,7 +228,7 @@ var app = {
       }
       return false;
     },
-    lockMapToUser : function(ele){
+    lockMapToUser: function(ele){
       //Making it so that the user can toggle if they want the map to follow or not
       app.gps.lockPos = !app.gps.lockPos;
       if($(ele).hasClass('lock-pos')){
@@ -242,7 +242,7 @@ var app = {
     }
   },
   eventListeners : {
-    loginRegister : function(){
+    loginRegister: function(){
       /*
        * Login & Register
       */
@@ -303,7 +303,7 @@ var app = {
         }
       );
     },
-    textButtons : function (){
+    textButtons: function (){
       /*
        * Text as buttons
       */
@@ -336,7 +336,7 @@ var app = {
         }
       );
     },
-    input : function(){
+    input: function(){
       /**
        * Input listeners
        */
@@ -377,14 +377,14 @@ var app = {
         }
       );
     },
-    init : function(){
+    init: function(){
       app.eventListeners.loginRegister();
       app.eventListeners.textButtons();
       app.eventListeners.input();
     }
   },
   menu : {
-    selectHandeler : function (parent, remove){
+    selectHandeler: function (parent, remove){
       $(parent).children('li').each(
         function(){
           if(!$(this).children('h2, span').next().hasClass('toggle')){
@@ -395,7 +395,7 @@ var app = {
         }
       );
     },
-    readMore : function(ele){
+    readMore: function(ele){
       if(!$(ele).hasClass('toggle')){
         $(ele).addClass('toggle');
       }else{
@@ -411,7 +411,7 @@ var app = {
     animationFaded : false,
     doInBackground : null,
     intervalTime : 0,
-    updateBackgroundTimer : function (minutes){
+    updateBackgroundTimer: function (minutes){
       console.log("Timer is now: " + minutes);
       app.download.intervalTime = minutes * 60000;
       clearInterval(app.download.doInBackground);
@@ -429,14 +429,14 @@ var app = {
         }
       }, app.download.intervalTime)
     },
-    stopBackgroundTimer : function (){
+    stopBackgroundTimer: function (){
       clearInterval(app.download.doInBackground);
     },
-    updateTime : function (){
+    updateTime: function (){
       //Updating the time for when the last update was performed
       app.download.lastDownloaded = app.date.getFullYear() + "-" + (app.date.getMonth() + 1) + "-" + app.date.getDate();
     },
-    getDumpPhoneGap : function(){
+    getDumpPhoneGap: function(){
       $.ajax({
         xhr: function()
         {
@@ -489,7 +489,7 @@ var app = {
         }
       });
     },
-    getDump : function(){
+    getDump: function(){
       $('#download-progression').show();
       try{
         $('.dl-progress-text').text("Laster ned stasjoner");
@@ -545,7 +545,7 @@ var app = {
         $('.dl-progress-text').text("Nedlasingen har feilet med følgende feilmelding: " + err);
       }
     },
-    finalize : function (data){
+    finalize: function (data){
       if(app.download.lastDownloaded === "2005-01-01"){
         // We only need to create a empty array if we haven't already downloaded.
         station.list = [];
@@ -591,7 +591,7 @@ var app = {
       }
       app.download.updateTime();
     },
-    init : function(){
+    init: function(){
       dlAnimation = setInterval(
         function () {
           if(app.download.animationFaded){
@@ -611,7 +611,7 @@ var app = {
   layers : {
     trafficIsActive : false,
     trafficLayer : null,
-    traffic : function(){
+    traffic: function(){
         if(app.layers.trafficLayer === null){
             app.layers.trafficLayer = new google.maps.TrafficLayer();
         }
@@ -625,7 +625,7 @@ var app = {
         $("input[type=checkbox].onoffswitch-checkbox#traffic-layer").attr("checked", app.layers.trafficLayerIsActive);
     }
   },
-  setMapOnAll : function (map){
+  setMapOnAll: function (map){
     for (var i in station.markers) {
       station.markers[i].setMap(map);
     }
@@ -694,7 +694,7 @@ var app = {
     myLocationIndicator : {},
     pos : {},
     geopos : {},
-    onSuccess : function(position) {
+    onSuccess: function(position) {
       app.gps.geopos = [position.coords.latitude, position.coords.longitude];
       try{
         app.gps.pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -721,19 +721,19 @@ var app = {
         console.log(e);
       }
     },
-    onError : function (error) {
+    onError: function (error) {
       if (window.location.protocol !== "https:" && !app.device.phonegap)
         window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
       console.log('code: '    + error.code    + '\n' +
         'message: ' + error.message + '\n');
     },
-    handleLocationError : function (browserHasGeolocation, infoWindow, pos) {
+    handleLocationError: function (browserHasGeolocation, infoWindow, pos) {
       infoWindow.setPosition(pos);
       infoWindow.setContent(browserHasGeolocation ?
         'Error: The Geolocation service failed.' :
         'Error: Your browser doesn\'t support geolocation.');
     },
-    centerOnUser : function (camtilt){
+    centerOnUser: function (camtilt){
       //Refreshing user pos
       if(!app.device.isMobile){//Only for desktop
         navigator.geolocation.getCurrentPosition(app.gps.onSuccess, app.gps.onError);
@@ -746,16 +746,16 @@ var app = {
       app.map.setZoom(18);
     },
     //TODO: Rename all reffs
-    strToLtLng : function (pos){
+    strToLtLng: function (pos){
       var arr = pos.replace(/[()]/g,"").split(",");
       return new google.maps.LatLng(arr[0],arr[1]);
     }
   },
   time : {
-    getDaysInMonth : function(month,year) {
+    getDaysInMonth: function(month,year) {
       return new Date(year, month, 0).getDate();
     },
-    utcToNOR : function(time){
+    utcToNOR: function(time){
       //Date of update
       var d = time.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}/gm).toString().split('-'),
       //Time of update
@@ -774,7 +774,7 @@ var app = {
     isAndroid : false,
     isIOS : false,
     isWindows : false,
-    typeCheck : function(){
+    typeCheck: function(){
       var mobile = window.matchMedia("only screen and (max-width: 600px)");
       if (mobile.matches) {
         //Allowing us to have a absolute position on the map rather than relative (default)
@@ -800,7 +800,7 @@ var app = {
         $('head').append('<link rel="stylesheet" type="text/css" href="styles/android.css">');
       }
     },
-    onReady : function (){
+    onReady: function (){
       if(app.device.isIOS){
         app.download.getDump();
       }else{
@@ -811,15 +811,15 @@ var app = {
       document.addEventListener("pause", app.device.onPause, false);
       document.addEventListener("resume", app.device.onResume, false);
     },
-    onPause : function () {
+    onPause: function () {
     },
     onResume :function () {
     }
   },
-  inArray : function(key, array) {
+  inArray: function(key, array) {
     return $.inArray(key, array)>0;
   },
-  inArrayVal : function (value, array){
+  inArrayVal: function (value, array){
     for(var i in array){
       if(array[i] === value ){
         return true;
@@ -830,7 +830,7 @@ var app = {
   /*
    * A function for initiating the app
   */
-  init : function(){
+  init: function(){
     app.eventListeners.init();
     app.download.init();
     station.init();
@@ -874,7 +874,6 @@ var app = {
     });
     app.map.addListener('maptypeid_changed', function() {
       app.user.saveSettings();
-      console.log('d');
     });
     //restoring session if exsists
     app.buttons.login(null);

@@ -795,6 +795,15 @@ ul {
   -moz-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21);
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21); }
 
+li {
+  display: inline-block; }
+
+.route-options > ul > li {
+  width: 100%; }
+
+#menu-list > li {
+  width: 100%; }
+
 /*Mobile layout*/
 @media screen and (max-width: 600px) {
   html {

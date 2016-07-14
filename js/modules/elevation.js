@@ -47,7 +47,7 @@ var elevation = {
       titleY: 'Elevation (m)'
     });
   },
-  init : function(){
+  init: function(){
     elevation.service = new google.maps.ElevationService;
   }
 };

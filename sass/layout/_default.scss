@@ -383,3 +383,14 @@ ul{
 .ui-sortable-helper{
   @include box-shadow($color__shadow);
 }
+li{
+  display:inline-block;
+}
+.route-options>ul>li{
+  width:100%;
+}
+#menu-list{
+  &>li{
+    width:100%;
+  }
+}
