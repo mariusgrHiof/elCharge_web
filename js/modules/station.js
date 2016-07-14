@@ -380,7 +380,8 @@ var station = {
               '<span>Distanse: ' + station.favorite.routeList[i].distance + 'km </span>'+
               '<span>' + station.favorite.routeList[i].route.waypoints.length + ' rutepunkter</span>'+
               '<button class="float-right nav-here" onclick="station.favorite.restoreRoute(this)" value="">Ta meg hit</button>' +
-              '<div class="clear-both">' +//read-more
+              '<div class="clear-both">' +
+                'Kommentar: ' + station.favorite.routeList[i].comment +
               '</div>' +
             '</div>' +
         '</li>';
