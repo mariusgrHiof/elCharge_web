@@ -46,6 +46,7 @@ var station = {
   bindStationNames: function(){
     $('a.station').unbind();
     $('a.station').bind('click', function(){
+      app.map.setZoom(15);
       google.maps.event.trigger(station.markers[station.list[$(this).attr('value')].markerID], 'click');
     });
   },
@@ -201,7 +202,7 @@ var station = {
     stationList : [],
     routeList : [],
     distance : 0,
-    routeNames : ['test', 'test2'],
+    routeNames : [],
     waypoint: {
       //For draggable WP's
       start_pos: 0
@@ -225,8 +226,8 @@ var station = {
           if(saveAsName != ''){
             for(var i in station.favorite.routeList){
               if(station.favorite.routeList[i].name == saveAsName){
-                $('#js-save-route-form').find('textarea').val(station.favorite.routeList[i].comment);
-                $('#js-save-route-form').find(':input[name="route-name"]').val(station.favorite.routeList[i].name);
+                $('#save-route-form').find('textarea').val(station.favorite.routeList[i].comment);
+                $('#save-route-form').find(':input[name="route-name"]').val(station.favorite.routeList[i].name);
                 break;
               }
             }
@@ -250,7 +251,6 @@ var station = {
           if(station.favorite.routeList[i].name == saveAsName){
             saveAs = true;
             saveAsID = i;
-            console.log(saveAsName);
             break;
           }
         }
@@ -279,7 +279,6 @@ var station = {
         distance : station.favorite.distance,
         comment : $(element).find('textarea').val()
       }, function(result){
-        console.log(result);
         station.favorite.routeList[saveAs ? saveAsID : station.favorite.routeList.length] = {
           route_id : station.favorite.routeList.length,
           name : $(element).find(':input[name="route-name"]').val(),
@@ -288,6 +287,7 @@ var station = {
           comment : $(element).find('textarea').val()
         };
         station.favorite.updateRoutes();
+        $('#save-as').val('');
       });
       //Closing the window
       $(element).parent().hide();

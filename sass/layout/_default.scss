@@ -369,6 +369,8 @@ ul{
 	left: 0;
 	cursor: default;
   li{
+    width:100%;
+      background: $color__white !important;
     list-style: none;
     padding:0.5em;
   }
@@ -396,7 +398,7 @@ li{
 }
 
 #save-route{
-  ui-widget{
+  #save-route-form{
     padding: 1em;
   }
   textarea{

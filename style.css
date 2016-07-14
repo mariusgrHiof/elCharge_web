@@ -783,6 +783,8 @@ ul {
   left: 0;
   cursor: default; }
   .ui-autocomplete li {
+    width: 100%;
+    background: #FFFFFF !important;
     list-style: none;
     padding: 0.5em; }
   .ui-autocomplete .ui-state-focus {
@@ -804,7 +806,7 @@ li {
 #menu-list > li {
   width: 100%; }
 
-#save-route ui-widget {
+#save-route #save-route-form {
   padding: 1em; }
 #save-route textarea {
   height: 5em; }

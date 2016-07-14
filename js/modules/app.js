@@ -68,9 +68,7 @@ var app = {
       s.updateTimer = app.download.intervalTime;
       s.mapTypeId = app.map.mapTypeId;
       console.log(s);
-      $.post(path, {settings: JSON.stringify(s)}, function( data ){
-        console.log(data);
-      });
+      $.post(path, {settings: JSON.stringify(s)});
     }
   },
   loggedIn : false,
@@ -133,7 +131,6 @@ var app = {
         path += app.path;
       }
       path +="api/login.php";
-      console.log(path);
 
       //Logging the user in
       $.post(path,{
@@ -141,7 +138,6 @@ var app = {
           username: $(form).children(":input[name='username']").val(),
           password: $(form).children(":input[name='password']").val() },
         function( data ){
-          console.log('Output: ' + data);
           //Populating the user logged in window.
           //Cleaning out the array
           station.favorite.stationList.length = 0;
@@ -171,7 +167,6 @@ var app = {
             try{
               if(result.settings != null){
                 app.user.loadSettings(result.settings);
-                console.log(result.settings);
               }
             }catch(e){console.log(e);}
             app.loggedIn = true;

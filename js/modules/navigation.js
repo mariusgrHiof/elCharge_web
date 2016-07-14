@@ -44,6 +44,7 @@ var navigation = {
           }
           d += parseFloat($($('.adp-summary').eq(index).find(':first-child').get(0)).text().replace(' km', ''));
         });
+        station.bindStationNames();
       }, 1);
     });
     navigation.displayRoute(navigation.startDestination, navigation.endDestination, navigation.service,navigation.display);
