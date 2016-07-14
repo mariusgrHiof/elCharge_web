@@ -15,7 +15,7 @@ session_start();
 
 if (!isset($_SESSION['user_id'])) {
   $_SESSION['sessionId'] = uniqid();
-  $_SESSION['username'] = $_POST['username'];
+  $_SESSION['username'] = strtolower($_POST['username']);
   $_SESSION['logged_in'] = false;
   //Getting userID
   $sqlLogin = "select * from ec_user where username='" . filter_var($_SESSION['username'], FILTER_SANITIZE_STRING) . "'";
@@ -32,11 +32,11 @@ if (!isset($_SESSION['user_id'])) {
     if(password_verify($_POST['password'], $hash)){
     getUserData($conn, $result['settings']);
     }else{
-      echo "0";
+      echo "404";
     }
   }else {
     //0 incase the login fails
-    echo "0";
+    echo "404";
   }
 }else if($_SESSION['logged_in']){
   $result_login = $conn->query("select settings from ec_user where user_id='" . filter_var($_SESSION['user_id'], FILTER_SANITIZE_STRING) . "';");
@@ -48,7 +48,8 @@ if (!isset($_SESSION['user_id'])) {
   }
   getUserData($conn, $result['settings']);
 }else{
-  echo '0';
+  session_destroy();
+  echo '2';
 }
 
 $hash = '';

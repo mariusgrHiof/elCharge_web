@@ -51,6 +51,9 @@ var app = {
       if(app.download.hasDownloaded){
         station.generateMarkers();
       }
+      if(settings.mapTypeId != undefined){
+        app.map.setMapTypeId(settings.mapTypeId);
+      }
     },
     saveSettings: function () {
       var path = "", s = app.user.settings;
@@ -63,6 +66,7 @@ var app = {
       s.selectedCapacity = station.selectedCapacity;
       s.trafficOverlay = app.layers.trafficLayerIsActive;
       s.updateTimer = app.download.intervalTime;
+      s.mapTypeId = app.map.mapTypeId;
       console.log(s);
       $.post(path, {settings: JSON.stringify(s)}, function( data ){
         console.log(data);
@@ -144,7 +148,13 @@ var app = {
           station.favorite.routeList.length = 0;
           $("#favorite-stations").html("");
           $("#favorite-routes").html("");
-          if(data !== "0"){
+          if(data === '2'){
+            $('#login-form').html('Noe gikk galt, vennligst prøv på nytt.');
+          }else if(data == '404'){
+            if(app.download.hasDownloaded){
+              $('#login-form').html('Feil brukernavn eller passord.');
+            }
+          }else{
             var result = JSON.parse(data);
             if(result.stations != null && result.stations.length > 0){
               station.favorite.stationList = result.stations;
@@ -171,8 +181,7 @@ var app = {
             $(".favorite").each(function(){
               $(this).show();
             });
-          }else {
-            $('#login-form').html('Feil brukernavn eller passord');
+            $('#login-form').html('');
           }
         }
       );
@@ -826,8 +835,6 @@ var app = {
     app.download.init();
     station.init();
     elevation.init();
-    //restoring session if exsists
-    app.buttons.login(null);
     //Sortable waypoint list
     $('#waypoint-list').sortable({
         start: function(event, ui) {
@@ -865,6 +872,12 @@ var app = {
         position: google.maps.ControlPosition.RIGHT_BOTTOM
       }
     });
+    app.map.addListener('maptypeid_changed', function() {
+      app.user.saveSettings();
+      console.log('d');
+    });
+    //restoring session if exsists
+    app.buttons.login(null);
     //Finding user location with geolocation
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
