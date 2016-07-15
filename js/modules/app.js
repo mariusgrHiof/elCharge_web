@@ -792,7 +792,7 @@ var app = {
     },
     onReady: function (){
       if(app.device.isIOS){
-        app.download.getDump();
+        app.download.getDumpPhoneGap();
       }else{
         app.download.getDumpPhoneGap();
       }
@@ -988,7 +988,9 @@ var app = {
     //Downloading station data
     if(app.device.phonegap){
       //Safeguarding against timeout for the cordovaWebView
-      setTimeout(document.addEventListener("deviceready", app.device.onReady, false), 2000);
+      //TODO: fix?
+      //setTimeout(document.addEventListener("deviceready", app.device.onReady, false), 10000);
+        app.download.getDump();
     }else{
       app.download.getDump();
     }
