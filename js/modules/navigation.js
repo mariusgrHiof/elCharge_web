@@ -24,7 +24,7 @@ var navigation = {
     navigation.display = new google.maps.DirectionsRenderer({
       draggable: true,
       polylineOptions: {
-        strokeColor: 'black'
+        strokeColor: '#333333'
       },
       map: app.map,
       panel: $('#right-panel')[0]
