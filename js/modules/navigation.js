@@ -34,12 +34,16 @@ var navigation = {
     navigation.display.addListener('directions_changed', function() {
       navigation.getTotalDistance(navigation.display.getDirections());
       setTimeout(function(){
-        var d = 0;//distance from previous station
-        $('.adp-placemark').each(function(index){
+        var d = 0, ele = $('.adp-placemark'), length = ele.length;
+        ele.each(function(index){
+        console.log($(this).find('.adp-text').text());
           if(index != 0 && index <= navigation.waypointsData.length && navigation.waypointsData[index - 1].isStation){
             $(this).find('.adp-text').html(station.list[navigation.waypointsData[index - 1].station_id].csmd.name);
             $('.route-element').eq(index - 1).find('.js-distance').html(d + ' km fra forrige stasjon');
             d = 0;
+          }
+          if(index === length - 1){
+            $('#waypoint-dist-to-last .distance').html(d);
           }
           d += parseFloat($($('.adp-summary').eq(index).find(':first-child').get(0)).text().replace(' km', ''));
         });
@@ -167,6 +171,7 @@ var navigation = {
     var x = navigation.route.legs.length;
     for(var i = 0; i < x; i++){
       if(i === 0){
+        $('#nav-start-pos').val(navigation.route.legs[i].start_address);
         if(app.debug){
           //Getting starting pos
           console.log("Start pos is: " + navigation.route.legs[i].start_address);
@@ -182,6 +187,7 @@ var navigation = {
         navigation.getLocationNameFromLatLng(navigation.route.legs[i].via_waypoints[sWP],i, sWP); // Can be used for something fancy?
       }
       if (i === x -1){
+        $('#nav-end-pos').val(navigation.route.legs[i].end_address);
         if(app.debug){
           //Getting end destination
           console.log("End dest is: " + navigation.route.legs[i].end_address);

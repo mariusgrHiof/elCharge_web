@@ -4,7 +4,15 @@ h1,h2,h3,h4{
   font-family:  'Roboto','sans-serif';//Arial;
   color: $color__black;
 }
-
+h1{
+    font-size:200%;
+}
+h2{
+    font-size: 150%;
+}
+h3{
+    font-size: 120%;
+}
 /*Regular text*/
 p,a,li,input,button,select,label,em,strong{
   /*padding-left:1em;*/
@@ -18,4 +26,8 @@ p,a,li,input,button,select,label,em,strong{
 }
 button{
   padding:0.1em;
+}
+
+#infoLeft p{
+  margin: 0.5em 0 0.5em 0;
 }
