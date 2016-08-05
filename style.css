@@ -403,26 +403,32 @@ input {
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21); }
 
 /*Route planner*/
-.route-element > img {
-  max-height: 5em; }
-
-.route-element {
-  background: #FFFFFF;
-  clear: both;
-  float: left;
-  border-bottom: 1px black;
-  margin: 0.5em 0 0 0;
-  padding-left: 0 !important;
-  width: 100%; }
-  .route-element img {
-    max-width: 30%;
-    float: left; }
-  .route-element a {
-    padding-left: 1em; }
-  .route-element span {
-    padding: 0 0.5em 0 0.5em;
+#waypoint-list {
+  margin-left: -2.5em; }
+  #waypoint-list .route-element {
+    background: #FFFFFF;
+    clear: both;
     float: left;
-    max-width: 80%; }
+    border-bottom: 1px black;
+    margin: 0.5em 0 0 0;
+    padding: 0 !important;
+    width: 100%; }
+    #waypoint-list .route-element > img {
+      max-height: 5em; }
+    #waypoint-list .route-element img {
+      max-width: 30%;
+      float: left; }
+    #waypoint-list .route-element a {
+      padding-left: 1em; }
+    #waypoint-list .route-element span {
+      padding: 0 0.5em 0 0.5em;
+      float: left;
+      max-width: 80%; }
+
+#waypoint-dist-to-last {
+  margin: 0.5em 0 0 0;
+  background: #98E095;
+  width: 100%; }
 
 /*
 * Route options
@@ -924,6 +930,15 @@ h1, h2, h3, h4 {
   font-family: 'Roboto','sans-serif';
   color: #000000; }
 
+h1 {
+  font-size: 200%; }
+
+h2 {
+  font-size: 150%; }
+
+h3 {
+  font-size: 120%; }
+
 /*Regular text*/
 p, a, li, input, button, select, label, em, strong {
   /*padding-left:1em;*/
@@ -937,5 +952,8 @@ p, a, li, input, button, select, label, em, strong {
 
 button {
   padding: 0.1em; }
+
+#infoLeft p {
+  margin: 0.5em 0 0.5em 0; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,32 +1,37 @@
 /*Route planner*/
-.route-element{
-
-  > img {
-    max-height:5em;
+#waypoint-list{
+  margin-left: -2.5em;
+  .route-element{
+    background: $color__white;
+    clear:both;
+    float:left;
+    border-bottom:1px black;
+    margin:0.5em 0 0 0;
+    padding:0 !important;
+    width:100%;
+    > img {
+      max-height:5em;
+    }
+    img{
+      max-width:30%;
+      float:left;
+    }
+    a{
+      padding-left:1em;
+    }
+    span{
+      padding:0 0.5em 0 0.5em;
+      float:left;
+      max-width:80%;
+    }
   }
 }
-.route-element{
-  background: $color__white;
-  clear:both;
-  float:left;
-  border-bottom:1px black;
+
+#waypoint-dist-to-last{
   margin:0.5em 0 0 0;
-  padding-left:0 !important;
-  width:100%;
-  img{
-    max-width:30%;
-    float:left;
-  }
-  a{
-    padding-left:1em;
-  }
-  span{
-    padding:0 0.5em 0 0.5em;
-    float:left;
-    max-width:80%;
-  }
+  background: $color__green;
+  width: 100%;
 }
-
 /*
 * Route options
 */
