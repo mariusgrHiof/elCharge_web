@@ -49,6 +49,11 @@ var station = {
       app.map.setZoom(15);
       google.maps.event.trigger(station.markers[station.list[$(this).attr('value')].markerID], 'click');
     });
+  },bindRouteNames: function(){
+    $('a.route').unbind();
+    $('a.route').bind('click', function(){
+      station.favorite.restoreRoute($(this).parent());
+    });
   },
   /*
    * Connectors
@@ -387,12 +392,12 @@ var station = {
         txt +=
           '<li class="border clear-both" value="' + i + '" style="padding: 0.5em 0 0.5em 0;">' +
             '<div class="float-left clear-both" >'+
-              '<strong class="float-left oneliner">' + station.favorite.routeList[i].name.substring(0,40) + (station.favorite.routeList[i].name.length > 40 ? '...' : '') + '</strong>' +
+              '<strong class="float-left oneliner"><a href="#" class="route">' + station.favorite.routeList[i].name.substring(0,40) + (station.favorite.routeList[i].name.length > 40 ? '...' : '') + '</a></strong>' +
               '<button class="float-right" style="border:none; background:transparent; padding: 0.4em; color:black;" onclick="station.favorite.deleteRoute(this)">X</button>' +
               '<br />'+
               '<span>Distanse: ' + station.favorite.routeList[i].distance + 'km </span>'+
               '<span>' + station.favorite.routeList[i].route.waypoints.length + ' rutepunkter</span>'+
-              '<button class="float-right nav-here" onclick="station.favorite.restoreRoute(this)" value="">Ta meg hit</button>' +
+              '<button class="float-right nav-here" onclick="station.favorite.restoreRoute(this)" value="" title="Gjenopprett ruten.">Ta meg hit</button>' +
               '<div class="clear-both">' +
                 'Kommentar: ' + station.favorite.routeList[i].comment +
               '</div>' +
@@ -401,6 +406,7 @@ var station = {
       }
       $("#favorite-routes").html(txt);
       station.favorite.searchRoute();
+      station.bindRouteNames();
     },
     updateStations: function(){
       var id, txt = '';
@@ -419,7 +425,10 @@ var station = {
       navigation.waypoints = station.favorite.routeList[r_id].route.waypoints;
       navigation.waypointsData = station.favorite.routeList[r_id].route.waypointsData;
       $('#nav-end-pos').val(station.favorite.routeList[r_id].route.end);
-
+      app.menu.openMenuItem('route');
+      if(!$('.menu').hasClass('toggle')){
+        app.buttons.slideInMenu();
+      }
       station.updateRouteWPStrings();
       navigation.build();
     }
@@ -652,7 +661,7 @@ var station = {
         console.log(e);
       }
     }
-    station.bindStationNames();
+    //TODO: station.bindStationNames();
   },
   removeWaypoint: function(element){
     var parent = $(element).parent().parent(),
@@ -686,7 +695,7 @@ var station = {
         '<strong class="float-left"><a class="station oneliner" style="padding-left:0;" href="#" value="' + id + '">' + station.list[id].csmd.name.substring(0,28) + (station.list[id].csmd.name.length > 28 ? '...' : '') + '</a></strong><br />'+
         '<span class="float-left"><strong>Adresse: </strong> '+ station.list[id].csmd.Street +" " + station.list[id].csmd.House_number + ", " /*TODO: fix+ station.list[id].csmd.Zipcode + ' '*/ + station.list[id].csmd.City.substring(0,1) + station.list[id].csmd.City.toLowerCase().substring(1) +'</span>' +
         '<span class="float-left"><strong>Distanse: </strong>' + nearby.compareDistance(app.gps.geopos, station.list[id].csmd.Position.replace(/[()]/g,"").split(",")).toFixed(2)+ 'km </span>' +
-        '<button class="float-right nav-here" onclick="navigation.fromUser(this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"").split(",") +'">Ta meg hit</button>' +
+        '<button class="float-right nav-here" onclick="navigation.fromUser(this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"").split(",") +'" title="Ta meg hit.">Ta meg hit</button>' +
       '</div>' +
       '<button class="float-right" onclick="app.menu.readMore(this)">Vis mer</button>'+
       '<div class="read-more clear-both">' +

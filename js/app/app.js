@@ -118,10 +118,10 @@ var app = {
   buttons : {
     slideInMenu: function(){
       try{
-        var target = $('.menu');
-        var em = parseInt($("html").css("font-size"));
-        var width = (em * 100) + 'px';
-        var widthWithMenu = (em*100 - 27*em) + 'px';
+        var target = $('.menu'),
+          em = parseInt($("html").css("font-size")),
+          width = (em * 100) + 'px',
+          widthWithMenu = (em*100 - 27*em) + 'px';
         if( !$(target).hasClass('toggle') ){
           $('#menu-toggle').addClass('toggle');
           $(target).addClass('toggle');
@@ -403,6 +403,23 @@ var app = {
     }
   },
   menu : {
+    openMenuItem: function(target){
+      $('#menu-list').children('li').each(
+        function(){
+          if($(this).hasClass(target)){
+            $(this).children('h2, span').next().addClass('toggle');
+            $(this).find('.menu-item').addClass('title-box');
+            $(this).addClass('parent');
+            $(this).css('display','block');
+          }else{
+            $(this).css('display','none');
+            $(this).find('.menu-item').removeClass('title-box');
+            $(this).removeClass('parent');
+            $(this).children('h2, span').next().removeClass('toggle');
+          }
+        }
+      );
+    },
     selectHandeler: function (parent, remove){
       $(parent).children('li').each(
         function(){

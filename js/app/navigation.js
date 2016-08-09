@@ -53,6 +53,10 @@ var navigation = {
     navigation.displayRoute(navigation.startDestination, navigation.endDestination, navigation.service,navigation.display);
   },
   fromUser: function (toel){
+    app.menu.openMenuItem('route');
+    if(!$('.menu').hasClass('toggle')){
+      app.buttons.slideInMenu();
+    }
     //Cleaning out the route before we build a new one
     navigation.clearRoute();
     if($("#right-panel").html() !== ''){
@@ -84,6 +88,10 @@ var navigation = {
     navigation.displayRoute(navigation.startDestination, navigation.endDestination, navigation.service, navigation.display);
   },
   fromUserSearch: function (){
+    app.menu.openMenuItem('route');
+    if(!$('.menu').hasClass('toggle')){
+      app.buttons.slideInMenu();
+    }
     navigation.clearRoute();
     if($("#right-panel").html() !== ''){
       $("#right-panel").html("");
