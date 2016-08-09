@@ -2,6 +2,8 @@
 #waypoint-list{
   margin-left: -2.5em;
   .route-element{
+    font-weight: normal !important;
+    color: black !important;
     background: $color__white;
     clear:both;
     float:left;
@@ -17,6 +19,8 @@
       float:left;
     }
     a{
+      font-weight: normal !important;
+      color: black !important;
       padding-left:1em;
     }
     span{

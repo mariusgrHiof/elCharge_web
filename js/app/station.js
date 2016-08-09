@@ -755,9 +755,9 @@ var station = {
       '</div>'+
 
       '<div id="lowerContainer" class="clear-both">'+
-        '<button class="nav-add tooltip" onclick="station.addWaypoint(\'' + id + '\')" ><p class="tooltiptext">Legg til stasjon i rute</p>Legg til i rute</button>' +
-        '<button class="nav-here tooltip" onclick="navigation.fromUser(this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"") +'"><p class="tooltiptext">Naviger hit</p>Naviger hit</button>'+
-        (app.loggedIn ? '<button class="float-left tooltip" onclick="station.favorite.addStation(\'' + id + '\')" ><p class="tooltiptext">Lagre stasjon</p>Lagre stasjon</button>' : '') +
+        '<button class="nav-add" onclick="station.addWaypoint(\'' + id + '\')" title="Legg til stasjon i rute">Legg til i rute</button>' +
+        '<button class="nav-here" onclick="navigation.fromUser(this)" value="'+ station.list[id].csmd.Position.replace(/[()]/g,"") +'" title="Naviger hit">Naviger hit</button>'+
+        (app.loggedIn ? '<button class="float-left" onclick="station.favorite.addStation(\'' + id + '\')" title="Lagre stasjon">Lagre stasjon</button>' : '') +
       "</div>"+
     "</div>";
   },

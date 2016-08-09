@@ -829,6 +829,7 @@ var app = {
     app.download.init();
     station.init();
     elevation.init();
+    $(document).tooltip();
     //Sortable waypoint list
     $('#waypoint-list').sortable({
         start: function(event, ui) {

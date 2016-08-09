@@ -13,17 +13,7 @@
     <meta charset="utf-8">
     <!-- Stylesheets-->
     <link rel="stylesheet" type="text/css" href="style.css"/>
-    <!--
-    <link rel="stylesheet" type="text/css" href="styles/maps.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/menu.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/tooltips.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/text.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/tablet.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/mobile.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/login.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/colors.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/download.css"/>
-    <link rel="stylesheet" type="text/css" href="styles/footer.css"/> -->
+    <link rel="stylesheet" type="text/css" href="styles/jquery/jquery-ui.min.css"/>
     <!-- Scripts -->
     <script src="https://www.google.com/jsapi"></script>
     <script src="js/libs/jQuery-min.js"></script>
@@ -83,14 +73,14 @@
 <header>
     <div id="title" class="clear-both">
         <h1>elCharge</h1>
-        <button class="tooltip" onclick="app.login.showForm()"><p class="tooltiptext">Logg inn, eller registrer ny bruker</p>Logg inn</button>
+        <button class="tooltip" onclick="app.login.showForm()" title="Logg inn, eller registrer ny bruker">Logg inn</button>
     </div>
     <div id="search">
         <button onclick="app.buttons.slideInMenu()" id="menu-toggle"></button>
         <input id="search-box" type="text"/>
-        <button class="float-left nav-here tooltip" onclick="navigation.fromUserSearch()"><p class="tooltiptext">Naviger hit</p>Naviger hit</button>
-        <button id="my-loc-btn" class ="tooltip" onclick="app.gps.centerOnUser(0)"><p class="tooltiptext">Gå til din posisjon</p></button>
-        <button id="lock-to-my-pos-btn" class="lock-pos tooltip" onclick="app.buttons.lockMapToUser(this)"><p class="tooltiptext">Lås kartet til din posisjon</p>Lock</button>
+        <button class="float-left nav-here tooltip" onclick="navigation.fromUserSearch()" title="Lag en rute til destinasjonen som er skrevet i søkefeltet. Dette krever lokasjonstillatelse.">Naviger hit</button>
+        <button id="my-loc-btn" class ="tooltip" onclick="app.gps.centerOnUser(0)" title="Gå til din posisjon"></button>
+        <button id="lock-to-my-pos-btn" class="lock-pos" onclick="app.buttons.lockMapToUser(this)" title="Lås kartet til din posisjon">Lock</button>
     </div>
 </header>
 <nav class="menu">
@@ -105,6 +95,15 @@
     <ul id="chargers-nearby">
 
     </ul>
+</div>
+    </li>
+    <li class="border">
+      <span class="menu-item caret">
+  <div class="float-left back-icon"></div>
+  <h2>Stasjonsovervåkning</h2>
+</span>
+<div class="sub-item">
+  shell
 </div>
     </li>
     <li class="border favorite">
@@ -173,10 +172,10 @@
       </div>
     </form>
     <div class="float-right clear-both">
-    <button class="float-right nav-save favorite tooltip" onclick="station.favorite.saveRoute()"><p class="tooltiptext">Lagre ruten</p>Lagre rute</button>
-    <button class="float-right nav-here tooltip" type="submit" value="submit" form="route-form"><p class="tooltiptext">Bygg ruten</p>Bygg ruten</button>
-    <button class="float-right tooltip" onclick="station.showHideMarkers(this)"><p class="tooltiptext">Skjul eller vis stasjonsmarkører</p>Skjul markører</button>
-      <button class="float-right nav-clear tooltip" onclick="navigation.clearRoute()"><p class="tooltiptext">Fjern ruten</p>Fjern rute</button>
+    <button class="float-right nav-save favorite" onclick="station.favorite.saveRoute()" title="Lagre ruten">Lagre rute</button>
+    <button class="float-right nav-here" type="submit" value="submit" form="route-form" title="Bygg ruten">Bygg ruten</button>
+    <button class="float-right" onclick="station.showHideMarkers(this)" title="Skjul eller vis stasjonsmarkører">Skjul markører</button>
+      <button class="float-right nav-clear" onclick="navigation.clearRoute()" title="Fjern ruten">Fjern rute</button>
     </div>
     <!-- <button onclick="saveRouteData()">Legg ruten til favoritt</button> -->
     <div id="total" class="clear-both"></div>
@@ -304,7 +303,7 @@
             For å bruke dette nettstedet kreves det at javascript er aktivert. Venligst aktiver javascript for dette nettstedet, eller bytt nettleser til en som støtter javascript.
         </p>
     </noscript>
-</div><script src="js/modules/elevation.js"> </script><script src="js/modules/navigation.js"> </script><script src="js/modules/nearby.js"> </script><script src="js/modules/station.js"> </script><script src="js/modules/app.js"> </script><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8&sensors=true&libraries=places,visualization,geometry&callback=app.init" async defer> </script><script src="js/MarkerClusterer.js"> </script><script src="js/old/maplayers.js"> </script>
+</div><script src="js/app/elevation.js"> </script><script src="js/app/navigation.js"> </script><script src="js/app/nearby.js"> </script><script src="js/app/station.js"> </script><script src="js/app/app.js"> </script><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAijAKyJWxMHEodrkA3jD2psiz6LmI0hT8&sensors=true&libraries=places,visualization,geometry&callback=app.init" async defer> </script><script src="js/MarkerClusterer.js"> </script><script src="js/old/maplayers.js"> </script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

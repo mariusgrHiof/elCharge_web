@@ -406,6 +406,8 @@ input {
 #waypoint-list {
   margin-left: -2.5em; }
   #waypoint-list .route-element {
+    font-weight: normal !important;
+    color: black !important;
     background: #FFFFFF;
     clear: both;
     float: left;
@@ -419,6 +421,8 @@ input {
       max-width: 30%;
       float: left; }
     #waypoint-list .route-element a {
+      font-weight: normal !important;
+      color: black !important;
       padding-left: 1em; }
     #waypoint-list .route-element span {
       padding: 0 0.5em 0 0.5em;
@@ -934,10 +938,10 @@ h1 {
   font-size: 200%; }
 
 h2 {
-  font-size: 150%; }
+  font-size: 120%; }
 
 h3 {
-  font-size: 120%; }
+  font-size: 110%; }
 
 /*Regular text*/
 p, a, li, input, button, select, label, em, strong {
