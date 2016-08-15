@@ -1,5 +1,15 @@
 <?php
-require 'api/PHPMailer/PHPMailerAutoload.php';
+include 'dbConn.php';
+//For mail contents
+$resetKey = uniqid();
+$resetDate = date("Y-m-d H:m:s", (time()+(60*60*24)));
+$userMail = 'mail@jonaskf.net';
+$user = $conn->query("select username from ec_user where mail='" . filter_var($userMail, FILTER_SANITIZE_STRING) . "';")->fetch_assoc()['username'];
+
+$conn->query('UPDATE `ec_user` SET `reset_key`=\''. $resetKey .'\', `reset_key_time`=\''. $resetDate .'\' WHERE `mail`=\''. filter_var($userMail, FILTER_SANITIZE_STRING) .'\';');
+
+//Sending the mail
+require 'PHPMailer/PHPMailerAutoload.php';
 $mail = new PHPMailer(false);
 $mail->SMTPOptions = array(
     'ssl' => array(
@@ -9,14 +19,13 @@ $mail->SMTPOptions = array(
     )
 );
 
-$email = 'mail@jonaskf.net';
-$name = 'Jonas K F';
 $send_using_gmail = true;
 
 //SMTP
 if($send_using_gmail){
+  //For testing purposes
   $email_from = 'jossa90@gmail.com';
-  $name_from = 'Jonas K Flønes';
+  $name_from = 'no-reply@hiof.no';
 
   $mail->IsSMTP(); // telling the class to use SMTP
   $mail->SMTPAuth = true; // enable SMTP authentication
@@ -39,16 +48,22 @@ if($send_using_gmail){
 }
 
 //Typical mail data
-$mail->AddAddress($email, $name);
+$mail->CharSet = 'UTF-8';
+$mail->IsHTML(true);
+$mail->AddAddress($userMail, $userMail);
 $mail->SetFrom($email_from, $name_from);
-$mail->Subject = "[Elbil] Lag nytt passord";
-$mail->Body = "Sjokolade smaker godt";
+$mail->Subject = "[Elbil] Glemt passord";
+ob_start();
+include_once('resetPasswordBody.php');
+$contentBody = ob_get_contents();
+$mail->Body = $contentBody;
+ob_end_clean();
 
 try{
    $mail->Send();
-   echo "Success! <br>" . $mail->ErrorInfo;
+   echo "Du mottar mailen innen kort tid! " . $mail->ErrorInfo;
 } catch(Exception $e){
 //Something went bad
-  echo "Fail - " . $mail->ErrorInfo;
+  echo "Det skjedde en feil! " . $mail->ErrorInfo;
 }
 ?>

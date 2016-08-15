@@ -27,7 +27,7 @@ var app = {
   date : new Date(),
   initiatedMap : false,
   path : 'http://frigg.hiof.no/bo16-g6/webapp/',
-  api : {
+  api: {
     protocol: (window.location.protocol !== "https:" ? 'http' : 'https'),
     url : ((window.location.protocol !== "https:" ? 'http' : 'https') + '://nobil.no/api/server/datadump.php?'),
     key : '274b68192b056e268f128ff63bfcd4a4'
@@ -84,7 +84,7 @@ var app = {
     }
   },
   loggedIn : false,
-  login : {
+  login: {
     showPopup: function(){
       $('#register-popup').hide();
       $('#login-popup').show();
@@ -105,7 +105,7 @@ var app = {
       }
     }
   },
-  register : {
+  register: {
     validMail : true,
     validPassword : true,
     showPopup: function(){
@@ -115,7 +115,7 @@ var app = {
       $('#register-popup').hide();
     }
   },
-  buttons : {
+  buttons: {
     slideInMenu: function(){
       try{
         var target = $('.menu'),
@@ -206,6 +206,16 @@ var app = {
       );
       return false;
     },
+    //For resetting the users password
+    forgottenPassword: function(form){
+      console.log('');
+    },
+    sendResetKey: function(form){
+      console.log('');
+    },
+    resetPassword: function(form){
+      console.log('');
+    },
     logout: function(){
       var path = "";
       if(app.device.phonegap){
@@ -260,7 +270,7 @@ var app = {
       $(ele).html(app.gps.lockPos ? 'Unlock' : 'Lock');
     }
   },
-  eventListeners : {
+  eventListeners: {
     loginRegister: function(){
       /*
        * Login & Register
@@ -402,7 +412,7 @@ var app = {
       app.eventListeners.input();
     }
   },
-  menu : {
+  menu: {
     openMenuItem: function(target){
       $('#menu-list').children('li').each(
         function(){
@@ -439,7 +449,7 @@ var app = {
       }
     }
   },
-  download : {
+  download: {
     lastDownloaded : '2005-01-01',
     hasDownloaded : false,
     initDownloaded : false,
@@ -611,8 +621,8 @@ var app = {
       );
     }
   },
-  map : {},
-  layers : {
+  map: {},
+  layers: {
     trafficIsActive : false,
     trafficLayer : null,
     traffic: function(){
@@ -634,7 +644,7 @@ var app = {
       station.markers[i].setMap(map);
     }
   },
-  cluster : {
+  cluster: {
     styles : [
       {
       height: 53,
@@ -685,19 +695,19 @@ var app = {
   /*
    * All the apps options
    */
-  options : {
-    panorama : {},
-    markerCluster : {}
+  options: {
+    panorama: {},
+    markerCluster: {}
   },
   /*
    * An object to hold everything related to GPS
    */
-  gps : {
+  gps: {
     accuracyRadius : null,
     lockPos : false,
-    myLocationIndicator : {},
-    pos : {},
-    geopos : {},
+    myLocationIndicator: {},
+    pos: {},
+    geopos: {},
     onSuccess: function(position) {
       app.gps.geopos = [position.coords.latitude, position.coords.longitude];
       try{
@@ -758,7 +768,7 @@ var app = {
       return new google.maps.LatLng(arr[0],arr[1]);
     }
   },
-  time : {
+  time: {
     getDaysInMonth: function(month,year) {
       return new Date(year, month, 0).getDate();
     },
@@ -775,7 +785,7 @@ var app = {
   /*
    * An object to hold any device related methods or variables
    */
-  device : {
+  device: {
     phonegap : document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1,
     isMobile : false,
     isAndroid : false,

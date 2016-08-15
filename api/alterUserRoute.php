@@ -13,8 +13,6 @@ if(isset($_SESSION['sessionId'])){
         $conn->query($sql);
       }else if($_REQUEST['action'] == 'edit'){
         //Edit logic
-
-
         $sql = "UPDATE `ec_user_has_routes` SET `name`='". filter_var($_POST['name'], FILTER_SANITIZE_STRING) ."', `route`='". $_POST['route'] ."', `distance`='". filter_var($_POST['distance'], FILTER_SANITIZE_STRING) ."', `comment`='". filter_var($_POST['comment'], FILTER_SANITIZE_STRING) ."' WHERE `user_id`='". $user['user_id'] . "' AND `route_id`='". filter_var($_POST['id'], FILTER_SANITIZE_STRING) . "';";
         echo 'SQL: ' . $sql;
         $conn->query($sql);
