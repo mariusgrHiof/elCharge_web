@@ -80,7 +80,7 @@ div#title button{
   right:0.5em;
   top: 0.5em;
 }
-button, input[type="submit"]{
+button, input[type="submit"], input[type="button"]{
   border: solid black 1px;
   padding: 0.3em;
   margin: 2.5px;
@@ -88,7 +88,7 @@ button, input[type="submit"]{
   background: transparent;
   @include transition(background 1s);
 }
-button:hover, input[type="submit"]:hover{
+button:hover, input[type="submit"]:hover, input[type="button"]:hover{
   background: lightblue;
   @include transition(background 1s);
 }

@@ -229,7 +229,7 @@ div#title button {
   right: 0.5em;
   top: 0.5em; }
 
-button, input[type="submit"] {
+button, input[type="submit"], input[type="button"] {
   border: solid black 1px;
   padding: 0.3em;
   margin: 2.5px;
@@ -244,7 +244,7 @@ button, input[type="submit"] {
   -ms-transition: background 1s;
   transition: background 1s; }
 
-button:hover, input[type="submit"]:hover {
+button:hover, input[type="submit"]:hover, input[type="button"]:hover {
   background: lightblue;
   -webkit-transition: background 1s;
   -o-transition: background 1s;
@@ -692,49 +692,43 @@ ul {
 
 .dialog {
   display: none;
+  z-index: 999;
   position: absolute;
   z-index: 2;
   background: white;
   left: calc( 50% - 20em );
   top: 5.5em;
-  max-width: 40em;
+  max-width: 40em !important;
+  width: 40em;
   border: black 1px solid;
   -webkit-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21) !important;
   -moz-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21) !important;
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.21) !important; }
-
-.top-bar {
-  width: 100%;
-  height: 1.5em;
-  border-bottom: 1px solid black; }
-
-.top-bar button {
-  border: none; }
-
-#login-popup {
-  float: left;
-  padding: 1em;
-  width: auto;
-  max-width: 500px;
-  visibility: visible;
-  z-index: 999;
-  width: 40%; }
-
-.login-form {
-  position: relative;
-  visibility: hidden;
-  margin: 100px;
-  margin-right: 250px;
-  z-index: 999; }
-
-#register-popup {
-  float: left;
-  padding: 1em;
-  width: auto;
-  visibility: visible;
-  z-index: 999;
-  border-left: black 1px solid;
-  width: 40%; }
+  .dialog .top-bar {
+    padding: 0;
+    width: 100%;
+    height: 1.5em;
+    border-bottom: 1px solid black; }
+  .dialog .top-bar button {
+    border: none; }
+  .dialog > div {
+    float: left;
+    width: calc( 50% - 3em);
+    max-width: 500px;
+    padding: 1em; }
+    .dialog > div#login-popup {
+      visibility: visible; }
+      .dialog > div#login-popup .login-form {
+        position: relative;
+        visibility: hidden;
+        margin: 100px;
+        margin-right: 250px;
+        z-index: 999; }
+    .dialog > div#register-popup {
+      visibility: visible;
+      border-left: black 1px solid; }
+    .dialog > div#reset-pt1, .dialog > div#reset-pt2 {
+      display: none; }
 
 /*
 * Download indicator

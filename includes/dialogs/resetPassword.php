@@ -11,7 +11,7 @@
   </div><!--
   <button class="show-login"> Logg inn </button>
   <button class="show-register">Registrer bruker</button>-->
-  <div id="login-popup">
+  <div id="reset-pt1">
     <h2>Glemt passord</h2>
     <ol>
       <li>Venligst skriv inn din mail adresse og trykk "send nøkkel".</li>
@@ -24,7 +24,7 @@
       <input type="submit" value="Gå videre" class="submit_button" disabled="true">
     </form>
   </div>
-  <div id="login-popup">
+  <div id="reset-pt2">
     <h2>Glemt passord</h2>
     <form id="loggin-form" action="javascript:;" onsubmit="app.buttons.resetPassword(this)">
       <input class="clear-both" type="text" name="username" placeholder="Brukernavn" required>
