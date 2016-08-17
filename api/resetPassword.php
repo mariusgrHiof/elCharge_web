@@ -20,12 +20,12 @@ if(!isset($_POST['resetkey'])){
       )
   );
 
-  $send_using_gmail = true;
+  $send_using_gmail = false;
 
   //SMTP
   if($send_using_gmail){
     //For testing purposes
-    $email_from = 'jossa90@gmail.com';
+    $email_from = '';
     $name_from = 'no-reply@hiof.no';
 
     $mail->IsSMTP(); // telling the class to use SMTP
@@ -33,8 +33,8 @@ if(!isset($_POST['resetkey'])){
     $mail->SMTPSecure = "ssl"; // sets the prefix to the servier
     $mail->Host = "smtp.gmail.com"; // sets GMAIL as the SMTP server
     $mail->Port = 465; // set the SMTP port for the GMAIL server
-    $mail->Username = "jossa90@gmail.com"; // GMAIL username
-    $mail->Password = "P4rt1sj0n132"; // GMAIL password
+    $mail->Username = $email_from; // GMAIL username
+    $mail->Password = ""; // GMAIL password
   }else{
     $email_from = 'no-reply@hiof.no';
     $name_from = 'no-reply hiof';
