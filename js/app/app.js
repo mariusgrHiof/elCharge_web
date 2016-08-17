@@ -207,14 +207,56 @@ var app = {
       return false;
     },
     //For resetting the users password
-    forgottenPassword: function(form){
-      console.log('');
+    forgottenPassword: function(){
+      $('#register-popup').css({'display': 'none'});
+      $('#reset-pt1').css({'display': 'block'});
     },
     sendResetKey: function(form){
-      console.log('');
+      //Handeling the case if the user haven't gotten a key
+      if(!$(form).find('.no-key').prop('checked')){
+        $(form).find('.error-message').val('Forsøker nå å sende mail. Du blir tatt videre når den er sendt.');
+        var path = '';
+        if(app.device.phonegap){
+          path += app.path;
+        }
+        path +="api/resetPassword.php";
+        $.post( path,{
+          mail : $(form).find('.email').val()
+        }, function(result){
+          if(app.debug){
+            console.log(result);
+          }
+          $(form).find('.error-message').val(result);
+          $('#reset-pt1').css({'display': 'none'});
+          $('#reset-pt2').css({'display': 'block'});
+        });
+      }else{
+        $('#reset-pt1').css({'display': 'none'});
+        $('#reset-pt2').css({'display': 'block'});
+      }
     },
     resetPassword: function(form){
-      console.log('');
+      //Resetting password
+      var path = '';
+      if(app.device.phonegap){
+        path += app.path;
+      }
+      path +="api/resetPassword.php";
+      $.post( path,{
+        username : $(form).find('input[name="username"]').val(),
+        resetkey : $(form).find('input[name="resetkey"]').val(),
+        password : $(form).find('input[name="password"]').val(),
+        rePassword : $(form).find('input[name="password-match"]').val()
+      }, function(result){
+        if(app.debug){
+          console.log(result);
+        }
+        $('#reset-pt2').css({'display': 'none'});
+        $('#register-popup').css({'display': 'block'});
+      });
+      //Visability
+      $('#reset-pt2').css({'display': 'none'});
+      $('#register-popup').css({'display': 'block'});
     },
     logout: function(){
       var path = "";
@@ -299,8 +341,8 @@ var app = {
       //password strength indication
       $(document).on('keyup', '#registration-form input[type=password]',
         function(){
-          var pw = $('#registration-form input[name=password]').val();
-          var pws = '#registration-form input[type=password]';
+          var pws = '#registration-form input[type=password]',
+              pw = $(pws).val();
           if(pw.match(/[a-z]{1,99}/i) && pw.match(/[A-Z]{1,99}/i) && pw.match(/[0-9]{1,99}/i) && pw.length > 6){
             $('#validate-password').html('').css({'color':'green'});
             $(pws).css({'color':'green'});

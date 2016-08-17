@@ -28,7 +28,7 @@
       <input class="clear-both" type="password" name="password" placeholder="Passord" required>
       <p id="login-form" class="clear-both"></p>
       <input type="submit" value="Logg inn" class="submit_button">
-      <input type="button" onclick="app.buttons.login(this)" value="Glemt passord" class="submit_button">
+      <input type="button" onclick="app.buttons.forgottenPassword(this)" value="Glemt passord" class="submit_button">
     </form>
   </div>
   <div id="register-popup">
@@ -52,20 +52,21 @@
       <li>Venligst skriv inn din mail adresse og trykk "send nøkkel".</li>
       <li>Når du har motatt nøkkelen i mailen din, trykk "gå videre".</li>
     </ol>
-    <form id="loggin-form" action="javascript:;" onsubmit="app.buttons.resetPassword(this)">
-      <input class="clear-both" type="text" name="mail" placeholder="petter@smart.no" required>
+    <form action="javascript:;" onsubmit="app.buttons.sendResetKey(this)">
+      <input class="email clear-both" type="text" name="mail" placeholder="petter@smart.no" required>
       <p class="clear-both error-message"></p>
-      <input type="submit" value="Send nøkkel" class="submit_button">
-      <input type="submit" value="Gå videre" class="submit_button" disabled="true">
+      <label for="no-key">Jeg har alt nøkkel.</label>
+      <input class="no-key" name="no-key" type="checkbox">
+      <input type="submit" value="Gå videre" class="submit_button">
     </form>
   </div>
   <div id="reset-pt2">
     <h2>Glemt passord</h2>
-    <form id="loggin-form" action="javascript:;" onsubmit="app.buttons.resetPassword(this)">
+    <form action="javascript:;" onsubmit="app.buttons.resetPassword(this)">
       <input class="clear-both" type="text" name="username" placeholder="Brukernavn" required>
       <input class="clear-both" type="text" name="resetkey" placeholder="Tilbakestillingsnøkkel" required>
       <input class="clear-both" type="password" name="password" placeholder="Passord" required>
-      <input class="clear-both" type="password" name="password" placeholder="Gjenta passordet" required>
+      <input class="clear-both" type="password" name="password-match" placeholder="Gjenta passordet" required>
       <p class="clear-both error-message"></p>
       <input type="submit" value="Gå tilbake" class="submit_button">
       <input type="submit" value="Bytt passord" class="submit_button">
