@@ -33,6 +33,18 @@ var app = {
     key : '274b68192b056e268f128ff63bfcd4a4'
   },
   user: {
+    validation: {
+      mail: function(field){
+        var mail = $(field).val();
+        if(mail.match(/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|no|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i)){
+          $(this).css({'color':'green'});
+          app.register.validMail = true;
+        }else{
+          $(this).css({'color':'red'});
+          app.register.validMail = false;
+        }
+      }
+    },
     settings: {
       car:{
         conns: [],
@@ -339,14 +351,15 @@ var app = {
       });
 
       //password strength indication
-      $(document).on('keyup', '#registration-form input[type=password]',
+      $(document).on('keyup', '#registration-form input[type=password], #reset-pt2 input[type=password]',
         function(){
-          var pws = '#registration-form input[type=password]',
+          var pws = '#registration-form input[type=password], #reset-pt2 input[type=password]',
               pw = $(pws).val();
+          console.log(pw);
           if(pw.match(/[a-z]{1,99}/i) && pw.match(/[A-Z]{1,99}/i) && pw.match(/[0-9]{1,99}/i) && pw.length > 6){
             $('#validate-password').html('').css({'color':'green'});
             $(pws).css({'color':'green'});
-            if(pw !== '' && pw === $('#registration-form input[name=password-match]').val()){
+            if(pw !== '' && pw === $('#registration-form input[name=password-match], #reset-pt2 input[type=password-match]').val()){
               app.register.validPassword = true;
             }else{
               $(pws).css({'color':'red'});
@@ -360,8 +373,9 @@ var app = {
           }
         }
       );
+
       //email validation
-      $(document).on('keyup', '#registration-form input[type=email]',
+      $(document).on('keyup', '#reset-pt1 input[type=email], #registration-form input[type=email]',
         function(){
           var mail = $(this).val();
           if(mail.match(/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|no|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i)){
@@ -373,6 +387,7 @@ var app = {
           }
         }
       );
+
     },
     textButtons: function (){
       /*
