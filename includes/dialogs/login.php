@@ -53,7 +53,7 @@
       <li>Når du har motatt nøkkelen i mailen din, trykk "gå videre".</li>
     </ol>
     <form action="javascript:;" onsubmit="app.buttons.sendResetKey(this)">
-      <input class="email clear-both" type="text" name="mail" placeholder="petter@smart.no" required>
+      <input class="email clear-both" type="text" name="mail" placeholder="petter@smart.no">
       <p class="clear-both error-message"></p>
       <label for="no-key">Jeg har alt nøkkel.</label>
       <input class="no-key" name="no-key" type="checkbox">
