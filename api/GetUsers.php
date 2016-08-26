@@ -6,7 +6,9 @@ $result = $conn->query('select * from ec_user;');
 if ($result->num_rows > 0) {
   // output data of each row
   while ($row = $result->fetch_assoc()) {
-    $rows[] = $row;
+    $user['username'] = $row['username'];
+    $user['mail'] = $row['mail'];
+    $rows[] = $user;
   }
   $data['data'] = $rows;
   echo json_encode($data);
