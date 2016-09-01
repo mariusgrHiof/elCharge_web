@@ -28,7 +28,7 @@ if (!isset($_SESSION['user_id'])) {
       $_SESSION['logged_in'] = true;
       echo json_encode($result);
     }else{
-      echo 's';
+      echo '404';
     }
   }else {
     echo json_encode($result);
@@ -43,12 +43,10 @@ if (!isset($_SESSION['user_id'])) {
       if($row['admin'] == 1){
         //The user is a admin and was already logged in
         $_SESSION['logged_in'] = true;
+        $_SESSION['admin'] = $row['admin'];
         $result['username'] = $row['username'];
-      }else{
-        echo '404';
       }
     }
-
     echo json_encode($result);
   }
 }else{

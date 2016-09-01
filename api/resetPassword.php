@@ -1,5 +1,13 @@
 <?php
+/**
+* This script is created, in order to allow users to reset their passwords.
+* The users need to supply their username and email adress.
+*
+* Do only set "send using gmail" if you are testing locally. If you do so, supply your own
+* login credentials.
+*/
 include 'dbConn.php';
+
 //For mail contents
 if(!isset($_POST['resetkey'])){
   $resetKey = uniqid();
@@ -24,7 +32,7 @@ if(!isset($_POST['resetkey'])){
 
   //SMTP
   if($send_using_gmail){
-    //For testing purposes
+    //For testing purposes only
     $email_from = '';
     $name_from = 'no-reply@hiof.no';
 

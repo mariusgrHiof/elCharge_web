@@ -10,4 +10,5 @@ session_start();
 if(isset($_SESSION['sessionId'])){
   session_destroy();
 }
+echo json_encode($_SESSION)
 ?>

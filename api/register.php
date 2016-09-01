@@ -34,7 +34,8 @@ if(!empty(($_POST['username'] && $_POST['password'] && $_POST['mail']))){
             '" . filter_var($_POST['mail'], FILTER_SANITIZE_STRING) . "',
             '{}',
             null,
-            null
+            null,
+            0
             )";
   if ($conn->query($sql) === TRUE) {
     echo "Registrering fullført";
