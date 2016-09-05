@@ -813,6 +813,9 @@ li {
 #save-route textarea {
   height: 5em; }
 
+.hiof-logo {
+  height: 2em; }
+
 /*Mobile layout*/
 @media screen and (max-width: 600px) {
   html {
