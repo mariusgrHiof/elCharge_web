@@ -45,12 +45,13 @@ function actOnCars($conn){
     $conn->query('UPDATE `ec_cars` SET `json`=\'' . $_GET['json'] .'\' WHERE `model`=\''. $_GET['model'] .'\';');
   }else if($_GET['action'] == 'add'){
     //Add car
-    $conn->query('INSERT INTO ec_cars VALUES ("' . $_GET['model'] . '","'. $_GET['json'] .'");');
+    $car['model'] = $_GET['model'];
+    $car['conns'] = [];
+    $conn->query('INSERT INTO ec_cars VALUES ("' . $_GET['model'] . '",\''. json_encode($car) .'\');');
   }else if($_GET['action'] == 'delete'){
     //Delete car
     $conn->query('DELETE FROM ec_cars ' . 'WHERE model = "' . $_GET['model'] . '";');
   }
-
   //Returning the current state of the DB back
   $query = $conn->query('SELECT * FROM bo16g6.ec_cars;');
   if ($query->num_rows > 0) {
