@@ -11,7 +11,7 @@ include '../dbConn.php';
 
 if (!isset($_SESSION['user_id'])) {
   //Getting userID
-  $sqlLogin = "select * from ec_user where username='" . filter_var($_GET['username'], FILTER_SANITIZE_STRING) . "';";
+  $sqlLogin = "select * from ec_user where username='" . filter_var($_GET['adminUsername'], FILTER_SANITIZE_STRING) . "';";
   $result_login = $conn->query($sqlLogin);
   if ($result_login->num_rows > 0) {
     // output data of each row
@@ -20,7 +20,7 @@ if (!isset($_SESSION['user_id'])) {
       $isAdmin = $row['admin'];
       $hash = $row['password'];
     }
-    if(password_verify($_GET['password'], $hash) && $isAdmin == 1){
+    if(password_verify($_GET['adminPassword'], $hash) && $isAdmin == 1){
       newPassword($conn);
     }
   }
