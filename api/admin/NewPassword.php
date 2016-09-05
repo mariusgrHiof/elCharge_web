@@ -1,9 +1,13 @@
 <?php
+/*
+* Script for the administration panel.
+* The script is intended for changing a users password.
+*/
 header('content-type: application/json; charset=utf-8');
 header("access-control-allow-origin: *");
 session_set_cookie_params(7200,"/");
 session_start();
-include 'dbConn.php';
+include '../dbConn.php';
 
 if (!isset($_SESSION['user_id'])) {
   //Getting userID
@@ -17,7 +21,7 @@ if (!isset($_SESSION['user_id'])) {
       $hash = $row['password'];
     }
     if(password_verify($_GET['password'], $hash) && $isAdmin == 1){
-      deleteUser($conn);
+      newPassword($conn);
     }
   }
 }else if($_SESSION['logged_in']){
@@ -27,37 +31,27 @@ if (!isset($_SESSION['user_id'])) {
     while ($row = $result_login->fetch_assoc()) {
       if($row['admin'] == 1){
         //The user is a admin and was already logged in
-        deleteUser($conn);
+        newPassword($conn);
       }
     }
   }
 }else{
   session_destroy();
 }
-//TODO: Fix!
-$hash = '';
 
-function deleteUser($conn){
-  //Deleting all route data
-  $sql = 'DELETE FROM ec_user_has_routes ' . 'WHERE user_id = "' . $_GET['user_id'] . '";';
-  $conn->query($sql);
-  //Deleting all station data
-  $sql = 'DELETE FROM ec_user_has_stations ' . 'WHERE user_id = "' . $_GET['user_id'] . '";';
-  $conn->query($sql);
-  //Delete logic
-  $sql = 'DELETE FROM ec_user ' . 'WHERE user_id = "' . $_GET['user_id'] . '";';
-  $conn->query($sql);
-
-  $result = $conn->query('select * from ec_user;');
-  if ($result->num_rows > 0) {
-    // output data of each row
-    while ($row = $result->fetch_assoc()) {
-      $user['user_id'] = $row['user_id'];
-      $user['username'] = $row['username'];
-      $user['mail'] = $row['mail'];
-      $rows[] = $user;
+//Creating a new password for a user
+function newPassword($conn){
+  $username = filter_var($_GET['username'], FILTER_SANITIZE_STRING);
+  $newPassword = $_GET['password'];
+  $rePassword = $_GET['rePassword'];
+  $currentResetKey = $conn->query("select reset_key from ec_user where username='" . $username . "';")->fetch_assoc()['reset_key'];
+  try{
+    if( $newPassword == $rePassword){
+      $conn->query('UPDATE `ec_user` SET `password`=\''. password_hash(filter_var($newPassword, FILTER_SANITIZE_STRING), PASSWORD_DEFAULT) .'\' WHERE `username`=\''. $username .'\';');
+    }else{
+      echo json_encode('{"status":"ok"}');
     }
-    $data['data'] = $rows;
-    echo json_encode($data);
+  }catch(Exception $e){
+    echo json_encode('{"status":"failed"}');
   }
 }

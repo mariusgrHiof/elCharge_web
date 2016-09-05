@@ -1,12 +1,14 @@
 <?php
-//Headers
+/*
+* Script for the administration panel.
+* The script is intended for deleting a user, and all it's data.
+*/
 header('content-type: application/json; charset=utf-8');
 header("access-control-allow-origin: *");
-header("Access-Control-Allow-Headers: *");
-
-include 'dbConn.php';
 session_set_cookie_params(7200,"/");
 session_start();
+include '../dbConn.php';
+
 if (!isset($_SESSION['user_id'])) {
   //Getting userID
   $sqlLogin = "select * from ec_user where username='" . filter_var($_GET['username'], FILTER_SANITIZE_STRING) . "';";
@@ -19,7 +21,7 @@ if (!isset($_SESSION['user_id'])) {
       $hash = $row['password'];
     }
     if(password_verify($_GET['password'], $hash) && $isAdmin == 1){
-      getUsers($conn);
+      deleteUser($conn);
     }
   }
 }else if($_SESSION['logged_in']){
@@ -29,17 +31,27 @@ if (!isset($_SESSION['user_id'])) {
     while ($row = $result_login->fetch_assoc()) {
       if($row['admin'] == 1){
         //The user is a admin and was already logged in
-        getUsers($conn);
+        deleteUser($conn);
       }
     }
   }
 }else{
   session_destroy();
 }
-getUsers($conn);//TODO: REMOVE!
+//TODO: Fix!
 $hash = '';
 
-function getUsers($conn){
+function deleteUser($conn){
+  //Deleting all route data
+  $sql = 'DELETE FROM ec_user_has_routes ' . 'WHERE user_id = "' . $_GET['user_id'] . '";';
+  $conn->query($sql);
+  //Deleting all station data
+  $sql = 'DELETE FROM ec_user_has_stations ' . 'WHERE user_id = "' . $_GET['user_id'] . '";';
+  $conn->query($sql);
+  //Delete logic
+  $sql = 'DELETE FROM ec_user ' . 'WHERE user_id = "' . $_GET['user_id'] . '";';
+  $conn->query($sql);
+
   $result = $conn->query('select * from ec_user;');
   if ($result->num_rows > 0) {
     // output data of each row
@@ -47,7 +59,6 @@ function getUsers($conn){
       $user['user_id'] = $row['user_id'];
       $user['username'] = $row['username'];
       $user['mail'] = $row['mail'];
-      $user['admin'] = $row['admin'];
       $rows[] = $user;
     }
     $data['data'] = $rows;
