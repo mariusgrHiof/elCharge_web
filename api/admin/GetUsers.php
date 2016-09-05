@@ -40,7 +40,6 @@ if (!isset($_SESSION['user_id'])) {
 }else{
   session_destroy();
 }
-getUsers($conn);//TODO: REMOVE!
 $hash = '';
 
 function getUsers($conn){

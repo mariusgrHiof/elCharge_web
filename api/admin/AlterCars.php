@@ -1,14 +1,13 @@
 <?php
-/*
-* Script for the administration panel.
-* The script is intended for deleting a user, and all it's data.
-*/
+
+//headers
 header('content-type: application/json; charset=utf-8');
 header("access-control-allow-origin: *");
+header("Access-Control-Allow-Headers: *");
+
+include '../dbConn.php';
 session_set_cookie_params(7200,"/");
 session_start();
-include '../dbConn.php';
-
 if (!isset($_SESSION['user_id'])) {
   //Getting userID
   $sqlLogin = "select * from ec_user where username='" . filter_var($_GET['username'], FILTER_SANITIZE_STRING) . "';";
@@ -21,7 +20,7 @@ if (!isset($_SESSION['user_id'])) {
       $hash = $row['password'];
     }
     if(password_verify($_GET['password'], $hash) && $isAdmin == 1){
-      deleteUser($conn);
+      actOnCars($conn);
     }
   }
 }else if($_SESSION['logged_in']){
@@ -31,38 +30,34 @@ if (!isset($_SESSION['user_id'])) {
     while ($row = $result_login->fetch_assoc()) {
       if($row['admin'] == 1){
         //The user is a admin and was already logged in
-        deleteUser($conn);
+        actOnCars($conn);
       }
     }
   }
 }else{
   session_destroy();
 }
-//TODO: Fix!
 $hash = '';
 
-function deleteUser($conn){
-  //Deleting all route data
-  $sql = 'DELETE FROM ec_user_has_routes ' . 'WHERE user_id = "' . $_GET['user_id'] . '";';
-  $conn->query($sql);
-  //Deleting all station data
-  $sql = 'DELETE FROM ec_user_has_stations ' . 'WHERE user_id = "' . $_GET['user_id'] . '";';
-  $conn->query($sql);
-  //Delete logic
-  $sql = 'DELETE FROM ec_user ' . 'WHERE user_id = "' . $_GET['user_id'] . '";';
-  $conn->query($sql);
+function actOnCars($conn){
+  if($_GET['action'] == 'update'){
+    //Update Car
+    $conn->query('UPDATE `ec_cars` SET `json`=\'' . $_GET['json'] .'\' WHERE `model`=\''. $_GET['model'] .'\';');
+  }else if($_GET['action'] == 'add'){
+    //Add car
+    $conn->query('INSERT INTO ec_cars VALUES ("' . $_GET['model'] . '","'. $_GET['json'] .'");');
+  }else if($_GET['action'] == 'delete'){
+    //Delete car
+    $conn->query('DELETE FROM ec_cars ' . 'WHERE model = "' . $_GET['model'] . '";');
+  }
 
-  $result = $conn->query('select * from ec_user;');
-  if ($result->num_rows > 0) {
-    // output data of each row
-    while ($row = $result->fetch_assoc()) {
-      $user['user_id'] = $row['user_id'];
-      $user['username'] = $row['username'];
-      $user['mail'] = $row['mail'];
-      $user['admin'] = $row['admin'];
-      $rows[] = $user;
+  //Returning the current state of the DB back
+  $query = $conn->query('SELECT * FROM bo16g6.ec_cars;');
+  if ($query->num_rows > 0) {
+    while ($row = $query->fetch_assoc()) {
+      $result[] = json_decode($row['json']);
     }
-    $data['data'] = $rows;
-    echo json_encode($data);
+    $r['data'] = $result;
+    echo json_encode($r);
   }
 }

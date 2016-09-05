@@ -13,7 +13,6 @@ if(isset($_SESSION['sessionId'])){
     if(isset($_SESSION['username'])){
         $sql = 'INSERT INTO ec_user_has_stations VALUES'.
         '("' . $_SESSION['user_id'] . '","' . $_REQUEST['stationId'] .'")';
-        echo $sql;
         $conn->query($sql);
     }
 }
