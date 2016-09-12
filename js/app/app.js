@@ -12,6 +12,7 @@
 
 var app = {
   array: {
+    //Allowing you to remove duplicates form an array.
     unique: function(arr) {
       var a = arr.concat();
       for(var i=0; i<a.length; ++i) {
@@ -28,23 +29,13 @@ var app = {
   initiatedMap : false,
   path : 'http://frigg.hiof.no/bo16-g6/webapp/',
   api: {
+    //Holds any variables directly related to the Nobil API.
     protocol: (window.location.protocol !== "https:" ? 'http' : 'https'),
     url : ((window.location.protocol !== "https:" ? 'http' : 'https') + '://nobil.no/api/server/datadump.php?'),
     key : '274b68192b056e268f128ff63bfcd4a4'
   },
   user: {
-    validation: {
-      mail: function(field){
-        var mail = $(field).val();
-        if(mail.match(/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|no|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i)){
-          $(this).css({'color':'green'});
-          app.register.validMail = true;
-        }else{
-          $(this).css({'color':'red'});
-          app.register.validMail = false;
-        }
-      }
-    },
+    //The user settings
     settings: {
       car:{
         conns: [],
@@ -54,6 +45,7 @@ var app = {
       trafficOverlay: true,
       updateTimer: undefined
     },
+    //Loading settings that are restored upon login
     loadSettings: function(settings){
       app.user.settings = settings;
       if(settings.car !== undefined){
@@ -80,6 +72,7 @@ var app = {
         app.map.setMapTypeId(settings.mapTypeId);
       }
     },
+    //Saving the users settings and sending them to the DB.
     saveSettings: function () {
       var path = "", s = app.user.settings;
       if(app.device.phonegap){
@@ -97,6 +90,7 @@ var app = {
   },
   loggedIn : false,
   login: {
+    //These functions are used for the login forms
     showPopup: function(){
       $('#register-popup').hide();
       $('#login-popup').show();
@@ -118,8 +112,9 @@ var app = {
     }
   },
   register: {
-    validMail : true,
-    validPassword : true,
+    //These functions are used for the registration form.
+    validMail: true,
+    validPassword: true,
     showPopup: function(){
       $('#register-popup').show();
     },
@@ -128,22 +123,22 @@ var app = {
     }
   },
   buttons: {
+    //Responsible for the slide in and out menu.
     slideInMenu: function(){
       try{
-        var target = $('.menu'),
-          em = parseInt($("html").css("font-size")),
-          width = (em * 100) + 'px',
-          widthWithMenu = (em*100 - 27*em) + 'px';
+        var target = $('.menu');
         if( !$(target).hasClass('toggle') ){
           $('#menu-toggle').addClass('toggle');
           $(target).addClass('toggle');
-          if(!app.device.isMobile && !(navigator.userAgent.toLowerCase().indexOf('edge') > -1 || navigator.userAgent.toLowerCase().indexOf('trident') > -1) ){//Not for phones, explorer or edge
+          //Not for phones, explorer or edge
+          if(!app.device.isMobile && !(navigator.userAgent.toLowerCase().indexOf('edge') > -1 || navigator.userAgent.toLowerCase().indexOf('trident') > -1) ){
               $('#map').addClass('toggle');
             }
         }else{
           $('#menu-toggle').removeClass('toggle');
           $(target).removeClass('toggle');
-          if(!app.device.isMobile && !(navigator.userAgent.toLowerCase().indexOf('edge') > -1 || navigator.userAgent.toLowerCase().indexOf('trident') > -1) ){//Not for phones, explorer or edge
+          //Not for phones, explorer or edge
+          if(!app.device.isMobile && !(navigator.userAgent.toLowerCase().indexOf('edge') > -1 || navigator.userAgent.toLowerCase().indexOf('trident') > -1) ){
               $('#map').removeClass('toggle');
             }
         }
