@@ -504,7 +504,6 @@ var app = {
   download: {
     lastDownloaded : '2005-01-01',
     hasDownloaded : false,
-    initDownloaded : false,
     animation : null,
     animationFaded : false,
     doInBackground : null,
@@ -636,7 +635,6 @@ var app = {
         station.favorite.updateRoutes();
       }
       $('#download-progression').hide();
-      station.hasDownloaded = true;
 
       if(station.markerClusterer === null){
         station.markerClusterer = new MarkerClusterer(app.map, station.markers, app.options.markerCluster);
@@ -755,8 +753,8 @@ var app = {
    * An object to hold everything related to GPS
    */
   gps: {
-    accuracyRadius : null,
-    lockPos : false,
+    accuracyRadius: null,
+    lockPos: false,
     myLocationIndicator: {},
     pos: {},
     geopos: {},

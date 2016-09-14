@@ -34,7 +34,6 @@ var station = {
     carConns : []
   },
   hasFastCharge : false,
-  hasDownloaded : false,
   markers : [],
   infoWindows : [],
   markerListeners : [],
@@ -467,7 +466,6 @@ var station = {
       station.generateMarker(id);
     }
     $('#download-progression').hide();
-    station.hasDownloaded = true;
 
     if(station.markerClusterer === null){
       station.markerClusterer = new MarkerClusterer(app.map, station.markers, app.options.markerCluster);
