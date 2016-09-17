@@ -42,13 +42,16 @@ var station = {
   semiFastCharge : 12,
   fastCharge : 43,
   markerClusterer : null,
+  //Binding the station names, so that they are clickable. The user will be sent to the station location upon click.
   bindStationNames: function(){
     $('a.station').unbind();
     $('a.station').bind('click', function(){
       app.map.setZoom(15);
       google.maps.event.trigger(station.markers[station.list[$(this).attr('value')].markerID], 'click');
     });
-  },bindRouteNames: function(){
+  },
+  //Binding the route names so that they are clickable. Upon click a route will open.
+  bindRouteNames: function(){
     $('a.route').unbind();
     $('a.route').bind('click', function(){
       station.favorite.restoreRoute($(this).parent());
