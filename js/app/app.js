@@ -31,8 +31,7 @@ var app = {
   api: {
     //Holds any variables directly related to the Nobil API.
     protocol: (window.location.protocol !== "https:" ? 'http' : 'https'),
-    url : ((window.location.protocol !== "https:" ? 'http' : 'https') + '://nobil.no/api/server/datadump.php?'),
-    key : '274b68192b056e268f128ff63bfcd4a4'
+    url : 'api/GetStations.php?'
   },
   user: {
     //The user settings
@@ -545,7 +544,7 @@ var app = {
         type: 'POST',
         datatype:'json',
         contentType: 'application/json; charset=utf-8',
-        url: (app.download.lastDownloaded === "2005-01-01" && app.device.isAndroid ? "datadump.json" : app.api.url + "&apikey=" + app.api.key + "&fromdate=" + app.download.lastDownloaded + "&format=json"),
+        url: (app.download.lastDownloaded === "2005-01-01" && app.device.isAndroid ? "datadump.json" : app.api.url + "&fromdate=" + app.download.lastDownloaded + "&format=json"),
         data: {},
         success: function(i){
           var data;
@@ -575,7 +574,6 @@ var app = {
           dataType: 'jsonp',
           url: app.api.url,
           data: {
-            'apikey': app.api.key,
             'apiversion': '3',
             'action': "datadump",
             'fromdate': app.download.lastDownloaded
@@ -584,9 +582,11 @@ var app = {
             app.download.finalize(data);
           },
           error: function(err){
+            try{
+              app.download.finalize(JSON.parse(err.responseText));
+            }catch(e){}
             if(app.debug){
-              console.log("Unable to download file: ");
-              console.log("URL: "+ app.api.url);
+              console.log("Something went wrong, while downloading the stations with URL "+ app.api.url);
               console.log(JSON.stringify(err));
             }
             $('#download-progression').hide();
