@@ -12,9 +12,6 @@
     <li class="border nearby">
       <?php include 'menu-items/chargers-nearby.html' ?>
     </li>
-    <li class="border survalillance">
-      <?php include 'menu-items/survalillance.html' ?>
-    </li>
     <li class="border favorite">
       <?php include 'menu-items/favourites.html' ?>
     </li>

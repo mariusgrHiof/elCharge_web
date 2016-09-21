@@ -123,15 +123,6 @@
     </ul>
 </div>
     </li>
-    <li class="border survalillance">
-      <span class="menu-item caret">
-  <div class="float-left back-icon"></div>
-  <h2>Stasjonsovervåkning</h2>
-</span>
-<div class="sub-item">
-  shell
-</div>
-    </li>
     <li class="border favorite">
       <span class="menu-item caret">
   <div class="float-left back-icon"></div>
@@ -198,7 +189,7 @@
       </div>
     </form>
     <div class="float-right clear-both">
-    <button class="float-right nav-save favorite" onclick="station.favorite.saveRoute()" title="Lagre ruten">Lagre rute</button>
+    <button class="float-right nav-save favorite" onclick="station.favorite.openSaveRouteDialog()" title="Lagre ruten">Lagre rute</button>
     <button class="float-right nav-here" type="submit" value="submit" form="route-form" title="Bygg ruten">Bygg ruten</button>
     <button class="float-right" onclick="station.showHideMarkers(this)" title="Skjul eller vis stasjonsmarkører">Skjul markører</button>
       <button class="float-right nav-clear" onclick="navigation.clearRoute()" title="Fjern ruten">Fjern rute</button>

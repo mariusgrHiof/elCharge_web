@@ -231,7 +231,7 @@ var station = {
       }
       station.favorite.routeNames = list;
     },
-    saveRoute: function(id){
+    openSaveRouteDialog: function(){
       $('#save-route').show();
       $('.route-search').autocomplete({
         source: station.favorite.routeNames,
