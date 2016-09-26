@@ -175,9 +175,11 @@ var navigation = {
     //Showing the path elevation
     elevation.displayForPath(navigation.route, elevation.service);
   },
+  /*
+  * This function is used for getting the addresses for the waypoints.
+  */
   getRouteData: function () {
-    var x = navigation.route.legs.length;
-    for(var i = 0; i < x; i++){
+    for(var i = 0, x = navigation.route.legs.length; i < x; i++){
       if(i === 0){
         $('#nav-start-pos').val(navigation.route.legs[i].start_address);
         if(app.debug){
@@ -192,7 +194,7 @@ var navigation = {
         }
       }
       for(var sWP in navigation.route.legs[i].via_waypoints){
-        navigation.getLocationNameFromLatLng(navigation.route.legs[i].via_waypoints[sWP],i, sWP); // Can be used for something fancy?
+        navigation.getLocationNameFromLatLng(navigation.route.legs[i].via_waypoints[sWP],i, sWP);
       }
       if (i === x -1){
         $('#nav-end-pos').val(navigation.route.legs[i].end_address);
@@ -203,6 +205,9 @@ var navigation = {
       }
     }
   },
+  /*
+  * Requests the address for a lat long position.
+  */
   getLocationNameFromLatLng: function (latlng){
     var request = new XMLHttpRequest(),
       method = 'GET',
@@ -218,6 +223,9 @@ var navigation = {
     };
     request.send();
   },
+  /*
+  * Renders the waypoint with the adress name onto the route planer waypoint list.
+  */
   showDraggedInListAdress: function (ltlng, address){
     navigation.waypointsData.push(
       {

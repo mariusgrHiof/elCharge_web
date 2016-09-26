@@ -84,15 +84,12 @@ if(!isset($_POST['resetkey'])){
   $rePassword = $_POST['rePassword'];
   $resetKey = $_POST['resetkey'];
   $currentResetKey = $conn->query("select reset_key from ec_user where username='" . $username . "';")->fetch_assoc()['reset_key'];
-  echo 'user: ' .$username . '<br> ';
-  echo 'pw1: ' . $newPassword . '<br> ';
-  echo 'pw2: ' . $rePassword . '<br> ';
-  echo 'resetkey ' . $resetKey . ' ==? ' . $currentResetKey;
+  //Validates input
   try{
     if( $newPassword == $rePassword && $resetKey == $currentResetKey ){
       $conn->query('UPDATE `ec_user` SET `password`=\''. password_hash(filter_var($newPassword, FILTER_SANITIZE_STRING), PASSWORD_DEFAULT) .'\' WHERE `username`=\''. $username .'\';');
     }else{
-      echo 'Passordene er ikke like!';
+      echo 'Passordene samsvarer ikke like!';
     }
   }catch(Exception $e){
     echo 'Noe gikk galt';

@@ -7,9 +7,10 @@
 $servername = "localhost";
 $username = "root";//"bo16g6";
 $password = "root";//"bgGGY5DB";
+$schema = "bo16g6";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, "bo16g6");
+$conn = new mysqli($servername, $username, $password, $schema);
 $conn->set_charset("utf8");
 
 // Check connection
