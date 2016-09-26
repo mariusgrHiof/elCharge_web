@@ -587,7 +587,6 @@ var app = {
             }catch(e){}
             if(app.debug){
               console.log("Something went wrong, while downloading the stations with URL "+ app.api.url);
-              console.log(JSON.stringify(err));
             }
             $('#download-progression').hide();
             app.download.hasDownloaded = true;
